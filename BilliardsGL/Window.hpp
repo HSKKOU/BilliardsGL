@@ -13,7 +13,6 @@
 
 class Window {
   GLFWwindow *const window;
-//  GLfloat aspect;
   GLfloat size[2];
   GLfloat scale;
   
@@ -23,7 +22,6 @@ public:
   
   int shouldClose() const;
   void swapBuffers();
-//  GLfloat getAspect() const;
   const GLfloat *getSize() const;
   const GLfloat getScale() const;
   static void resize(GLFWwindow *const window, int width, int height);

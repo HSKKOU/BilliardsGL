@@ -198,7 +198,6 @@ int main(int argc, const char * argv[]) {
   
   const GLuint program = loadProgram("point.vert", "pv", "point.frag", "fc");
   
-//  const GLint aspectLoc = glGetUniformLocation(program, "aspect");
   const GLint sizeLoc = glGetUniformLocation(program, "size");
   const GLint scaleLoc = glGetUniformLocation(program, "scale");
   
@@ -209,7 +208,6 @@ int main(int argc, const char * argv[]) {
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(program);
     
-//    glUniform1f(aspectLoc, window.getAspect());
     glUniform2fv(sizeLoc, 1, window.getSize());
     glUniform1f(scaleLoc, window.getScale());
     

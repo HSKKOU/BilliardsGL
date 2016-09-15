@@ -47,7 +47,6 @@ void Window::swapBuffers() {
   glfwWaitEvents();
 }
 
-//GLfloat Window::getAspect() const { return aspect; }
 const GLfloat* Window::getSize() const { return size; }
 const GLfloat Window::getScale() const { return scale; }
 
@@ -56,7 +55,6 @@ void Window::resize(GLFWwindow *const window, int width, int height) {
   
   Window *const instance = static_cast<Window *>(glfwGetWindowUserPointer(window));
   if (instance != nullptr) {
-//    instance->aspect = static_cast<GLfloat>(width) / static_cast<GLfloat>(height);
     instance->size[0] = static_cast<GLfloat>(width);
     instance->size[1] = static_cast<GLfloat>(height);
   }
