@@ -7,12 +7,11 @@
 //
 
 #include <cstdlib>
-#include <iostream>
 #include <fstream>
 #include <vector>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 
+#include "GlobalHeader.h"
+#include "Window.hpp"
 
 // print gl error log
 GLboolean printShaderInfoLog (GLuint shader, const char *str) {
@@ -190,24 +189,8 @@ int main(int argc, const char * argv[]) {
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   
-  // create window
-  GLFWwindow *const window = glfwCreateWindow(640, 480, "Hello!", nullptr, nullptr);
-  if (window == nullptr) {
-    std::cerr << "Can't create GLFW window." << std::endl;
-    return 1;
-  }
   
-  glfwMakeContextCurrent(window);
-  
-  // initialize GLEW
-  glewExperimental = GL_TRUE;
-  if (glewInit() != GLEW_OK) {
-    std::cerr << "Can't initialize GLEW" << std::endl;
-    return 1;
-  }
-  
-  // wait vertical sync
-  glfwSwapInterval(1);
+  Window window;
   
   // set background color
   glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
@@ -215,17 +198,24 @@ int main(int argc, const char * argv[]) {
   
   const GLuint program = loadProgram("point.vert", "pv", "point.frag", "fc");
   
+//  const GLint aspectLoc = glGetUniformLocation(program, "aspect");
+  const GLint sizeLoc = glGetUniformLocation(program, "size");
+  const GLint scaleLoc = glGetUniformLocation(program, "scale");
+  
   const Object object = createRectangle();
   
   // drawing loop
-  while (glfwWindowShouldClose(window) == GL_FALSE) {
+  while (window.shouldClose() == GL_FALSE) {
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(program);
+    
+//    glUniform1f(aspectLoc, window.getAspect());
+    glUniform2fv(sizeLoc, 1, window.getSize());
+    glUniform1f(scaleLoc, window.getScale());
     
     glBindVertexArray(object.vao);
     glDrawArrays(GL_LINE_LOOP, 0, object.count);
     
-    glfwSwapBuffers(window);
-    glfwWaitEvents();
+    window.swapBuffers();
   }
 }

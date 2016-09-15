@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
+		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,9 @@
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.vert; path = ../../../colopl/BilliardsGL/BilliardsGL/point.vert; sourceTree = "<group>"; };
 		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
+		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
+		0D94B7321D8A9C1900422BD9 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.hpp; sourceTree = "<group>"; };
+		0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
+				0D94B7341D8A9C6000422BD9 /* Headers */,
+				0D94B7301D8A9BFA00422BD9 /* Window */,
 				0D94B72D1D8A970A00422BD9 /* shaders */,
 				0D02C3E61D8A83360097F8F1 /* main.cpp */,
 			);
@@ -72,6 +78,23 @@
 				0D94B72F1D8A972800422BD9 /* point.frag */,
 			);
 			name = shaders;
+			sourceTree = "<group>";
+		};
+		0D94B7301D8A9BFA00422BD9 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B7311D8A9C1900422BD9 /* Window.cpp */,
+				0D94B7321D8A9C1900422BD9 /* Window.hpp */,
+			);
+			name = Window;
+			sourceTree = "<group>";
+		};
+		0D94B7341D8A9C6000422BD9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
+				0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
