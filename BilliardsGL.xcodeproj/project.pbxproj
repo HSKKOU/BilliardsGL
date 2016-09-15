@@ -25,6 +25,8 @@
 /* Begin PBXFileReference section */
 		0D02C3E31D8A83360097F8F1 /* BilliardsGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BilliardsGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.vert; path = ../../../colopl/BilliardsGL/BilliardsGL/point.vert; sourceTree = "<group>"; };
+		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +59,19 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
+				0D94B72D1D8A970A00422BD9 /* shaders */,
 				0D02C3E61D8A83360097F8F1 /* main.cpp */,
 			);
 			path = BilliardsGL;
+			sourceTree = "<group>";
+		};
+		0D94B72D1D8A970A00422BD9 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B72E1D8A971E00422BD9 /* point.vert */,
+				0D94B72F1D8A972800422BD9 /* point.frag */,
+			);
+			name = shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +279,7 @@
 				0D02C3EC1D8A83360097F8F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
