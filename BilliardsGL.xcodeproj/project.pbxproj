@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
+		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
+		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,11 @@
 		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
 		0D94B7321D8A9C1900422BD9 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.hpp; sourceTree = "<group>"; };
 		0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
+		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.cpp; sourceTree = "<group>"; };
+		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameManager.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.hpp; sourceTree = "<group>"; };
+		0D94B73D1D8AE6BB00422BD9 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = ../../../colopl/BilliardsGL/BilliardsGL/Singleton.h; sourceTree = "<group>"; };
+		0DBF5D111D951CD300A037BA /* FPSCounter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FPSCounter.hpp; sourceTree = "<group>"; };
+		0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSCounter.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +70,11 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
+				0D94B7361D8AE62300422BD9 /* Managers */,
+				0D94B7371D8AE62900422BD9 /* Controllers */,
 				0D94B7341D8A9C6000422BD9 /* Headers */,
 				0D94B7301D8A9BFA00422BD9 /* Window */,
+				0D94B73B1D8AE68700422BD9 /* Utils */,
 				0D94B72D1D8A970A00422BD9 /* shaders */,
 				0D02C3E61D8A83360097F8F1 /* main.cpp */,
 			);
@@ -95,6 +105,32 @@
 				0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		0D94B7361D8AE62300422BD9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B7381D8AE64700422BD9 /* GameManager.cpp */,
+				0D94B7391D8AE64700422BD9 /* GameManager.hpp */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		0D94B7371D8AE62900422BD9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0D94B73B1D8AE68700422BD9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B73D1D8AE6BB00422BD9 /* Singleton.h */,
+				0DBF5D111D951CD300A037BA /* FPSCounter.hpp */,
+				0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +189,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
+				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,
 				0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

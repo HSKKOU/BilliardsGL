@@ -13,6 +13,8 @@
 #include "GlobalHeader.h"
 #include "Window.hpp"
 
+#include "GameManager.hpp"
+
 // print gl error log
 GLboolean printShaderInfoLog (GLuint shader, const char *str) {
   GLint status;
@@ -183,37 +185,14 @@ int main(int argc, const char * argv[]) {
   // register operation terminated program
   atexit(glfwTerminate);
   
-  // select OpenGL Version 3.2 Core Profile
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+  // select OpenGL Version 4.1 Core Profile
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   
   
-  Window window;
-  
-  // set background color
-  glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-  
-  
-  const GLuint program = loadProgram("point.vert", "pv", "point.frag", "fc");
-  
-  const GLint sizeLoc = glGetUniformLocation(program, "size");
-  const GLint scaleLoc = glGetUniformLocation(program, "scale");
-  
-  const Object object = createRectangle();
-  
-  // drawing loop
-  while (window.shouldClose() == GL_FALSE) {
-    glClear(GL_COLOR_BUFFER_BIT);
-    glUseProgram(program);
-    
-    glUniform2fv(sizeLoc, 1, window.getSize());
-    glUniform1f(scaleLoc, window.getScale());
-    
-    glBindVertexArray(object.vao);
-    glDrawArrays(GL_LINE_LOOP, 0, object.count);
-    
-    window.swapBuffers();
-  }
+  GameManager &gameManager = GameManager::instance();
+  gameManager.initialize();  
+  gameManager.startMainLoop();
 }

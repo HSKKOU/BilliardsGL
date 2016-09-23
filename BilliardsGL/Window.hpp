@@ -15,6 +15,7 @@ class Window {
   GLFWwindow *const window;
   GLfloat size[2];
   GLfloat scale;
+  GLfloat position[2];
   
 public:
   Window(int width = 640, int height = 480, const char *title = "Hello!");
@@ -24,7 +25,9 @@ public:
   void swapBuffers();
   const GLfloat *getSize() const;
   const GLfloat getScale() const;
+  const GLfloat *getPosition() const;
   static void resize(GLFWwindow *const window, int width, int height);
+  static void wheel(GLFWwindow *const window, double x, double y);
 };
 
 #endif /* Window_hpp */
