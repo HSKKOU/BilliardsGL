@@ -18,7 +18,7 @@ void FPSCounter::update(double currentTime) {
   // calc fps
   nbFrames++;
   if (currentTime - lastTime >= 1.0) {
-    std::cout << 1000.0/double(nbFrames) << " ms/frame" << std::endl;
+//    std::cout << 1000.0/double(nbFrames) << " ms/frame" << std::endl;
     nbFrames = 0;
     lastTime += 1.0;
   }
