@@ -19,8 +19,8 @@ public:
     GLfloat pos[4][2] = {
       { x  , y   },
       { x+w, y   },
-      { x  , y+h },
-      { x+w, y+h }
+      { x+w, y+h },
+      { x  , y+h }
     };
     initializeModel(pos, sizeof(pos)/sizeof(pos[0]));
   }
