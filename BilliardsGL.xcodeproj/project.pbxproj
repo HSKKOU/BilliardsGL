@@ -11,6 +11,8 @@
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
+		0DBF5D171D95211800A037BA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D151D95211800A037BA /* Square.cpp */; };
+		0DBF5D211D95237700A037BA /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D1F1D95237700A037BA /* BaseObject.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +40,10 @@
 		0D94B73D1D8AE6BB00422BD9 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = ../../../colopl/BilliardsGL/BilliardsGL/Singleton.h; sourceTree = "<group>"; };
 		0DBF5D111D951CD300A037BA /* FPSCounter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FPSCounter.hpp; sourceTree = "<group>"; };
 		0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSCounter.cpp; sourceTree = "<group>"; };
+		0DBF5D151D95211800A037BA /* Square.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
+		0DBF5D161D95211800A037BA /* Square.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Square.hpp; sourceTree = "<group>"; };
+		0DBF5D1F1D95237700A037BA /* BaseObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject.cpp; sourceTree = "<group>"; };
+		0DBF5D201D95237700A037BA /* BaseObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseObject.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
+				0DBF5D141D9520FF00A037BA /* Models */,
 				0D94B7361D8AE62300422BD9 /* Managers */,
 				0D94B7371D8AE62900422BD9 /* Controllers */,
 				0D94B7341D8A9C6000422BD9 /* Headers */,
@@ -133,6 +140,17 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		0DBF5D141D9520FF00A037BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0DBF5D151D95211800A037BA /* Square.cpp */,
+				0DBF5D161D95211800A037BA /* Square.hpp */,
+				0DBF5D1F1D95237700A037BA /* BaseObject.cpp */,
+				0DBF5D201D95237700A037BA /* BaseObject.hpp */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +207,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBF5D171D95211800A037BA /* Square.cpp in Sources */,
+				0DBF5D211D95237700A037BA /* BaseObject.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
 				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,

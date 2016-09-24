@@ -15,10 +15,22 @@
 #include "Window.hpp"
 #include "FPSCounter.hpp"
 
+#include "Square.hpp"
+
+#include <vector>
+#include <fstream>
+
+
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
   
   Window window;
+  
+  Square *square;
+  GLuint program;
+  GLint sizeLoc;
+  GLint scaleLoc;
+  GLint positionLoc;
   
 public:
   void initialize();
