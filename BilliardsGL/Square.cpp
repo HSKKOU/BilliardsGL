@@ -20,5 +20,5 @@ void Square::draw() {
   glUseProgram(shaderProgram);
   
   glBindVertexArray(square.vao);
-  glDrawArrays(GL_LINE_LOOP, 0, square.count);
+  glDrawArrays(GL_TRIANGLES, 0, square.count);
 }
