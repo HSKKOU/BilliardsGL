@@ -22,7 +22,7 @@ public:
   void initialize(double);
   void update(double);
   
-protected:
+private:
   FPSCounter();
 };
 

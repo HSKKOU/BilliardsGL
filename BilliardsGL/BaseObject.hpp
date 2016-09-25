@@ -43,12 +43,16 @@ private:
 };
 
 class BaseObject {
-  BaseModel baseModel;
+  
+protected:
+  GLuint shaderProgram;
+  GLint sizeLoc;
+  GLint scaleLoc;
   
 public:
   BaseObject();
   virtual ~BaseObject();
-  void draw();
+  virtual void draw();
 };
 
 #endif /* BaseObject_hpp */

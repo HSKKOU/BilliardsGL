@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
+		0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		0D02C3E31D8A83360097F8F1 /* BilliardsGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BilliardsGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
+		0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
 		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.vert; path = ../../../colopl/BilliardsGL/BilliardsGL/point.vert; sourceTree = "<group>"; };
 		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
 		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				0D94B73D1D8AE6BB00422BD9 /* Singleton.h */,
 				0DBF5D111D951CD300A037BA /* FPSCounter.hpp */,
 				0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */,
+				0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */,
+				0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			files = (
 				0DBF5D171D95211800A037BA /* Square.cpp in Sources */,
 				0DBF5D211D95237700A037BA /* BaseObject.cpp in Sources */,
+				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
 				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,

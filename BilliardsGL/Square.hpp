@@ -11,6 +11,8 @@
 
 #include "BaseObject.hpp"
 
+#include "ShaderLoader.hpp"
+
 struct SquareModel : public BaseModel {
   GLfloat x, y, w, h;
   
@@ -27,13 +29,13 @@ public:
 };
 
 
-class Square {
+class Square : public BaseObject {
   SquareModel square;
-  
+
 public:
   Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h);
   virtual ~Square();
-  void draw();
+  virtual void draw();
 };
 
 #endif /* Square_hpp */

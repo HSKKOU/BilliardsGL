@@ -9,7 +9,8 @@
 #include "BaseObject.hpp"
 
 BaseObject::BaseObject() {
-  /* do nothing */
+  sizeLoc = glGetUniformLocation(shaderProgram, "size");
+  scaleLoc = glGetUniformLocation(shaderProgram, "scale");
 }
 
 BaseObject::~BaseObject() {

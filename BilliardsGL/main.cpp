@@ -23,6 +23,7 @@ int main(int argc, const char * argv[]) {
   atexit(glfwTerminate);
   
   // select OpenGL Version 4.1 Core Profile
+  glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -31,6 +32,5 @@ int main(int argc, const char * argv[]) {
   
   GameManager &gameManager = GameManager::instance();
   gameManager.initialize();  
-  gameManager.startMainLoop();
-  
+  gameManager.startMainLoop();  
 }

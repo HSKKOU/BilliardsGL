@@ -8,11 +8,17 @@
 
 #include "Square.hpp"
 
-Square::Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h) : square(x,y,w,h) { /* do nothing */ }
+Square::Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h) : square(x,y,w,h) {
+  BaseObject::BaseObject();
+  shaderProgram = ShaderLoader::loadShaderProgram("point.vert", "pv", "point.frag", "fc");
+}
 
 Square::~Square() { /* do nothing */ }
 
 void Square::draw() {
+  BaseObject::draw();
+  glUseProgram(shaderProgram);
+  
   glBindVertexArray(square.vao);
   glDrawArrays(GL_LINE_LOOP, 0, square.count);
 }
