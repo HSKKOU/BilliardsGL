@@ -9,14 +9,14 @@
 #include "Square.hpp"
 
 Square::Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h) : square(x,y,w,h) {
-  BaseObject::BaseObject();
+  BaseObject2D::BaseObject2D();
   shaderProgram = ShaderLoader::loadShaderProgram("point.vert", "pv", "point.frag", "fc");
 }
 
 Square::~Square() { /* do nothing */ }
 
 void Square::draw() {
-  BaseObject::draw();
+  BaseObject2D::draw();
   glUseProgram(shaderProgram);
   
   glBindVertexArray(square.vao);

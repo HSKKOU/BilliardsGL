@@ -9,11 +9,11 @@
 #ifndef Square_hpp
 #define Square_hpp
 
-#include "BaseObject.hpp"
+#include "BaseObject2D.hpp"
 
 #include "ShaderLoader.hpp"
 
-struct SquareModel : public BaseModel {
+struct SquareModel : public BaseModel2D {
   GLfloat x, y, w, h;
   
 public:
@@ -29,7 +29,7 @@ public:
 };
 
 
-class Square : public BaseObject {
+class Square : public BaseObject2D {
   SquareModel square;
 
 public:

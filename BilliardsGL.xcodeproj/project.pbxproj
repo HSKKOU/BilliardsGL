@@ -13,7 +13,8 @@
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
 		0DBF5D171D95211800A037BA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D151D95211800A037BA /* Square.cpp */; };
-		0DBF5D211D95237700A037BA /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D1F1D95237700A037BA /* BaseObject.cpp */; };
+		0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D1F1D95237700A037BA /* BaseObject2D.cpp */; };
+		0DF2A1CC1D97E66C00303E07 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1CA1D97E66C00303E07 /* Cube.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,8 +46,10 @@
 		0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSCounter.cpp; sourceTree = "<group>"; };
 		0DBF5D151D95211800A037BA /* Square.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
 		0DBF5D161D95211800A037BA /* Square.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Square.hpp; sourceTree = "<group>"; };
-		0DBF5D1F1D95237700A037BA /* BaseObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject.cpp; sourceTree = "<group>"; };
-		0DBF5D201D95237700A037BA /* BaseObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseObject.hpp; sourceTree = "<group>"; };
+		0DBF5D1F1D95237700A037BA /* BaseObject2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject2D.cpp; sourceTree = "<group>"; };
+		0DBF5D201D95237700A037BA /* BaseObject2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseObject2D.hpp; sourceTree = "<group>"; };
+		0DF2A1CA1D97E66C00303E07 /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
+		0DF2A1CB1D97E66C00303E07 /* Cube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Cube.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +82,8 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
-				0DBF5D141D9520FF00A037BA /* Models */,
+				0DF2A1C91D97E65A00303E07 /* 3DModel */,
+				0DBF5D141D9520FF00A037BA /* 2DModels */,
 				0D94B7361D8AE62300422BD9 /* Managers */,
 				0D94B7371D8AE62900422BD9 /* Controllers */,
 				0D94B7341D8A9C6000422BD9 /* Headers */,
@@ -145,15 +149,24 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		0DBF5D141D9520FF00A037BA /* Models */ = {
+		0DBF5D141D9520FF00A037BA /* 2DModels */ = {
 			isa = PBXGroup;
 			children = (
 				0DBF5D151D95211800A037BA /* Square.cpp */,
 				0DBF5D161D95211800A037BA /* Square.hpp */,
-				0DBF5D1F1D95237700A037BA /* BaseObject.cpp */,
-				0DBF5D201D95237700A037BA /* BaseObject.hpp */,
+				0DBF5D1F1D95237700A037BA /* BaseObject2D.cpp */,
+				0DBF5D201D95237700A037BA /* BaseObject2D.hpp */,
 			);
-			name = Models;
+			name = 2DModels;
+			sourceTree = "<group>";
+		};
+		0DF2A1C91D97E65A00303E07 /* 3DModel */ = {
+			isa = PBXGroup;
+			children = (
+				0DF2A1CA1D97E66C00303E07 /* Cube.cpp */,
+				0DF2A1CB1D97E66C00303E07 /* Cube.hpp */,
+			);
+			name = 3DModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF2A1CC1D97E66C00303E07 /* Cube.cpp in Sources */,
 				0DBF5D171D95211800A037BA /* Square.cpp in Sources */,
-				0DBF5D211D95237700A037BA /* BaseObject.cpp in Sources */,
+				0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */,
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
