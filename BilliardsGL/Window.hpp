@@ -17,7 +17,7 @@ class Window {
   GLfloat scale;
   
 public:
-  Window(int width = 600, int height = 600, const char *title = "Hello!");
+  Window(int width = 640, int height = 640, const char *title = "BilliardsGL");
   virtual ~Window();
   
   int shouldClose() const;
