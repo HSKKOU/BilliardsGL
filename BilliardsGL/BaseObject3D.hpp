@@ -10,7 +10,6 @@
 #define BaseObject3D_hpp
 
 #include "GlobalHeader.h"
-#include "Vector3D.h"
 #include "Base3D.h"
 
 struct BaseModel3D {

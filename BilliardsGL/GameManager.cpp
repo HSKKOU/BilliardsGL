@@ -25,6 +25,9 @@ void GameManager::startMainLoop() {
   FPSCounter &fps = FPSCounter::instance();
   fps.initialize(glfwGetTime());
   
+  CameraManager &cameraManager = CameraManager::instance();
+  cameraManager.initialize();
+  
 //  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
   cube = new Cube(Vector3D(-0.3f, -0.3f, -0.3f), Vector3D(0.6f, 0.6f, 0.6f));
   

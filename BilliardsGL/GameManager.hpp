@@ -17,7 +17,9 @@
 
 #include "Square.hpp"
 #include "Cube.hpp"
-#include "Vector3D.hpp"
+#include "Vector3D.h"
+
+#include "CameraManager.hpp"
 
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
