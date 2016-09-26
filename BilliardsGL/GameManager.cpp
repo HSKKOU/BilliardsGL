@@ -13,11 +13,6 @@ GameManager::GameManager() { /* do nothing */ }
 void GameManager::initialize() {
   // set background color
   glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-  
-//  glEnable(GL_DEPTH_TEST);
-//  glDepthFunc(GL_LEQUAL);
-//  glDisable(GL_CULL_FACE);
-//  glCullFace(GL_BACK);
 }
 
 void GameManager::startMainLoop() {

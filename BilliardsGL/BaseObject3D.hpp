@@ -26,14 +26,6 @@ public:
   
 private:
   GLuint createObject (GLuint vertices, const GLfloat (*position)[3]) {
-//    glEnableClientState(GL_VERTEX_ARRAY);
-//    glEnableClientState(GL_COLOR_ARRAY);
-//    glVertexPointer(3, GL_FLOAT, 0, position);
-//    glVertexPointer(3, GL_FLOAT, 0, color);
-//    glDrawArrays(GL_QUADS, 0, vertices);
-//    
-//    glDisableClientState(GL_VERTEX_ARRAY);
-    
     GLuint vao;
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
@@ -59,6 +51,7 @@ class BaseObject3D : Base3D {
 protected:
   GLuint shaderProgram;
   GLint mvpLoc;
+  
   
 public:
   BaseObject3D();
