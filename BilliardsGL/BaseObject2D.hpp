@@ -16,7 +16,7 @@ struct BaseModel2D {
   GLsizei count;
   
 public:
-  void initializeModel(GLfloat (*position)[2], int cnt) {
+  void initializeModel(const GLfloat (*position)[2], int cnt) {
     vao = createObject(cnt, position);
     count = cnt;
   }

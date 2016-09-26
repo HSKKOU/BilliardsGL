@@ -16,13 +16,16 @@
 #include "FPSCounter.hpp"
 
 #include "Square.hpp"
+#include "Cube.hpp"
+#include "Vector3D.hpp"
 
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
   
   Window window;
   
-  Square *square;
+//  Square *square;
+  Cube *cube;
   
 public:
   void initialize();

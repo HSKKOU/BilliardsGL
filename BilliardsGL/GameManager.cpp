@@ -13,6 +13,11 @@ GameManager::GameManager() { /* do nothing */ }
 void GameManager::initialize() {
   // set background color
   glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+  
+//  glEnable(GL_DEPTH_TEST);
+//  glDepthFunc(GL_LEQUAL);
+//  glDisable(GL_CULL_FACE);
+//  glCullFace(GL_BACK);
 }
 
 void GameManager::startMainLoop() {
@@ -20,7 +25,8 @@ void GameManager::startMainLoop() {
   FPSCounter &fps = FPSCounter::instance();
   fps.initialize(glfwGetTime());
   
-  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
+//  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
+  cube = new Cube(Vector3D(-0.3f, -0.3f, -0.3f), Vector3D(0.6f, 0.6f, 0.6f));
   
   while (window.shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());
@@ -28,8 +34,8 @@ void GameManager::startMainLoop() {
     mainLoop();
   }
   
-  delete square;
-  square = nullptr;
+//  delete square;
+//  square = nullptr;
 }
 
 
@@ -38,7 +44,8 @@ void GameManager::mainLoop() {
 
   glClear(GL_COLOR_BUFFER_BIT);
   
-  square->draw();
+//  square->draw();
+  cube->draw();
 
   window.swapBuffers();
 }

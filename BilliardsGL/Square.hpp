@@ -18,7 +18,7 @@ struct SquareModel : public BaseModel2D {
   
 public:
   SquareModel(GLfloat _x, GLfloat _y, GLfloat _w, GLfloat _h): x(_x), y(_y), w(_w), h(_h) {
-    GLfloat pos[6][2] = {
+    const GLfloat pos[6][2] = {
       { x  , y   },
       { x+w, y   },
       { x+w, y+h },
