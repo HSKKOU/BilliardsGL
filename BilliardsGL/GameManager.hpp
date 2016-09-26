@@ -16,8 +16,10 @@
 #include "FPSCounter.hpp"
 
 #include "Square.hpp"
-#include "Cube.hpp"
+
+#include "glm/glm.hpp"
 #include "Vector3D.h"
+#include "Cube.hpp"
 
 #include "CameraManager.hpp"
 

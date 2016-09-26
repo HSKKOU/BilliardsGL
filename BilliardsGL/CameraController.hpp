@@ -12,7 +12,7 @@
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
-class CameraController : Base3D {
+class CameraController : public Base3D {
   
 public:
   CameraController(Vector3D);

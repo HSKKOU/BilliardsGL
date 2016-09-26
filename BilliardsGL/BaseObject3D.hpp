@@ -12,6 +12,8 @@
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
+#include "CameraManager.hpp"
+
 struct BaseModel3D {
   GLuint vao;
   GLsizei count;

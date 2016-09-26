@@ -29,7 +29,7 @@ void GameManager::startMainLoop() {
   cameraManager.initialize();
   
 //  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
-  cube = new Cube(Vector3D(-0.3f, -0.3f, -0.3f), Vector3D(0.6f, 0.6f, 0.6f));
+  cube = new Cube(Vector3D(-1.0f, -1.0f, -1.0f), Vector3D(1.0f, 1.0f, 1.0f));
   
   while (window.shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());

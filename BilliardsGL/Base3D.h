@@ -9,6 +9,7 @@
 #ifndef Base3D_h
 #define Base3D_h
 
+#include "glm/glm.hpp"
 #include "Vector3D.h"
 
 class Base3D {

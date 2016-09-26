@@ -18,7 +18,7 @@ struct CubeModel : BaseModel3D {
   Vector3D size;
   
 public:
-  CubeModel(const Vector3D _center, Vector3D _size) : center(_center), size(_size/2) {
+  CubeModel(const Vector3D _center, Vector3D _size) : center(_center), size(_size/2.0f) {
     const GLfloat pos[6*2*3][3] = {
       // front
       { center.x-size.x, center.y-size.y, center.z-size.z },

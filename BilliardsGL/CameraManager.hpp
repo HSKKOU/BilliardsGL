@@ -23,12 +23,12 @@ class CameraManager : public Singleton<CameraManager> {
   
 public:
   void initialize();
-  
-private:
-  CameraManager();
   CameraController getCamera();
   CameraController getCamera(int);
   void addCamera(CameraController);
+  
+private:
+  CameraManager();
 };
 
 #endif /* CameraManager_hpp */

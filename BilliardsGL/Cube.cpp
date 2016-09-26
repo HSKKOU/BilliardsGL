@@ -8,6 +8,9 @@
 
 #include "Cube.hpp"
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+
 Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center), cube(_center, _size) {
   loadShaderProgram();
   setMvpLoc();
@@ -22,12 +25,13 @@ void Cube::loadShaderProgram() {
 void Cube::draw() {
   BaseObject3D::draw();
   
-  GLfloat mvp[4][4] = {
-    { 1.0, 0.0, 0.0, 0.0 },
-    { 0.0, 1.0, 0.0, 0.0 },
-    { 0.0, 0.0, 1.0, 0.0 },
-    { 0.0, 0.0, 0.0, 1.0 }
-  };
+  Vector3D cameraPos = (CameraManager::instance()).getCamera().getPosition();
+
+  glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
+  glm::mat4 model = glm::mat4(1.0f);
+  glm::mat4 view = glm::lookAt(cameraPos.toVec3(), (Vector3D::zero()).toVec3(), glm::vec3(0.0f, 1.0f, 0.0f));
+  
+  glm::mat4 mvp = projection * view * model;
   
   glUniformMatrix4fv(mvpLoc, 1, GL_FALSE, &mvp[0][0]);
 
