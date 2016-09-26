@@ -21,6 +21,8 @@
 #include "Vector3D.h"
 #include "Cube.hpp"
 
+#include "LightManager.hpp"
+
 #include "CameraManager.hpp"
 
 class GameManager : public Singleton<GameManager> {
@@ -34,7 +36,6 @@ class GameManager : public Singleton<GameManager> {
 public:
   void initialize();
   void startMainLoop();
-  Window* getWindow();
   
 private:
   GameManager();

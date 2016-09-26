@@ -25,7 +25,7 @@ public:
   void initialize();
   CameraController getCamera();
   CameraController getCamera(int);
-  void addCamera(CameraController);
+  void addCamera(CameraController&);
   
 private:
   CameraManager();

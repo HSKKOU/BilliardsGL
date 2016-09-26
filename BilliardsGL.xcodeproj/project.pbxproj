@@ -18,6 +18,9 @@
 		0DF2A1CF1D97E95F00303E07 /* BaseObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */; };
 		0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */; };
 		0DF2A1DA1D98BF0000303E07 /* CameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1D81D98BF0000303E07 /* CameraController.cpp */; };
+		0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1DD1D99265F00303E07 /* LightManager.cpp */; };
+		0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1E51D99281F00303E07 /* LightControllerBase.cpp */; };
+		0DF2A1EA1D99307400303E07 /* DirectionalLightController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1E81D99307400303E07 /* DirectionalLightController.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +66,12 @@
 		0DF2A1D91D98BF0000303E07 /* CameraController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraController.hpp; sourceTree = "<group>"; };
 		0DF2A1DB1D98C28D00303E07 /* Base3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3D.h; sourceTree = "<group>"; };
 		0DF2A1DC1D990FEB00303E07 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		0DF2A1DD1D99265F00303E07 /* LightManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightManager.cpp; sourceTree = "<group>"; };
+		0DF2A1DE1D99265F00303E07 /* LightManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LightManager.hpp; sourceTree = "<group>"; };
+		0DF2A1E51D99281F00303E07 /* LightControllerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightControllerBase.cpp; sourceTree = "<group>"; };
+		0DF2A1E61D99281F00303E07 /* LightControllerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LightControllerBase.hpp; sourceTree = "<group>"; };
+		0DF2A1E81D99307400303E07 /* DirectionalLightController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectionalLightController.cpp; sourceTree = "<group>"; };
+		0DF2A1E91D99307400303E07 /* DirectionalLightController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DirectionalLightController.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +152,8 @@
 				0D94B7391D8AE64700422BD9 /* GameManager.hpp */,
 				0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */,
 				0DF2A1D61D98BEB200303E07 /* CameraManager.hpp */,
+				0DF2A1DD1D99265F00303E07 /* LightManager.cpp */,
+				0DF2A1DE1D99265F00303E07 /* LightManager.hpp */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -150,8 +161,8 @@
 		0D94B7371D8AE62900422BD9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0DF2A1D81D98BF0000303E07 /* CameraController.cpp */,
-				0DF2A1D91D98BF0000303E07 /* CameraController.hpp */,
+				0DF2A1E11D99270300303E07 /* Light */,
+				0DF2A1E01D9926F800303E07 /* Camera */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +201,26 @@
 				0DF2A1DC1D990FEB00303E07 /* Vector3D.h */,
 			);
 			name = 3DModel;
+			sourceTree = "<group>";
+		};
+		0DF2A1E01D9926F800303E07 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				0DF2A1D81D98BF0000303E07 /* CameraController.cpp */,
+				0DF2A1D91D98BF0000303E07 /* CameraController.hpp */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		0DF2A1E11D99270300303E07 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				0DF2A1E51D99281F00303E07 /* LightControllerBase.cpp */,
+				0DF2A1E61D99281F00303E07 /* LightControllerBase.hpp */,
+				0DF2A1E81D99307400303E07 /* DirectionalLightController.cpp */,
+				0DF2A1E91D99307400303E07 /* DirectionalLightController.hpp */,
+			);
+			name = Light;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,10 +280,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF2A1CC1D97E66C00303E07 /* Cube.cpp in Sources */,
+				0DF2A1EA1D99307400303E07 /* DirectionalLightController.cpp in Sources */,
 				0DBF5D171D95211800A037BA /* Square.cpp in Sources */,
 				0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */,
 				0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */,
+				0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */,
 				0DF2A1CF1D97E95F00303E07 /* BaseObject3D.cpp in Sources */,
+				0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */,
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,

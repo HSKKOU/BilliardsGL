@@ -20,11 +20,14 @@ void GameManager::startMainLoop() {
   FPSCounter &fps = FPSCounter::instance();
   fps.initialize(glfwGetTime());
   
+  LightManager &lightManager = LightManager::instance();
+  lightManager.initialize();
+  
   CameraManager &cameraManager = CameraManager::instance();
   cameraManager.initialize();
   
 //  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
-  cube = new Cube(Vector3D(-1.0f, -1.0f, -1.0f), Vector3D(1.0f, 1.0f, 1.0f));
+  cube = new Cube(Vector3D(-1.0f, -1.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
   
   while (window.shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());
@@ -47,5 +50,3 @@ void GameManager::mainLoop() {
 
   window.swapBuffers();
 }
-
-Window* GameManager::getWindow() { return &window; }
