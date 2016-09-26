@@ -8,7 +8,7 @@
 
 #include "Cube.hpp"
 
-Cube::Cube(const Vector3D _center, const Vector3D _size) : cube(_center, _size) {
+Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center), cube(_center, _size) {
   loadShaderProgram();
   setMvpLoc();
 }

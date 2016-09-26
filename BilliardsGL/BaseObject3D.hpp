@@ -10,7 +10,8 @@
 #define BaseObject3D_hpp
 
 #include "GlobalHeader.h"
-#include "Vector3D.hpp"
+#include "Vector3D.h"
+#include "Base3D.h"
 
 struct BaseModel3D {
   GLuint vao;
@@ -52,7 +53,7 @@ private:
   
 };
 
-class BaseObject3D {
+class BaseObject3D : Base3D {
 
 protected:
   GLuint shaderProgram;
@@ -60,9 +61,10 @@ protected:
   
 public:
   BaseObject3D();
+  BaseObject3D(Vector3D);
   virtual ~BaseObject3D();
   virtual void draw();
-  
+    
 protected:
   virtual void loadShaderProgram();
   void setMvpLoc();
