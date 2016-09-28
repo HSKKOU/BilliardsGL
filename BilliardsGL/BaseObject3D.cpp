@@ -20,7 +20,9 @@ void BaseObject3D::loadShaderProgram() {
 }
 
 void BaseObject3D::setMvpLoc() {
-  mvpLoc = glGetUniformLocation(shaderProgram, "MVP");
+  projectionLoc = glGetUniformLocation(shaderProgram, "projection");
+  viewLoc = glGetUniformLocation(shaderProgram, "view");
+  modelLoc = glGetUniformLocation(shaderProgram, "model");
 }
 
 void BaseObject3D::draw() {
@@ -28,6 +30,4 @@ void BaseObject3D::draw() {
   glLoadIdentity();
   
   glMatrixMode(GL_MODELVIEW_MATRIX);
-  
-  
 }

@@ -50,7 +50,9 @@ class BaseObject3D : Base3D {
 
 protected:
   GLuint shaderProgram;
-  GLint mvpLoc;
+  GLint projectionLoc;
+  GLint viewLoc;
+  GLint modelLoc;
   
   
 public:

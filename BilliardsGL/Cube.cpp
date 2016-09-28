@@ -28,12 +28,14 @@ void Cube::draw() {
   Vector3D cameraPos = (CameraManager::instance()).getCamera().getPosition();
 
   glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
-  glm::mat4 model = glm::mat4(1.0f);
   glm::mat4 view = glm::lookAt(cameraPos.toVec3(), (Vector3D::zero()).toVec3(), glm::vec3(0.0f, 1.0f, 0.0f));
+  glm::mat4 model = glm::mat4(1.0f);
   
-  glm::mat4 mvp = projection * view * model;
-  
-  glUniformMatrix4fv(mvpLoc, 1, GL_FALSE, &mvp[0][0]);
+  model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.5f,1.0f,0.0f));
+
+  glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, &projection[0][0]);
+  glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
+  glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &model[0][0]);
 
   glUseProgram(shaderProgram);
   
