@@ -20,6 +20,9 @@ void GameManager::startMainLoop() {
   FPSCounter &fps = FPSCounter::instance();
   fps.initialize(glfwGetTime());
   
+  glEnable(GL_DEPTH_BUFFER);
+  glEnable(GL_CULL_FACE);
+  
   LightManager &lightManager = LightManager::instance();
   lightManager.initialize();
   
@@ -27,7 +30,8 @@ void GameManager::startMainLoop() {
   cameraManager.initialize();
   
 //  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
-  cube = new Cube(Vector3D(-1.0f, -1.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
+  cube = new Cube(Vector3D(0.0f, 0.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
+//  cube = new Cube(Vector3D(-2.0f, -1.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
   
   while (window.shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());
@@ -43,7 +47,9 @@ void GameManager::startMainLoop() {
 void GameManager::mainLoop() {
 //  std::cout << "main loop" << std::endl;
 
-  glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  
+  (LightManager::instance()).updateLights();
   
 //  square->draw();
   cube->draw();
