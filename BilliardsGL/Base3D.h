@@ -10,7 +10,7 @@
 #define Base3D_h
 
 #include "glm/glm.hpp"
-#include "Vector3D.h"
+#include "Vector.h"
 
 class Base3D {
   
@@ -22,6 +22,7 @@ public:
   virtual ~Base3D() { /* do nothing */ }
   
   Vector3D getPosition() { return position; }
+  Vector4D getPosition4D() { return Vector4D(position,1.0); }
   void setPosition(Vector3D pos) { position = pos; }
 };
 

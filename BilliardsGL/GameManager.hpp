@@ -18,7 +18,7 @@
 #include "Square.hpp"
 
 #include "glm/glm.hpp"
-#include "Vector3D.h"
+#include "Vector.h"
 #include "Cube.hpp"
 
 #include "LightManager.hpp"

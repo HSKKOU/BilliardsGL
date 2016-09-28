@@ -65,7 +65,7 @@
 		0DF2A1D81D98BF0000303E07 /* CameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraController.cpp; sourceTree = "<group>"; };
 		0DF2A1D91D98BF0000303E07 /* CameraController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraController.hpp; sourceTree = "<group>"; };
 		0DF2A1DB1D98C28D00303E07 /* Base3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3D.h; sourceTree = "<group>"; };
-		0DF2A1DC1D990FEB00303E07 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		0DF2A1DC1D990FEB00303E07 /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		0DF2A1DD1D99265F00303E07 /* LightManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightManager.cpp; sourceTree = "<group>"; };
 		0DF2A1DE1D99265F00303E07 /* LightManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LightManager.hpp; sourceTree = "<group>"; };
 		0DF2A1E51D99281F00303E07 /* LightControllerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightControllerBase.cpp; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */,
 				0DF2A1CE1D97E95F00303E07 /* BaseObject3D.hpp */,
 				0DF2A1DB1D98C28D00303E07 /* Base3D.h */,
-				0DF2A1DC1D990FEB00303E07 /* Vector3D.h */,
+				0DF2A1DC1D990FEB00303E07 /* Vector.h */,
 			);
 			name = 3DModel;
 			sourceTree = "<group>";
