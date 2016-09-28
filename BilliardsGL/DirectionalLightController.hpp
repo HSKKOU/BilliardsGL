@@ -17,7 +17,14 @@ class DirectionalLightController : public LightControllerBase {
   Vector3D direction;
   
 public:
-  DirectionalLightController(Vector3D _position, Vector3D _direction, Vector3D _diffuse, Vector3D _ambient, Vector3D _specular, Vector4D _color);
+  DirectionalLightController(
+   Vector3D _position,
+   Vector3D _direction = Vector3D::down(),
+   Vector3D _diffuse = Vector3D::one(),
+   Vector3D _ambient = Vector3D::one(),
+   Vector3D _specular = Vector3D::one(),
+   Vector4D _color = Vector4D::one()
+  );
   virtual ~DirectionalLightController();
   
   Vector3D getDirection();

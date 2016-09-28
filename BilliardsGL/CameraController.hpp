@@ -13,9 +13,11 @@
 #include "Base3D.h"
 
 class CameraController : public Base3D {
+  Vector3D direction;
+  Vector3D upDir;
   
 public:
-  CameraController(Vector3D);
+  CameraController(Vector3D pos, Vector3D dir, Vector3D up = Vector3D::up());
   virtual ~CameraController();
   
 };

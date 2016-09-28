@@ -21,7 +21,13 @@ protected:
   Vector4D color;
   
 public:
-  LightControllerBase(Vector3D _position, Vector3D _diffuse, Vector3D _ambient, Vector3D _specular, Vector4D _color);
+  LightControllerBase(
+   Vector3D _position,
+   Vector3D _diffuse = Vector3D::one(),
+   Vector3D _ambient = Vector3D::one(),
+   Vector3D _specular = Vector3D::one(),
+   Vector4D _color = Vector4D::one()
+  );
   virtual ~LightControllerBase();
   
   Vector3D getDiffuse();

@@ -8,7 +8,11 @@
 
 #include "CameraController.hpp"
 
-CameraController::CameraController(Vector3D pos) : Base3D(pos) {
+CameraController::CameraController(Vector3D _pos, Vector3D _dir, Vector3D _up)
+: Base3D(_pos)
+, direction(_dir)
+, upDir(_up)
+{
   
 }
 

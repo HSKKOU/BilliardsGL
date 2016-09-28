@@ -8,7 +8,13 @@
 
 #include "LightControllerBase.hpp"
 
-LightControllerBase::LightControllerBase(Vector3D _position, Vector3D _diffuse = Vector3D::one(), Vector3D _ambient = Vector3D::one(), Vector3D _specular = Vector3D::one(), Vector4D _color = Vector4D::one())
+LightControllerBase::LightControllerBase(
+ Vector3D _position,
+ Vector3D _diffuse,
+ Vector3D _ambient,
+ Vector3D _specular,
+ Vector4D _color
+)
 : Base3D(_position)
 , diffuse(_diffuse)
 , ambient(_ambient)
