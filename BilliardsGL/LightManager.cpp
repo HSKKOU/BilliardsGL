@@ -11,7 +11,15 @@
 LightManager::LightManager() { /* do nothing */ }
 
 void LightManager::initialize() {
-  LightControllerBase light0 = DirectionalLightController(Vector3D::up()*10.0, Vector3D::one(), Vector3D::one(), Vector3D::one()*0.25, Vector3D::one());
+  LightControllerBase light0 = DirectionalLightController(Vector3D::up()*10.0, Vector3D::one(), Vector3D::one(), Vector3D::one()*0.25, Vector3D::one(), Vector4D::one());
+  
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+  
+  glShadeModel(GL_SMOOTH);
+  
+  glCullFace(GL_FRONT);
+
   addLight(light0);
 }
 
@@ -20,3 +28,9 @@ LightControllerBase LightManager::getLight() { return lightCtrls[0]; }
 LightControllerBase LightManager::getLight(int index) { return lightCtrls[index]; }
 
 void LightManager::addLight(LightControllerBase &light) { lightCtrls.push_back(light); }
+
+void LightManager::updateLights() {
+  for (LightControllerBase light : lightCtrls) {
+    light.updateLight();
+  }
+}

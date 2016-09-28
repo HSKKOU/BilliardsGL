@@ -29,6 +29,8 @@ public:
   LightControllerBase getLight(int);
   void addLight(LightControllerBase&);
   
+  void updateLights();
+  
 private:
   LightManager();
 };
