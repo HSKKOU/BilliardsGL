@@ -8,13 +8,16 @@
 
 #include "LightControllerBase.hpp"
 
-LightControllerBase::LightControllerBase(Vector3D _position, Vector3D _diffuse = Vector3D::one(), Vector3D _ambient = Vector3D::one(), Vector3D _specular = Vector3D::one())
+LightControllerBase::LightControllerBase(Vector3D _position, Vector3D _diffuse = Vector3D::one(), Vector3D _ambient = Vector3D::one(), Vector3D _specular = Vector3D::one(), Vector4D _color = Vector4D::one())
 : Base3D(_position)
 , diffuse(_diffuse)
 , ambient(_ambient)
 , specular(_specular)
+, color(_color)
 {
-  
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse.v);
+  glLightfv(GL_LIGHT0, GL_AMBIENT, ambient.v);
+  glLightfv(GL_LIGHT0, GL_SPECULAR, specular.v);
 }
 
 LightControllerBase::~LightControllerBase() { /* do nothing */ }
@@ -27,3 +30,11 @@ void LightControllerBase::setAmbient(Vector3D _ambient) { ambient = _ambient; }
 
 Vector3D LightControllerBase::getSpecular() { return specular; }
 void LightControllerBase::setSpecular(Vector3D _specular) { specular = _specular; }
+
+Vector4D LightControllerBase::getColor() { return color; }
+void LightControllerBase::setColor(Vector4D _color) { color = _color; }
+
+void LightControllerBase::updateLight() {
+  static GLfloat lightPos[4] = { 0.0, 10.0, 0.0, 1.0 };
+  glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+}

@@ -12,13 +12,16 @@
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
-class LightControllerBase : Base3D {
+class LightControllerBase : public Base3D {
+  
+protected:
   Vector3D diffuse;
   Vector3D ambient;
   Vector3D specular;
+  Vector4D color;
   
 public:
-  LightControllerBase(Vector3D _position, Vector3D _diffuse, Vector3D _ambient, Vector3D _specular);
+  LightControllerBase(Vector3D _position, Vector3D _diffuse, Vector3D _ambient, Vector3D _specular, Vector4D _color);
   virtual ~LightControllerBase();
   
   Vector3D getDiffuse();
@@ -27,6 +30,10 @@ public:
   void setAmbient(Vector3D);
   Vector3D getSpecular();
   void setSpecular(Vector3D);
+  Vector4D getColor();
+  void setColor(Vector4D);
+  
+  virtual void updateLight();
 };
 
 #endif /* LightControllerBase_hpp */
