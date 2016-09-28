@@ -24,6 +24,8 @@ public:
   void swapBuffers();
   const GLfloat *getSize() const;
   const GLfloat getScale() const;
+  
+  void getFrameSize(int *width, int *height);
 };
 
 #endif /* Window_hpp */

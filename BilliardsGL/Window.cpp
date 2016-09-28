@@ -52,3 +52,4 @@ void Window::swapBuffers() {
 const GLfloat* Window::getSize() const { return size; }
 const GLfloat Window::getScale() const { return scale; }
 
+void Window::getFrameSize(int *width, int *height) { glfwGetFramebufferSize(window, width, height); }
