@@ -22,7 +22,7 @@ CameraController::~CameraController() {
 }
 
 glm::mat4 CameraController::getViewMatrix() {
-  return glm::lookAt(position.toVec3(), position.toVec3()+direction.toVec3(), upDir.toVec3());
+  return glm::lookAt(position.vec, (position+direction).vec, upDir.vec);
 }
 
 Vector3D CameraController::getDirection() const { return direction; }

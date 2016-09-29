@@ -21,6 +21,7 @@ union Vector3D {
     GLfloat x, y, z;
   };
   GLfloat v[3];
+  glm::vec3 vec;
   
 public:
   Vector3D(const GLfloat _x, const GLfloat _y, const GLfloat _z) : x(_x), y(_y), z(_z) { /* do nothing */ }
@@ -37,9 +38,6 @@ public:
   
   GLfloat length() { return (GLfloat)sqrt(x*x+y*y+z*z); }
   Vector3D normalize() { return this->operator/(length()); }
-  
-  glm::vec3 toVec3() const { return glm::vec3(x,y,z); }
-  GLfloat* toGLF3() { return v; }
   
   static Vector3D zero() { return Vector3D(0.0, 0.0, 0.0); }
   static Vector3D one() { return Vector3D(1.0, 1.0, 1.0); }
@@ -58,6 +56,7 @@ union Vector4D {
     GLfloat x, y, z, w;
   };
   GLfloat v[4];
+  glm::vec4 vec;
   
 public:
   Vector4D(const GLfloat _x, const GLfloat _y, const GLfloat _z, const GLfloat _w) : x(_x), y(_y), z(_z), w(_w) { /* do nothing */ }
@@ -68,11 +67,8 @@ public:
   Vector4D operator*(const GLfloat mul) { return Vector4D(x*mul, y*mul, z*mul, w*mul); }
   Vector4D operator/(const GLfloat div) { return Vector4D(x/div, y/div, z/div, w/div); }
   
-  glm::vec4 toVec4() const { return glm::vec4(x,y,z,w); }
-  GLfloat* toGLF4() { return v; }
-  
   static Vector4D zero() { return Vector4D(0.0, 0.0, 0.0, 0.0); }
-  static Vector4D one() { return Vector4D(1.0, 1.0, 1.0, 0.0); }
+  static Vector4D one() { return Vector4D(1.0, 1.0, 1.0, 1.0); }
 };
 
 
