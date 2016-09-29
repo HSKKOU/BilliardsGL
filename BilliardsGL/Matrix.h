@@ -1,13 +1,13 @@
 //
-//  Vector.h
+//  Math.h
 //  BilliardsGL
 //
 //  Created by 比佐 幸基 on 2016/09/25.
 //  Copyright © 2016年 比佐 幸基. All rights reserved.
 //
 
-#ifndef Vector_h
-#define Vector_h
+#ifndef Math_h
+#define Math_h
 
 #include "GlobalHeader.h"
 
@@ -15,6 +15,8 @@
 
 union Vector3D;
 union Vector4D;
+
+union Matrix4D;
 
 union Vector3D {
   struct {
@@ -72,4 +74,86 @@ public:
 };
 
 
-#endif /* Vector_h */
+union Matrix4D {
+  GLfloat m[4][4];
+  glm::mat4 mat;
+  
+public:
+  Matrix4D() : Matrix4D::Matrix4D(0.0) { /* do nothing */ }
+  Matrix4D(GLfloat val) : mat(val) { /* do nothing */ }
+  
+  Matrix4D operator+(Matrix4D _m) {
+    Matrix4D ret;
+    for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] + _m[i][j]; } }
+    return ret;
+  }
+  Matrix4D operator-(Matrix4D _m) {
+    Matrix4D ret;
+    for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] - _m[i][j]; } }
+    return ret;
+  }
+  Matrix4D operator*(Matrix4D _m) {
+    Matrix4D ret;
+    for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { for (int k=0; k<4; k++) { ret[i][j] += m[i][k] * _m[k][j]; } } }
+    return ret;
+  }
+  
+  
+  GLfloat* operator[](int i) { return m[i]; }
+  GLfloat& operator()(int i, int j) { return m[i][j]; }
+  
+  static Matrix4D one() { return Matrix4D(1.0); }
+  static Matrix4D zero() { return Matrix4D(0.0); }
+  static Matrix4D translate(Matrix4D m, Vector3D v) {
+    Matrix4D tm = one();
+    tm[3][0] = v.x;
+    tm[3][1] = v.y;
+    tm[3][2] = v.z;
+    return tm * m;
+  }
+  static Matrix4D rotate(Matrix4D m, Vector3D v, GLfloat t) {
+    Matrix4D tm = one();
+    GLfloat c = cosf(t);
+    GLfloat _c = 1-c;
+    GLfloat s = sinf(t);
+    tm[0][0] = v.x*v.x*_c + c    ; tm[0][1] = v.x*v.y*_c - v.z*s; tm[0][2] = v.x*v.z*_c + v.y*s;
+    tm[1][0] = v.x*v.y*_c + v.z*s; tm[1][1] = v.y*v.y*_c + c    ; tm[1][2] = v.y*v.z*_c - v.x*s;
+    tm[2][0] = v.x*v.z*_c - v.y*s; tm[2][1] = v.y*v.z*_c + v.x*s; tm[2][2] = v.z*v.z*_c + c    ;
+    return tm * m;
+  }
+  static Matrix4D rotateX(Matrix4D m, GLfloat t) {
+    Matrix4D tm = one();
+    tm[1][1] = cosf(t);
+    tm[1][2] = -sinf(t);
+    tm[2][1] = sinf(t);
+    tm[2][2] = cosf(t);
+    return tm * m;
+  }
+  static Matrix4D rotateY(Matrix4D m, GLfloat t) {
+    Matrix4D tm = one();
+    tm[0][0] = cosf(t);
+    tm[2][0] = -sinf(t);
+    tm[0][2] = sinf(t);
+    tm[2][2] = cosf(t);
+    return tm * m;
+  }
+  static Matrix4D rotateZ(Matrix4D m, GLfloat t) {
+    Matrix4D tm = one();
+    tm[0][0] = cosf(t);
+    tm[0][1] = -sinf(t);
+    tm[1][0] = sinf(t);
+    tm[1][1] = cosf(t);
+    return tm * m;
+  }
+  static Matrix4D scale(Matrix4D m, Vector3D v) {
+    Matrix4D tm = one();
+    tm[0][0] = v.x;
+    tm[1][1] = v.y;
+    tm[2][2] = v.z;
+    return tm * m;
+  }
+};
+
+
+
+#endif /* Math_h */

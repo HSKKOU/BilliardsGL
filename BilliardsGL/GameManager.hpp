@@ -18,7 +18,7 @@
 #include "Square.hpp"
 
 #include "glm/glm.hpp"
-#include "Vector.h"
+#include "Matrix.h"
 #include "Cube.hpp"
 
 #include "LightManager.hpp"

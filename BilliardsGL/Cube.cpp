@@ -36,9 +36,11 @@ void Cube::draw() {
 
   glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
   glm::mat4 view = camera0.getViewMatrix();
-  glm::mat4 model = glm::mat4(1.0f);
   
-  model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.5f,1.0f,0.0f));
+  Matrix4D model = Matrix4D(1.0f);
+  model = Matrix4D::translate(model, Vector3D((GLfloat)glfwGetTime(), 0.0, 0.0));
+  model = Matrix4D::rotate(model, Vector3D(1.0, 1.0, 1.0).normalize(), (GLfloat)glfwGetTime());
+  model = Matrix4D::scale(model, Vector3D(1.0, (GLfloat)glfwGetTime(), 1.0));
 
   glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, &projection[0][0]);
   glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
