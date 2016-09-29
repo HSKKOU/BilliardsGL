@@ -46,7 +46,7 @@ private:
   
 };
 
-class BaseObject3D : Base3D {
+class BaseObject3D : public Base3D {
 
 protected:
   GLuint shaderProgram;

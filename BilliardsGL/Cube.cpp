@@ -25,10 +25,17 @@ void Cube::loadShaderProgram() {
 void Cube::draw() {
   BaseObject3D::draw();
   
-  Vector3D cameraPos = (CameraManager::instance()).getCamera().getPosition();
+  CameraController camera0 = (CameraManager::instance()).getCamera();
+  
+//  Vector3D camera0Pos = camera0.getPosition();
+//  GLfloat radius = camera0Pos.length();
+//  camera0Pos.x = sin(glfwGetTime()) * radius;
+//  camera0Pos.z = cos(glfwGetTime()) * radius;
+//  camera0.setPosition(camera0Pos);
+//  camera0.lookAt(position);
 
   glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
-  glm::mat4 view = glm::lookAt(cameraPos.toVec3(), (Vector3D::zero()).toVec3(), glm::vec3(0.0f, 1.0f, 0.0f));
+  glm::mat4 view = camera0.getViewMatrix();
   glm::mat4 model = glm::mat4(1.0f);
   
   model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.5f,1.0f,0.0f));

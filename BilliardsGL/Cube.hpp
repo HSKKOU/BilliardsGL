@@ -95,7 +95,7 @@ public:
   }
 };
 
-class Cube : BaseObject3D {
+class Cube : public BaseObject3D {
   
 protected:
   CubeModel cube;

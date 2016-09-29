@@ -12,14 +12,23 @@
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
+#include "glm/gtc/matrix_transform.hpp"
+
 class CameraController : public Base3D {
   Vector3D direction;
   Vector3D upDir;
+  Vector3D rightDir;
   
 public:
-  CameraController(Vector3D pos, Vector3D dir, Vector3D up = Vector3D::up());
+  CameraController(Vector3D _pos, Vector3D _dir, Vector3D _up = Vector3D::up());
   virtual ~CameraController();
   
+  glm::mat4 getViewMatrix();
+  
+  Vector3D getDirection() const;
+  void setDirection(const Vector3D);
+  
+  void lookAt(Vector3D);
 };
 
 #endif /* CameraController_hpp */
