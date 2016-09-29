@@ -19,6 +19,11 @@ class CameraController : public Base3D {
   Vector3D upDir;
   Vector3D rightDir;
   
+  GLfloat angle = 0.0;
+  GLfloat near = 0.0;
+  GLfloat far = 0.0;
+  Matrix4D projection;
+  
 public:
   CameraController(Vector3D _pos, Vector3D _dir, Vector3D _up = Vector3D::up());
   virtual ~CameraController();
@@ -29,6 +34,10 @@ public:
   void setDirection(const Vector3D);
   
   void lookAt(Vector3D);
+  
+  Matrix4D getProjection();
+  void setPerspective(GLfloat _angle, GLfloat _aspect, GLfloat _near, GLfloat _far);
+  void setPerspective(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat near, GLfloat far);
 };
 
 #endif /* CameraController_hpp */
