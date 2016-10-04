@@ -35,7 +35,7 @@ public:
   Vector3D operator/(const GLfloat div) { return Vector3D(x/div, y/div, z/div); }
   
   GLfloat dot(const Vector3D v) { return x*v.x+y*v.y+z*v.z; }
-  Vector3D cross(const Vector3D v) { return Vector3D(y*v.z-z*v.y, z*v.x-x*v.z, x*v.y-y-v.x); }
+  Vector3D cross(const Vector3D v) { return Vector3D(y*v.z-z*v.y, z*v.x-x*v.z, x*v.y-y*v.x); }
   
   GLfloat length() { return (GLfloat)sqrt(x*x+y*y+z*z); }
   Vector3D normalize() { return this->operator/(length()); }
@@ -49,6 +49,10 @@ public:
   static Vector3D left() { return Vector3D(-1.0, 0.0, 0.0); }
   static Vector3D forward() { return Vector3D(0.0, 0.0, -1.0); }
   static Vector3D back() { return Vector3D(0.0, 0.0, 1.0); }
+  
+  void printElem() {
+    std::cout << v[0] << ", " << v[1] << ", " << v[2] << std::endl;
+  }
 };
 
 
