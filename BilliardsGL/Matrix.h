@@ -15,7 +15,6 @@
 
 union Vector3D;
 union Vector4D;
-
 union Matrix4D;
 
 union Vector3D {
@@ -79,21 +78,27 @@ union Matrix4D {
   glm::mat4 mat;
   
 public:
-  Matrix4D() : Matrix4D::Matrix4D(0.0) { /* do nothing */ }
-  Matrix4D(GLfloat val) : mat(val) { /* do nothing */ }
+  Matrix4D(GLfloat val) {
+    for(int i=0; i<4; i++) {
+      for (int j=0; j<4; j++) {
+        if (i == j) { m[i][j] = val; }
+        else { m[i][j] = 0.0; }
+      }
+    }
+  }
   
   Matrix4D operator+(Matrix4D _m) {
-    Matrix4D ret;
+    Matrix4D ret = zero();
     for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] + _m[i][j]; } }
     return ret;
   }
   Matrix4D operator-(Matrix4D _m) {
-    Matrix4D ret;
+    Matrix4D ret = zero();
     for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] - _m[i][j]; } }
     return ret;
   }
   Matrix4D operator*(Matrix4D _m) {
-    Matrix4D ret;
+    Matrix4D ret = zero();
     for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { for (int k=0; k<4; k++) { ret[i][j] += m[i][k] * _m[k][j]; } } }
     return ret;
   }
@@ -151,6 +156,12 @@ public:
     tm[1][1] = v.y;
     tm[2][2] = v.z;
     return tm * m;
+  }
+  
+  void printElem() {
+    for (int i=0; i<4; i++) {
+      std::cout << m[i][0] << ", " << m[i][1] << ", " << m[i][2] << ", " << m[i][3] << std::endl;
+    }
   }
 };
 
