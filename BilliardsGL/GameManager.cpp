@@ -11,6 +11,8 @@
 GameManager::GameManager() { /* do nothing */ }
 
 void GameManager::initialize() {
+  window = new Window(640, 640, "BilliardGL");
+  
   // set background color
   glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 }
@@ -29,11 +31,13 @@ void GameManager::startMainLoop() {
   CameraManager &cameraManager = CameraManager::instance();
   cameraManager.initialize();
   
+  cameraManager.getCamera()->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
+
 //  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
   cube = new Cube(Vector3D(0.0f, 0.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
 //  cube = new Cube(Vector3D(-2.0f, -1.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
   
-  while (window.shouldClose() == GL_FALSE) {
+  while (window->shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());
     
     mainLoop();
@@ -41,6 +45,9 @@ void GameManager::startMainLoop() {
   
 //  delete square;
 //  square = nullptr;
+  
+  delete window;
+  window = nullptr;
 }
 
 
@@ -54,5 +61,5 @@ void GameManager::mainLoop() {
 //  square->draw();
   cube->draw();
 
-  window.swapBuffers();
+  window->swapBuffers();
 }

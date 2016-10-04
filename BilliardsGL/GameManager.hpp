@@ -28,7 +28,7 @@
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
   
-  Window window;
+  Window *window;
   
 //  Square *square;
   Cube *cube;
