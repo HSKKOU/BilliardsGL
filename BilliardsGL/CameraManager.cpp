@@ -11,11 +11,11 @@
 CameraManager::CameraManager() { /* do nothing */ }
 
 void CameraManager::initialize() {
-  CameraController camera0 = CameraController(Vector3D::back()*10.0, Vector3D::forward()*1.0);
+  CameraController *camera0 = new CameraController(Vector3D(0.1,0.2,10.3), Vector3D(0.0,0.0,0.0), Vector3D(0.7,1.8,0.9));
   addCamera(camera0);
 }
 
-CameraController CameraManager::getCamera() { return cameraCtrls[0]; }
-CameraController CameraManager::getCamera(int index) { return cameraCtrls[index]; }
+CameraController* CameraManager::getCamera() { return cameraCtrls[0]; }
+CameraController* CameraManager::getCamera(int index) { return cameraCtrls[index]; }
 
-void CameraManager::addCamera(CameraController &ctrl) { cameraCtrls.push_back(ctrl); }
+void CameraManager::addCamera(CameraController *ctrl) { cameraCtrls.push_back(ctrl); }

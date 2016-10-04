@@ -19,13 +19,13 @@
 class CameraManager : public Singleton<CameraManager> {
   friend class Singleton<CameraManager>;
   
-  std::vector<CameraController> cameraCtrls;
+  std::vector<CameraController*> cameraCtrls;
   
 public:
   void initialize();
-  CameraController getCamera();
-  CameraController getCamera(int);
-  void addCamera(CameraController&);
+  CameraController* getCamera();
+  CameraController* getCamera(int);
+  void addCamera(CameraController*);
   
 private:
   CameraManager();

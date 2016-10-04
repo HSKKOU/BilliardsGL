@@ -25,8 +25,8 @@ void Cube::loadShaderProgram() {
 void Cube::draw() {
   BaseObject3D::draw();
   
-  CameraController camera0 = (CameraManager::instance()).getCamera();
-  
+  CameraController *camera0 = (CameraManager::instance()).getCamera();
+
 //  Vector3D camera0Pos = camera0.getPosition();
 //  GLfloat radius = camera0Pos.length();
 //  camera0Pos.x = sin(glfwGetTime()) * radius;
@@ -34,19 +34,19 @@ void Cube::draw() {
 //  camera0.setPosition(camera0Pos);
 //  camera0.lookAt(position);
 
-  camera0.setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
-  Matrix4D projection = camera0.getProjection();
-  glm::mat4 view = camera0.getViewMatrix();
+  Matrix4D projection = camera0->getProjection();
+
+  Matrix4D view = camera0->getViewMatrix();
   
   Matrix4D model = Matrix4D(1.0f);
   model = Matrix4D::translate(model, Vector3D((GLfloat)glfwGetTime()*0.5, 0.0, 0.0));
   model = Matrix4D::rotate(model, Vector3D(1.0, 1.0, 1.0).normalize(), (GLfloat)glfwGetTime());
-//  model = Matrix4D::scale(model, Vector3D(1.0, (GLfloat)glfwGetTime(), 1.0));
+  model = Matrix4D::scale(model, Vector3D(1.0, (GLfloat)glfwGetTime(), 1.0));
 
   glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, &projection[0][0]);
   glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
   glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &model[0][0]);
-
+  
   glUseProgram(shaderProgram);
   
   glBindVertexArray(cube.vao);
