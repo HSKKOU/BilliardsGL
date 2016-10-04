@@ -29,8 +29,10 @@ int main(int argc, const char * argv[]) {
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   
-  
+  // GameManager Initialized
   GameManager &gameManager = GameManager::instance();
   gameManager.initialize();  
-  gameManager.startMainLoop();  
+
+  // Start Game
+  gameManager.startMainLoop();
 }

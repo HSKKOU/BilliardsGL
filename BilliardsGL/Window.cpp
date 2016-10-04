@@ -31,13 +31,9 @@ Window::Window(int width, int height, const char *title)
   glfwSetWindowUserPointer(window, this);
 }
 
-Window::~Window() {
-  glfwDestroyWindow(window);
-}
+Window::~Window() { glfwDestroyWindow(window); }
 
-int Window::shouldClose() const {
-  return glfwWindowShouldClose(window);
-}
+int Window::shouldClose() const { return glfwWindowShouldClose(window); }
 
 void Window::swapBuffers() {
   glfwSwapBuffers(window);
