@@ -15,7 +15,9 @@
 class FPSCounter : public Singleton<FPSCounter> {
   friend class Singleton<FPSCounter>;
   
+  // last looping time
   double lastTime = 0;
+  // frame count in 1 sec.
   int nbFrames = 0;
   
 public:
