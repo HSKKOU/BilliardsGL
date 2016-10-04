@@ -11,7 +11,61 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center), cube(_center, _size) {
+Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center), size(_size) {
+  const GLfloat vPos[6*2*3][3] = {
+    // front
+    { -size.x, -size.y, -size.z },
+    { +size.x, -size.y, -size.z },
+    { +size.x, +size.y, -size.z },
+    { +size.x, +size.y, -size.z },
+    { -size.x, +size.y, -size.z },
+    { -size.x, -size.y, -size.z },
+    
+    // back
+    { +size.x, +size.y, +size.z },
+    { +size.x, -size.y, +size.z },
+    { -size.x, -size.y, +size.z },
+    { -size.x, -size.y, +size.z },
+    { -size.x, +size.y, +size.z },
+    { +size.x, +size.y, +size.z },
+    
+    // right
+    { +size.x, -size.y, -size.z },
+    { +size.x, -size.y, +size.z },
+    { +size.x, +size.y, +size.z },
+    { +size.x, +size.y, +size.z },
+    { +size.x, +size.y, -size.z },
+    { +size.x, -size.y, -size.z },
+    
+    // left
+    { -size.x, +size.y, +size.z },
+    { -size.x, -size.y, +size.z },
+    { -size.x, -size.y, -size.z },
+    { -size.x, -size.y, -size.z },
+    { -size.x, +size.y, -size.z },
+    { -size.x, +size.y, +size.z },
+    
+    // up
+    { -size.x, +size.y, -size.z },
+    { +size.x, +size.y, -size.z },
+    { +size.x, +size.y, +size.z },
+    { +size.x, +size.y, +size.z },
+    { -size.x, +size.y, +size.z },
+    { -size.x, +size.y, -size.z },
+    
+    // down
+    { +size.x, -size.y, +size.z },
+    { +size.x, -size.y, -size.z },
+    { -size.x, -size.y, -size.z },
+    { -size.x, -size.y, -size.z },
+    { -size.x, -size.y, +size.z },
+    { +size.x, -size.y, +size.z },
+  };
+
+  GLsizei siz = sizeof(vPos)/sizeof(vPos[0]);
+  vertices.count = siz;
+  vertices.vao = createModel(siz, vPos);
+  
   loadShaderProgram();
   setMvpLoc();
 }
@@ -49,6 +103,6 @@ void Cube::draw() {
   
   glUseProgram(shaderProgram);
   
-  glBindVertexArray(cube.vao);
-  glDrawArrays(GL_TRIANGLES, 0, cube.count);
+  glBindVertexArray(vertices.vao);
+  glDrawArrays(GL_TRIANGLES, 0, vertices.count);
 }

@@ -8,16 +8,12 @@
 
 #include "BaseObject3D.hpp"
 
-BaseObject3D::BaseObject3D() : Base3D(Vector3D::zero()) {}
-BaseObject3D::BaseObject3D(Vector3D pos) : Base3D(pos) {}
+BaseObject3D::BaseObject3D() : BaseObject3D(Vector3D::zero()) { /* do nothing */ }
+BaseObject3D::BaseObject3D(Vector3D _pos) : Base3D(_pos), vertices(Vertices()) { /* do nothing */ }
 
-BaseObject3D::~BaseObject3D() {
-  /* do nothing */
-}
+BaseObject3D::~BaseObject3D() { /* do nothing */ }
 
-void BaseObject3D::loadShaderProgram() {
-  std::cout << "illegal load shader" << std::endl;
-}
+void BaseObject3D::loadShaderProgram() { std::cout << "illegal load shader" << std::endl; }
 
 void BaseObject3D::setMvpLoc() {
   projectionLoc = glGetUniformLocation(shaderProgram, "projection");
@@ -30,4 +26,23 @@ void BaseObject3D::draw() {
   glLoadIdentity();
   
   glMatrixMode(GL_MODELVIEW_MATRIX);
+}
+
+GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3]) {
+  GLuint vao;
+  glGenVertexArrays(1, &vao);
+  glBindVertexArray(vao);
+  
+  GLuint vbo;
+  glGenBuffers(1, &vbo);
+  glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*3*vCnt, position, GL_STATIC_DRAW);
+  
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+  glEnableVertexAttribArray(0);
+  
+  glBindVertexArray(0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  
+  return vao;
 }

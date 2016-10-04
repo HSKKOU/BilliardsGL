@@ -14,36 +14,9 @@
 
 #include "CameraManager.hpp"
 
-struct BaseModel3D {
+struct Vertices {
   GLuint vao;
   GLsizei count;
-  
-public:
-  void initializeModel(const GLfloat (*position)[3], int cnt) {
-    vao = createObject(cnt, position);
-    count = cnt;
-  }
-  
-private:
-  GLuint createObject (GLuint vertices, const GLfloat (*position)[3]) {
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-    
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*3*vertices, position, GL_STATIC_DRAW);
-    
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-    glEnableVertexAttribArray(0);
-    
-    glBindVertexArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
-    return vao;
-  }
-  
 };
 
 class BaseObject3D : public Base3D {
@@ -53,17 +26,18 @@ protected:
   GLint projectionLoc;
   GLint viewLoc;
   GLint modelLoc;
-  
+  Vertices vertices;
   
 public:
   BaseObject3D();
-  BaseObject3D(Vector3D);
+  BaseObject3D(Vector3D _pos);
   virtual ~BaseObject3D();
   virtual void draw();
     
 protected:
   virtual void loadShaderProgram();
   void setMvpLoc();
+  GLuint createModel(GLuint vertices, const GLfloat (*position)[3]);
 };
 
 #endif /* BaseObject3D_hpp */
