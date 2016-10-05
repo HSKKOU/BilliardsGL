@@ -18,6 +18,11 @@ void BaseObject3D::setMvpLoc() {
   projectionLoc = glGetUniformLocation(shaderProgram, "projection");
   viewLoc = glGetUniformLocation(shaderProgram, "view");
   modelLoc = glGetUniformLocation(shaderProgram, "model");
+  colorLoc = glGetUniformLocation(shaderProgram, "color");
+  std::cout << projectionLoc << std::endl;
+  std::cout << viewLoc << std::endl;
+  std::cout << modelLoc << std::endl;
+  std::cout << colorLoc << std::endl;
 }
 
 void BaseObject3D::draw() {
@@ -27,7 +32,7 @@ void BaseObject3D::draw() {
   glMatrixMode(GL_MODELVIEW_MATRIX);
 }
 
-GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3]) {
+GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]) {
   GLuint vao;
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);
@@ -39,6 +44,17 @@ GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3]) {
   
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(0);
+  
+  GLuint colorBuffer;
+  glGenBuffers(1, &colorBuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*4*cCnt, color, GL_STATIC_DRAW);
+  
+//  std::cout << colorLoc << std::endl;
+//  glVertexAttribPointer(colorLoc, 4, GL_FLOAT, GL_FALSE, 0, 0);
+//  glEnableVertexAttribArray(colorLoc);
+  glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, 0);
+  glEnableVertexAttribArray(1);
   
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);

@@ -62,19 +62,21 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
     { +size.x, -size.y, +size.z },
   };
 
-  GLsizei siz = sizeof(vPos)/sizeof(vPos[0]);
-  vertices.count = siz;
-  vertices.vao = createModel(siz, vPos);
-  
   loadShaderProgram();
   setMvpLoc();
+
+  GLfloat color[6*2*3][4];
+  srand((unsigned int)time(NULL));
+  for (int i=0; i<6*2*3; i++) { for (int j=0; j<4; j++) { color[i][j] = rand()%10000/10000.0; } }
+
+  GLsizei siz = sizeof(vPos)/sizeof(vPos[0]);
+  vertices.count = siz;
+  vertices.vao = createModel(siz, vPos, sizeof(color)/sizeof(color[0]), color);
 }
 
 Cube::~Cube() { /* do nothing */ }
 
-void Cube::loadShaderProgram() {
-  shaderProgram = ShaderLoader::loadShaderProgram("camera.vert", "pv", "camera.frag", "fc");
-}
+void Cube::loadShaderProgram() { shaderProgram = ShaderLoader::loadShaderProgram("camera.vert", "pv", "camera.frag", "fc"); }
 
 void Cube::draw() {
   BaseObject3D::draw();
@@ -95,14 +97,16 @@ void Cube::draw() {
   Matrix4D model = Matrix4D(1.0f);
   model = Matrix4D::translate(model, Vector3D((GLfloat)glfwGetTime()*0.5, 0.0, 0.0));
   model = Matrix4D::rotate(model, Vector3D(1.0, 1.0, 1.0).normalize(), (GLfloat)glfwGetTime());
-  model = Matrix4D::scale(model, Vector3D(1.0, (GLfloat)glfwGetTime(), 1.0));
+//  model = Matrix4D::scale(model, Vector3D(1.0, (GLfloat)glfwGetTime(), 1.0));
 
   glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, &projection[0][0]);
   glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
   glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &model[0][0]);
-  
+
   glUseProgram(shaderProgram);
   
   glBindVertexArray(vertices.vao);
   glDrawArrays(GL_TRIANGLES, 0, vertices.count);
+  
+  glFlush();
 }

@@ -26,6 +26,7 @@ protected:
   GLint projectionLoc;
   GLint viewLoc;
   GLint modelLoc;
+  GLint colorLoc;
   Vertices vertices;
   
 public:
@@ -37,7 +38,7 @@ public:
 protected:
   virtual void loadShaderProgram();
   void setMvpLoc();
-  GLuint createModel(GLuint vertices, const GLfloat (*position)[3]);
+  virtual GLuint createModel(GLuint vertices, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]);
 };
 
 #endif /* BaseObject3D_hpp */
