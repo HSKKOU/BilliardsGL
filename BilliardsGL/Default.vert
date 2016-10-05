@@ -6,10 +6,7 @@ uniform mat4 model;
 layout(location=1) in vec4 color;
 
 in vec4 pv;
-out vec4 fragmentColor;
 
 void main() {
   gl_Position = projection * view * model * pv;
-  
-  fragmentColor = color;
 }

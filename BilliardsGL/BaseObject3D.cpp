@@ -24,9 +24,6 @@ void BaseObject3D::loadShaderProgram(const char* vs, const char* fs) {
   shaders.fSrc = fs;
   shaderProgram = ShaderLoader::loadShaderProgram(shaders.vSrc, "pv", shaders.fSrc, "fc");
   setMvpLoc();
-  std::cout << sLocs.projectionLoc << std::endl;
-  std::cout << sLocs.viewLoc << std::endl;
-  std::cout << sLocs.modelLoc << std::endl;
 }
 
 void BaseObject3D::setMvpLoc() {
