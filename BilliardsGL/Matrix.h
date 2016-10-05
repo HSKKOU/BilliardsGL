@@ -40,15 +40,15 @@ public:
   GLfloat length() { return (GLfloat)sqrt(x*x+y*y+z*z); }
   Vector3D normalize() { return this->operator/(length()); }
   
-  static Vector3D zero() { return Vector3D(0.0, 0.0, 0.0); }
-  static Vector3D one() { return Vector3D(1.0, 1.0, 1.0); }
+  static Vector3D zero() { return Vector3D(0.0f, 0.0f, 0.0f); }
+  static Vector3D one() { return Vector3D(1.0f, 1.0f, 1.0f); }
   
-  static Vector3D up() { return Vector3D(0.0, 1.0, 0.0); }
-  static Vector3D down() { return Vector3D(0.0, -1.0, 0.0); }
-  static Vector3D right() { return Vector3D(1.0, 0.0, 0.0); }
-  static Vector3D left() { return Vector3D(-1.0, 0.0, 0.0); }
-  static Vector3D forward() { return Vector3D(0.0, 0.0, -1.0); }
-  static Vector3D back() { return Vector3D(0.0, 0.0, 1.0); }
+  static Vector3D up() { return Vector3D(0.0f, 1.0f, 0.0f); }
+  static Vector3D down() { return Vector3D(0.0f, -1.0f, 0.0f); }
+  static Vector3D right() { return Vector3D(1.0f, 0.0f, 0.0f); }
+  static Vector3D left() { return Vector3D(-1.0f, 0.0f, 0.0f); }
+  static Vector3D forward() { return Vector3D(0.0f, 0.0f, -1.0f); }
+  static Vector3D back() { return Vector3D(0.0f, 0.0f, 1.0f); }
   
   void printElem() {
     std::cout << v[0] << ", " << v[1] << ", " << v[2] << std::endl;
@@ -72,8 +72,8 @@ public:
   Vector4D operator*(const GLfloat mul) { return Vector4D(x*mul, y*mul, z*mul, w*mul); }
   Vector4D operator/(const GLfloat div) { return Vector4D(x/div, y/div, z/div, w/div); }
   
-  static Vector4D zero() { return Vector4D(0.0, 0.0, 0.0, 0.0); }
-  static Vector4D one() { return Vector4D(1.0, 1.0, 1.0, 1.0); }
+  static Vector4D zero() { return Vector4D(0.0f, 0.0f, 0.0f, 0.0f); }
+  static Vector4D one() { return Vector4D(1.0f, 1.0f, 1.0f, 1.0f); }
 };
 
 
@@ -86,7 +86,7 @@ public:
     for(int i=0; i<4; i++) {
       for (int j=0; j<4; j++) {
         if (i == j) { m[i][j] = val; }
-        else { m[i][j] = 0.0; }
+        else { m[i][j] = 0.0f; }
       }
     }
   }
@@ -111,8 +111,8 @@ public:
   GLfloat* operator[](int i) { return m[i]; }
   GLfloat& operator()(int i, int j) { return m[i][j]; }
   
-  static Matrix4D one() { return Matrix4D(1.0); }
-  static Matrix4D zero() { return Matrix4D(0.0); }
+  static Matrix4D one() { return Matrix4D(1.0f); }
+  static Matrix4D zero() { return Matrix4D(0.0f); }
   static Matrix4D translate(Matrix4D m, Vector3D v) {
     Matrix4D tm = one();
     tm[3][0] = v.x;

@@ -49,18 +49,18 @@ void CameraController::lookAt(Vector3D targetPos) { center = targetPos; }
 
 Matrix4D CameraController::getProjection() const { return projection; }
 void CameraController::setPerspective(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) {
-  const GLfloat tanHalfFovy = tanf(_fovy / 2.0);
+  const GLfloat tanHalfFovy = tanf(_fovy / 2.0f);
   const GLfloat dz = _zNear - _zFar;
   const GLfloat f = _zFar;
   const GLfloat n = _zNear;
   const GLfloat fn = _zFar * _zNear;
 
   Matrix4D p = Matrix4D::zero();
-  p[0][0] = 1.0 / (_aspect * tanHalfFovy);
-  p[1][1] = 1.0 / tanHalfFovy;
-  p[2][3] = -1.0;
+  p[0][0] = 1.0f / (_aspect * tanHalfFovy);
+  p[1][1] = 1.0f / tanHalfFovy;
+  p[2][3] = -1.0f;
   p[2][2] = (f + n) / dz;
-  p[3][2] = 2.0 * fn / dz;
+  p[3][2] = 2.0f * fn / dz;
   
   for (int i=0; i<4; i++) {
     for (int j=0; j<4; j++) {

@@ -68,7 +68,6 @@ GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLui
   glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(1);
   
-  
   // release buffer
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);

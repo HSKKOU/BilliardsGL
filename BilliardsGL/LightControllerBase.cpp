@@ -41,6 +41,6 @@ Vector4D LightControllerBase::getColor() { return color; }
 void LightControllerBase::setColor(Vector4D _color) { color = _color; }
 
 void LightControllerBase::updateLight() {
-  static GLfloat lightPos[4] = { 0.0, 10.0, 0.0, 1.0 };
+  static GLfloat lightPos[4] = { 0.0f, 10.0f, 0.0f, 1.0f };
   glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 }

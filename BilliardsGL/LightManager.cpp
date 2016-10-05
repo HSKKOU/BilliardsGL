@@ -12,7 +12,7 @@ LightManager::LightManager() { /* do nothing */ }
 
 void LightManager::initialize() {
   // set main light
-  LightControllerBase light0 = DirectionalLightController(Vector3D::up()*10.0, Vector3D::one(), Vector3D::one(), Vector3D::one()*0.25, Vector3D::one(), Vector4D::one());
+  LightControllerBase light0 = DirectionalLightController(Vector3D::up()*10.0f, Vector3D::one(), Vector3D::one(), Vector3D::one()*0.25f, Vector3D::one(), Vector4D::one());
   
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);

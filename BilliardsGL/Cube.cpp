@@ -66,7 +66,7 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
 
   GLfloat color[6*2*3][4];
   srand((unsigned int)time(NULL));
-  for (int i=0; i<6*2*3; i++) { for (int j=0; j<4; j++) { color[i][j] = rand()%10000/10000.0; } }
+  for (int i=0; i<6*2*3; i++) { for (int j=0; j<4; j++) { color[i][j] = rand()%10000/10000.0f; } }
 
   GLsizei siz = sizeof(vPos)/sizeof(vPos[0]);
   vertices.count = siz;
@@ -92,9 +92,9 @@ void Cube::draw() {
   Matrix4D view = camera0->getViewMatrix();
   
   Matrix4D model = Matrix4D(1.0f);
-  model = Matrix4D::translate(model, Vector3D((GLfloat)glfwGetTime()*0.5, 0.0, 0.0));
-  model = Matrix4D::rotate(model, Vector3D(1.0, 1.0, 1.0).normalize(), (GLfloat)glfwGetTime());
-//  model = Matrix4D::scale(model, Vector3D(1.0, (GLfloat)glfwGetTime(), 1.0));
+  model = Matrix4D::translate(model, Vector3D((GLfloat)glfwGetTime()*0.5f, 0.0f, 0.0f));
+  model = Matrix4D::rotate(model, Vector3D(1.0f, 1.0f, 1.0f).normalize(), (GLfloat)glfwGetTime());
+//  model = Matrix4D::scale(model, Vector3D(1.0f, (GLfloat)glfwGetTime(), 1.0f));
 
   glUniformMatrix4fv(sLocs.projectionLoc, 1, GL_FALSE, &projection[0][0]);
   glUniformMatrix4fv(sLocs.viewLoc, 1, GL_FALSE, &view[0][0]);
