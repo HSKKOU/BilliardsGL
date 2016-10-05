@@ -8,21 +8,31 @@
 
 #include "BaseObject3D.hpp"
 
-BaseObject3D::BaseObject3D(Vector3D _pos) : Base3D(_pos), vertices(Vertices()) { /* do nothing */ }
+BaseObject3D::BaseObject3D(Vector3D _pos)
+: Base3D(_pos)
+, shaderProgram(-1)
+, shaders(Shaders())
+, sLocs(ShaderLocs())
+, colorLoc(-1)
+, vertices(Vertices())
+{ /* do nothing */ }
 
 BaseObject3D::~BaseObject3D() { /* do nothing */ }
 
-void BaseObject3D::loadShaderProgram() { std::cout << "illegal load shader" << std::endl; }
+void BaseObject3D::loadShaderProgram(const char* vs, const char* fs) {
+  shaders.vSrc = vs;
+  shaders.fSrc = fs;
+  shaderProgram = ShaderLoader::loadShaderProgram(shaders.vSrc, "pv", shaders.fSrc, "fc");
+  setMvpLoc();
+  std::cout << sLocs.projectionLoc << std::endl;
+  std::cout << sLocs.viewLoc << std::endl;
+  std::cout << sLocs.modelLoc << std::endl;
+}
 
 void BaseObject3D::setMvpLoc() {
-  projectionLoc = glGetUniformLocation(shaderProgram, "projection");
-  viewLoc = glGetUniformLocation(shaderProgram, "view");
-  modelLoc = glGetUniformLocation(shaderProgram, "model");
-  colorLoc = glGetUniformLocation(shaderProgram, "color");
-  std::cout << projectionLoc << std::endl;
-  std::cout << viewLoc << std::endl;
-  std::cout << modelLoc << std::endl;
-  std::cout << colorLoc << std::endl;
+  sLocs.projectionLoc = glGetUniformLocation(shaderProgram, "projection");
+  sLocs.viewLoc = glGetUniformLocation(shaderProgram, "view");
+  sLocs.modelLoc = glGetUniformLocation(shaderProgram, "model");
 }
 
 void BaseObject3D::draw() {

@@ -63,7 +63,6 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
   };
 
   loadShaderProgram();
-  setMvpLoc();
 
   GLfloat color[6*2*3][4];
   srand((unsigned int)time(NULL));
@@ -75,8 +74,6 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
 }
 
 Cube::~Cube() { /* do nothing */ }
-
-void Cube::loadShaderProgram() { shaderProgram = ShaderLoader::loadShaderProgram("camera.vert", "pv", "camera.frag", "fc"); }
 
 void Cube::draw() {
   BaseObject3D::draw();
@@ -99,9 +96,9 @@ void Cube::draw() {
   model = Matrix4D::rotate(model, Vector3D(1.0, 1.0, 1.0).normalize(), (GLfloat)glfwGetTime());
 //  model = Matrix4D::scale(model, Vector3D(1.0, (GLfloat)glfwGetTime(), 1.0));
 
-  glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, &projection[0][0]);
-  glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
-  glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &model[0][0]);
+  glUniformMatrix4fv(sLocs.projectionLoc, 1, GL_FALSE, &projection[0][0]);
+  glUniformMatrix4fv(sLocs.viewLoc, 1, GL_FALSE, &view[0][0]);
+  glUniformMatrix4fv(sLocs.modelLoc, 1, GL_FALSE, &model[0][0]);
 
   glUseProgram(shaderProgram);
   

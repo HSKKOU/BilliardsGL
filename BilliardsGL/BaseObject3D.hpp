@@ -12,6 +12,8 @@
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
+#include "ShaderLoader.hpp"
+
 #include "CameraManager.hpp"
 
 struct Vertices {
@@ -19,14 +21,26 @@ struct Vertices {
   GLsizei count;
 };
 
+struct Shaders {
+  const char* vSrc;
+  const char* fSrc;
+};
+
+struct ShaderLocs {
+  GLint projectionLoc;
+  GLint viewLoc;
+  GLint modelLoc;
+  ShaderLocs() { projectionLoc = viewLoc = modelLoc = -1; }
+};
+
 class BaseObject3D : public Base3D {
 
 protected:
   GLuint shaderProgram;
-  GLint projectionLoc;
-  GLint viewLoc;
-  GLint modelLoc;
+  Shaders shaders;
+  ShaderLocs sLocs;
   GLint colorLoc;
+  
   Vertices vertices;
   
 public:
@@ -36,7 +50,7 @@ public:
   virtual void draw();
     
 protected:
-  virtual void loadShaderProgram();
+  void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
   void setMvpLoc();
   virtual GLuint createModel(GLuint vertices, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]);
 };

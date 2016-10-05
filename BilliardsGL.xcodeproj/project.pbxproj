@@ -40,7 +40,9 @@
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
 		0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
-		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.vert; path = ../../../colopl/BilliardsGL/BilliardsGL/point.vert; sourceTree = "<group>"; };
+		0D7606B71DA4EE2E000031BA /* Default.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.vert; sourceTree = "<group>"; };
+		0D7606B81DA4EE40000031BA /* Default.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.frag; sourceTree = "<group>"; };
+		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.vert; sourceTree = "<group>"; };
 		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
 		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
 		0D94B7321D8A9C1900422BD9 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.hpp; sourceTree = "<group>"; };
@@ -117,13 +119,23 @@
 			path = BilliardsGL;
 			sourceTree = "<group>";
 		};
-		0D94B72D1D8A970A00422BD9 /* shaders */ = {
+		0D7606B61DA4EE08000031BA /* test */ = {
 			isa = PBXGroup;
 			children = (
 				0D94B72E1D8A971E00422BD9 /* point.vert */,
 				0D94B72F1D8A972800422BD9 /* point.frag */,
 				0DF2A1D01D97F5E700303E07 /* camera.vert */,
 				0DF2A1D11D97F5FC00303E07 /* camera.frag */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		0D94B72D1D8A970A00422BD9 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				0D7606B61DA4EE08000031BA /* test */,
+				0D7606B71DA4EE2E000031BA /* Default.vert */,
+				0D7606B81DA4EE40000031BA /* Default.frag */,
 			);
 			name = shaders;
 			sourceTree = "<group>";

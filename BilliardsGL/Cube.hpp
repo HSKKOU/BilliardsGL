@@ -11,8 +11,6 @@
 
 #include "BaseObject3D.hpp"
 
-#include "ShaderLoader.hpp"
-
 class Cube : public BaseObject3D {
   
 protected:
@@ -21,7 +19,6 @@ protected:
 public:
   Cube(const Vector3D _center, const Vector3D _size);
   virtual ~Cube();
-  virtual void loadShaderProgram();
   virtual void draw();
 };
 
