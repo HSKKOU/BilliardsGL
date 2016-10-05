@@ -40,18 +40,23 @@ void BaseObject3D::draw() {
 }
 
 GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]) {
+  // ready object's vertex array
   GLuint vao;
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);
   
-  GLuint vbo;
-  glGenBuffers(1, &vbo);
-  glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  
+  // set vertex
+  GLuint vertexBuffer;
+  glGenBuffers(1, &vertexBuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
   glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*3*vCnt, position, GL_STATIC_DRAW);
   
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(0);
+
   
+  // set color
   GLuint colorBuffer;
   glGenBuffers(1, &colorBuffer);
   glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
@@ -63,6 +68,8 @@ GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLui
   glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(1);
   
+  
+  // release buffer
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   
