@@ -8,7 +8,6 @@
 
 #include "BaseObject3D.hpp"
 
-BaseObject3D::BaseObject3D() : BaseObject3D(Vector3D::zero()) { /* do nothing */ }
 BaseObject3D::BaseObject3D(Vector3D _pos) : Base3D(_pos), vertices(Vertices()) { /* do nothing */ }
 
 BaseObject3D::~BaseObject3D() { /* do nothing */ }
