@@ -403,8 +403,8 @@
 		0D02C3EB1D8A83360097F8F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = ./BilliardsGL/library/include;
+				LIBRARY_SEARCH_PATHS = ./BilliardsGL/library/lib;
 				OTHER_LDFLAGS = (
 					"-lglfw3",
 					"-lGLEW",
@@ -424,8 +424,8 @@
 		0D02C3EC1D8A83360097F8F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = ./BilliardsGL/library/include;
+				LIBRARY_SEARCH_PATHS = ./BilliardsGL/library/lib;
 				OTHER_LDFLAGS = (
 					"-lglfw3",
 					"-lGLEW",
