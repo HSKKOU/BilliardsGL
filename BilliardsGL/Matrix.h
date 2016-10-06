@@ -82,6 +82,7 @@ union Matrix4D {
   glm::mat4 mat;
   
 public:
+  Matrix4D() : Matrix4D::Matrix4D(0.0f) { /* do nothing */ }
   Matrix4D(GLfloat val) {
     for(int i=0; i<4; i++) {
       for (int j=0; j<4; j++) {

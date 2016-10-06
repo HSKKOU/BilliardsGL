@@ -13,30 +13,52 @@ BaseObject3D::BaseObject3D(Vector3D _pos)
 , shaderProgram(-1)
 , shaders(Shaders())
 , sLocs(ShaderLocs())
-, objectColorLoc(-1)
 , vertices(Vertices())
+, mvp(MVP())
+, objectColor(Vector4D::zero())
 { /* do nothing */ }
 
 BaseObject3D::~BaseObject3D() { /* do nothing */ }
 
-void BaseObject3D::loadShaderProgram(const char* vs, const char* fs) {
-  shaders.vSrc = vs;
-  shaders.fSrc = fs;
-  shaderProgram = ShaderLoader::loadShaderProgram(shaders.vSrc, "pv", shaders.fSrc, "fc");
-  setMvpLoc();
-}
+Color BaseObject3D::getObjectColor() { return objectColor; }
+void BaseObject3D::setObjectColor(Color c) { objectColor = c; }
 
-void BaseObject3D::setMvpLoc() {
-  sLocs.projectionLoc = glGetUniformLocation(shaderProgram, "projection");
-  sLocs.viewLoc = glGetUniformLocation(shaderProgram, "view");
-  sLocs.modelLoc = glGetUniformLocation(shaderProgram, "model");
-}
 
+
+// drawing methods
 void BaseObject3D::draw() {
   glMatrixMode(GL_PROJECTION_MATRIX);
   glLoadIdentity();
   
   glMatrixMode(GL_MODELVIEW_MATRIX);
+}
+
+void BaseObject3D::sendMVP2Shd() {
+  glUniformMatrix4fv(sLocs.projectionLoc, 1, GL_FALSE, &mvp.projection[0][0]);
+  glUniformMatrix4fv(sLocs.viewLoc, 1, GL_FALSE, &mvp.view[0][0]);
+  glUniformMatrix4fv(sLocs.modelLoc, 1, GL_FALSE, &mvp.model[0][0]);
+}
+
+void BaseObject3D::sendColor2Shd() { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
+
+
+
+
+
+// related to shader
+void BaseObject3D::loadShaderProgram(const char* vs, const char* fs) {
+  shaders.vSrc = vs;
+  shaders.fSrc = fs;
+  shaderProgram = ShaderLoader::loadShaderProgram(shaders.vSrc, "pv", shaders.fSrc, "fc");
+  setShaderLoc();
+}
+
+void BaseObject3D::setShaderLoc() {
+  sLocs.projectionLoc = glGetUniformLocation(shaderProgram, "projection");
+  sLocs.viewLoc = glGetUniformLocation(shaderProgram, "view");
+  sLocs.modelLoc = glGetUniformLocation(shaderProgram, "model");
+  
+  sLocs.objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor");
 }
 
 GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]) {
@@ -54,6 +76,14 @@ GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3]) {
   return vao;
 }
 
+
+
+
+
+
+
+
+// vertex array object ready
 GLuint BaseObject3D::readyVAO() {
   // ready object's vertex array
   GLuint vao;
@@ -81,8 +111,8 @@ void BaseObject3D::setColorBuffer(GLuint cCnt, const GLfloat (*color)[4]) {
   glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*4*cCnt, color, GL_STATIC_DRAW);
   
 //  std::cout << colorLoc << std::endl;
-  glVertexAttribPointer(objectColorLoc, 4, GL_FLOAT, GL_FALSE, 0, 0);
-  glEnableVertexAttribArray(objectColorLoc);
+  glVertexAttribPointer(sLocs.objectColorLoc, 4, GL_FLOAT, GL_FALSE, 0, 0);
+  glEnableVertexAttribArray(sLocs.objectColorLoc);
 //  glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, 0);
 //  glEnableVertexAttribArray(1);
 }
