@@ -56,6 +56,7 @@ void BaseObject3D::sendLightInfo2Shd() {
   glUniform4fv(sLocs.lightColorLoc, 1, (targetLight->getColor()).v);
 }
 
+void BaseObject3D::sendCameraPos2Shd() { glUniform3fv(sLocs.cameraPosLoc, 1, (targetCamera->getPosition()).v); }
 
 
 // related to shader
@@ -75,6 +76,8 @@ void BaseObject3D::setShaderLoc() {
   
   sLocs.lightPosLoc = glGetUniformLocation(shaderProgram, "lightPos");
   sLocs.lightColorLoc = glGetUniformLocation(shaderProgram, "lightColor");
+  
+  sLocs.cameraPosLoc = glGetUniformLocation(shaderProgram, "cameraPos");
 }
 
 GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt) {

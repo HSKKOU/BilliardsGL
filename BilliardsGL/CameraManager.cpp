@@ -12,7 +12,7 @@ CameraManager::CameraManager() { /* do nothing */ }
 
 void CameraManager::initialize() {
   // set main camera
-  CameraController *camera0 = new CameraController(Vector3D(0.0f,0.0f,10.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,1.0f,0.0f));
+  CameraController *camera0 = new CameraController(Vector3D(0.0f,4.0f,10.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,1.0f,0.0f));
   addCamera(camera0);
 }
 

@@ -92,9 +92,9 @@ void Cube::draw() {
   drawReady();
   
   mvp.model = Matrix4D(1.0f);
-  mvp.model = Matrix4D::translate(mvp.model, Vector3D((GLfloat)glfwGetTime()*0.5f, 0.0f, 0.0f));
-  mvp.model = Matrix4D::rotate(mvp.model, Vector3D(1.0f, 1.0f, 1.0f).normalize(), (GLfloat)glfwGetTime());
-//  mvp.model = Matrix4D::scale(mvp.model, Vector3D(1.0f, (GLfloat)glfwGetTime(), 1.0f));
+//  mvp.model = Matrix4D::translate(mvp.model, Vector3D((GLfloat)glfwGetTime()*0.5f, 0.0f, 0.0f));
+//  mvp.model = Matrix4D::rotate(mvp.model, Vector3D(1.0f, 1.0f, 1.0f).normalize(), (GLfloat)glfwGetTime());
+  mvp.model = Matrix4D::scale(mvp.model, Vector3D((GLfloat)glfwGetTime(), 1.0f, (GLfloat)glfwGetTime()));
   
 //  setObjectColor(Color(0.1f*(GLfloat)glfwGetTime(), 0.0f, 0.0f, 1.0f));
 

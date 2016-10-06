@@ -35,7 +35,8 @@ struct ShaderLocs {
   GLint objectColorLoc;
   GLint lightPosLoc;
   GLint lightColorLoc;
-  ShaderLocs() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightColorLoc = -1; }
+  GLint cameraPosLoc;
+  ShaderLocs() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightColorLoc = cameraPosLoc = -1; }
 };
 
 struct MVP {
@@ -87,6 +88,7 @@ protected:
   void sendMVP2Shd();
   void sendColor2Shd();
   void sendLightInfo2Shd();
+  void sendCameraPos2Shd();
   
 private:
   GLuint readyVAO();
