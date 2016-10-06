@@ -13,7 +13,7 @@ BaseObject3D::BaseObject3D(Vector3D _pos)
 , shaderProgram(-1)
 , shaders(Shaders())
 , sLocs(ShaderLocs())
-, colorLoc(-1)
+, objectColorLoc(-1)
 , vertices(Vertices())
 { /* do nothing */ }
 
@@ -40,12 +40,29 @@ void BaseObject3D::draw() {
 }
 
 GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]) {
+  GLuint vao = readyVAO();
+  setVertexBuffer(vCnt, position);
+  setColorBuffer(cCnt, color);
+  releaseVAO();
+  return vao;
+}
+
+GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3]) {
+  GLuint vao = readyVAO();
+  setVertexBuffer(vCnt, position);
+  releaseVAO();
+  return vao;
+}
+
+GLuint BaseObject3D::readyVAO() {
   // ready object's vertex array
   GLuint vao;
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);
-  
-  
+  return vao;
+}
+
+void BaseObject3D::setVertexBuffer(GLuint vCnt, const GLfloat (*position)[3]) {
   // set vertex
   GLuint vertexBuffer;
   glGenBuffers(1, &vertexBuffer);
@@ -54,8 +71,9 @@ GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLui
   
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(0);
+}
 
-  
+void BaseObject3D::setColorBuffer(GLuint cCnt, const GLfloat (*color)[4]) {
   // set color
   GLuint colorBuffer;
   glGenBuffers(1, &colorBuffer);
@@ -63,14 +81,14 @@ GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLui
   glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*4*cCnt, color, GL_STATIC_DRAW);
   
 //  std::cout << colorLoc << std::endl;
-//  glVertexAttribPointer(colorLoc, 4, GL_FLOAT, GL_FALSE, 0, 0);
-//  glEnableVertexAttribArray(colorLoc);
-  glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, 0);
-  glEnableVertexAttribArray(1);
-  
+  glVertexAttribPointer(objectColorLoc, 4, GL_FLOAT, GL_FALSE, 0, 0);
+  glEnableVertexAttribArray(objectColorLoc);
+//  glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, 0);
+//  glEnableVertexAttribArray(1);
+}
+
+void BaseObject3D::releaseVAO() {
   // release buffer
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
-  
-  return vao;
 }

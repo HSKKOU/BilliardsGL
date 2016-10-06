@@ -42,6 +42,8 @@
 		0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
 		0D7606B71DA4EE2E000031BA /* Default.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.vert; sourceTree = "<group>"; };
 		0D7606B81DA4EE40000031BA /* Default.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.frag; sourceTree = "<group>"; };
+		0D7606B91DA5C70C000031BA /* LightTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.vert; sourceTree = "<group>"; };
+		0D7606BA1DA5C72A000031BA /* LightTest.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.frag; sourceTree = "<group>"; };
 		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.vert; sourceTree = "<group>"; };
 		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
 		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
@@ -136,6 +138,8 @@
 				0D7606B61DA4EE08000031BA /* test */,
 				0D7606B71DA4EE2E000031BA /* Default.vert */,
 				0D7606B81DA4EE40000031BA /* Default.frag */,
+				0D7606B91DA5C70C000031BA /* LightTest.vert */,
+				0D7606BA1DA5C72A000031BA /* LightTest.frag */,
 			);
 			name = shaders;
 			sourceTree = "<group>";

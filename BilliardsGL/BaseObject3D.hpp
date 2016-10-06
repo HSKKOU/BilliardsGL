@@ -39,7 +39,7 @@ protected:
   GLuint shaderProgram;
   Shaders shaders;
   ShaderLocs sLocs;
-  GLint colorLoc;
+  GLint objectColorLoc;
   
   Vertices vertices;
   
@@ -52,7 +52,14 @@ public:
 protected:
   void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
   void setMvpLoc();
-  virtual GLuint createModel(GLuint vertices, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]);
+  virtual GLuint createModel(GLuint vCnt, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]);
+  virtual GLuint createModel(GLuint vCnt, const GLfloat (*position)[3]);
+  
+private:
+  GLuint readyVAO();
+  void setVertexBuffer(GLuint vCnt, const GLfloat (*position)[3]);
+  void setColorBuffer(GLuint cCnt, const GLfloat (*color)[4]);
+  void releaseVAO();
 };
 
 #endif /* BaseObject3D_hpp */

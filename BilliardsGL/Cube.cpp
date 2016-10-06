@@ -62,15 +62,18 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
     { +size.x, -size.y, +size.z },
   };
 
-  loadShaderProgram();
+//  loadShaderProgram();
+  loadShaderProgram("LightTest.vert", "LightTest.frag");
+  objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor");
 
-  GLfloat color[6*2*3][4];
-  srand((unsigned int)time(NULL));
-  for (int i=0; i<6*2*3; i++) { for (int j=0; j<4; j++) { color[i][j] = rand()%10000/10000.0f; } }
+//  GLfloat color[6*2*3][4];
+//  srand((unsigned int)time(NULL));
+//  for (int i=0; i<6*2*3; i++) { for (int j=0; j<4; j++) { color[i][j] = rand()%10000/10000.0f; } }
 
   GLsizei siz = sizeof(vPos)/sizeof(vPos[0]);
   vertices.count = siz;
-  vertices.vao = createModel(siz, vPos, sizeof(color)/sizeof(color[0]), color);
+//  vertices.vao = createModel(siz, vPos, sizeof(color)/sizeof(color[0]), color);
+  vertices.vao = createModel(siz, vPos);
 }
 
 Cube::~Cube() { /* do nothing */ }
@@ -99,6 +102,9 @@ void Cube::draw() {
   glUniformMatrix4fv(sLocs.projectionLoc, 1, GL_FALSE, &projection[0][0]);
   glUniformMatrix4fv(sLocs.viewLoc, 1, GL_FALSE, &view[0][0]);
   glUniformMatrix4fv(sLocs.modelLoc, 1, GL_FALSE, &model[0][0]);
+  
+  GLfloat color[4] = { 1.0f, 0.0f, 0.0f, 1.0f };
+  glUniform4fv(objectColorLoc, 1, color);
 
   glUseProgram(shaderProgram);
   
