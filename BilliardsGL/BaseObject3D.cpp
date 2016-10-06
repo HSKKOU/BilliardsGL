@@ -27,21 +27,19 @@ void BaseObject3D::setObjectColor(Color c) { objectColor = c; }
 
 
 // drawing methods
-void BaseObject3D::draw() {
-  glMatrixMode(GL_PROJECTION_MATRIX);
-  glLoadIdentity();
+void BaseObject3D::drawReady() {
+//  glMatrixMode(GL_PROJECTION_MATRIX);
+//  glLoadIdentity();
+//  glMatrixMode(GL_MODELVIEW_MATRIX);
   
-  glMatrixMode(GL_MODELVIEW_MATRIX);
-  
-//  Vector3D cameraPos = targetCamera->getPosition();
-//  GLfloat radius = cameraPos.length();
-//  cameraPos.x = sin(glfwGetTime()) * radius;
-//  cameraPos.z = cos(glfwGetTime()) * radius;
-//  targetCamera->setPosition(cameraPos);
-//  targetCamera->lookAt(position);
-
   mvp.projection = targetCamera->getProjection();
   mvp.view = targetCamera->getViewMatrix();
+}
+void BaseObject3D::drawRun() {
+  glUseProgram(shaderProgram);
+  glBindVertexArray(vertices.vao);
+  glDrawArrays(GL_TRIANGLES, 0, vertices.count);
+  glFlush();
 }
 
 void BaseObject3D::sendMVP2Shd() {

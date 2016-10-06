@@ -70,7 +70,9 @@ public:
   Color getObjectColor();
   void setObjectColor(Color c);
 
-  virtual void draw();
+  virtual void draw() = 0;
+  virtual void drawReady();
+  virtual void drawRun();
   
 protected:
   void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");

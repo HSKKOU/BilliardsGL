@@ -66,15 +66,14 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
 
   setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
 
-  GLsizei siz = sizeof(vPos)/sizeof(vPos[0]);
-  vertices.count = siz;
-  vertices.vao = createModel(siz, vPos);
+  vertices.count = sizeof(vPos)/sizeof(vPos[0]);
+  vertices.vao = createModel(vertices.count, vPos);
 }
 
 Cube::~Cube() { /* do nothing */ }
 
 void Cube::draw() {
-  BaseObject3D::draw();
+  drawReady();
   
   mvp.model = Matrix4D(1.0f);
   mvp.model = Matrix4D::translate(mvp.model, Vector3D((GLfloat)glfwGetTime()*0.5f, 0.0f, 0.0f));
@@ -86,10 +85,5 @@ void Cube::draw() {
   sendMVP2Shd();
   sendColor2Shd();
   
-  glUseProgram(shaderProgram);
-  
-  glBindVertexArray(vertices.vao);
-  glDrawArrays(GL_TRIANGLES, 0, vertices.count);
-  
-  glFlush();
+  drawRun();
 }
