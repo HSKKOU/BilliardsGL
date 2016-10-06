@@ -16,6 +16,8 @@
 
 #include "CameraManager.hpp"
 
+#include "LightManager.hpp"
+
 struct Vertices {
   GLuint vao;
   GLsizei count;
@@ -31,7 +33,9 @@ struct ShaderLocs {
   GLint viewLoc;
   GLint modelLoc;
   GLint objectColorLoc;
-  ShaderLocs() { projectionLoc = viewLoc = modelLoc = objectColorLoc = -1; }
+  GLint lightPosLoc;
+  GLint lightColorLoc;
+  ShaderLocs() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightColorLoc = -1; }
 };
 
 struct MVP {
@@ -60,6 +64,7 @@ protected:
   MVP mvp;
   Color objectColor;
   CameraController *targetCamera;
+  LightControllerBase *targetLight;
   
 public:
   BaseObject3D();
@@ -77,9 +82,11 @@ public:
 protected:
   void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
   void setShaderLoc();
-  virtual GLuint createModel(const GLfloat (*vertices)[3+4], const GLuint vCnt, const int pCnt, const int cCnt);
+  virtual GLuint createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt);
+  virtual GLuint createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt);
   void sendMVP2Shd();
   void sendColor2Shd();
+  void sendLightInfo2Shd();
   
 private:
   GLuint readyVAO();

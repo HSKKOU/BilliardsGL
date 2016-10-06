@@ -12,7 +12,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 
 Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center), size(_size) {
-  GLfloat vPos[6*2*3][3+4] = {
+  GLfloat vPos[6*2*3][3+3] = {
     // front
     { -size.x, -size.y, -size.z },
     { +size.x, -size.y, -size.z },
@@ -64,18 +64,26 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
 
   loadShaderProgram("LightTest.vert", "LightTest.frag");
   
-  Color color = Color(1.0f, 0.0f, 0.0f, 1.0f);
-  for (int i=0; i<6*2*3; i++) {
-    vPos[i][3] = color.v[0];
-    vPos[i][4] = color.v[1];
-    vPos[i][5] = color.v[2];
-    vPos[i][6] = color.v[3];
+  const GLfloat normals[6][3] = {
+    { 0.0f, 0.0f,-1.0f },
+    { 0.0f, 0.0f, 1.0f },
+    { 1.0f, 0.0f, 0.0f },
+    {-1.0f, 0.0f, 0.0f },
+    { 0.0f, 1.0f, 0.0f },
+    { 0.0f,-1.0f, 0.0f },
+  };
+  for (int i=0; i<6; i++) {
+    for (int j=0; j<2*3; j++) {
+      for (int k=0; k<3; k++) {
+        vPos[i*2*3+j][3+k] = normals[i][k];
+      }
+    }
   }
 
-//  setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
+  setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
 
   vertices.count = sizeof(vPos)/sizeof(vPos[0]);
-  vertices.vao = createModel(vPos, vertices.count, 3, 4);
+  vertices.vao = createModel(vPos, vertices.count, 3, 3);
 }
 
 Cube::~Cube() { /* do nothing */ }
@@ -88,10 +96,11 @@ void Cube::draw() {
   mvp.model = Matrix4D::rotate(mvp.model, Vector3D(1.0f, 1.0f, 1.0f).normalize(), (GLfloat)glfwGetTime());
 //  mvp.model = Matrix4D::scale(mvp.model, Vector3D(1.0f, (GLfloat)glfwGetTime(), 1.0f));
   
-  setObjectColor(Color(0.1f*(GLfloat)glfwGetTime(), 0.0f, 0.0f, 1.0f));
+//  setObjectColor(Color(0.1f*(GLfloat)glfwGetTime(), 0.0f, 0.0f, 1.0f));
 
   sendMVP2Shd();
   sendColor2Shd();
+  sendLightInfo2Shd();
   
   drawRun();
 }
