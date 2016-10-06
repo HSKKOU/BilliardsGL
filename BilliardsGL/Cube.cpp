@@ -12,7 +12,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 
 Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center), size(_size) {
-  const GLfloat vPos[6*2*3][3] = {
+  GLfloat vPos[6*2*3][3+4] = {
     // front
     { -size.x, -size.y, -size.z },
     { +size.x, -size.y, -size.z },
@@ -63,11 +63,19 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
   };
 
   loadShaderProgram("LightTest.vert", "LightTest.frag");
+  
+  Color color = Color(1.0f, 0.0f, 0.0f, 1.0f);
+  for (int i=0; i<6*2*3; i++) {
+    vPos[i][3] = color.v[0];
+    vPos[i][4] = color.v[1];
+    vPos[i][5] = color.v[2];
+    vPos[i][6] = color.v[3];
+  }
 
-  setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
+//  setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
 
   vertices.count = sizeof(vPos)/sizeof(vPos[0]);
-  vertices.vao = createModel(vertices.count, vPos);
+  vertices.vao = createModel(vPos, vertices.count, 3, 4);
 }
 
 Cube::~Cube() { /* do nothing */ }

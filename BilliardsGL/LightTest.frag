@@ -1,5 +1,6 @@
 #version 410 core
-uniform vec4 objectColor;
+
+in vec4 objectColor;
 
 out vec4 fc;
 

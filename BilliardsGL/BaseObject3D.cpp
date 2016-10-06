@@ -70,64 +70,29 @@ void BaseObject3D::setShaderLoc() {
   sLocs.objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor");
 }
 
-GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]) {
-  GLuint vao = readyVAO();
-  setVertexBuffer(vCnt, position);
-  setColorBuffer(cCnt, color);
-  releaseVAO();
-  return vao;
-}
-
-GLuint BaseObject3D::createModel(GLuint vCnt, const GLfloat (*position)[3]) {
-  GLuint vao = readyVAO();
-  setVertexBuffer(vCnt, position);
-  releaseVAO();
-  return vao;
-}
-
-
-
-
-
-
-
-
-// vertex array object ready
-GLuint BaseObject3D::readyVAO() {
-  // ready object's vertex array
+GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4], const GLuint vCnt, const int pCnt, const int cCnt) {
   GLuint vao;
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);
-  return vao;
-}
-
-void BaseObject3D::setVertexBuffer(GLuint vCnt, const GLfloat (*position)[3]) {
-  // set vertex
+  
   GLuint vertexBuffer;
   glGenBuffers(1, &vertexBuffer);
   glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*3*vCnt, position, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*(pCnt+cCnt)*vCnt, vertices, GL_STATIC_DRAW);
   
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+  glBindAttribLocation(shaderProgram, 1, "color");
+  
+  // position
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, (pCnt+cCnt)*sizeof(GLfloat), (GLvoid*)0);
   glEnableVertexAttribArray(0);
-}
 
-void BaseObject3D::setColorBuffer(GLuint cCnt, const GLfloat (*color)[4]) {
-  // set color
-  GLuint colorBuffer;
-  glGenBuffers(1, &colorBuffer);
-  glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*4*cCnt, color, GL_STATIC_DRAW);
-  
-//  std::cout << colorLoc << std::endl;
-  glVertexAttribPointer(sLocs.objectColorLoc, 4, GL_FLOAT, GL_FALSE, 0, 0);
-  glEnableVertexAttribArray(sLocs.objectColorLoc);
-//  glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, 0);
-//  glEnableVertexAttribArray(1);
-}
+  // color
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, (pCnt+cCnt)*sizeof(GLfloat), (GLvoid*)(pCnt*sizeof(GLfloat)));
+  glEnableVertexAttribArray(1);
 
-void BaseObject3D::releaseVAO() {
   // release buffer
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  return vao;
 }

@@ -77,8 +77,7 @@ public:
 protected:
   void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
   void setShaderLoc();
-  virtual GLuint createModel(GLuint vCnt, const GLfloat (*position)[3], GLuint cCnt, const GLfloat (*color)[4]);
-  virtual GLuint createModel(GLuint vCnt, const GLfloat (*position)[3]);
+  virtual GLuint createModel(const GLfloat (*vertices)[3+4], const GLuint vCnt, const int pCnt, const int cCnt);
   void sendMVP2Shd();
   void sendColor2Shd();
   
