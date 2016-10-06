@@ -16,6 +16,7 @@ BaseObject3D::BaseObject3D(Vector3D _pos)
 , vertices(Vertices())
 , mvp(MVP())
 , objectColor(Vector4D::zero())
+, targetCamera((CameraManager::instance()).getCamera())
 { /* do nothing */ }
 
 BaseObject3D::~BaseObject3D() { /* do nothing */ }
@@ -31,6 +32,16 @@ void BaseObject3D::draw() {
   glLoadIdentity();
   
   glMatrixMode(GL_MODELVIEW_MATRIX);
+  
+//  Vector3D cameraPos = targetCamera->getPosition();
+//  GLfloat radius = cameraPos.length();
+//  cameraPos.x = sin(glfwGetTime()) * radius;
+//  cameraPos.z = cos(glfwGetTime()) * radius;
+//  targetCamera->setPosition(cameraPos);
+//  targetCamera->lookAt(position);
+
+  mvp.projection = targetCamera->getProjection();
+  mvp.view = targetCamera->getViewMatrix();
 }
 
 void BaseObject3D::sendMVP2Shd() {

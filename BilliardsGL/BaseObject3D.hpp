@@ -59,6 +59,7 @@ protected:
 protected:
   MVP mvp;
   Color objectColor;
+  CameraController *targetCamera;
   
 public:
   BaseObject3D();

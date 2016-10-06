@@ -64,14 +64,10 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
 
   loadShaderProgram("LightTest.vert", "LightTest.frag");
 
-//  GLfloat color[6*2*3][4];
-//  srand((unsigned int)time(NULL));
-//  for (int i=0; i<6*2*3; i++) { for (int j=0; j<4; j++) { color[i][j] = rand()%10000/10000.0f; } }
   setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
 
   GLsizei siz = sizeof(vPos)/sizeof(vPos[0]);
   vertices.count = siz;
-//  vertices.vao = createModel(siz, vPos, sizeof(color)/sizeof(color[0]), color);
   vertices.vao = createModel(siz, vPos);
 }
 
@@ -79,19 +75,6 @@ Cube::~Cube() { /* do nothing */ }
 
 void Cube::draw() {
   BaseObject3D::draw();
-  
-  CameraController *camera0 = (CameraManager::instance()).getCamera();
-
-//  Vector3D camera0Pos = camera0.getPosition();
-//  GLfloat radius = camera0Pos.length();
-//  camera0Pos.x = sin(glfwGetTime()) * radius;
-//  camera0Pos.z = cos(glfwGetTime()) * radius;
-//  camera0.setPosition(camera0Pos);
-//  camera0.lookAt(position);
-
-  mvp.projection = camera0->getProjection();
-
-  mvp.view = camera0->getViewMatrix();
   
   mvp.model = Matrix4D(1.0f);
   mvp.model = Matrix4D::translate(mvp.model, Vector3D((GLfloat)glfwGetTime()*0.5f, 0.0f, 0.0f));
