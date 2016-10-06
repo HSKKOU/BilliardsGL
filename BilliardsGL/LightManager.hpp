@@ -21,13 +21,13 @@
 class LightManager : public Singleton<LightManager> {
   friend class Singleton<LightManager>;
   
-  std::vector<LightControllerBase> lightCtrls;
+  std::vector<LightControllerBase*> lightCtrls;
   
 public:
   void initialize();
-  LightControllerBase getLight();
-  LightControllerBase getLight(int);
-  void addLight(LightControllerBase&);
+  LightControllerBase* getLight();
+  LightControllerBase* getLight(int);
+  void addLight(LightControllerBase*);
   
   void updateLights();
   
