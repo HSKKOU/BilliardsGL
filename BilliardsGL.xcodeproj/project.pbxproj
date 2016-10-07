@@ -11,6 +11,7 @@
 		0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */; };
 		0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607061DA75393000031BA /* ObjectManager.cpp */; };
 		0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */; };
+		0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070E1DA78FD6000031BA /* Sphere.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
@@ -51,6 +52,8 @@
 		0D7607091DA754EA000031BA /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
 		0D76070C1DA75D1E000031BA /* ObjectFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObjectFactory.hpp; sourceTree = "<group>"; };
+		0D76070E1DA78FD6000031BA /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
+		0D76070F1DA78FD6000031BA /* Sphere.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
 		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.vert; sourceTree = "<group>"; };
 		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
 		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */,
 				0DF2A1CE1D97E95F00303E07 /* BaseObject3D.hpp */,
 				0DF2A1DB1D98C28D00303E07 /* Base3D.h */,
+				0D76070E1DA78FD6000031BA /* Sphere.cpp */,
+				0D76070F1DA78FD6000031BA /* Sphere.hpp */,
 			);
 			name = 3DModel;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */,
 				0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */,
 				0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */,
+				0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */,
 				0DF2A1CF1D97E95F00303E07 /* BaseObject3D.cpp in Sources */,
 				0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */,
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
