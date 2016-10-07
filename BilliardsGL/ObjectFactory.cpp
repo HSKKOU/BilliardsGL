@@ -9,5 +9,13 @@
 #include "ObjectFactory.hpp"
 
 BaseObject3D* ObjectFactory::instantiateObject(const ObjectType type) {
-  return new Cube(Vector3D::zero(), Vector3D::one());
+  BaseObject3D *object = nullptr;
+  switch (type) {
+    case CUBE:
+      object = new Cube(Vector3D::zero(), Vector3D::one());
+      break;
+    default:
+      break;
+  }
+  return object;
 }
