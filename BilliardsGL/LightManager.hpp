@@ -25,8 +25,8 @@ class LightManager : public Singleton<LightManager> {
   
 public:
   void initialize();
-  LightControllerBase* getLight();
-  LightControllerBase* getLight(int);
+  LightControllerBase* getLight() const;
+  LightControllerBase* getLight(const int) const;
   void addLight(LightControllerBase*);
   
   void updateLights();

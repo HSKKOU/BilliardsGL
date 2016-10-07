@@ -22,7 +22,7 @@ BaseObject3D* ObjectManager::instantiateObject(ObjectType type) {
   return object;
 }
 
-BaseObject3D* ObjectManager::getObject(int objectId) {
+BaseObject3D* ObjectManager::getObject(const int objectId) const {
   if (objectId < 0 || objectId > objectList.size()) {
     std::cout << "objectId is out of list" << std::endl;
     return nullptr;
@@ -35,7 +35,7 @@ BaseObject3D* ObjectManager::getObject(int objectId) {
   return nullptr;
 }
 
-void ObjectManager::destroyObject(int objectId) {
+void ObjectManager::destroyObject(const int objectId) const {
   
 }
 

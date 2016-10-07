@@ -21,9 +21,9 @@ public:
   Base3D(Vector3D pos) : position(pos) { /* do nothing */ }
   virtual ~Base3D() { /* do nothing */ }
   
-  Vector3D getPosition() { return position; }
-  Vector4D getPosition4D() { return Vector4D(position,1.0); }
-  void setPosition(Vector3D pos) { position = pos; }
+  Vector3D getPosition() const { return position; }
+  Vector4D getPosition4D() const { return Vector4D(position,1.0); }
+  void setPosition(const Vector3D pos) { position = pos; }
 };
 
 #endif /* Base3D_h */

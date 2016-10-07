@@ -22,7 +22,7 @@ BaseObject3D::BaseObject3D(Vector3D _pos)
 
 BaseObject3D::~BaseObject3D() { /* do nothing */ }
 
-Color BaseObject3D::getObjectColor() { return objectColor; }
+Color BaseObject3D::getObjectColor() const { return objectColor; }
 void BaseObject3D::setObjectColor(Color c) { objectColor = c; }
 
 
@@ -49,14 +49,14 @@ void BaseObject3D::sendMVP2Shd() {
   glUniformMatrix4fv(sLocs.modelLoc, 1, GL_FALSE, &mvp.model[0][0]);
 }
 
-void BaseObject3D::sendColor2Shd() { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
+void BaseObject3D::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
 
-void BaseObject3D::sendLightInfo2Shd() {
+void BaseObject3D::sendLightInfo2Shd() const {
   glUniform3fv(sLocs.lightPosLoc, 1, (targetLight->getPosition()).v);
   glUniform4fv(sLocs.lightColorLoc, 1, (targetLight->getColor()).v);
 }
 
-void BaseObject3D::sendCameraPos2Shd() { glUniform3fv(sLocs.cameraPosLoc, 1, (targetCamera->getPosition()).v); }
+void BaseObject3D::sendCameraPos2Shd() const { glUniform3fv(sLocs.cameraPosLoc, 1, (targetCamera->getPosition()).v); }
 
 
 // related to shader
@@ -80,7 +80,7 @@ void BaseObject3D::setShaderLoc() {
   sLocs.cameraPosLoc = glGetUniformLocation(shaderProgram, "cameraPos");
 }
 
-GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt) {
+const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt) {
   GLuint vao;
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);
@@ -112,7 +112,7 @@ GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4+3], const GLuint 
   return vao;
 }
 
-GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt) {
+const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt) {
   GLuint vao;
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);

@@ -28,16 +28,16 @@ LightControllerBase::LightControllerBase(
 
 LightControllerBase::~LightControllerBase() { /* do nothing */ }
 
-Vector3D LightControllerBase::getDiffuse() { return diffuse; }
+Vector3D LightControllerBase::getDiffuse() const { return diffuse; }
 void LightControllerBase::setDiffuse(Vector3D _diffuse) { diffuse = _diffuse; }
 
-Vector3D LightControllerBase::getAmbient() { return ambient; }
+Vector3D LightControllerBase::getAmbient() const { return ambient; }
 void LightControllerBase::setAmbient(Vector3D _ambient) { ambient = _ambient; }
 
-Vector3D LightControllerBase::getSpecular() { return specular; }
+Vector3D LightControllerBase::getSpecular() const { return specular; }
 void LightControllerBase::setSpecular(Vector3D _specular) { specular = _specular; }
 
-Vector4D LightControllerBase::getColor() { return color; }
+Vector4D LightControllerBase::getColor() const { return color; }
 void LightControllerBase::setColor(Vector4D _color) { color = _color; }
 
 void LightControllerBase::updateLight() {

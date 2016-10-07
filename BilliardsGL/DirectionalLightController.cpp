@@ -24,7 +24,7 @@ DirectionalLightController::DirectionalLightController(
 
 DirectionalLightController::~DirectionalLightController() { /* do nothing */ }
 
-Vector3D DirectionalLightController::getDirection() { return direction; }
+Vector3D DirectionalLightController::getDirection() const { return direction; }
 void DirectionalLightController::setDirection(Vector3D _direction) { direction = _direction; }
 
 void DirectionalLightController::updateLight() {

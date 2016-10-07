@@ -14,9 +14,9 @@ void LightManager::initialize() {
   glCullFace(GL_FRONT);
 }
 
-LightControllerBase* LightManager::getLight() { return lightCtrls[0]; }
+LightControllerBase* LightManager::getLight() const { return lightCtrls[0]; }
 
-LightControllerBase* LightManager::getLight(int index) { return lightCtrls[index]; }
+LightControllerBase* LightManager::getLight(const int index) const { return lightCtrls[index]; }
 
 void LightManager::addLight(LightControllerBase *light) { lightCtrls.push_back(light); }
 

@@ -69,12 +69,12 @@ protected:
   
 public:
   BaseObject3D();
-  BaseObject3D(Vector3D _pos);
+  BaseObject3D(const Vector3D _pos);
   virtual ~BaseObject3D();
   
   // accessor
-  Color getObjectColor();
-  void setObjectColor(Color c);
+  Color getObjectColor() const;
+  void setObjectColor(const Color c);
 
   virtual void draw() = 0;
   virtual void drawReady();
@@ -83,18 +83,18 @@ public:
 protected:
   void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
   void setShaderLoc();
-  virtual GLuint createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt);
-  virtual GLuint createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt);
+  virtual const GLuint createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt);
+  virtual const GLuint createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt);
   void sendMVP2Shd();
-  void sendColor2Shd();
-  void sendLightInfo2Shd();
-  void sendCameraPos2Shd();
+  void sendColor2Shd() const;
+  void sendLightInfo2Shd() const;
+  void sendCameraPos2Shd() const;
   
 private:
-  GLuint readyVAO();
-  void setVertexBuffer(GLuint vCnt, const GLfloat (*position)[3]);
-  void setColorBuffer(GLuint cCnt, const GLfloat (*color)[4]);
-  void releaseVAO();
+  GLuint readyVAO() const;
+  void setVertexBuffer(const GLuint vCnt, const GLfloat (*position)[3]) const;
+  void setColorBuffer(const GLuint cCnt, const GLfloat (*color)[4]) const;
+  void releaseVAO() const;
 };
 
 #endif /* BaseObject3D_hpp */

@@ -30,13 +30,13 @@ public:
   );
   virtual ~LightControllerBase();
   
-  Vector3D getDiffuse();
+  Vector3D getDiffuse() const;
   void setDiffuse(Vector3D);
-  Vector3D getAmbient();
+  Vector3D getAmbient() const;
   void setAmbient(Vector3D);
-  Vector3D getSpecular();
+  Vector3D getSpecular() const;
   void setSpecular(Vector3D);
-  Vector4D getColor();
+  Vector4D getColor() const;
   void setColor(Vector4D);
   
   virtual void updateLight();

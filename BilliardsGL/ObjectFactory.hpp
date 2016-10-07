@@ -16,7 +16,7 @@
 class ObjectFactory {
   
 public:
-  static BaseObject3D* instantiateObject(ObjectType type);
+  static BaseObject3D* instantiateObject(const ObjectType type);
 };
 
 #endif /* ObjectFactory_hpp */

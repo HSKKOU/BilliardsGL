@@ -25,8 +25,8 @@ class ObjectManager : public Singleton<ObjectManager> {
 public:
   void initialize();
   BaseObject3D* instantiateObject(ObjectType type);
-  BaseObject3D* getObject(int objectId);
-  void destroyObject(int objectId);
+  BaseObject3D* getObject(const int objectId) const;
+  void destroyObject(const int objectId) const;
   
   void updateObject();
   

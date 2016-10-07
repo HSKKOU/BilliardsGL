@@ -23,8 +23,8 @@ class CameraManager : public Singleton<CameraManager> {
   
 public:
   void initialize();
-  CameraController* getCamera();
-  CameraController* getCamera(int);
+  CameraController* getCamera() const;
+  CameraController* getCamera(const int) const;
   void addCamera(CameraController*);
   
 private:

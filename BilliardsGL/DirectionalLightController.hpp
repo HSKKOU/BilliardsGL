@@ -27,7 +27,7 @@ public:
   );
   virtual ~DirectionalLightController();
   
-  Vector3D getDirection();
+  Vector3D getDirection() const;
   void setDirection(Vector3D);
   
   void updateLight();

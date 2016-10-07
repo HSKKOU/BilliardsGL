@@ -8,6 +8,6 @@
 
 #include "ObjectFactory.hpp"
 
-BaseObject3D* ObjectFactory::instantiateObject(ObjectType type) {
+BaseObject3D* ObjectFactory::instantiateObject(const ObjectType type) {
   return new Cube(Vector3D::zero(), Vector3D::one());
 }
