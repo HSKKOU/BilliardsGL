@@ -32,6 +32,7 @@ void GameManager::initialize() {
 }
 
 void GameManager::startMainLoop() {
+  // enable "DEPTH_BUFFER", "CULL_FACE"
   window->readyWindow();
   
   // set main camera
@@ -39,6 +40,21 @@ void GameManager::startMainLoop() {
   mainCamera->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
   cameraManager.addCamera(mainCamera);
   
+  
+  // set main light
+  LightControllerBase *light0 = new DirectionalLightController
+  (
+   Vector3D(0.0f, 3.0f, 0.0f),
+   Vector3D::one(),
+   Vector3D::one(),
+   Vector3D::one()*0.25f,
+   Vector3D::one(),
+   Vector4D::one()
+  );
+  lightManager.addLight(light0);
+
+  
+  // for Debug create CUBE object
   objectManager.instantiateObject(ObjectType::CUBE);
   
   // game loop

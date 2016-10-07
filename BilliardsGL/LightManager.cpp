@@ -11,26 +11,7 @@
 LightManager::LightManager() { /* do nothing */ }
 
 void LightManager::initialize() {
-  // set main light
-  LightControllerBase *light0
-  = new DirectionalLightController
-  (
-   Vector3D(0.0f, 3.0f, 0.0f),
-   Vector3D::one(),
-   Vector3D::one(),
-   Vector3D::one()*0.25f,
-   Vector3D::one(),
-   Vector4D::one()
-  );
-  
-  glEnable(GL_LIGHTING);
-  glEnable(GL_LIGHT0);
-  
-  glShadeModel(GL_SMOOTH);
-  
   glCullFace(GL_FRONT);
-
-  addLight(light0);
 }
 
 LightControllerBase* LightManager::getLight() { return lightCtrls[0]; }
