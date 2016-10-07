@@ -34,7 +34,10 @@ void GameManager::initialize() {
 void GameManager::startMainLoop() {
   window->readyWindow();
   
-  cameraManager.getCamera()->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
+  // set main camera
+  CameraController *mainCamera = new CameraController(Vector3D(0.0f,4.0f,10.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,1.0f,0.0f));
+  mainCamera->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
+  cameraManager.addCamera(mainCamera);
   
   objectManager.instantiateObject(ObjectType::CUBE);
   
