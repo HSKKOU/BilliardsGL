@@ -8,7 +8,11 @@
 
 #include "GameManager.hpp"
 
-GameManager::GameManager() { /* do nothing */ }
+GameManager::GameManager()
+: lightManager(LightManager::instance())
+, cameraManager(CameraManager::instance())
+, objectManager(ObjectManager::instance())
+{ /* do nothing */ }
 
 void GameManager::initialize() {
   // create window
@@ -16,6 +20,10 @@ void GameManager::initialize() {
   
   // set background color
   glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+  
+  // Managers initialize
+  lightManager.initialize();
+  cameraManager.initialize();
 }
 
 void GameManager::startMainLoop() {
@@ -26,27 +34,15 @@ void GameManager::startMainLoop() {
   glEnable(GL_DEPTH_BUFFER);
   glEnable(GL_CULL_FACE);
   
-  // Light Initialized
-  LightManager &lightManager = LightManager::instance();
-  lightManager.initialize();
-  
-  // Camera Initialized
-  CameraManager &cameraManager = CameraManager::instance();
-  cameraManager.initialize();
   cameraManager.getCamera()->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
-
-//  square = new Square(0.0f, 0.0f, 0.5f, 0.5f);
-  cube = new Cube(Vector3D(0.0f, 0.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
-//  cube = new Cube(Vector3D(-2.0f, -1.0f, 0.0f), Vector3D(1.0f, 1.0f, 1.0f));
+  
+  objectManager.instantiateObject(ObjectType::CUBE);
   
   // game loop
   while (window->shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());
     mainLoop();
   }
-  
-//  delete square;
-//  square = nullptr;
   
   delete window;
   window = nullptr;
@@ -61,8 +57,7 @@ void GameManager::mainLoop() {
   
   (LightManager::instance()).updateLights();
   
-//  square->draw();
-  cube->draw();
+  objectManager.updateObject();
 
   // change another drawing buffer
   window->swapBuffers();

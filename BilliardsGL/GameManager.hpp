@@ -20,9 +20,9 @@
 #include "glm/glm.hpp"
 #include "Matrix.h"
 #include "Cube.hpp"
+#include "ObjectManager.hpp"
 
 #include "LightManager.hpp"
-
 #include "CameraManager.hpp"
 
 class GameManager : public Singleton<GameManager> {
@@ -30,8 +30,9 @@ class GameManager : public Singleton<GameManager> {
   
   Window *window;
   
-//  Square *square;
-  Cube *cube;
+  LightManager &lightManager;
+  CameraManager &cameraManager;
+  ObjectManager &objectManager;
   
 public:
   void initialize();
