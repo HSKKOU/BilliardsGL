@@ -76,12 +76,13 @@ public:
   Color getObjectColor() const;
   void setObjectColor(const Color c);
 
+  virtual void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
+
   virtual void draw() = 0;
   virtual void drawReady();
   virtual void drawRun();
   
 protected:
-  void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
   void setShaderLoc();
   virtual const GLuint createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt);
   virtual const GLuint createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt);

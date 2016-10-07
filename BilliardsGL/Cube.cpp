@@ -61,8 +61,6 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
     { -size.x, -size.y, +size.z },
     { +size.x, -size.y, +size.z },
   };
-
-  loadShaderProgram("LightTest.vert", "LightTest.frag");
   
   const GLfloat normals[6][3] = {
     { 0.0f, 0.0f,-1.0f },
@@ -79,8 +77,10 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
       }
     }
   }
-
+  
   setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
+
+  loadShaderProgram();
 
   vertices.count = sizeof(vPos)/sizeof(vPos[0]);
   vertices.vao = createModel(vPos, vertices.count, 3, 3);

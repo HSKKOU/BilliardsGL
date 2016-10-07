@@ -55,7 +55,8 @@ void GameManager::startMainLoop() {
 
   
   // for Debug create CUBE object
-  objectManager.instantiateObject(ObjectType::CUBE);
+  BaseObject3D* object = objectManager.instantiateObject(ObjectType::CUBE);
+  object->loadShaderProgram("LightTest.vert", "LightTest.frag");
   
   // game loop
   while (window->shouldClose() == GL_FALSE) {
