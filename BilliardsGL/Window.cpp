@@ -45,7 +45,15 @@ void Window::swapBuffers() {
   }
 }
 
+void Window::readyWindow() {
+  glEnable(GL_DEPTH_BUFFER);
+  glEnable(GL_CULL_FACE);
+}
+void Window::resetBuffer() { glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); }
+
 const GLfloat* Window::getSize() const { return size; }
 const GLfloat Window::getScale() const { return scale; }
 
 void Window::getFrameSize(int *width, int *height) { glfwGetFramebufferSize(window, width, height); }
+
+

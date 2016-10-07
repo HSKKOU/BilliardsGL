@@ -34,9 +34,12 @@ class GameManager : public Singleton<GameManager> {
   CameraManager &cameraManager;
   ObjectManager &objectManager;
   
+  FPSCounter &fps;
+  
 public:
   void initialize();
   void startMainLoop();
+  void finishMainLoop();
   
 private:
   GameManager();
