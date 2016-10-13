@@ -10,7 +10,9 @@
 #define Models_h
 
 #include "BaseObject3D.hpp"
+
 #include "Cube.hpp"
+#include "Sphere.hpp"
 
 enum ObjectType {
   CUBE,

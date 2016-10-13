@@ -14,6 +14,8 @@ BaseObject3D* ObjectFactory::instantiateObject(const ObjectType type) {
     case CUBE:
       object = new Cube(Vector3D::zero(), Vector3D::one());
       break;
+    case SPHERE:
+      object = new Sphere(Vector3D::zero(), 1.0f, 100, 50);
     default:
       break;
   }
