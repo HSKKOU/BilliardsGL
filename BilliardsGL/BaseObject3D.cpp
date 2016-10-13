@@ -36,10 +36,10 @@ void BaseObject3D::drawReady() {
   mvp.projection = targetCamera->getProjection();
   mvp.view = targetCamera->getViewMatrix();
 }
-void BaseObject3D::drawRun() {
+void BaseObject3D::drawRun(int mode) {
   glUseProgram(shaderProgram);
   glBindVertexArray(vertices.vao);
-  glDrawArrays(GL_TRIANGLES, 0, vertices.count);
+  glDrawArrays(mode, 0, vertices.count);
   glFlush();
 }
 
@@ -102,8 +102,8 @@ const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4+3], const G
   glEnableVertexAttribArray(1);
   
   // normal
-//  glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, (pCnt+cCnt+nCnt)*sizeof(GLfloat), (GLvoid*)((pCnt+cCnt)*sizeof(GLfloat)));
-//  glEnableVertexAttribArray(2);
+  glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, (pCnt+cCnt+nCnt)*sizeof(GLfloat), (GLvoid*)((pCnt+cCnt)*sizeof(GLfloat)));
+  glEnableVertexAttribArray(2);
 
   // release buffer
   glBindVertexArray(0);
@@ -131,6 +131,32 @@ const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+3], const GLu
   // normal
   glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, (pCnt+nCnt)*sizeof(GLfloat), (GLvoid*)(pCnt*sizeof(GLfloat)));
   glEnableVertexAttribArray(1);
+  
+  // release buffer
+  glBindVertexArray(0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  
+  return vao;
+}
+
+const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3], const GLuint vCnt, const int pCnt) {
+  for (int i=0; i<vCnt; i++) {
+    std::cout << "vPos["<<i<<"]" << std::endl;
+    std::cout << vertices[i][0] << ", " << vertices[i][1] << ", " << vertices[i][2] << std::endl;
+  }
+
+  GLuint vao;
+  glGenVertexArrays(1, &vao);
+  glBindVertexArray(vao);
+  
+  GLuint vertexBuffer;
+  glGenBuffers(1, &vertexBuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*pCnt*vCnt, vertices, GL_STATIC_DRAW);
+  
+  // position
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, pCnt*sizeof(GLfloat), (GLvoid*)0);
+  glEnableVertexAttribArray(0);
   
   // release buffer
   glBindVertexArray(0);

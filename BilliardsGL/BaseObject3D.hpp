@@ -80,12 +80,13 @@ public:
 
   virtual void draw() = 0;
   virtual void drawReady();
-  virtual void drawRun();
+  virtual void drawRun(int mode = GL_TRIANGLES);
   
 protected:
   void setShaderLoc();
   virtual const GLuint createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt);
   virtual const GLuint createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt);
+  virtual const GLuint createModel(const GLfloat (*vertices)[3], const GLuint vCnt, const int pCnt);
   void sendMVP2Shd();
   void sendColor2Shd() const;
   void sendLightInfo2Shd() const;
