@@ -70,17 +70,17 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
   for (int i=0; i<6; i++) {
     for (int j=0; j<2*3; j++) {
       for (int k=0; k<3; k++) {
-        vPos[i*2*3+j][2+3+k] = normals[i][k];
+        vPos[i*2*3+j][3+2+k] = normals[i][k];
       }
     }
   }
   
-  setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
+  setObjectColor(Color(1.0f, 1.0f, 1.0, 1.0f));
 
   loadShaderProgram();
 
   vertices.count = sizeof(vPos)/sizeof(vPos[0]);
-  vertices.vao = createModel(vPos, vertices.count, 3, 3, 2);
+  vertices.vao = createModel(vPos, vertices.count, 3, 2, 3);
 }
 
 Cube::~Cube() { /* do nothing */ }

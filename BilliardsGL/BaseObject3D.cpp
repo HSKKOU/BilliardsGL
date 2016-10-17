@@ -40,10 +40,14 @@ void BaseObject3D::drawRun(int mode) {
   glUseProgram(shaderProgram);
   glBindVertexArray(vertices.vao);
   glDrawArrays(mode, 0, vertices.count);
+  
   glBindVertexArray(0);
-  glDisableVertexAttribArray(0);
-  glDisableVertexAttribArray(1);
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
   glDisableVertexAttribArray(2);
+  glDisableVertexAttribArray(1);
+  glDisableVertexAttribArray(0);
+  glFlush();
 }
 
 void BaseObject3D::sendMVP2Shd() {
@@ -117,6 +121,15 @@ const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+2+3], const G
   GLuint vao = readyVAO();
   setVertexBuffer(vertices, (pCnt+uvCnt+nCnt)*vCnt);
   
+  for (int i=0; i<vCnt; i++) {
+    std::cout
+    << "vs[" << i << "] : "
+    << "(" << vertices[i][0] << "," << vertices[i][1] << "," << vertices[i][2] << ") "
+    << "(" << vertices[i][3] << "," << vertices[i][4] << ") "
+    << "(" << vertices[i][5] << "," << vertices[i][6] << "," << vertices[i][7] << ") "
+    << std::endl;
+  }
+  
   setPositionBuffer (pCnt+uvCnt+nCnt, 0);
   setUVBuffer       (pCnt+uvCnt+nCnt, pCnt);
   setNormalBuffer   (pCnt+uvCnt+nCnt, pCnt+uvCnt);
@@ -178,8 +191,8 @@ void BaseObject3D::setUVBuffer(const int vCnt, const int offset) const {
 }
 
 void BaseObject3D::setEachVertexBuffer(const GLuint loc, const int size, const int vCnt, const int offset) const {
-  glVertexAttribPointer(loc, size, GL_FLOAT, GL_FALSE, vCnt*sizeof(GLfloat), (GLfloat*)(offset*sizeof(GLfloat)));
   glEnableVertexAttribArray(loc);
+  glVertexAttribPointer(loc, size, GL_FLOAT, GL_FALSE, vCnt*sizeof(GLfloat), (GLfloat*)(offset*sizeof(GLfloat)));
 }
 
 void BaseObject3D::releaseBuffer() const {

@@ -16,7 +16,7 @@ void TextureLoader::initialize() {
   glEnable(GL_TEXTURE);
   
   std::map<Tex, std::string> imageNames = {
-    { Tex::Stone, "th_sample002" },
+    { Tex::Stone, "BrownStony" },
   };
   
   for (int i=0; i<static_cast<int>(Tex::Num); i++) {

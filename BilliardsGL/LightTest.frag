@@ -23,6 +23,7 @@ void main() {
   // ambient
   float ambientStrength = 0.7f;
   vec3 oColor = vec3(objectColor);
+//  vec3 oColor = vec3(1.0f, 0.0f, 0.0f);
   vec3 ambient = ambientStrength * oColor;
   
   // diffuse
@@ -39,7 +40,9 @@ void main() {
   
   vec3 rv = (ambient + diffuse + specular) * oColor;
   
-//  fc = vec4(rv, objectColor.w);
+  fc = vec4(rv, objectColor.w);
   
-  fc = texture(tex, TexCoord);
+//  fc = texture(tex, TexCoord);
+  
+  fc = texture(tex, TexCoord) * vec4(rv, objectColor.w);
 }
