@@ -10,19 +10,17 @@
 #define Math_h
 
 #include "GlobalHeader.h"
-
-#include "glm/glm.hpp"
+#include <cmath>
 
 union Vector3D;
 union Vector4D;
-union Matrix4D;
+struct Matrix4D;
 
 union Vector3D {
   struct {
     GLfloat x, y, z;
   };
   GLfloat v[3];
-  glm::vec3 vec;
   
 public:
   Vector3D(const GLfloat _x, const GLfloat _y, const GLfloat _z) : x(_x), y(_y), z(_z) { /* do nothing */ }
@@ -61,7 +59,6 @@ union Vector4D {
     GLfloat x, y, z, w;
   };
   GLfloat v[4];
-  glm::vec4 vec;
   
 public:
   Vector4D(const GLfloat _x, const GLfloat _y, const GLfloat _z, const GLfloat _w) : x(_x), y(_y), z(_z), w(_w) { /* do nothing */ }
@@ -77,9 +74,8 @@ public:
 };
 
 
-union Matrix4D {
+struct Matrix4D {
   GLfloat m[4][4];
-  glm::mat4 mat;
   
 public:
   Matrix4D() : Matrix4D::Matrix4D(0.0f) { /* do nothing */ }

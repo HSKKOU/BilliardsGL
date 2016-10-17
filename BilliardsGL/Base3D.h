@@ -9,7 +9,6 @@
 #ifndef Base3D_h
 #define Base3D_h
 
-#include "glm/glm.hpp"
 #include "Matrix.h"
 
 class Base3D {

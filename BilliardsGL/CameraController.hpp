@@ -12,8 +12,6 @@
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
-#include "glm/gtc/matrix_transform.hpp"
-
 class CameraController : public Base3D {
   Vector3D center;
   Vector3D upDir;

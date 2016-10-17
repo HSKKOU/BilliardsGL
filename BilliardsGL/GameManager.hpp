@@ -17,7 +17,6 @@
 
 #include "Square.hpp"
 
-#include "glm/glm.hpp"
 #include "Matrix.h"
 #include "Cube.hpp"
 #include "ObjectManager.hpp"
