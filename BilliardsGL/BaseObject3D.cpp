@@ -91,7 +91,7 @@ void BaseObject3D::setShaderLoc() {
 // related to texture
 void BaseObject3D::setTexture(Tex tex) {
   GLuint textureId = (TextureLoader::instance()).getTextureId(tex);
-  std::cout << "[B3]textureId : " << textureId << std::endl;
+//  std::cout << "[B3]textureId : " << textureId << std::endl;
 }
 
 
@@ -121,14 +121,14 @@ const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+2+3], const G
   GLuint vao = readyVAO();
   setVertexBuffer(vertices, (pCnt+uvCnt+nCnt)*vCnt);
   
-  for (int i=0; i<vCnt; i++) {
-    std::cout
-    << "vs[" << i << "] : "
-    << "(" << vertices[i][0] << "," << vertices[i][1] << "," << vertices[i][2] << ") "
-    << "(" << vertices[i][3] << "," << vertices[i][4] << ") "
-    << "(" << vertices[i][5] << "," << vertices[i][6] << "," << vertices[i][7] << ") "
-    << std::endl;
-  }
+//  for (int i=0; i<vCnt; i++) {
+//    std::cout
+//    << "vs[" << i << "] : "
+//    << "(" << vertices[i][0] << "," << vertices[i][1] << "," << vertices[i][2] << ") "
+//    << "(" << vertices[i][3] << "," << vertices[i][4] << ") "
+//    << "(" << vertices[i][5] << "," << vertices[i][6] << "," << vertices[i][7] << ") "
+//    << std::endl;
+//  }
   
   setPositionBuffer (pCnt+uvCnt+nCnt, 0);
   setUVBuffer       (pCnt+uvCnt+nCnt, pCnt);
