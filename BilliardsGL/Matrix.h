@@ -15,6 +15,7 @@
 union Vector3D;
 union Vector4D;
 struct Matrix4D;
+union Quaternion;
 
 union Vector3D {
   struct {
@@ -74,6 +75,31 @@ public:
 };
 
 
+union Quaternion {
+  struct {
+    GLfloat x, y, z, w;
+  };
+  struct {
+    GLfloat axis[3];
+    GLfloat angle;
+  };
+  GLfloat q[4];
+  
+public:
+  Quaternion() : Quaternion::Quaternion(0.0f, 0.0f, 0.0f, 1.0f) { /* do nothing */ }
+  Quaternion(const GLfloat _x, const GLfloat _y, const GLfloat _z, const GLfloat _w) : x(_x), y(_y), z(_z), w(_w) { /* do nothing */ }
+  Quaternion(const Vector3D axis, const GLfloat angle)
+  : x(axis.x * sinf(angle/2.0f))
+  , y(axis.y * sinf(angle/2.0f))
+  , z(axis.z * sinf(angle/2.0f))
+  , w(cosf(angle/2.0f))
+  { /* do nothing */ }
+  Quaternion(const GLfloat _x, const GLfloat _y, const GLfloat _z) { /* do nothing */ }
+  
+  static Quaternion one() { return Quaternion(0.0f, 0.0f, 0.0f, 1.0f); }
+};
+
+
 struct Matrix4D {
   GLfloat m[4][4];
   
@@ -104,7 +130,6 @@ public:
     return ret;
   }
   
-  
   GLfloat* operator[](int i) { return m[i]; }
   GLfloat& operator()(int i, int j) { return m[i][j]; }
   
@@ -127,6 +152,7 @@ public:
     tm[2][0] = v.x*v.z*_c - v.y*s; tm[2][1] = v.y*v.z*_c + v.x*s; tm[2][2] = v.z*v.z*_c + c    ;
     return tm * m;
   }
+  static Matrix4D rotate(Matrix4D m, Quaternion q) { return fromQuaternion(q) * m; }
   static Matrix4D rotateX(Matrix4D m, GLfloat t) {
     Matrix4D tm = one();
     tm[1][1] = cosf(t);
@@ -159,6 +185,14 @@ public:
     return tm * m;
   }
   
+  static Matrix4D fromQuaternion(Quaternion q) {
+    Matrix4D m = Matrix4D::one();
+    m[0][0] = 1.0f - 2.0f*q.y*q.y - 2.0f*q.z*q.z; m[0][1] = 2.0f*q.x*q.y + 2.0f*q.w*q.z       ; m[0][2] = 2.0f*q.x*q.z - 2.0f*q.w*q.y       ;
+    m[1][0] = 2.0f*q.x*q.y - 2.0f*q.w*q.z       ; m[1][1] = 1.0f - 2.0f*q.x*q.x - 2.0f*q.z*q.z; m[1][2] = 2.0f*q.y*q.z + 2.0f*q.w*q.x       ;
+    m[2][0] = 2.0f*q.x*q.z + 2.0f*q.w*q.y       ; m[2][1] = 2.0f*q.y*q.z - 2.0f*q.w*q.x       ; m[2][2] = 1.0f - 2.0f*q.x*q.x - 2.0f*q.y*q.y;
+    return m;
+  }
+
   void printElem() {
     for (int i=0; i<4; i++) {
       std::cout << m[i][0] << ", " << m[i][1] << ", " << m[i][2] << ", " << m[i][3] << std::endl;

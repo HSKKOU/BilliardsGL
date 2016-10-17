@@ -77,7 +77,7 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
     }
   }
   
-  setObjectColor(Color(1.0f, 1.0f, 1.0, 1.0f));
+  setObjectColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 
   loadShaderProgram();
 
@@ -89,13 +89,6 @@ Cube::~Cube() { /* do nothing */ }
 
 void Cube::draw() {
   drawReady();
-  
-  mvp.model = Matrix4D(1.0f);
-  mvp.model = Matrix4D::translate(mvp.model, Vector3D(sinf((GLfloat)glfwGetTime())*2.0f, 0.0f, 0.0f));
-//  mvp.model = Matrix4D::rotate(mvp.model, Vector3D(1.0f, 1.0f, 1.0f).normalize(), (GLfloat)glfwGetTime());
-//  mvp.model = Matrix4D::scale(mvp.model, Vector3D((GLfloat)glfwGetTime(), 1.0f, (GLfloat)glfwGetTime()));
-  
-//  setObjectColor(Color(0.1f*(GLfloat)glfwGetTime(), 0.0f, 0.0f, 1.0f));
 
   sendMVP2Shd();
   sendColor2Shd();

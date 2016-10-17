@@ -92,6 +92,11 @@ public:
   virtual void drawReady();
   virtual void drawRun(int mode = GL_TRIANGLES);
   
+  virtual void translate(Vector3D dest);
+  virtual void rotate(Vector3D rot);
+  virtual void rotate(Quaternion rot);
+  virtual void scale(Vector3D scl);
+  
 protected:
   void setShaderLoc();
   // for Debug

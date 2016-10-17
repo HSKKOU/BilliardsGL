@@ -35,6 +35,11 @@ void BaseObject3D::drawReady() {
   
   mvp.projection = targetCamera->getProjection();
   mvp.view = targetCamera->getViewMatrix();
+
+  mvp.model = Matrix4D(1.0f);
+  mvp.model = Matrix4D::translate(mvp.model, transform.position);
+  mvp.model = Matrix4D::rotate(mvp.model, transform.rotation);
+  mvp.model = Matrix4D::scale(mvp.model, transform.scale);
 }
 void BaseObject3D::drawRun(int mode) {
   glUseProgram(shaderProgram);
@@ -61,6 +66,22 @@ void BaseObject3D::sendLightInfo2Shd() const {
 }
 
 void BaseObject3D::sendCameraPos2Shd() const { glUniform3fv(sLocs.cameraPosLoc, 1, (targetCamera->getPosition()).v); }
+
+
+
+
+
+// related to transform
+void BaseObject3D::translate(Vector3D dest) { transform.position = dest; }
+void BaseObject3D::rotate(Vector3D rot) {
+  // TODO: impl ealer -> quaternion
+//  transform.rotation = rot;
+}
+void BaseObject3D::rotate(Quaternion rot) { transform.rotation = rot; }
+void BaseObject3D::scale(Vector3D scl) { transform.scale = scl; }
+
+
+
 
 
 // related to shader

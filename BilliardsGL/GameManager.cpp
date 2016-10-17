@@ -77,7 +77,7 @@ void GameManager::startMainLoop() {
 
   
   // for Debug create objects
-  BaseObject3D* object = objectManager.instantiateObject(ObjectType::CUBE);
+  object = objectManager.instantiateObject(ObjectType::CUBE);
   object->loadShaderProgram("LightTest.vert", "LightTest.frag");
   object->setTexture(Tex::Stone);
 //  BaseObject3D* object2 = objectManager.instantiateObject(ObjectType::SPHERE);
@@ -97,6 +97,11 @@ void GameManager::mainLoop() {
   
   // Managers update
   lightManager.updateLights();
+  
+  object->translate(Vector3D::right() * glfwGetTime());
+  object->rotate(Quaternion((Vector3D(1.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
+  GLfloat scl = sinf(glfwGetTime()*2.0f) / 4.0f + 0.75f;
+  object->scale(Vector3D(scl, scl, scl));
   objectManager.updateObject();
 
   // finish this frame, change another drawing buffer

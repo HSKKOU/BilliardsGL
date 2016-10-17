@@ -22,7 +22,7 @@ CameraController::~CameraController() {
 }
 
 Matrix4D CameraController::getViewMatrix() {
-  Vector3D f = (center - position).normalize();
+  Vector3D f = (center - transform.position).normalize();
   Vector3D s = f.cross(upDir).normalize();
   Vector3D u = s.cross(f);
   
@@ -36,14 +36,14 @@ Matrix4D CameraController::getViewMatrix() {
   view[0][2] =-f.x;
   view[1][2] =-f.y;
   view[2][2] =-f.z;
-  view[3][0] =-s.dot(position);
-  view[3][1] =-u.dot(position);
-  view[3][2] = f.dot(position);
+  view[3][0] =-s.dot(transform.position);
+  view[3][1] =-u.dot(transform.position);
+  view[3][2] = f.dot(transform.position);
   
   return view;
 }
 
-Vector3D CameraController::getDirection() { return center - position; }
+Vector3D CameraController::getDirection() { return center - transform.position; }
 
 void CameraController::lookAt(Vector3D targetPos) { center = targetPos; }
 
