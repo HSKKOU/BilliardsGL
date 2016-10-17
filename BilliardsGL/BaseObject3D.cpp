@@ -42,10 +42,9 @@ void BaseObject3D::drawRun(int mode) {
   glDrawArrays(mode, 0, vertices.count);
   
   glBindVertexArray(0);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
   for (int i=0; i<static_cast<int>(AttribLoc::NUM); i++) { glDisableVertexAttribArray(i); }
   glFlush();
+//  glUseProgram(0);
 }
 
 void BaseObject3D::sendMVP2Shd() {
