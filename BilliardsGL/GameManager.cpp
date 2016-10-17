@@ -92,11 +92,8 @@ void GameManager::startMainLoop() {
 
 
 void GameManager::mainLoop() {
-  // clear buffer bit
-  window->resetBuffer();
-
-  // enable "DEPTH_BUFFER", "CULL_FACE"
-  window->readyWindow();
+  // clear buffer,  enable "DEPTH_BUFFER, CULL_FACE"
+  window->resetWindow();
   
   // Managers update
   lightManager.updateLights();

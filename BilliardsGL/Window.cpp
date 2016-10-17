@@ -48,12 +48,10 @@ void Window::swapBuffers() {
   glDisable(GL_CULL_FACE);
 }
 
-void Window::readyWindow() {
+void Window::resetWindow() {
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
-}
-void Window::resetBuffer() {
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 const GLfloat* Window::getSize() const { return size; }

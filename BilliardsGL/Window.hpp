@@ -25,8 +25,7 @@ public:
   const GLfloat *getSize() const;
   const GLfloat getScale() const;
   
-  void readyWindow();
-  void resetBuffer();
+  void resetWindow();
   
   void getFrameSize(int *width, int *height);
 };
