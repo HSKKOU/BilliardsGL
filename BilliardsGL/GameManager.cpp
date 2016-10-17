@@ -53,9 +53,6 @@ void GameManager::initialize() {
 }
 
 void GameManager::startMainLoop() {
-  // enable "DEPTH_BUFFER", "CULL_FACE"
-  window->readyWindow();
-  
   // initialize TextureLoader
   TextureLoader &textureLoader = TextureLoader::instance();
   textureLoader.initialize();
@@ -95,11 +92,16 @@ void GameManager::startMainLoop() {
 
 
 void GameManager::mainLoop() {
+  // clear buffer bit
   window->resetBuffer();
+
+  // enable "DEPTH_BUFFER", "CULL_FACE"
+  window->readyWindow();
   
+  // Managers update
   lightManager.updateLights();
   objectManager.updateObject();
 
-  // change another drawing buffer
+  // finish this frame, change another drawing buffer
   window->swapBuffers();
 }
