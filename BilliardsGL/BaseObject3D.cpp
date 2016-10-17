@@ -44,9 +44,7 @@ void BaseObject3D::drawRun(int mode) {
   glBindVertexArray(0);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
-  glDisableVertexAttribArray(2);
-  glDisableVertexAttribArray(1);
-  glDisableVertexAttribArray(0);
+  for (int i=0; i<static_cast<int>(AttribLoc::NUM); i++) { glDisableVertexAttribArray(i); }
   glFlush();
 }
 
