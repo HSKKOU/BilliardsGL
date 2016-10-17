@@ -19,7 +19,4 @@ int main(int argc, const char * argv[]) {
 
   // Start Game
   gameManager.startMainLoop();
-  
-  // Finish Game
-  gameManager.finishMainLoop();
 }
