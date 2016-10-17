@@ -38,9 +38,9 @@ class GameManager : public Singleton<GameManager> {
   FPSCounter &fps;
   
 public:
+  virtual ~GameManager();
   void initialize();
   void startMainLoop();
-  void finishMainLoop();
   
 private:
   GameManager();

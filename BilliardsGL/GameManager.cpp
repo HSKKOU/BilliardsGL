@@ -15,6 +15,11 @@ GameManager::GameManager()
 , fps(FPSCounter::instance())
 { /* do nothing */ }
 
+GameManager::~GameManager() {
+  delete window;
+  window = nullptr;
+}
+
 void GameManager::initialize() {
   // initialize GLFW
   if (glfwInit() == GL_FALSE) {
@@ -97,9 +102,4 @@ void GameManager::mainLoop() {
 
   // change another drawing buffer
   window->swapBuffers();
-}
-
-void GameManager::finishMainLoop() {
-  delete window;
-  window = nullptr;
 }
