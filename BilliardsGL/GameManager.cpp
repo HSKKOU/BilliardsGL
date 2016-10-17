@@ -35,6 +35,10 @@ void GameManager::startMainLoop() {
   // enable "DEPTH_BUFFER", "CULL_FACE"
   window->readyWindow();
   
+  // initialize TextureLoader
+  TextureLoader &textureLoader = TextureLoader::instance();
+  textureLoader.initialize();
+  
   // set main camera
   CameraController *mainCamera = new CameraController(Vector3D(0.0f,4.0f,10.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,1.0f,0.0f));
   mainCamera->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
@@ -55,9 +59,10 @@ void GameManager::startMainLoop() {
 
   
   // for Debug create CUBE object
-//  BaseObject3D* object = objectManager.instantiateObject(ObjectType::CUBE);
-  BaseObject3D* object = objectManager.instantiateObject(ObjectType::SPHERE);
+  BaseObject3D* object = objectManager.instantiateObject(ObjectType::CUBE);
+//  BaseObject3D* object = objectManager.instantiateObject(ObjectType::SPHERE);
   object->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  object->setTexture(Tex::Stone);
   
   // game loop
   while (window->shouldClose() == GL_FALSE) {

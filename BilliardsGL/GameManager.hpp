@@ -25,6 +25,8 @@
 #include "LightManager.hpp"
 #include "CameraManager.hpp"
 
+#include "TextureLoader.hpp"
+
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
   

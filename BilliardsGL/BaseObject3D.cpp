@@ -41,6 +41,7 @@ void BaseObject3D::drawRun(int mode) {
   glBindVertexArray(vertices.vao);
   glDrawArrays(mode, 0, vertices.count);
   glFlush();
+  glBindVertexArray(0);
 }
 
 void BaseObject3D::sendMVP2Shd() {
@@ -79,6 +80,15 @@ void BaseObject3D::setShaderLoc() {
   
   sLocs.cameraPosLoc = glGetUniformLocation(shaderProgram, "cameraPos");
 }
+
+
+// related to texture
+void BaseObject3D::setTexture(Tex tex) {
+  GLuint textureId = (TextureLoader::instance()).getTextureId(tex);
+  std::cout << "[B3]textureId : " << textureId << std::endl;
+}
+
+
 
 const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt) {
   GLuint vao;
@@ -157,6 +167,38 @@ const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3], const GLuin
   // position
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, pCnt*sizeof(GLfloat), (GLvoid*)0);
   glEnableVertexAttribArray(0);
+  
+  // release buffer
+  glBindVertexArray(0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  
+  return vao;
+}
+
+const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+2+3], const GLuint vCnt, const int pCnt, const int nCnt, const int uvCnt) {
+  GLuint vao;
+  glGenVertexArrays(1, &vao);
+  glBindVertexArray(vao);
+  
+  GLuint vertexBuffer;
+  glGenBuffers(1, &vertexBuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*(pCnt+nCnt+uvCnt)*vCnt, vertices, GL_STATIC_DRAW);
+  
+  
+  // position
+  glVertexAttribPointer(0, pCnt, GL_FLOAT, GL_FALSE, (pCnt+nCnt+uvCnt)*sizeof(GLfloat), (GLfloat*)0);
+  glEnableVertexAttribArray(0);
+  
+  // uv
+  glBindAttribLocation(shaderProgram, 1, "uv");
+  glVertexAttribPointer(2, uvCnt, GL_FLOAT, GL_FALSE, (pCnt+nCnt+uvCnt)*sizeof(GLfloat), (GLfloat*)(pCnt*sizeof(GLfloat)));
+  glEnableVertexAttribArray(2);
+  
+  // normal
+//  glBindAttribLocation(shaderProgram, 2, "normal");
+//  glVertexAttribPointer(1, nCnt, GL_FLOAT, GL_FALSE, (pCnt+nCnt+uvCnt)*sizeof(GLfloat), (GLfloat*)((pCnt+uvCnt)*sizeof(GLfloat)));
+//  glEnableVertexAttribArray(1);
   
   // release buffer
   glBindVertexArray(0);

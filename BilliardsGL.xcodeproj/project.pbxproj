@@ -12,6 +12,7 @@
 		0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607061DA75393000031BA /* ObjectManager.cpp */; };
 		0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */; };
 		0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070E1DA78FD6000031BA /* Sphere.cpp */; };
+		0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607161DAF6888000031BA /* TextureLoader.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
@@ -54,6 +55,8 @@
 		0D76070C1DA75D1E000031BA /* ObjectFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObjectFactory.hpp; sourceTree = "<group>"; };
 		0D76070E1DA78FD6000031BA /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		0D76070F1DA78FD6000031BA /* Sphere.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
+		0D7607161DAF6888000031BA /* TextureLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
+		0D7607171DAF6888000031BA /* TextureLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
 		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.vert; sourceTree = "<group>"; };
 		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
 		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */,
 				0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */,
 				0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */,
+				0D7607161DAF6888000031BA /* TextureLoader.cpp */,
+				0D7607171DAF6888000031BA /* TextureLoader.hpp */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */,
 				0DF2A1CF1D97E95F00303E07 /* BaseObject3D.cpp in Sources */,
 				0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */,
+				0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */,
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
@@ -437,9 +443,11 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = ./BilliardsGL/library/include;
 				LIBRARY_SEARCH_PATHS = ./BilliardsGL/library/lib;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lglfw3",
 					"-lGLEW",
+					"-lSOIL",
 					"-framework",
 					OpenGL,
 					"-framework",
@@ -458,9 +466,11 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = ./BilliardsGL/library/include;
 				LIBRARY_SEARCH_PATHS = ./BilliardsGL/library/lib;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lglfw3",
 					"-lGLEW",
+					"-lSOIL",
 					"-framework",
 					OpenGL,
 					"-framework",

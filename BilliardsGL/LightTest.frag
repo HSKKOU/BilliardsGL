@@ -7,8 +7,12 @@ uniform vec4 lightColor;
 
 uniform vec3 cameraPos;
 
+uniform sampler2D tex;
+
 in vec3 objectNormal;
 in vec3 fragPos;
+
+in vec2 TexCoord;
 
 out vec4 fc;
 
@@ -35,5 +39,7 @@ void main() {
   
   vec3 rv = (ambient + diffuse + specular) * oColor;
   
-  fc = vec4(rv, objectColor.w);
+//  fc = vec4(rv, objectColor.w);
+  
+  fc = texture(tex, TexCoord);
 }
