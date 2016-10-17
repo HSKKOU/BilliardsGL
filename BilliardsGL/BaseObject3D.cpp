@@ -40,8 +40,10 @@ void BaseObject3D::drawRun(int mode) {
   glUseProgram(shaderProgram);
   glBindVertexArray(vertices.vao);
   glDrawArrays(mode, 0, vertices.count);
-  glFlush();
   glBindVertexArray(0);
+  glDisableVertexAttribArray(0);
+  glDisableVertexAttribArray(1);
+  glDisableVertexAttribArray(2);
 }
 
 void BaseObject3D::sendMVP2Shd() {
@@ -90,119 +92,97 @@ void BaseObject3D::setTexture(Tex tex) {
 
 
 
-const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt) {
-  GLuint vao;
-  glGenVertexArrays(1, &vao);
-  glBindVertexArray(vao);
+const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3], const GLuint vCnt, const int pCnt) {
+  GLuint vao = readyVAO();
+  setVertexBuffer(vertices, pCnt*vCnt);
   
-  GLuint vertexBuffer;
-  glGenBuffers(1, &vertexBuffer);
-  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*(pCnt+cCnt+nCnt)*vCnt, vertices, GL_STATIC_DRAW);
+  setPositionBuffer (pCnt, 0);
   
-  glBindAttribLocation(shaderProgram, 1, "color");
-  glBindAttribLocation(shaderProgram, 2, "normal");
-  
-  // position
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, (pCnt+cCnt+nCnt)*sizeof(GLfloat), (GLvoid*)0);
-  glEnableVertexAttribArray(0);
-
-  // color
-  glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, (pCnt+cCnt+nCnt)*sizeof(GLfloat), (GLvoid*)(pCnt*sizeof(GLfloat)));
-  glEnableVertexAttribArray(1);
-  
-  // normal
-  glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, (pCnt+cCnt+nCnt)*sizeof(GLfloat), (GLvoid*)((pCnt+cCnt)*sizeof(GLfloat)));
-  glEnableVertexAttribArray(2);
-
-  // release buffer
-  glBindVertexArray(0);
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
-
+  releaseBuffer();
   return vao;
 }
 
 const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt) {
-  GLuint vao;
-  glGenVertexArrays(1, &vao);
-  glBindVertexArray(vao);
+  GLuint vao = readyVAO();
+  setVertexBuffer(vertices, (pCnt+nCnt)*vCnt);
   
-  GLuint vertexBuffer;
-  glGenBuffers(1, &vertexBuffer);
-  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*(pCnt+nCnt)*vCnt, vertices, GL_STATIC_DRAW);
+  setPositionBuffer (pCnt+nCnt, 0);
+  setNormalBuffer   (pCnt+nCnt, pCnt);
   
-  glBindAttribLocation(shaderProgram, 1, "normal");
-  
-  // position
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, (pCnt+nCnt)*sizeof(GLfloat), (GLvoid*)0);
-  glEnableVertexAttribArray(0);
-  
-  // normal
-  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, (pCnt+nCnt)*sizeof(GLfloat), (GLvoid*)(pCnt*sizeof(GLfloat)));
-  glEnableVertexAttribArray(1);
-  
-  // release buffer
-  glBindVertexArray(0);
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
-  
+  releaseBuffer();
   return vao;
 }
 
-const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3], const GLuint vCnt, const int pCnt) {
-  for (int i=0; i<vCnt; i++) {
-    std::cout << "vPos["<<i<<"]" << std::endl;
-    std::cout << vertices[i][0] << ", " << vertices[i][1] << ", " << vertices[i][2] << std::endl;
-  }
-
-  GLuint vao;
-  glGenVertexArrays(1, &vao);
-  glBindVertexArray(vao);
+const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+2+3], const GLuint vCnt, const int pCnt, const int uvCnt, const int nCnt) {
+  GLuint vao = readyVAO();
+  setVertexBuffer(vertices, (pCnt+uvCnt+nCnt)*vCnt);
   
-  GLuint vertexBuffer;
-  glGenBuffers(1, &vertexBuffer);
-  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*pCnt*vCnt, vertices, GL_STATIC_DRAW);
+  setPositionBuffer (pCnt+uvCnt+nCnt, 0);
+  setUVBuffer       (pCnt+uvCnt+nCnt, pCnt);
+  setNormalBuffer   (pCnt+uvCnt+nCnt, pCnt+uvCnt);
   
-  // position
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, pCnt*sizeof(GLfloat), (GLvoid*)0);
-  glEnableVertexAttribArray(0);
-  
-  // release buffer
-  glBindVertexArray(0);
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
-  
+  releaseBuffer();
   return vao;
 }
 
-const GLuint BaseObject3D::createModel(const GLfloat (*vertices)[3+2+3], const GLuint vCnt, const int pCnt, const int nCnt, const int uvCnt) {
+
+
+
+
+GLuint BaseObject3D::readyVAO() const {
   GLuint vao;
   glGenVertexArrays(1, &vao);
   glBindVertexArray(vao);
-  
+  return vao;
+}
+
+GLuint BaseObject3D::setVertexBuffer(const GLfloat (*vertices)[3], const int vSize) const {
   GLuint vertexBuffer;
   glGenBuffers(1, &vertexBuffer);
   glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*(pCnt+nCnt+uvCnt)*vCnt, vertices, GL_STATIC_DRAW);
-  
-  
-  // position
-  glVertexAttribPointer(0, pCnt, GL_FLOAT, GL_FALSE, (pCnt+nCnt+uvCnt)*sizeof(GLfloat), (GLfloat*)0);
-  glEnableVertexAttribArray(0);
-  
-  // uv
-  glBindAttribLocation(shaderProgram, 1, "uv");
-  glVertexAttribPointer(2, uvCnt, GL_FLOAT, GL_FALSE, (pCnt+nCnt+uvCnt)*sizeof(GLfloat), (GLfloat*)(pCnt*sizeof(GLfloat)));
-  glEnableVertexAttribArray(2);
-  
-  // normal
-//  glBindAttribLocation(shaderProgram, 2, "normal");
-//  glVertexAttribPointer(1, nCnt, GL_FLOAT, GL_FALSE, (pCnt+nCnt+uvCnt)*sizeof(GLfloat), (GLfloat*)((pCnt+uvCnt)*sizeof(GLfloat)));
-//  glEnableVertexAttribArray(1);
-  
-  // release buffer
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vSize, vertices, GL_STATIC_DRAW);
+  return vertexBuffer;
+}
+
+GLuint BaseObject3D::setVertexBuffer(const GLfloat (*vertices)[3+3], const int vSize) const {
+  GLuint vertexBuffer;
+  glGenBuffers(1, &vertexBuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vSize, vertices, GL_STATIC_DRAW);
+  return vertexBuffer;
+}
+
+GLuint BaseObject3D::setVertexBuffer(const GLfloat (*vertices)[3+2+3], const int vSize) const {
+  GLuint vertexBuffer;
+  glGenBuffers(1, &vertexBuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vSize, vertices, GL_STATIC_DRAW);
+  return vertexBuffer;
+}
+
+void BaseObject3D::setPositionBuffer(const int vCnt, const int offset) const {
+  GLuint loc = static_cast<GLuint>(AttribLoc::POSITION);
+  setEachVertexBuffer(loc, 3, vCnt, offset);
+}
+
+void BaseObject3D::setNormalBuffer(const int vCnt, const int offset) const {
+  GLuint loc = static_cast<GLuint>(AttribLoc::NORMAL);
+  glBindAttribLocation(shaderProgram, loc, "normal");
+  setEachVertexBuffer(loc, 3, vCnt, offset);
+}
+
+void BaseObject3D::setUVBuffer(const int vCnt, const int offset) const {
+  GLuint loc = static_cast<GLuint>(AttribLoc::UV);
+  glBindAttribLocation(shaderProgram, loc, "uv");
+  setEachVertexBuffer(loc, 2, vCnt, offset);
+}
+
+void BaseObject3D::setEachVertexBuffer(const GLuint loc, const int size, const int vCnt, const int offset) const {
+  glVertexAttribPointer(loc, size, GL_FLOAT, GL_FALSE, vCnt*sizeof(GLfloat), (GLfloat*)(offset*sizeof(GLfloat)));
+  glEnableVertexAttribArray(loc);
+}
+
+void BaseObject3D::releaseBuffer() const {
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
-  
-  return vao;
 }

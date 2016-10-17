@@ -19,6 +19,13 @@
 
 #include "LightManager.hpp"
 
+enum class AttribLoc : GLuint {
+  POSITION = 0,
+  NORMAL,
+  UV,
+  NUM
+};
+
 struct Vertices {
   GLuint vao;
   GLsizei count;
@@ -87,10 +94,11 @@ public:
   
 protected:
   void setShaderLoc();
-  virtual const GLuint createModel(const GLfloat (*vertices)[3+4+3], const GLuint vCnt, const int pCnt, const int cCnt, const int nCnt);
-  virtual const GLuint createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt);
+  // for Debug
   virtual const GLuint createModel(const GLfloat (*vertices)[3], const GLuint vCnt, const int pCnt);
-  virtual const GLuint createModel(const GLfloat (*vertices)[3+2+3], const GLuint vCnt, const int pCnt, const int nCnt, const int uvCnt);
+  // for Debug
+  virtual const GLuint createModel(const GLfloat (*vertices)[3+3], const GLuint vCnt, const int pCnt, const int nCnt);
+  virtual const GLuint createModel(const GLfloat (*vertices)[3+2+3], const GLuint vCnt, const int pCnt, const int uvCnt, const int nCnt);
 
   void sendMVP2Shd();
   void sendColor2Shd() const;
@@ -99,9 +107,17 @@ protected:
   
 private:
   GLuint readyVAO() const;
-  void setVertexBuffer(const GLuint vCnt, const GLfloat (*position)[3]) const;
-  void setColorBuffer(const GLuint cCnt, const GLfloat (*color)[4]) const;
-  void releaseVAO() const;
+  // for Debug
+  GLuint setVertexBuffer(const GLfloat (*vertices)[3], const int vSize) const;
+  // for Debug
+  GLuint setVertexBuffer(const GLfloat (*vertices)[3+3], const int vSize) const;
+  // for Debug
+  GLuint setVertexBuffer(const GLfloat (*vertices)[3+2+3], const int vSize) const;
+  void setPositionBuffer(const int vCnt, const int offset) const;
+  void setNormalBuffer(const int vCnt, const int offset) const;
+  void setUVBuffer(const int vCnt, const int offset) const;
+  void setEachVertexBuffer(const GLuint loc, const int size, const int vCnt, const int offset) const;
+  void releaseBuffer() const;
 };
 
 #endif /* BaseObject3D_hpp */
