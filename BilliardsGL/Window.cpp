@@ -43,13 +43,17 @@ void Window::swapBuffers() {
     double x, y;
     glfwGetCursorPos(window, &x, &y);
   }
+  
+  glDisable(GL_DEPTH_TEST);
+  glDisable(GL_CULL_FACE);
 }
 
-void Window::readyWindow() {
-  glEnable(GL_DEPTH_BUFFER);
+void Window::readyWindow() { /* do nothing */ }
+void Window::resetBuffer() {
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
 }
-void Window::resetBuffer() { glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); }
 
 const GLfloat* Window::getSize() const { return size; }
 const GLfloat Window::getScale() const { return scale; }
