@@ -19,8 +19,8 @@
 
 #include "Matrix.h"
 #include "Cube.hpp"
-#include "ObjectManager.hpp"
 
+#include "ObjectManager.hpp"
 #include "LightManager.hpp"
 #include "CameraManager.hpp"
 
