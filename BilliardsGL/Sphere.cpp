@@ -32,7 +32,7 @@ Sphere::Sphere(const Vector3D _center, const GLfloat _radius, const int _slices,
   
   loadShaderProgram();
   
-  vertices.count = sizeof(vPos)/sizeof(vPos[0]);
+  vertices.count = (GLsizei)(sizeof(vPos)/sizeof(vPos[0]));
   vertices.vao = createModel(vPos, vertices.count, 3, 3);
 }
 
