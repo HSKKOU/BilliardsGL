@@ -41,7 +41,7 @@ void GameManager::initialize() {
   window = new Window(640, 640, "BilliardGL");
   
   // set background color
-  glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+  glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
   
   // FPS initialize
   fps.initialize(glfwGetTime());
@@ -66,7 +66,7 @@ void GameManager::startMainLoop() {
   // set main light
   LightControllerBase *light0 = new DirectionalLightController
   (
-   Vector3D(0.0f, 3.0f, 0.0f),
+   Vector3D(0.0f, 10.0f, 0.0f),
    Vector3D::one(),
    Vector3D::one(),
    Vector3D::one()*0.25f,
@@ -89,7 +89,7 @@ void GameManager::startMainLoop() {
 
   object3 = objectManager.instantiateObject(ObjectType::SPHERE);
   object3->loadShaderProgram("LightTest.vert", "LightTest.frag");
-  object3->setTexture(Tex::Color4);
+  object3->setTexture(Tex::Ball09);
   object3->setObjectColor(Color::one());
   
   // game loop
@@ -116,7 +116,8 @@ void GameManager::mainLoop() {
   object2->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
 
   object3->translate(Vector3D::up() * sinf(glfwGetTime()));
-  object3->rotate(Quaternion((Vector3D(0.0f, 0.0f, 1.0f)).normalize(), glfwGetTime()));
+  object3->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), M_PI/2));
+//  object3->rotate(Quaternion((Vector3D(0.0f, 0.0f, 1.0f)).normalize(), glfwGetTime()));
   
   objectManager.updateObject();
 

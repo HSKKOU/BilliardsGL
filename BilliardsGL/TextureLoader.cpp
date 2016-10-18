@@ -18,6 +18,8 @@ void TextureLoader::initialize() {
   std::map<Tex, std::string> imageNames = {
     { Tex::Stone , "BrownStony" },
     { Tex::Color4, "Color4"     },
+    { Tex::Ball01, "Ball01"     },
+    { Tex::Ball09, "Ball09"     }
   };
   
   for (int i=0; i<static_cast<int>(Tex::Num); i++) {

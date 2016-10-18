@@ -19,12 +19,12 @@ Sphere::Sphere(const Vector3D _center, const GLfloat _radius, const int _slices,
     for (int j=0; j<_slices; j++) {
       int index = (i+_stacks*j)*2*3;
       setVPos(vPos[index+0], i  , j  , _stacks, _slices, angStack, angSlice);
-      setVPos(vPos[index+1], i+1, j  , _stacks, _slices, angStack, angSlice);
-      setVPos(vPos[index+2], i  , j+1, _stacks, _slices, angStack, angSlice);
+      setVPos(vPos[index+1], i  , j+1, _stacks, _slices, angStack, angSlice);
+      setVPos(vPos[index+2], i+1, j  , _stacks, _slices, angStack, angSlice);
 
       setVPos(vPos[index+3], i  , j+1, _stacks, _slices, angStack, angSlice);
-      setVPos(vPos[index+4], i+1, j  , _stacks, _slices, angStack, angSlice);
-      setVPos(vPos[index+5], i+1, j+1, _stacks, _slices, angStack, angSlice);
+      setVPos(vPos[index+4], i+1, j+1, _stacks, _slices, angStack, angSlice);
+      setVPos(vPos[index+5], i+1, j  , _stacks, _slices, angStack, angSlice);
     }
   }
   
@@ -39,13 +39,13 @@ void Sphere::setVPos(GLfloat *vPos, int ist, int jsl, int stk, int slc, float as
   float sliceAng = asl * jsl;
   
   // position
-  vPos[    0] = radius * sinf(stackAng) * cosf(sliceAng);
+  vPos[    0] = radius * sinf(stackAng) *  cosf(sliceAng);
   vPos[    1] = radius * cosf(stackAng);
-  vPos[    2] = radius * sinf(stackAng) * sinf(sliceAng);
+  vPos[    2] = radius * sinf(stackAng) * -sinf(sliceAng);
 
   // uv
-  vPos[3+  0] = (float)ist/stk;
-  vPos[3+  1] = (float)jsl/slc;
+  vPos[3+  0] = (float)jsl/slc;
+  vPos[3+  1] = (float)ist/stk;
   
   // normal
   vPos[3+2+0] = vPos[0];
