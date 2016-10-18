@@ -24,7 +24,7 @@ void TextureLoader::initialize() {
   
   for (int i=0; i<static_cast<int>(Tex::Num); i++) {
     Tex tex = static_cast<Tex>(i);
-    std::string imagePath = "./Resources/Textures/" + imageNames[tex] + ".bmp";
+    std::string imagePath = "./Resources/Textures/" + imageNames[tex] + ".png";
     GLuint tId = loadTexture(imagePath.c_str());
     textureDict[tex] = tId;
 //    std::cout << "texture load " << tId << " : " << imagePath << std::endl;
