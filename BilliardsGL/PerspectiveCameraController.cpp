@@ -25,7 +25,8 @@ void PerspectiveCameraController::setPerspective(const GLfloat _fovy, const GLfl
 }
 
 void PerspectiveCameraController::calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) {
-  const GLfloat tanHalfFovy = tanf(_fovy / 2.0f);
+  const float fovyRad = _fovy / 180.0f * M_PI;
+  const GLfloat tanHalfFovy = tanf(fovyRad / 2.0f);
   const GLfloat dz = _zNear - _zFar;
   const GLfloat f = _zFar;
   const GLfloat n = _zNear;
