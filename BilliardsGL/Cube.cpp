@@ -93,10 +93,7 @@ void Cube::draw() {
   sendMVP2Shd();
   sendColor2Shd();
   sendLightInfo2Shd();
-
-  GLuint texId = (TextureLoader::instance()).getTextureId(Tex::Stone);
-  glBindTexture(GL_TEXTURE_2D, texId);
-  glDrawElements(GL_TRIANGLES, 6*2*3, GL_UNSIGNED_INT, 0);
+  sendTexture2Shd();
   
   drawRun();
 }
