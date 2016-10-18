@@ -87,6 +87,8 @@ void GameManager::startMainLoop() {
 
   object3 = objectManager.instantiateObject(ObjectType::SPHERE);
   object3->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  object3->setTexture(Tex::Color4);
+  object3->setObjectColor(Color::one());
   
   // game loop
   while (window->shouldClose() == GL_FALSE) {

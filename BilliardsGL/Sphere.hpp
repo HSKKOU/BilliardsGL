@@ -20,7 +20,7 @@ public:
   virtual void draw();
   
 private:
-  void setVPos(GLfloat *vPos, float ast, float asl);
+  void setVPos(GLfloat *vPos, int ist, int jsl, int stk, int slc, float ast, float asl);
 };
 
 #endif /* Sphere_hpp */
