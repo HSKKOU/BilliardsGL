@@ -42,6 +42,7 @@ void BaseObject3D::drawReady() {
   mvp.model = Matrix4D::rotate(mvp.model, transform.rotation);
   mvp.model = Matrix4D::scale(mvp.model, transform.scale);
 }
+
 void BaseObject3D::drawRun(int mode) {
   glUseProgram(shaderProgram);
   glBindVertexArray(vertices.vao);
@@ -53,6 +54,12 @@ void BaseObject3D::drawRun(int mode) {
 //  glUseProgram(0);
 }
 
+void BaseObject3D::sendParams2Shd() {
+  sendMVP2Shd();
+  sendColor2Shd();
+  sendLightInfo2Shd();
+  sendTexture2Shd();
+}
 void BaseObject3D::sendMVP2Shd() {
   glUniformMatrix4fv(sLocs.projectionLoc, 1, GL_FALSE, &mvp.projection[0][0]);
   glUniformMatrix4fv(sLocs.viewLoc, 1, GL_FALSE, &mvp.view[0][0]);

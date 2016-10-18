@@ -52,16 +52,6 @@ Sphere::~Sphere() { /* do nothing */ }
 
 void Sphere::draw() {
   drawReady();
-  
-  mvp.model = Matrix4D(1.0f);
-  mvp.model = Matrix4D::translate(mvp.model, Vector3D((GLfloat)glfwGetTime()*0.3f, 0.0f, 0.0f));
-  mvp.model = Matrix4D::rotate(mvp.model, Vector3D(1.0f, 1.0f, 1.0f).normalize(), (GLfloat)glfwGetTime());
-  
-//  setObjectColor(Color(0.1f*(GLfloat)glfwGetTime(), 0.0f, 0.0f, 1.0f));
-  
-  sendMVP2Shd();
-  sendColor2Shd();
-  sendLightInfo2Shd();
-  
+  sendParams2Shd();
   drawRun();
 }

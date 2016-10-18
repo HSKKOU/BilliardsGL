@@ -96,6 +96,7 @@ public:
   
   virtual void draw() = 0;
   virtual void drawReady();
+  virtual void sendParams2Shd();
   virtual void drawRun(int mode = GL_TRIANGLES);
   
   virtual void translate(Vector3D dest);

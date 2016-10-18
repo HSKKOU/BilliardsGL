@@ -85,7 +85,7 @@ void GameManager::startMainLoop() {
   object2->loadShaderProgram("LightTest.vert", "LightTest.frag");
   object2->setTexture(Tex::Stone);
 
-  BaseObject3D* object3 = objectManager.instantiateObject(ObjectType::SPHERE);
+  object3 = objectManager.instantiateObject(ObjectType::SPHERE);
   object3->loadShaderProgram("LightTest.vert", "LightTest.frag");
   
   // game loop
@@ -111,6 +111,8 @@ void GameManager::mainLoop() {
   object2->translate(Vector3D::left() * glfwGetTime());
   object2->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
 
+  object3->translate(Vector3D::up() * sinf(glfwGetTime()));
+  
   objectManager.updateObject();
 
   // finish this frame, change another drawing buffer

@@ -89,11 +89,6 @@ Cube::~Cube() { /* do nothing */ }
 
 void Cube::draw() {
   drawReady();
-
-  sendMVP2Shd();
-  sendColor2Shd();
-  sendLightInfo2Shd();
-  sendTexture2Shd();
-  
+  sendParams2Shd();
   drawRun();
 }
