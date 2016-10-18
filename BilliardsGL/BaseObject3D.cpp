@@ -30,13 +30,13 @@ void BaseObject3D::setObjectColor(Color c) { objectColor = c; }
 
 // drawing methods
 void BaseObject3D::drawReady() {
-  glMatrixMode(GL_MODELVIEW_MATRIX);
-  glLoadIdentity();
-  glPushMatrix();
+  // set vertices and shader
+  glUseProgram(shaderProgram);
+  glBindVertexArray(vertices.vao);
   
+  // reset MVP matrix
   mvp.projection = targetCamera->getProjectionMatrix();
   mvp.view = targetCamera->getViewMatrix();
-
   mvp.model = Matrix4D(1.0f);
   mvp.model = Matrix4D::translate(mvp.model, transform.position);
   mvp.model = Matrix4D::rotate(mvp.model, transform.rotation);
@@ -44,15 +44,13 @@ void BaseObject3D::drawReady() {
 }
 
 void BaseObject3D::drawRun(int mode) {
-  glUseProgram(shaderProgram);
-  glBindVertexArray(vertices.vao);
   glDrawArrays(mode, 0, vertices.count);
   
-  glPopMatrix();
+  // release drawing buffers
   glBindVertexArray(0);
   for (int i=0; i<static_cast<int>(AttribLoc::NUM); i++) { glDisableVertexAttribArray(i); }
+  glUseProgram(0);
   glFlush();
-//  glUseProgram(0);
 }
 
 void BaseObject3D::sendParams2Shd() {

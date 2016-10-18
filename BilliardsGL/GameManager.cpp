@@ -78,12 +78,14 @@ void GameManager::startMainLoop() {
   
   // for Debug create objects
   object = objectManager.instantiateObject(ObjectType::CUBE);
-  object->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  object->loadShaderProgram("Sample001.vert", "Sample001.frag");
   object->setTexture(Tex::Stone);
+  object->setObjectColor(Color::one());
   
   object2 = objectManager.instantiateObject(ObjectType::CUBE);
-  object2->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  object2->loadShaderProgram("Sample002.vert", "Sample002.frag");
   object2->setTexture(Tex::Stone);
+  object2->setObjectColor(Color::one());
 
   object3 = objectManager.instantiateObject(ObjectType::SPHERE);
   object3->loadShaderProgram("LightTest.vert", "LightTest.frag");
@@ -114,7 +116,7 @@ void GameManager::mainLoop() {
   object2->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
 
   object3->translate(Vector3D::up() * sinf(glfwGetTime()));
-  object2->rotate(Quaternion((Vector3D(0.0f, 0.0f, 1.0f)).normalize(), glfwGetTime()));
+  object3->rotate(Quaternion((Vector3D(0.0f, 0.0f, 1.0f)).normalize(), glfwGetTime()));
   
   objectManager.updateObject();
 

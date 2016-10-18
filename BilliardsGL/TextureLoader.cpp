@@ -25,7 +25,7 @@ void TextureLoader::initialize() {
     std::string imagePath = "./Resources/Textures/" + imageNames[tex] + ".bmp";
     GLuint tId = loadTexture(imagePath.c_str());
     textureDict[tex] = tId;
-    std::cout << "texture load " << tId << " : " << imagePath << std::endl;
+//    std::cout << "texture load " << tId << " : " << imagePath << std::endl;
   }
 }
 
@@ -36,7 +36,7 @@ GLuint TextureLoader::loadTexture(const char* imagePath) {
   
   int width, height;
   unsigned char* image = SOIL_load_image(imagePath, &width, &height, 0, SOIL_LOAD_RGB);
-  std::cout << "[SOIL] image size : width(" << width << "), height(" << height << ")" << std::endl;
+//  std::cout << "[SOIL] image size : width(" << width << "), height(" << height << ")" << std::endl;
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);

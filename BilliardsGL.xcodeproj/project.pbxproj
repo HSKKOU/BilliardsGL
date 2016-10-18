@@ -69,6 +69,10 @@
 		0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraControllerBase.cpp; sourceTree = "<group>"; };
 		0DA841861DB5B830002A7879 /* CameraControllerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraControllerBase.hpp; sourceTree = "<group>"; };
 		0DA841881DB5BAC1002A7879 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		0DA841891DB5C502002A7879 /* Sample001.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample001.vert; sourceTree = "<group>"; };
+		0DA8418B1DB5C515002A7879 /* Sample001.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample001.frag; sourceTree = "<group>"; };
+		0DA8418C1DB5C52D002A7879 /* Sample002.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample002.vert; sourceTree = "<group>"; };
+		0DA8418D1DB5C538002A7879 /* Sample002.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample002.frag; sourceTree = "<group>"; };
 		0DBF5D111D951CD300A037BA /* FPSCounter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FPSCounter.hpp; sourceTree = "<group>"; };
 		0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSCounter.cpp; sourceTree = "<group>"; };
 		0DBF5D151D95211800A037BA /* Square.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		0D94B72D1D8A970A00422BD9 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
+				0DA8418A1DB5C504002A7879 /* Samples */,
 				0D7606B61DA4EE08000031BA /* test */,
 				0D7606B71DA4EE2E000031BA /* Default.vert */,
 				0D7606B81DA4EE40000031BA /* Default.frag */,
@@ -226,6 +231,17 @@
 				0D7607171DAF6888000031BA /* TextureLoader.hpp */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		0DA8418A1DB5C504002A7879 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				0DA841891DB5C502002A7879 /* Sample001.vert */,
+				0DA8418B1DB5C515002A7879 /* Sample001.frag */,
+				0DA8418C1DB5C52D002A7879 /* Sample002.vert */,
+				0DA8418D1DB5C538002A7879 /* Sample002.frag */,
+			);
+			name = Samples;
 			sourceTree = "<group>";
 		};
 		0DBF5D141D9520FF00A037BA /* 2DModels */ = {
