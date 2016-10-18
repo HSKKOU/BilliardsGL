@@ -22,7 +22,8 @@
 
 #include "ObjectManager.hpp"
 #include "LightManager.hpp"
-#include "CameraManager.hpp"
+
+#include "Camera.h"
 
 #include "TextureLoader.hpp"
 

@@ -12,7 +12,7 @@ CameraManager::CameraManager() { /* do nothing */ }
 
 void CameraManager::initialize() {  }
 
-CameraController* CameraManager::getCamera() const { return cameraCtrls[0]; }
-CameraController* CameraManager::getCamera(const int index) const { return cameraCtrls[index]; }
+CameraControllerBase* CameraManager::getCamera() const { return cameraCtrls[0]; }
+CameraControllerBase* CameraManager::getCamera(const int index) const { return cameraCtrls[index]; }
 
-void CameraManager::addCamera(CameraController *ctrl) { cameraCtrls.push_back(ctrl); }
+void CameraManager::addCamera(CameraControllerBase *ctrl) { cameraCtrls.push_back(ctrl); }

@@ -58,7 +58,7 @@ void GameManager::startMainLoop() {
   textureLoader.initialize();
   
   // set main camera
-  CameraController *mainCamera = new CameraController(Vector3D(0.0f,4.0f,10.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,1.0f,0.0f));
+  PerspectiveCameraController *mainCamera = new PerspectiveCameraController(Vector3D(0.0f,4.0f,10.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,1.0f,0.0f));
   mainCamera->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
   cameraManager.addCamera(mainCamera);
   
@@ -114,6 +114,7 @@ void GameManager::mainLoop() {
   object2->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
 
   object3->translate(Vector3D::up() * sinf(glfwGetTime()));
+  object2->rotate(Quaternion((Vector3D(0.0f, 0.0f, 1.0f)).normalize(), glfwGetTime()));
   
   objectManager.updateObject();
 

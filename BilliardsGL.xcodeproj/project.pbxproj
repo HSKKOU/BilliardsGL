@@ -15,13 +15,14 @@
 		0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607161DAF6888000031BA /* TextureLoader.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
+		0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
 		0DBF5D171D95211800A037BA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D151D95211800A037BA /* Square.cpp */; };
 		0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D1F1D95237700A037BA /* BaseObject2D.cpp */; };
 		0DF2A1CC1D97E66C00303E07 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1CA1D97E66C00303E07 /* Cube.cpp */; };
 		0DF2A1CF1D97E95F00303E07 /* BaseObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */; };
 		0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */; };
-		0DF2A1DA1D98BF0000303E07 /* CameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1D81D98BF0000303E07 /* CameraController.cpp */; };
+		0DF2A1DA1D98BF0000303E07 /* PerspectiveCameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1D81D98BF0000303E07 /* PerspectiveCameraController.cpp */; };
 		0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1DD1D99265F00303E07 /* LightManager.cpp */; };
 		0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1E51D99281F00303E07 /* LightControllerBase.cpp */; };
 		0DF2A1EA1D99307400303E07 /* DirectionalLightController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1E81D99307400303E07 /* DirectionalLightController.cpp */; };
@@ -65,6 +66,9 @@
 		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.cpp; sourceTree = "<group>"; };
 		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameManager.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.hpp; sourceTree = "<group>"; };
 		0D94B73D1D8AE6BB00422BD9 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = ../../../colopl/BilliardsGL/BilliardsGL/Singleton.h; sourceTree = "<group>"; };
+		0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraControllerBase.cpp; sourceTree = "<group>"; };
+		0DA841861DB5B830002A7879 /* CameraControllerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraControllerBase.hpp; sourceTree = "<group>"; };
+		0DA841881DB5BAC1002A7879 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		0DBF5D111D951CD300A037BA /* FPSCounter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FPSCounter.hpp; sourceTree = "<group>"; };
 		0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSCounter.cpp; sourceTree = "<group>"; };
 		0DBF5D151D95211800A037BA /* Square.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
@@ -79,8 +83,8 @@
 		0DF2A1D11D97F5FC00303E07 /* camera.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = camera.frag; sourceTree = "<group>"; };
 		0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraManager.cpp; sourceTree = "<group>"; };
 		0DF2A1D61D98BEB200303E07 /* CameraManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraManager.hpp; sourceTree = "<group>"; };
-		0DF2A1D81D98BF0000303E07 /* CameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraController.cpp; sourceTree = "<group>"; };
-		0DF2A1D91D98BF0000303E07 /* CameraController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraController.hpp; sourceTree = "<group>"; };
+		0DF2A1D81D98BF0000303E07 /* PerspectiveCameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveCameraController.cpp; sourceTree = "<group>"; };
+		0DF2A1D91D98BF0000303E07 /* PerspectiveCameraController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PerspectiveCameraController.hpp; sourceTree = "<group>"; };
 		0DF2A1DB1D98C28D00303E07 /* Base3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base3D.h; sourceTree = "<group>"; };
 		0DF2A1DC1D990FEB00303E07 /* Matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
 		0DF2A1DD1D99265F00303E07 /* LightManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightManager.cpp; sourceTree = "<group>"; };
@@ -252,8 +256,11 @@
 		0DF2A1E01D9926F800303E07 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				0DF2A1D81D98BF0000303E07 /* CameraController.cpp */,
-				0DF2A1D91D98BF0000303E07 /* CameraController.hpp */,
+				0DF2A1D81D98BF0000303E07 /* PerspectiveCameraController.cpp */,
+				0DF2A1D91D98BF0000303E07 /* PerspectiveCameraController.hpp */,
+				0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */,
+				0DA841861DB5B830002A7879 /* CameraControllerBase.hpp */,
+				0DA841881DB5BAC1002A7879 /* Camera.h */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -348,7 +355,8 @@
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
 				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,
-				0DF2A1DA1D98BF0000303E07 /* CameraController.cpp in Sources */,
+				0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */,
+				0DF2A1DA1D98BF0000303E07 /* PerspectiveCameraController.cpp in Sources */,
 				0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */,
 				0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */,
 			);

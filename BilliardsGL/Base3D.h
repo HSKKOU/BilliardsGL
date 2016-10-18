@@ -30,6 +30,11 @@ public:
   Vector3D getPosition() const { return transform.position; }
   Vector4D getPosition4D() const { return Vector4D(transform.position,1.0); }
   void setPosition(const Vector3D pos) { transform.position = pos; }
+  
+  virtual void translate(Vector3D dest) { transform.position = dest; }
+  virtual void rotate(Quaternion rot) { transform.rotation = rot; }
+  virtual void scale(Vector3D scl) { transform.scale = scl; }
 };
+
 
 #endif /* Base3D_h */

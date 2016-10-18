@@ -30,11 +30,11 @@ void BaseObject3D::setObjectColor(Color c) { objectColor = c; }
 
 // drawing methods
 void BaseObject3D::drawReady() {
-//  glMatrixMode(GL_PROJECTION_MATRIX);
-//  glLoadIdentity();
-//  glMatrixMode(GL_MODELVIEW_MATRIX);
+  glMatrixMode(GL_MODELVIEW_MATRIX);
+  glLoadIdentity();
+  glPushMatrix();
   
-  mvp.projection = targetCamera->getProjection();
+  mvp.projection = targetCamera->getProjectionMatrix();
   mvp.view = targetCamera->getViewMatrix();
 
   mvp.model = Matrix4D(1.0f);
@@ -48,6 +48,7 @@ void BaseObject3D::drawRun(int mode) {
   glBindVertexArray(vertices.vao);
   glDrawArrays(mode, 0, vertices.count);
   
+  glPopMatrix();
   glBindVertexArray(0);
   for (int i=0; i<static_cast<int>(AttribLoc::NUM); i++) { glDisableVertexAttribArray(i); }
   glFlush();
@@ -80,19 +81,6 @@ void BaseObject3D::sendTexture2Shd() const {
   glBindTexture(GL_TEXTURE_2D, textureId);
   glDrawElements(GL_TRIANGLES, vertices.count, GL_UNSIGNED_INT, 0);
 }
-
-
-
-
-// related to transform
-void BaseObject3D::translate(Vector3D dest) { transform.position = dest; }
-void BaseObject3D::rotate(Vector3D rot) {
-  // TODO: impl ealer -> quaternion
-//  transform.rotation = rot;
-}
-void BaseObject3D::rotate(Quaternion rot) { transform.rotation = rot; }
-void BaseObject3D::scale(Vector3D scl) { transform.scale = scl; }
-
 
 
 

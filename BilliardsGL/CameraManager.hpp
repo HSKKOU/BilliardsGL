@@ -12,20 +12,20 @@
 #include "GlobalHeader.h"
 #include "Singleton.h"
 
-#include "CameraController.hpp"
+#include "CameraControllerBase.hpp"
 
 #include <vector>
 
 class CameraManager : public Singleton<CameraManager> {
   friend class Singleton<CameraManager>;
   
-  std::vector<CameraController*> cameraCtrls;
+  std::vector<CameraControllerBase*> cameraCtrls;
   
 public:
   void initialize();
-  CameraController* getCamera() const;
-  CameraController* getCamera(const int) const;
-  void addCamera(CameraController*);
+  CameraControllerBase* getCamera() const;
+  CameraControllerBase* getCamera(const int) const;
+  void addCamera(CameraControllerBase*);
   
 private:
   CameraManager();
