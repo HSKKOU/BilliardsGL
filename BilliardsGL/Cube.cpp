@@ -76,8 +76,6 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center)
       }
     }
   }
-  
-  setObjectColor(Color(1.0f, 1.0f, 1.0f, 1.0f));
 
   loadShaderProgram();
 

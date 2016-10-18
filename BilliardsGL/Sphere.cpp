@@ -27,8 +27,6 @@ Sphere::Sphere(const Vector3D _center, const GLfloat _radius, const int _slices,
       setVPos(vPos[index+5], angStack*(i+1), angSlice*(j+1));
     }
   }
-
-  setObjectColor(Color(1.0f, 0.0f, 0.0, 1.0f));
   
   loadShaderProgram();
   
