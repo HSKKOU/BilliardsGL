@@ -11,7 +11,7 @@
 PerspectiveCameraController::PerspectiveCameraController(Vector3D _pos, Vector3D _center, Vector3D _up)
 : CameraControllerBase(_pos, _center, _up)
 {
-  
+  calcViewMatrix();
 }
 
 PerspectiveCameraController::~PerspectiveCameraController() {

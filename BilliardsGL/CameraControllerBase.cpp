@@ -14,9 +14,7 @@ CameraControllerBase::CameraControllerBase(Vector3D _pos, Vector3D _center, Vect
 , upDir(_up)
 , projectionMatrix(Matrix4D::zero())
 , viewMatrix(Matrix4D::zero())
-{
-  
-}
+{ /* do nothing */ }
 
 CameraControllerBase::~CameraControllerBase() {
   /* do nothing */
