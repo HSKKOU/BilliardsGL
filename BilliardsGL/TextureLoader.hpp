@@ -18,10 +18,23 @@
 #include <map>
 
 enum class Tex : int {
-  Stone,
-  Color4,
+  Ball00,
   Ball01,
+  Ball02,
+  Ball03,
+  Ball04,
+  Ball05,
+  Ball06,
+  Ball07,
+  Ball08,
   Ball09,
+  Ball10,
+  Ball11,
+  Ball12,
+  Ball13,
+  Ball14,
+  Ball15,
+  Stone,
   Num,
 };
 
