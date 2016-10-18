@@ -16,6 +16,7 @@ BaseObject3D::BaseObject3D(Vector3D _pos)
 , vertices(Vertices())
 , mvp(MVP())
 , objectColor(Vector4D::zero())
+, textureId(0)
 , targetCamera((CameraManager::instance()).getCamera())
 , targetLight((LightManager::instance()).getLight())
 { /* do nothing */ }
@@ -67,6 +68,11 @@ void BaseObject3D::sendLightInfo2Shd() const {
 
 void BaseObject3D::sendCameraPos2Shd() const { glUniform3fv(sLocs.cameraPosLoc, 1, (targetCamera->getPosition()).v); }
 
+void BaseObject3D::sendTexture2Shd() const {
+  if (textureId == 0) { return; }
+  glBindTexture(GL_TEXTURE_2D, textureId);
+  glDrawElements(GL_TRIANGLES, vertices.count, GL_UNSIGNED_INT, 0);
+}
 
 
 
@@ -107,10 +113,7 @@ void BaseObject3D::setShaderLoc() {
 
 
 // related to texture
-void BaseObject3D::setTexture(Tex tex) {
-  GLuint textureId = (TextureLoader::instance()).getTextureId(tex);
-//  std::cout << "[B3]textureId : " << textureId << std::endl;
-}
+void BaseObject3D::setTexture(Tex tex) { textureId = (TextureLoader::instance()).getTextureId(tex); }
 
 
 

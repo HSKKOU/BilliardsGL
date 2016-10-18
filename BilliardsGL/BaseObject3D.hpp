@@ -60,6 +60,11 @@ struct MVP {
 
 typedef Vector4D Color;
 
+typedef GLuint TextureID;
+
+
+
+
 class BaseObject3D : public Base3D {
 
 protected:
@@ -72,6 +77,7 @@ protected:
 protected:
   MVP mvp;
   Color objectColor;
+  TextureID textureId;
   CameraController *targetCamera;
   LightControllerBase *targetLight;
   
@@ -109,6 +115,7 @@ protected:
   void sendColor2Shd() const;
   void sendLightInfo2Shd() const;
   void sendCameraPos2Shd() const;
+  void sendTexture2Shd() const;
   
 private:
   GLuint readyVAO() const;
