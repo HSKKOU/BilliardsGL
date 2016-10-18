@@ -58,7 +58,7 @@ void GameManager::startMainLoop() {
   textureLoader.initialize();
   
   // set main camera
-  PerspectiveCameraController *mainCamera = new PerspectiveCameraController(Vector3D(0.0f,4.0f,10.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,1.0f,0.0f));
+  PerspectiveCameraController *mainCamera = new PerspectiveCameraController(Vector3D(0.0f,50.0f,0.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,0.0f,-1.0f));
   mainCamera->setPerspective(45.0f, 1.0f, 0.5f, 100.0f);
   cameraManager.addCamera(mainCamera);
   
@@ -76,21 +76,26 @@ void GameManager::startMainLoop() {
   lightManager.addLight(light0);
 
   
-  // for Debug create objects
-  object = objectManager.instantiateObject(ObjectType::CUBE);
-  object->loadShaderProgram("Sample001.vert", "Sample001.frag");
-  object->setTexture(Tex::Stone);
-  object->setObjectColor(Color::one());
-  
-  object2 = objectManager.instantiateObject(ObjectType::CUBE);
-  object2->loadShaderProgram("Sample002.vert", "Sample002.frag");
-  object2->setTexture(Tex::Stone);
-  object2->setObjectColor(Color::one());
-
-  object3 = objectManager.instantiateObject(ObjectType::SPHERE);
-  object3->loadShaderProgram("LightTest.vert", "LightTest.frag");
-  object3->setTexture(Tex::Ball01);
-  object3->setObjectColor(Color::one());
+  // for Debug create ball objects
+  balls[0] = objectManager.instantiateObject(ObjectType::SPHERE);
+  balls[0]->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  balls[0]->setTexture(Tex::Ball00);
+  balls[0]->setObjectColor(Color::one());
+  balls[0]->translate(Vector3D(0.0f, 0.0f, 10.0f));
+  for (int i=1; i<=15; i++) {
+    balls[i] = objectManager.instantiateObject(ObjectType::SPHERE);
+    balls[i]->loadShaderProgram("LightTest.vert", "LightTest.frag");
+    balls[i]->setTexture(static_cast<Tex>(static_cast<int>(Tex::Ball00)+i));
+    balls[i]->setObjectColor(Color::one());
+    float row = ceilf((sqrtf(1.0 + 8.0*i) - 1.0f) / 2.0f);
+    int sumAtLastRow = (int)((row*(row-1))/2.0f);
+    int sumAtThisRow = (int)((row*(row+1))/2.0f);
+    int numOfThisRow = sumAtThisRow - sumAtLastRow;
+    float posX = 1.01f * (2.0f*(i-sumAtLastRow)-row-1);
+    float posZ = (row-1) * 1.75033f;
+    balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
+    balls[i]->rotate(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
+  }
   
   // game loop
   while (window->shouldClose() == GL_FALSE) {
@@ -106,18 +111,6 @@ void GameManager::mainLoop() {
   
   // Managers update
   lightManager.updateLights();
-  
-  object->translate(Vector3D::right() * glfwGetTime());
-  object->rotate(Quaternion((Vector3D(1.0f, 0.0f, 0.0f)).normalize(), glfwGetTime()));
-  GLfloat scl = sinf(glfwGetTime()*2.0f) / 4.0f + 0.75f;
-  object->scale(Vector3D(scl, scl, scl));
-
-  object2->translate(Vector3D::left() * glfwGetTime());
-  object2->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
-
-  object3->translate(Vector3D::up() * sinf(glfwGetTime()));
-  object3->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), M_PI/2));
-//  object3->rotate(Quaternion((Vector3D(0.0f, 0.0f, 1.0f)).normalize(), glfwGetTime()));
   
   objectManager.updateObject();
 

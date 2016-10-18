@@ -39,9 +39,7 @@ class GameManager : public Singleton<GameManager> {
   FPSCounter &fps;
   
   // for Debug
-  BaseObject3D *object;
-  BaseObject3D *object2;
-  BaseObject3D *object3;
+  BaseObject3D* balls[16];
   
 public:
   virtual ~GameManager();
