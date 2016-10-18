@@ -39,6 +39,7 @@ class GameManager : public Singleton<GameManager> {
   
   // for Debug
   BaseObject3D *object;
+  BaseObject3D *object2;
   
 public:
   virtual ~GameManager();

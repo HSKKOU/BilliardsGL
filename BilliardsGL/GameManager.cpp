@@ -80,8 +80,13 @@ void GameManager::startMainLoop() {
   object = objectManager.instantiateObject(ObjectType::CUBE);
   object->loadShaderProgram("LightTest.vert", "LightTest.frag");
   object->setTexture(Tex::Stone);
-//  BaseObject3D* object2 = objectManager.instantiateObject(ObjectType::SPHERE);
-//  object2->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  
+  object2 = objectManager.instantiateObject(ObjectType::CUBE);
+  object2->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  object2->setTexture(Tex::Stone);
+
+  BaseObject3D* object3 = objectManager.instantiateObject(ObjectType::SPHERE);
+  object3->loadShaderProgram("LightTest.vert", "LightTest.frag");
   
   // game loop
   while (window->shouldClose() == GL_FALSE) {
@@ -99,9 +104,13 @@ void GameManager::mainLoop() {
   lightManager.updateLights();
   
   object->translate(Vector3D::right() * glfwGetTime());
-  object->rotate(Quaternion((Vector3D(1.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
+  object->rotate(Quaternion((Vector3D(1.0f, 0.0f, 0.0f)).normalize(), glfwGetTime()));
   GLfloat scl = sinf(glfwGetTime()*2.0f) / 4.0f + 0.75f;
   object->scale(Vector3D(scl, scl, scl));
+
+  object2->translate(Vector3D::left() * glfwGetTime());
+  object2->rotate(Quaternion((Vector3D(0.0f, 1.0f, 0.0f)).normalize(), glfwGetTime()));
+
   objectManager.updateObject();
 
   // finish this frame, change another drawing buffer
