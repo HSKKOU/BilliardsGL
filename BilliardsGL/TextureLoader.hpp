@@ -19,6 +19,7 @@
 
 enum class Tex : int {
   Stone,
+  Color4,
   Num,
 };
 
