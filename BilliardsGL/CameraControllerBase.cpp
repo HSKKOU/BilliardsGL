@@ -16,9 +16,7 @@ CameraControllerBase::CameraControllerBase(Vector3D _pos, Vector3D _center, Vect
 , viewMatrix(Matrix4D::zero())
 { /* do nothing */ }
 
-CameraControllerBase::~CameraControllerBase() {
-  /* do nothing */
-}
+CameraControllerBase::~CameraControllerBase() { /* do nothing */ }
 
 Vector3D CameraControllerBase::getDirection() { return center - transform.position; }
 
