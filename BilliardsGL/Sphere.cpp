@@ -39,9 +39,9 @@ void Sphere::setVPos(GLfloat *vPos, int ist, int jsl, int stk, int slc, float as
   float sliceAng = asl * jsl;
   
   // position
-  vPos[    0] = radius * sinf(stackAng) *  cosf(sliceAng);
+  vPos[    0] = radius * sinf(stackAng) * -sinf(sliceAng);
   vPos[    1] = radius * cosf(stackAng);
-  vPos[    2] = radius * sinf(stackAng) * -sinf(sliceAng);
+  vPos[    2] = radius * sinf(stackAng) * -cosf(sliceAng);
 
   // uv
   vPos[3+  0] = (float)jsl/slc;
