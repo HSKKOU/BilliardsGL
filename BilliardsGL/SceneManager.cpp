@@ -8,7 +8,8 @@
 
 #include "SceneManager.hpp"
 
-#include "TestScene001.hpp"
+// for Debug
+#include "GameScene.hpp"
 
 NS_ENGINE
 
@@ -18,9 +19,9 @@ SceneManager::~SceneManager() { /* do nothing */ }
 
 void SceneManager::initialize() {
   // for Debug
-  TestScene001* testScene = new TestScene001();
-  addScene(testScene);
-  currentScene = testScene;
+  Game::GameScene* gameScene = new Game::GameScene();
+  addScene(gameScene);
+  currentScene = gameScene;
 }
 
 void SceneManager::addScene(SceneBase* scene) {

@@ -1,27 +1,33 @@
 //
-//  TestScene001.hpp
+//  GameScene.hpp
 //  BilliardsGL
 //
 //  Created by 比佐 幸基 on 2016/10/20.
 //  Copyright © 2016年 比佐 幸基. All rights reserved.
 //
 
-#ifndef TestScene001_hpp
-#define TestScene001_hpp
+#ifndef GameScene_hpp
+#define GameScene_hpp
 
 #include "SceneBase.hpp"
 
+#include "GameManager.hpp"
+
 US_NS_ENGINE
 
-class TestScene001 : public SceneBase {
-  
+NS_GAME
+
+class GameScene : public SceneBase {
+  GameManager &gameManager;
   
 public:
-  TestScene001();
-  virtual ~TestScene001();
+  GameScene();
+  virtual ~GameScene();
   
   virtual void start();
   virtual void update();
 };
 
-#endif /* TestScene001_hpp */
+NS_END
+
+#endif /* GameScene_hpp */

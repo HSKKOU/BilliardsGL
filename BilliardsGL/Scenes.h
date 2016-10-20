@@ -10,7 +10,7 @@
 #define Scenes_h
 
 enum class Scenes : int {
-  Title,
+  GameScene,
   Num,
 };
 

@@ -15,7 +15,7 @@
 		0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607161DAF6888000031BA /* TextureLoader.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
-		0D9E602E1DB8A8570084591E /* TestScene001.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602C1DB8A8570084591E /* TestScene001.cpp */; };
+		0D9E602E1DB8A8570084591E /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602C1DB8A8570084591E /* GameScene.cpp */; };
 		0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602F1DB8A8680084591E /* SceneManager.cpp */; };
 		0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E60321DB8A8A40084591E /* SceneBase.cpp */; };
 		0D9E603E1DB8AE730084591E /* GameEngineManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E603C1DB8AE730084591E /* GameEngineManager.cpp */; };
@@ -67,11 +67,11 @@
 		0D94B7311D8A9C1900422BD9 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.cpp; sourceTree = "<group>"; };
 		0D94B7321D8A9C1900422BD9 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/Window.hpp; sourceTree = "<group>"; };
 		0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
-		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.cpp; sourceTree = "<group>"; };
-		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameManager.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.hpp; sourceTree = "<group>"; };
+		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
+		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameManager.hpp; sourceTree = "<group>"; };
 		0D94B73D1D8AE6BB00422BD9 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
-		0D9E602C1DB8A8570084591E /* TestScene001.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene001.cpp; sourceTree = "<group>"; };
-		0D9E602D1DB8A8570084591E /* TestScene001.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestScene001.hpp; sourceTree = "<group>"; };
+		0D9E602C1DB8A8570084591E /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		0D9E602D1DB8A8570084591E /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		0D9E602F1DB8A8680084591E /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		0D9E60301DB8A8680084591E /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		0D9E60321DB8A8A40084591E /* SceneBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneBase.cpp; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 			children = (
 				0D9E60401DB8B3C30084591E /* Headers */,
 				0D9E60361DB8AD990084591E /* Engine */,
-				0D9E603B1DB8AE480084591E /* Game */,
+				0D9E603B1DB8AE480084591E /* Project */,
 				0D02C3E61D8A83360097F8F1 /* main.cpp */,
 			);
 			path = BilliardsGL;
@@ -202,8 +202,7 @@
 		0D94B7361D8AE62300422BD9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				0D94B7381D8AE64700422BD9 /* GameManager.cpp */,
-				0D94B7391D8AE64700422BD9 /* GameManager.hpp */,
+				0D9E60451DB8C6F90084591E /* Game */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -228,8 +227,8 @@
 		0D9E602B1DB8A82D0084591E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				0D9E602C1DB8A8570084591E /* TestScene001.cpp */,
-				0D9E602D1DB8A8570084591E /* TestScene001.hpp */,
+				0D9E602C1DB8A8570084591E /* GameScene.cpp */,
+				0D9E602D1DB8A8570084591E /* GameScene.hpp */,
 				0D9E603F1DB8B0270084591E /* Scenes.h */,
 			);
 			name = Scenes;
@@ -299,7 +298,7 @@
 			name = Shaders;
 			sourceTree = "<group>";
 		};
-		0D9E603B1DB8AE480084591E /* Game */ = {
+		0D9E603B1DB8AE480084591E /* Project */ = {
 			isa = PBXGroup;
 			children = (
 				0D94B7361D8AE62300422BD9 /* Managers */,
@@ -307,7 +306,7 @@
 				0D94B73B1D8AE68700422BD9 /* Utils */,
 				0D94B72D1D8A970A00422BD9 /* shaders */,
 			);
-			name = Game;
+			name = Project;
 			sourceTree = "<group>";
 		};
 		0D9E60401DB8B3C30084591E /* Headers */ = {
@@ -325,6 +324,15 @@
 				0D9E60331DB8A8A40084591E /* SceneBase.hpp */,
 			);
 			name = Scene;
+			sourceTree = "<group>";
+		};
+		0D9E60451DB8C6F90084591E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B7381D8AE64700422BD9 /* GameManager.cpp */,
+				0D94B7391D8AE64700422BD9 /* GameManager.hpp */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 		0DA8418A1DB5C504002A7879 /* Samples */ = {
@@ -469,7 +477,7 @@
 				0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */,
 				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,
 				0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */,
-				0D9E602E1DB8A8570084591E /* TestScene001.cpp in Sources */,
+				0D9E602E1DB8A8570084591E /* GameScene.cpp in Sources */,
 				0DF2A1DA1D98BF0000303E07 /* PerspectiveCameraController.cpp in Sources */,
 				0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */,
 				0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */,

@@ -12,23 +12,18 @@
 #include "GlobalHeader.h"
 #include "Singleton.h"
 
-#include "Window.hpp"
-#include "FPSCounter.hpp"
-
-#include "Square.hpp"
+#include "ObjectManager.hpp"
 
 #include "Matrix.h"
+#include "BaseObject3D.hpp"
 #include "Cube.hpp"
-
-#include "ObjectManager.hpp"
-#include "LightManager.hpp"
-#include "SceneManager.hpp"
 
 #include "Camera.h"
 
-#include "TextureLoader.hpp"
-
 US_NS_ENGINE
+US_NS_ENGINE_MODEL
+
+NS_GAME
 
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
@@ -39,11 +34,13 @@ class GameManager : public Singleton<GameManager> {
 public:
   virtual ~GameManager();
   void initialize();
-  void startMainLoop();
+  void start();
+  void update();
   
 private:
   GameManager();
-  void mainLoop();
 };
+
+NS_END
 
 #endif /* GameManager_hpp */

@@ -8,6 +8,8 @@
 
 #include "GameManager.hpp"
 
+NS_GAME
+
 GameManager::GameManager()
 { /* do nothing */ }
 
@@ -18,8 +20,7 @@ void GameManager::initialize() {
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
 }
 
-void GameManager::startMainLoop() {
-  
+void GameManager::start() {
   // for Debug create ball objects
   balls[0] = (ObjectManager::instance()).instantiateObject(ObjectType::SPHERE);
   balls[0]->loadShaderProgram("LightTest.vert", "LightTest.frag");
@@ -41,7 +42,7 @@ void GameManager::startMainLoop() {
 }
 
 
-void GameManager::mainLoop() {
+void GameManager::update() {
   balls[0]->translate(Vector3D(0.0f, 0.0f, 10.0f-sinf(glfwGetTime())*3.0f));
   for (int i=1; i<=15; i++) {
     float row = ceilf((sqrtf(1.0 + 8.0*i) - 1.0f) / 2.0f);
@@ -52,3 +53,5 @@ void GameManager::mainLoop() {
     balls[i]->rotate(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
   }
 }
+
+NS_END
