@@ -8,6 +8,8 @@
 
 #include "GameEngineManager.hpp"
 
+NS_ENGINE
+
 GameEngineManager::GameEngineManager()
 : sceneManager(SceneManager::instance())
 , lightManager(LightManager::instance())
@@ -99,3 +101,5 @@ void GameEngineManager::mainLoop() {
   // finish this frame, change another drawing buffer
   window->swapBuffers();
 }
+
+NS_END

@@ -8,6 +8,8 @@
 
 #include "ShaderLoader.hpp"
 
+NS_ENGINE_UTIL
+
 ShaderLoader::ShaderLoader() { /* do nothing */ }
 
 GLuint ShaderLoader::loadShaderProgram(const char *vert, const char *pv, const char *frag, const char *fc) {
@@ -118,3 +120,4 @@ GLchar* ShaderLoader::readShaderSource (const char *name) {
   return buffer;
 }
 
+NS_END2

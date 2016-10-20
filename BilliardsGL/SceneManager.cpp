@@ -10,6 +10,8 @@
 
 #include "TestScene001.hpp"
 
+NS_ENGINE
+
 SceneManager::SceneManager()
 { /* do nothing */ }
 SceneManager::~SceneManager() { /* do nothing */ }
@@ -52,3 +54,5 @@ void SceneManager::startScene() const {
 void SceneManager::updateScene() const {
   currentScene->update();
 }
+
+NS_END

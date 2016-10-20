@@ -8,6 +8,8 @@
 
 #include "Window.hpp"
 
+NS_ENGINE
+
 Window::Window(int width, int height, const char *title)
 : window(glfwCreateWindow(width, height, title, nullptr, nullptr))
 , scale(100.0f) {
@@ -59,4 +61,4 @@ const GLfloat Window::getScale() const { return scale; }
 
 void Window::getFrameSize(int *width, int *height) { glfwGetFramebufferSize(window, width, height); }
 
-
+NS_END

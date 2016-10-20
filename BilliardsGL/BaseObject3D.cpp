@@ -8,6 +8,8 @@
 
 #include "BaseObject3D.hpp"
 
+NS_ENGINE_MODEL
+
 BaseObject3D::BaseObject3D(Vector3D _pos)
 : Base3D(_pos)
 , shaderProgram(-1)
@@ -213,3 +215,5 @@ void BaseObject3D::releaseBuffer() const {
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
+
+NS_END2

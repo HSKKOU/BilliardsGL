@@ -142,6 +142,7 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
+				0D9E60401DB8B3C30084591E /* Headers */,
 				0D9E60361DB8AD990084591E /* Engine */,
 				0D9E603B1DB8AE480084591E /* Game */,
 				0D02C3E61D8A83360097F8F1 /* main.cpp */,
@@ -193,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				0DF2A1F01D9CB1A600303E07 /* Math */,
-				0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */,
 				0D7607091DA754EA000031BA /* Models.h */,
 			);
 			name = Headers;
@@ -309,6 +309,14 @@
 				0D94B72D1D8A970A00422BD9 /* shaders */,
 			);
 			name = Game;
+			sourceTree = "<group>";
+		};
+		0D9E60401DB8B3C30084591E /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 		0DA8418A1DB5C504002A7879 /* Samples */ = {

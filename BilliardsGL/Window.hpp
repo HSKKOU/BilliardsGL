@@ -11,6 +11,8 @@
 
 #include "GlobalHeader.h"
 
+NS_ENGINE
+
 class Window {
   GLFWwindow *const window;
   GLfloat size[2];
@@ -29,5 +31,7 @@ public:
   
   void getFrameSize(int *width, int *height);
 };
+
+NS_END
 
 #endif /* Window_hpp */

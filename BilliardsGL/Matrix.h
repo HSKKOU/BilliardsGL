@@ -12,6 +12,8 @@
 #include "GlobalHeader.h"
 #include <cmath>
 
+NS_ENGINE
+
 union Vector3D;
 union Vector4D;
 struct Matrix4D;
@@ -200,6 +202,6 @@ public:
   }
 };
 
-
+NS_END
 
 #endif /* Math_h */

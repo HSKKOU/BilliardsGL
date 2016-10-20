@@ -15,6 +15,8 @@
 #include <vector>
 #include <fstream>
 
+NS_ENGINE_UTIL
+
 class ShaderLoader : public Singleton<ShaderLoader> {
   friend class Singleton<ShaderLoader>;
   
@@ -28,5 +30,7 @@ private:
   static GLuint createProgram (const char *vsrc, const char *pv, const char *fsrc, const char *fc);
   static GLchar *readShaderSource (const char *name);
 };
+
+NS_END2
 
 #endif /* ShaderLoader_hpp */

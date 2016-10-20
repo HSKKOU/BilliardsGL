@@ -14,10 +14,14 @@
 #include "Cube.hpp"
 #include "Sphere.hpp"
 
+NS_ENGINE_MODEL
+
 enum ObjectType {
   CUBE,
   SPHERE,
   NUM,
 };
+
+NS_END2
 
 #endif /* Models_h */

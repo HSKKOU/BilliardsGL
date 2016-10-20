@@ -8,6 +8,8 @@
 
 #include "CameraControllerBase.hpp"
 
+NS_ENGINE_CAMERA
+
 CameraControllerBase::CameraControllerBase(Vector3D _pos, Vector3D _center, Vector3D _up)
 : Base3D(_pos)
 , center(_center)
@@ -30,3 +32,5 @@ void CameraControllerBase::translate(Vector3D dest) {
 void CameraControllerBase::rotate(Quaternion rot) {
   Base3D::rotate(rot);
 }
+
+NS_END2

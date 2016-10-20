@@ -12,6 +12,8 @@
 #include "GlobalHeader.h"
 #include "CameraControllerBase.hpp"
 
+NS_ENGINE_CAMERA
+
 class PerspectiveCameraController : public CameraControllerBase {
   
 public:
@@ -30,5 +32,7 @@ protected:
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar);
   virtual void calcViewMatrix();
 };
+
+NS_END2
 
 #endif /* PerspectiveCameraController_hpp */

@@ -8,6 +8,8 @@
 
 #include "PerspectiveCameraController.hpp"
 
+NS_ENGINE_CAMERA
+
 PerspectiveCameraController::PerspectiveCameraController(Vector3D _pos, Vector3D _center, Vector3D _up)
 : CameraControllerBase(_pos, _center, _up)
 {
@@ -77,3 +79,5 @@ void PerspectiveCameraController::translate(Vector3D dest) {
 void PerspectiveCameraController::rotate(Quaternion rot) {
   CameraControllerBase::rotate(rot);
 }
+
+NS_END2

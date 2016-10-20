@@ -12,6 +12,8 @@
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
+NS_ENGINE_LIGHT
+
 class LightControllerBase : public Base3D {
   
 protected:
@@ -41,5 +43,7 @@ public:
   
   virtual void updateLight();
 };
+
+NS_END2
 
 #endif /* LightControllerBase_hpp */

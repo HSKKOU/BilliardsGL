@@ -11,6 +11,8 @@
 
 #include "BaseObject3D.hpp"
 
+NS_ENGINE_MODEL
+
 class Cube : public BaseObject3D {
   
 protected:
@@ -21,5 +23,7 @@ public:
   virtual ~Cube();
   virtual void draw();
 };
+
+NS_END2
 
 #endif /* Cube_hpp */

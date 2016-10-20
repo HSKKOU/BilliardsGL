@@ -13,6 +13,8 @@
 
 #include "ShaderLoader.hpp"
 
+NS_ENGINE_MODEL
+
 struct SquareModel : public BaseModel2D {
   GLfloat x, y, w, h;
   
@@ -39,5 +41,7 @@ public:
   virtual ~Square();
   virtual void draw();
 };
+
+NS_END2
 
 #endif /* Square_hpp */

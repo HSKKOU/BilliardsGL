@@ -25,6 +25,8 @@
 
 #include "TextureLoader.hpp"
 
+NS_ENGINE
+
 class GameEngineManager : public Singleton<GameEngineManager> {
   friend class Singleton<GameEngineManager>;
   
@@ -46,5 +48,7 @@ private:
   GameEngineManager();
   void mainLoop();
 };
+
+NS_END
 
 #endif /* GameEngineManager_hpp */

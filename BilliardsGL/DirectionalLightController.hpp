@@ -13,6 +13,8 @@
 
 #include "LightControllerBase.hpp"
 
+NS_ENGINE_LIGHT
+
 class DirectionalLightController : public LightControllerBase {
   Vector3D direction;
   
@@ -32,5 +34,7 @@ public:
   
   void updateLight();
 };
+
+NS_END2
 
 #endif /* DirectionalLightController_hpp */

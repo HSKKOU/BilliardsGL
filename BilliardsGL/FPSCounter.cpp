@@ -8,6 +8,8 @@
 
 #include "FPSCounter.hpp"
 
+NS_ENGINE_UTIL
+
 FPSCounter::FPSCounter() { /* do nothing */ }
 
 void FPSCounter::initialize(double startTime) {
@@ -29,3 +31,5 @@ void FPSCounter::update(double currentTime) {
     lastTime += 1.0;
   }
 }
+
+NS_END2

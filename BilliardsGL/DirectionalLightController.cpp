@@ -8,6 +8,8 @@
 
 #include "DirectionalLightController.hpp"
 
+NS_ENGINE_LIGHT
+
 DirectionalLightController::DirectionalLightController(
  Vector3D _position,
  Vector3D _direction,
@@ -30,3 +32,5 @@ void DirectionalLightController::setDirection(Vector3D _direction) { direction =
 void DirectionalLightController::updateLight() {
   LightControllerBase::updateLight();
 }
+
+NS_END2

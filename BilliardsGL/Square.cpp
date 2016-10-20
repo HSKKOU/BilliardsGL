@@ -8,9 +8,11 @@
 
 #include "Square.hpp"
 
+NS_ENGINE_MODEL
+
 Square::Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h) : square(x,y,w,h) {
   BaseObject2D::BaseObject2D();
-  shaderProgram = ShaderLoader::loadShaderProgram("point.vert", "pv", "point.frag", "fc");
+//  shaderProgram = Engine::Util::ShaderLoader::loadShaderProgram("point.vert", "pv", "point.frag", "fc");
 }
 
 Square::~Square() { /* do nothing */ }
@@ -22,3 +24,5 @@ void Square::draw() {
   glBindVertexArray(square.vao);
   glDrawArrays(GL_TRIANGLES, 0, square.count);
 }
+
+NS_END2

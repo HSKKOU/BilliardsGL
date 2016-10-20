@@ -11,6 +11,8 @@
 
 #include "Matrix.h"
 
+NS_ENGINE
+
 struct Transform {
   Vector3D position;
   Quaternion rotation;
@@ -36,5 +38,6 @@ public:
   virtual void scale(Vector3D scl) { transform.scale = scl; }
 };
 
+NS_END
 
 #endif /* Base3D_h */

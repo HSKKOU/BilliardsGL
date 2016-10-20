@@ -11,6 +11,8 @@
 #include "GlobalHeader.h"
 #include "GameEngineManager.hpp"
 
+using namespace Engine;
+
 int main(int argc, const char * argv[]) {
   
   // GameEngineManager Initialized

@@ -11,6 +11,8 @@
 
 #include "Base3D.h"
 
+NS_ENGINE_CAMERA
+
 class CameraControllerBase : public Base3D {
 protected:
   Vector3D center;
@@ -34,5 +36,7 @@ protected:
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) = 0;
   virtual void calcViewMatrix() = 0;
 };
+
+NS_END2
 
 #endif /* CameraControllerBase_hpp */

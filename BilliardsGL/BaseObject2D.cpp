@@ -8,6 +8,8 @@
 
 #include "BaseObject2D.hpp"
 
+NS_ENGINE_MODEL
+
 BaseObject2D::BaseObject2D() {
   sizeLoc = glGetUniformLocation(shaderProgram, "size");
   scaleLoc = glGetUniformLocation(shaderProgram, "scale");
@@ -20,3 +22,5 @@ BaseObject2D::~BaseObject2D() {
 void BaseObject2D::draw() {
   /* do nothing */
 }
+
+NS_END2

@@ -8,6 +8,8 @@
 
 #include "TextureLoader.hpp"
 
+NS_ENGINE_UTIL
+
 TextureLoader::TextureLoader()
 : textureDict()
 { /* do nothing */ }
@@ -67,3 +69,5 @@ GLuint TextureLoader::loadTexture(const char* imagePath) {
 
 
 GLuint TextureLoader::getTextureId(const Tex tex) const { return textureDict.at(tex); }
+
+NS_END2

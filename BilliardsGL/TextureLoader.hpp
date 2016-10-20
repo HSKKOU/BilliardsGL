@@ -17,6 +17,8 @@
 #include <string>
 #include <map>
 
+NS_ENGINE_UTIL
+
 enum class Tex : int {
   Ball00,
   Ball01,
@@ -51,5 +53,7 @@ public:
 private:
   TextureLoader();
 };
+
+NS_END2
 
 #endif /* TextureLoader_hpp */

@@ -12,6 +12,8 @@
 #include <iostream>
 #include "Singleton.h"
 
+NS_ENGINE_UTIL
+
 class FPSCounter : public Singleton<FPSCounter> {
   friend class Singleton<FPSCounter>;
   
@@ -27,5 +29,7 @@ public:
 private:
   FPSCounter();
 };
+
+NS_END2
 
 #endif /* FPSCounter_h */

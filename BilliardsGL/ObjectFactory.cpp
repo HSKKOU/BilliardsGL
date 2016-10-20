@@ -8,6 +8,8 @@
 
 #include "ObjectFactory.hpp"
 
+NS_ENGINE_MODEL
+
 BaseObject3D* ObjectFactory::instantiateObject(const ObjectType type) {
   BaseObject3D *object = nullptr;
   switch (type) {
@@ -21,3 +23,5 @@ BaseObject3D* ObjectFactory::instantiateObject(const ObjectType type) {
   }
   return object;
 }
+
+NS_END2

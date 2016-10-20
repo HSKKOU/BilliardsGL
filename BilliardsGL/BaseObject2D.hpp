@@ -11,6 +11,8 @@
 
 #include "GlobalHeader.h"
 
+NS_ENGINE_MODEL
+
 struct BaseModel2D {
   GLuint vao;
   GLsizei count;
@@ -54,5 +56,7 @@ public:
   virtual ~BaseObject2D();
   virtual void draw();
 };
+
+NS_END2
 
 #endif /* BaseObject2D_hpp */

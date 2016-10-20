@@ -13,10 +13,14 @@
 
 #include "Models.h"
 
+NS_ENGINE_MODEL
+
 class ObjectFactory {
   
 public:
   static BaseObject3D* instantiateObject(const ObjectType type);
 };
+
+NS_END2
 
 #endif /* ObjectFactory_hpp */

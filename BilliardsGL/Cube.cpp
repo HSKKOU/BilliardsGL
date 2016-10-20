@@ -8,6 +8,8 @@
 
 #include "Cube.hpp"
 
+NS_ENGINE_MODEL
+
 Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseObject3D(_center), size(_size) {
   GLfloat vPos[6*2*3][3+2+3] = {
 //  { pos.x  , pos.y  , pos.z  ,    uv.x, uv.y }
@@ -90,3 +92,5 @@ void Cube::draw() {
   sendParams2Shd();
   drawRun();
 }
+
+NS_END2

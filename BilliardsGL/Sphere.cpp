@@ -8,6 +8,8 @@
 
 #include "Sphere.hpp"
 
+NS_ENGINE_MODEL
+
 Sphere::Sphere(const Vector3D _center, const GLfloat _radius, const int _slices, const int _stacks)
 : BaseObject3D(_center)
 , radius(_radius)
@@ -60,3 +62,5 @@ void Sphere::draw() {
   sendParams2Shd();
   drawRun();
 }
+
+NS_END2

@@ -19,6 +19,8 @@
 
 #include "LightManager.hpp"
 
+NS_ENGINE_MODEL
+
 enum class AttribLoc : GLuint {
   POSITION = 0,
   NORMAL,
@@ -127,5 +129,7 @@ private:
   void setEachVertexBuffer(const GLuint loc, const int size, const int vCnt, const int offset) const;
   void releaseBuffer() const;
 };
+
+NS_END2
 
 #endif /* BaseObject3D_hpp */

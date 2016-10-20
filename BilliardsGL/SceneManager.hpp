@@ -16,7 +16,9 @@
 
 #include <vector>
 
-class SceneManager : public Singleton<SceneManager> {
+NS_ENGINE
+
+class SceneManager : public Util::Singleton<SceneManager> {
   friend class Singleton<SceneManager>;
   
   std::vector<SceneBase*> scenes;
@@ -37,5 +39,7 @@ public:
 private:
   SceneManager();
 };
+
+NS_END
 
 #endif /* SceneManager_hpp */

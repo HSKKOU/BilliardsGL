@@ -9,7 +9,10 @@
 #ifndef Singleton_h
 #define Singleton_h
 
+#include "GlobalHeader.h"
 #include <memory>
+
+NS_ENGINE_UTIL
 
 template<class T>
 class Singleton {
@@ -39,4 +42,7 @@ private:
   Singleton(Singleton &&) = delete;
   Singleton& operator=(Singleton &&) = delete;
 };
+
+NS_END2
+
 #endif /* Singleton_h */

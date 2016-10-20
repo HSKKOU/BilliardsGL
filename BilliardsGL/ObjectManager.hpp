@@ -17,6 +17,10 @@
 #include "Models.h"
 #include "ObjectFactory.hpp"
 
+using namespace Engine::Model;
+
+NS_ENGINE
+
 class ObjectManager : public Singleton<ObjectManager> {
   friend class Singleton<ObjectManager>;
   
@@ -33,5 +37,7 @@ public:
 private:
   ObjectManager();
 };
+
+NS_END
 
 #endif /* ObjectManager_hpp */

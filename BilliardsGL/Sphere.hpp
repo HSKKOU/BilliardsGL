@@ -11,6 +11,8 @@
 
 #include "BaseObject3D.hpp"
 
+NS_ENGINE_MODEL
+
 class Sphere : public BaseObject3D {
   GLfloat radius;
   
@@ -22,5 +24,7 @@ public:
 private:
   void setVPos(GLfloat *vPos, int ist, int jsl, int stk, int slc, float ast, float asl);
 };
+
+NS_END2
 
 #endif /* Sphere_hpp */

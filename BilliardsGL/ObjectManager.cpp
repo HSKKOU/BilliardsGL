@@ -8,6 +8,8 @@
 
 #include "ObjectManager.hpp"
 
+NS_ENGINE
+
 ObjectManager::ObjectManager() { /* do nothing */ }
 
 void ObjectManager::initialize() {
@@ -45,3 +47,5 @@ void ObjectManager::updateObject() {
     (*itr)->draw();
   }
 }
+
+NS_END

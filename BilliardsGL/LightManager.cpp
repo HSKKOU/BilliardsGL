@@ -8,6 +8,8 @@
 
 #include "LightManager.hpp"
 
+NS_ENGINE
+
 LightManager::LightManager() { /* do nothing */ }
 
 void LightManager::initialize() {
@@ -25,3 +27,5 @@ void LightManager::updateLights() {
     light->updateLight();
   }
 }
+
+NS_END

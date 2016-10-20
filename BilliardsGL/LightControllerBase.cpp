@@ -8,6 +8,8 @@
 
 #include "LightControllerBase.hpp"
 
+NS_ENGINE_LIGHT
+
 LightControllerBase::LightControllerBase(
  Vector3D _position,
  Vector3D _diffuse,
@@ -44,3 +46,5 @@ void LightControllerBase::updateLight() {
   static GLfloat lightPos[4] = { 0.0f, 10.0f, 0.0f, 1.0f };
   glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 }
+
+NS_END2

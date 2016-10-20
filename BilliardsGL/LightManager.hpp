@@ -18,6 +18,11 @@
 
 #include "DirectionalLightController.hpp"
 
+using namespace Engine::Util;
+using namespace Engine::Light;
+
+NS_ENGINE
+
 class LightManager : public Singleton<LightManager> {
   friend class Singleton<LightManager>;
   
@@ -34,5 +39,7 @@ public:
 private:
   LightManager();
 };
+
+NS_END
 
 #endif /* LightManager_hpp */

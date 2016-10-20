@@ -16,6 +16,11 @@
 
 #include <vector>
 
+using namespace Engine::Util;
+using namespace Engine::Camera;
+
+NS_ENGINE
+
 class CameraManager : public Singleton<CameraManager> {
   friend class Singleton<CameraManager>;
   
@@ -30,5 +35,7 @@ public:
 private:
   CameraManager();
 };
+
+NS_END
 
 #endif /* CameraManager_hpp */
