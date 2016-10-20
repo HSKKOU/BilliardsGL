@@ -16,31 +16,9 @@ GameManager::GameManager()
 , fps(FPSCounter::instance())
 { /* do nothing */ }
 
-GameManager::~GameManager() {
-  delete window;
-  window = nullptr;
-}
+GameManager::~GameManager() { /* do nothing */ }
 
 void GameManager::initialize() {
-  // initialize GLFW
-  if (glfwInit() == GL_FALSE) {
-    std::cerr << "Can't initialize GLFW" << std::endl;
-    exit(1);
-  }
-  
-  // register operation terminated program
-  atexit(glfwTerminate);
-  
-  // select OpenGL Version 4.1 Core Profile
-  glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
-  glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-  // create window
-  window = new Window(640, 640, "BilliardGL");
-  
   // set background color
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
   
@@ -96,22 +74,10 @@ void GameManager::startMainLoop() {
     balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
     balls[i]->rotate(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
   }
-  
-  // game loop
-  while (window->shouldClose() == GL_FALSE) {
-    fps.update(glfwGetTime());
-    mainLoop();
-  }
 }
 
 
 void GameManager::mainLoop() {
-  // clear buffer,  enable "DEPTH_BUFFER, CULL_FACE"
-  window->resetWindow();
-  
-  // Managers update
-  lightManager.updateLights();
-  
   balls[0]->translate(Vector3D(0.0f, 0.0f, 10.0f-sinf(glfwGetTime())*3.0f));
   for (int i=1; i<=15; i++) {
     float row = ceilf((sqrtf(1.0 + 8.0*i) - 1.0f) / 2.0f);
@@ -121,9 +87,4 @@ void GameManager::mainLoop() {
     balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
     balls[i]->rotate(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
   }
-
-  objectManager.updateObject();
-
-  // finish this frame, change another drawing buffer
-  window->swapBuffers();
 }

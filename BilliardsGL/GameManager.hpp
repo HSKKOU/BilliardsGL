@@ -28,10 +28,10 @@
 
 #include "TextureLoader.hpp"
 
+using namespace Engine;
+
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
-  
-  Window *window;
   
   SceneManager &sceneManager;
   LightManager &lightManager;
