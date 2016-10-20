@@ -28,17 +28,10 @@
 
 #include "TextureLoader.hpp"
 
-using namespace Engine;
+US_NS_ENGINE
 
 class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
-  
-  SceneManager &sceneManager;
-  LightManager &lightManager;
-  CameraManager &cameraManager;
-  ObjectManager &objectManager;
-  
-  FPSCounter &fps;
   
   // for Debug
   BaseObject3D* balls[16];

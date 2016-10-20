@@ -9,11 +9,6 @@
 #include "GameManager.hpp"
 
 GameManager::GameManager()
-: sceneManager(SceneManager::instance())
-, lightManager(LightManager::instance())
-, cameraManager(CameraManager::instance())
-, objectManager(ObjectManager::instance())
-, fps(FPSCounter::instance())
 { /* do nothing */ }
 
 GameManager::~GameManager() { /* do nothing */ }
@@ -21,49 +16,18 @@ GameManager::~GameManager() { /* do nothing */ }
 void GameManager::initialize() {
   // set background color
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
-  
-  // FPS initialize
-  fps.initialize(glfwGetTime());
-
-  // Managers initialize
-  sceneManager.initialize();
-  lightManager.initialize();
-  cameraManager.initialize();
-  objectManager.initialize();
 }
 
 void GameManager::startMainLoop() {
-  // initialize TextureLoader
-  TextureLoader &textureLoader = TextureLoader::instance();
-  textureLoader.initialize();
-  
-  // set main camera
-  PerspectiveCameraController *mainCamera = new PerspectiveCameraController(Vector3D(0.0f,30.0f,0.0f), Vector3D(0.0f,0.0f,0.0f), Vector3D(0.0f,0.0f,-1.0f));
-  mainCamera->setPerspective(60.0f, 1.0f, 0.5f, 100.0f);
-  cameraManager.addCamera(mainCamera);
-  
-  
-  // set main light
-  LightControllerBase *light0 = new DirectionalLightController
-  (
-   Vector3D(0.0f, 10.0f, 0.0f),
-   Vector3D::one(),
-   Vector3D::one(),
-   Vector3D::one()*0.25f,
-   Vector3D::one(),
-   Vector4D::one()
-  );
-  lightManager.addLight(light0);
-
   
   // for Debug create ball objects
-  balls[0] = objectManager.instantiateObject(ObjectType::SPHERE);
+  balls[0] = (ObjectManager::instance()).instantiateObject(ObjectType::SPHERE);
   balls[0]->loadShaderProgram("LightTest.vert", "LightTest.frag");
   balls[0]->setTexture(Tex::Ball00);
   balls[0]->setObjectColor(Color::one());
   balls[0]->translate(Vector3D(0.0f, 0.0f, 10.0f));
   for (int i=1; i<=15; i++) {
-    balls[i] = objectManager.instantiateObject(ObjectType::SPHERE);
+    balls[i] = (ObjectManager::instance()).instantiateObject(ObjectType::SPHERE);
     balls[i]->loadShaderProgram("LightTest.vert", "LightTest.frag");
     balls[i]->setTexture(static_cast<Tex>(static_cast<int>(Tex::Ball00)+i));
     balls[i]->setObjectColor(Color::one());
