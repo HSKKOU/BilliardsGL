@@ -18,8 +18,8 @@
 
 #include "DirectionalLightController.hpp"
 
-using namespace Engine::Util;
-using namespace Engine::Light;
+US_NS_ENGINE_UTIL
+US_NS_ENGINE_LIGHT
 
 NS_ENGINE
 

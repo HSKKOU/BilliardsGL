@@ -16,8 +16,8 @@
 
 #include <vector>
 
-using namespace Engine::Util;
-using namespace Engine::Camera;
+US_NS_ENGINE_UTIL
+US_NS_ENGINE_CAMERA
 
 NS_ENGINE
 

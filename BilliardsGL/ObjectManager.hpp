@@ -17,7 +17,7 @@
 #include "Models.h"
 #include "ObjectFactory.hpp"
 
-using namespace Engine::Model;
+US_NS_ENGINE_MODEL
 
 NS_ENGINE
 
