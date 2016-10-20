@@ -15,6 +15,9 @@
 		0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607161DAF6888000031BA /* TextureLoader.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
 		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
+		0D9E602E1DB8A8570084591E /* TestScene001.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602C1DB8A8570084591E /* TestScene001.cpp */; };
+		0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602F1DB8A8680084591E /* SceneManager.cpp */; };
+		0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E60321DB8A8A40084591E /* SceneBase.cpp */; };
 		0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
 		0DBF5D171D95211800A037BA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D151D95211800A037BA /* Square.cpp */; };
@@ -66,6 +69,12 @@
 		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.cpp; sourceTree = "<group>"; };
 		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameManager.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.hpp; sourceTree = "<group>"; };
 		0D94B73D1D8AE6BB00422BD9 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = ../../../colopl/BilliardsGL/BilliardsGL/Singleton.h; sourceTree = "<group>"; };
+		0D9E602C1DB8A8570084591E /* TestScene001.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene001.cpp; sourceTree = "<group>"; };
+		0D9E602D1DB8A8570084591E /* TestScene001.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestScene001.hpp; sourceTree = "<group>"; };
+		0D9E602F1DB8A8680084591E /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		0D9E60301DB8A8680084591E /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
+		0D9E60321DB8A8A40084591E /* SceneBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneBase.cpp; sourceTree = "<group>"; };
+		0D9E60331DB8A8A40084591E /* SceneBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneBase.hpp; sourceTree = "<group>"; };
 		0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraControllerBase.cpp; sourceTree = "<group>"; };
 		0DA841861DB5B830002A7879 /* CameraControllerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraControllerBase.hpp; sourceTree = "<group>"; };
 		0DA841881DB5BAC1002A7879 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -129,11 +138,12 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
-				0D76070A1DA75D0F000031BA /* Factory */,
 				0DF2A1C91D97E65A00303E07 /* 3DModel */,
 				0DBF5D141D9520FF00A037BA /* 2DModels */,
 				0D94B7361D8AE62300422BD9 /* Managers */,
 				0D94B7371D8AE62900422BD9 /* Controllers */,
+				0D9E602B1DB8A82D0084591E /* Scenes */,
+				0D76070A1DA75D0F000031BA /* Factory */,
 				0D94B7341D8A9C6000422BD9 /* Headers */,
 				0D94B7301D8A9BFA00422BD9 /* Window */,
 				0D94B73B1D8AE68700422BD9 /* Utils */,
@@ -206,6 +216,8 @@
 				0DF2A1DE1D99265F00303E07 /* LightManager.hpp */,
 				0D7607061DA75393000031BA /* ObjectManager.cpp */,
 				0D7607071DA75393000031BA /* ObjectManager.hpp */,
+				0D9E602F1DB8A8680084591E /* SceneManager.cpp */,
+				0D9E60301DB8A8680084591E /* SceneManager.hpp */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -231,6 +243,17 @@
 				0D7607171DAF6888000031BA /* TextureLoader.hpp */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		0D9E602B1DB8A82D0084591E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0D9E602C1DB8A8570084591E /* TestScene001.cpp */,
+				0D9E602D1DB8A8570084591E /* TestScene001.hpp */,
+				0D9E60321DB8A8A40084591E /* SceneBase.cpp */,
+				0D9E60331DB8A8A40084591E /* SceneBase.hpp */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 		0DA8418A1DB5C504002A7879 /* Samples */ = {
@@ -370,8 +393,11 @@
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
+				0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */,
+				0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */,
 				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,
 				0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */,
+				0D9E602E1DB8A8570084591E /* TestScene001.cpp in Sources */,
 				0DF2A1DA1D98BF0000303E07 /* PerspectiveCameraController.cpp in Sources */,
 				0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */,
 				0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */,
