@@ -211,6 +211,7 @@
 		0D94B7371D8AE62900422BD9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D9E60411DB8C5FE0084591E /* Scene */,
 				0DF2A1E11D99270300303E07 /* Light */,
 				0DF2A1E01D9926F800303E07 /* Camera */,
 			);
@@ -229,8 +230,6 @@
 			children = (
 				0D9E602C1DB8A8570084591E /* TestScene001.cpp */,
 				0D9E602D1DB8A8570084591E /* TestScene001.hpp */,
-				0D9E60321DB8A8A40084591E /* SceneBase.cpp */,
-				0D9E60331DB8A8A40084591E /* SceneBase.hpp */,
 				0D9E603F1DB8B0270084591E /* Scenes.h */,
 			);
 			name = Scenes;
@@ -317,6 +316,15 @@
 				0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		0D9E60411DB8C5FE0084591E /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				0D9E60321DB8A8A40084591E /* SceneBase.cpp */,
+				0D9E60331DB8A8A40084591E /* SceneBase.hpp */,
+			);
+			name = Scene;
 			sourceTree = "<group>";
 		};
 		0DA8418A1DB5C504002A7879 /* Samples */ = {

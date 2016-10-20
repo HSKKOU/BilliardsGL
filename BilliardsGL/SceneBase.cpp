@@ -8,6 +8,8 @@
 
 #include "SceneBase.hpp"
 
+NS_ENGINE
+
 SceneBase::SceneBase() { /* do nothing */ }
 SceneBase::~SceneBase() { /* do nothing */ }
 
@@ -18,3 +20,5 @@ void SceneBase::start() {
 void SceneBase::update() {
   
 }
+
+NS_END

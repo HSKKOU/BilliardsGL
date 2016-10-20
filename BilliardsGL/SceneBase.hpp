@@ -11,8 +11,9 @@
 
 #include "GlobalHeader.h"
 
+NS_ENGINE
+
 class SceneBase {
-  
   
 public:
   SceneBase();
@@ -21,5 +22,7 @@ public:
   virtual void start();
   virtual void update();
 };
+
+NS_END
 
 #endif /* SceneBase_hpp */

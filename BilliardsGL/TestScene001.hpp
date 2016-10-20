@@ -11,6 +11,8 @@
 
 #include "SceneBase.hpp"
 
+US_NS_ENGINE
+
 class TestScene001 : public SceneBase {
   
   
