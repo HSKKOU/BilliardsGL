@@ -82,6 +82,10 @@ union Quaternion {
     GLfloat x, y, z, w;
   };
   struct {
+    Vector3D axisV;
+    GLfloat angleF;
+  };
+  struct {
     GLfloat axis[3];
     GLfloat angle;
   };
@@ -97,6 +101,13 @@ public:
   , w(cosf(angle/2.0f))
   { /* do nothing */ }
   Quaternion(const GLfloat _x, const GLfloat _y, const GLfloat _z) { /* do nothing */ }
+  
+  Quaternion operator*(Quaternion q) {
+    return Quaternion(
+      q.axisV * angle + axisV * q.angle + axisV.cross(q.axisV),
+      angle*q.angle - axisV.dot(q.axisV)
+    );
+  }
   
   static Quaternion one() { return Quaternion(0.0f, 0.0f, 0.0f, 1.0f); }
 };
