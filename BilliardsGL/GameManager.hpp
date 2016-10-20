@@ -22,6 +22,7 @@
 
 #include "ObjectManager.hpp"
 #include "LightManager.hpp"
+#include "SceneManager.hpp"
 
 #include "Camera.h"
 
@@ -32,6 +33,7 @@ class GameManager : public Singleton<GameManager> {
   
   Window *window;
   
+  SceneManager &sceneManager;
   LightManager &lightManager;
   CameraManager &cameraManager;
   ObjectManager &objectManager;

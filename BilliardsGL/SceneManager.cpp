@@ -13,24 +13,27 @@ SceneManager::SceneManager()
 { /* do nothing */ }
 SceneManager::~SceneManager() { /* do nothing */ }
 
-void SceneManager::initialize() {}
+void SceneManager::initialize() { /* do nothing */ }
 
 void SceneManager::addScene(const SceneBase* scene) {
-  
+  scenes.emplace_back(scene);
 }
 
 SceneBase* SceneManager::getScene(int index) const {
-  return nullptr;
+  if (index < 0 || index >= scenes.size()) { return nullptr; }
+  return scenes.at(index);
 }
 
 void SceneManager::removeScene(int index) {
-  
+  if (index < 0 || index >= scenes.size()) { return; }
+  scenes.erase(scenes.begin()+index);
 }
 
 void SceneManager::switchSceneTo(int index) {
-  
+  if (index < 0 || index >= scenes.size()) { return; }
+  currentScene = scenes.at(index);
 }
 
 void SceneManager::switchSceneTo(SceneBase* scene) {
-  
+  if (scene) { currentScene = scene; }
 }

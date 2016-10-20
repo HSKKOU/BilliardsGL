@@ -9,7 +9,8 @@
 #include "GameManager.hpp"
 
 GameManager::GameManager()
-: lightManager(LightManager::instance())
+: sceneManager(SceneManager::instance())
+, lightManager(LightManager::instance())
 , cameraManager(CameraManager::instance())
 , objectManager(ObjectManager::instance())
 , fps(FPSCounter::instance())
@@ -47,6 +48,7 @@ void GameManager::initialize() {
   fps.initialize(glfwGetTime());
 
   // Managers initialize
+  sceneManager.initialize();
   lightManager.initialize();
   cameraManager.initialize();
   objectManager.initialize();
