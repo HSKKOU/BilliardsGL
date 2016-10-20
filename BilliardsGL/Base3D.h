@@ -34,8 +34,10 @@ public:
   void setPosition(const Vector3D pos) { transform.position = pos; }
   
   virtual void translate(Vector3D dest) { transform.position = dest; }
-  virtual void rotate(Quaternion rot) { transform.rotation = rot; }
+  virtual void rotation(Quaternion rot) { transform.rotation = rot; }
   virtual void scale(Vector3D scl) { transform.scale = scl; }
+  
+  virtual void rotate(Quaternion rot) { transform.rotation = rot; }
 };
 
 NS_END
