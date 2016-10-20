@@ -8,14 +8,20 @@
 
 #include "SceneManager.hpp"
 
+#include "TestScene001.hpp"
+
 SceneManager::SceneManager()
-: currentScene(nullptr)
 { /* do nothing */ }
 SceneManager::~SceneManager() { /* do nothing */ }
 
-void SceneManager::initialize() { /* do nothing */ }
+void SceneManager::initialize() {
+  // for Debug
+  TestScene001* testScene = new TestScene001();
+  addScene(testScene);
+  currentScene = testScene;
+}
 
-void SceneManager::addScene(const SceneBase* scene) {
+void SceneManager::addScene(SceneBase* scene) {
   scenes.emplace_back(scene);
 }
 
@@ -36,4 +42,13 @@ void SceneManager::switchSceneTo(int index) {
 
 void SceneManager::switchSceneTo(SceneBase* scene) {
   if (scene) { currentScene = scene; }
+}
+
+
+void SceneManager::startScene() const {
+  currentScene->start();
+}
+
+void SceneManager::updateScene() const {
+  currentScene->update();
 }

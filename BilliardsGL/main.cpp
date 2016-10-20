@@ -9,14 +9,14 @@
 #include <cstdlib>
 
 #include "GlobalHeader.h"
-#include "GameManager.hpp"
+#include "GameEngineManager.hpp"
 
 int main(int argc, const char * argv[]) {
   
-  // GameManager Initialized
-  GameManager &gameManager = GameManager::instance();
-  gameManager.initialize();  
+  // GameEngineManager Initialized
+  GameEngineManager &gameEngineManager = GameEngineManager::instance();
+  gameEngineManager.initialize();
 
-  // Start Game
-  gameManager.startMainLoop();
+  // Start Game Engine
+  gameEngineManager.startMainLoop();
 }

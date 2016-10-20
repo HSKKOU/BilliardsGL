@@ -17,6 +17,9 @@ class TestScene001 : public SceneBase {
 public:
   TestScene001();
   virtual ~TestScene001();
+  
+  virtual void start();
+  virtual void update();
 };
 
 #endif /* TestScene001_hpp */

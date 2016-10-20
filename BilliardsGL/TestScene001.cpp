@@ -10,3 +10,11 @@
 
 TestScene001::TestScene001() { /* do nothing */ }
 TestScene001::~TestScene001() { /* do nothing */ }
+
+void TestScene001::start() {
+  
+}
+
+void TestScene001::update() {
+  
+}

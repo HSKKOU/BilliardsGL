@@ -10,3 +10,11 @@
 
 SceneBase::SceneBase() { /* do nothing */ }
 SceneBase::~SceneBase() { /* do nothing */ }
+
+void SceneBase::start() {
+  
+}
+
+void SceneBase::update() {
+  
+}

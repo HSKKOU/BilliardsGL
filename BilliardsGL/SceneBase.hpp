@@ -17,6 +17,9 @@ class SceneBase {
 public:
   SceneBase();
   virtual ~SceneBase();
+  
+  virtual void start();
+  virtual void update();
 };
 
 #endif /* SceneBase_hpp */

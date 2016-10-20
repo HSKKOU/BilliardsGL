@@ -18,6 +18,7 @@
 		0D9E602E1DB8A8570084591E /* TestScene001.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602C1DB8A8570084591E /* TestScene001.cpp */; };
 		0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602F1DB8A8680084591E /* SceneManager.cpp */; };
 		0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E60321DB8A8A40084591E /* SceneBase.cpp */; };
+		0D9E603E1DB8AE730084591E /* GameEngineManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E603C1DB8AE730084591E /* GameEngineManager.cpp */; };
 		0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
 		0DBF5D171D95211800A037BA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D151D95211800A037BA /* Square.cpp */; };
@@ -68,13 +69,16 @@
 		0D94B7351D8A9C7600422BD9 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.cpp; sourceTree = "<group>"; };
 		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameManager.hpp; path = ../../../colopl/BilliardsGL/BilliardsGL/GameManager.hpp; sourceTree = "<group>"; };
-		0D94B73D1D8AE6BB00422BD9 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = ../../../colopl/BilliardsGL/BilliardsGL/Singleton.h; sourceTree = "<group>"; };
+		0D94B73D1D8AE6BB00422BD9 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		0D9E602C1DB8A8570084591E /* TestScene001.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene001.cpp; sourceTree = "<group>"; };
 		0D9E602D1DB8A8570084591E /* TestScene001.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestScene001.hpp; sourceTree = "<group>"; };
 		0D9E602F1DB8A8680084591E /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		0D9E60301DB8A8680084591E /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		0D9E60321DB8A8A40084591E /* SceneBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneBase.cpp; sourceTree = "<group>"; };
 		0D9E60331DB8A8A40084591E /* SceneBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneBase.hpp; sourceTree = "<group>"; };
+		0D9E603C1DB8AE730084591E /* GameEngineManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEngineManager.cpp; sourceTree = "<group>"; };
+		0D9E603D1DB8AE730084591E /* GameEngineManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameEngineManager.hpp; sourceTree = "<group>"; };
+		0D9E603F1DB8B0270084591E /* Scenes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scenes.h; sourceTree = "<group>"; };
 		0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraControllerBase.cpp; sourceTree = "<group>"; };
 		0DA841861DB5B830002A7879 /* CameraControllerBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraControllerBase.hpp; sourceTree = "<group>"; };
 		0DA841881DB5BAC1002A7879 /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -138,16 +142,8 @@
 		0D02C3E51D8A83360097F8F1 /* BilliardsGL */ = {
 			isa = PBXGroup;
 			children = (
-				0DF2A1C91D97E65A00303E07 /* 3DModel */,
-				0DBF5D141D9520FF00A037BA /* 2DModels */,
-				0D94B7361D8AE62300422BD9 /* Managers */,
-				0D94B7371D8AE62900422BD9 /* Controllers */,
-				0D9E602B1DB8A82D0084591E /* Scenes */,
-				0D76070A1DA75D0F000031BA /* Factory */,
-				0D94B7341D8A9C6000422BD9 /* Headers */,
-				0D94B7301D8A9BFA00422BD9 /* Window */,
-				0D94B73B1D8AE68700422BD9 /* Utils */,
-				0D94B72D1D8A970A00422BD9 /* shaders */,
+				0D9E60361DB8AD990084591E /* Engine */,
+				0D9E603B1DB8AE480084591E /* Game */,
 				0D02C3E61D8A83360097F8F1 /* main.cpp */,
 			);
 			path = BilliardsGL;
@@ -178,8 +174,6 @@
 			children = (
 				0DA8418A1DB5C504002A7879 /* Samples */,
 				0D7606B61DA4EE08000031BA /* test */,
-				0D7606B71DA4EE2E000031BA /* Default.vert */,
-				0D7606B81DA4EE40000031BA /* Default.frag */,
 				0D7606B91DA5C70C000031BA /* LightTest.vert */,
 				0D7606BA1DA5C72A000031BA /* LightTest.frag */,
 			);
@@ -210,14 +204,6 @@
 			children = (
 				0D94B7381D8AE64700422BD9 /* GameManager.cpp */,
 				0D94B7391D8AE64700422BD9 /* GameManager.hpp */,
-				0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */,
-				0DF2A1D61D98BEB200303E07 /* CameraManager.hpp */,
-				0DF2A1DD1D99265F00303E07 /* LightManager.cpp */,
-				0DF2A1DE1D99265F00303E07 /* LightManager.hpp */,
-				0D7607061DA75393000031BA /* ObjectManager.cpp */,
-				0D7607071DA75393000031BA /* ObjectManager.hpp */,
-				0D9E602F1DB8A8680084591E /* SceneManager.cpp */,
-				0D9E60301DB8A8680084591E /* SceneManager.hpp */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -234,13 +220,6 @@
 		0D94B73B1D8AE68700422BD9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0D94B73D1D8AE6BB00422BD9 /* Singleton.h */,
-				0DBF5D111D951CD300A037BA /* FPSCounter.hpp */,
-				0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */,
-				0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */,
-				0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */,
-				0D7607161DAF6888000031BA /* TextureLoader.cpp */,
-				0D7607171DAF6888000031BA /* TextureLoader.hpp */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -252,8 +231,84 @@
 				0D9E602D1DB8A8570084591E /* TestScene001.hpp */,
 				0D9E60321DB8A8A40084591E /* SceneBase.cpp */,
 				0D9E60331DB8A8A40084591E /* SceneBase.hpp */,
+				0D9E603F1DB8B0270084591E /* Scenes.h */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		0D9E60361DB8AD990084591E /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B7341D8A9C6000422BD9 /* Headers */,
+				0D9E603A1DB8ADF00084591E /* Shaders */,
+				0D9E60391DB8ADD70084591E /* Utils */,
+				0D9E60381DB8ADC30084591E /* ModelObjects */,
+				0D9E60371DB8ADAD0084591E /* Managers */,
+				0D94B7371D8AE62900422BD9 /* Controllers */,
+				0D94B7301D8A9BFA00422BD9 /* Window */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
+		0D9E60371DB8ADAD0084591E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */,
+				0DF2A1D61D98BEB200303E07 /* CameraManager.hpp */,
+				0DF2A1DD1D99265F00303E07 /* LightManager.cpp */,
+				0DF2A1DE1D99265F00303E07 /* LightManager.hpp */,
+				0D7607061DA75393000031BA /* ObjectManager.cpp */,
+				0D7607071DA75393000031BA /* ObjectManager.hpp */,
+				0D9E602F1DB8A8680084591E /* SceneManager.cpp */,
+				0D9E60301DB8A8680084591E /* SceneManager.hpp */,
+				0D9E603C1DB8AE730084591E /* GameEngineManager.cpp */,
+				0D9E603D1DB8AE730084591E /* GameEngineManager.hpp */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		0D9E60381DB8ADC30084591E /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				0D76070A1DA75D0F000031BA /* Factory */,
+				0DBF5D141D9520FF00A037BA /* 2DModels */,
+				0DF2A1C91D97E65A00303E07 /* 3DModels */,
+			);
+			name = ModelObjects;
+			sourceTree = "<group>";
+		};
+		0D9E60391DB8ADD70084591E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B73D1D8AE6BB00422BD9 /* Singleton.h */,
+				0DBF5D111D951CD300A037BA /* FPSCounter.hpp */,
+				0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */,
+				0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */,
+				0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */,
+				0D7607161DAF6888000031BA /* TextureLoader.cpp */,
+				0D7607171DAF6888000031BA /* TextureLoader.hpp */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		0D9E603A1DB8ADF00084591E /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				0D7606B71DA4EE2E000031BA /* Default.vert */,
+				0D7606B81DA4EE40000031BA /* Default.frag */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		0D9E603B1DB8AE480084591E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				0D94B7361D8AE62300422BD9 /* Managers */,
+				0D9E602B1DB8A82D0084591E /* Scenes */,
+				0D94B73B1D8AE68700422BD9 /* Utils */,
+				0D94B72D1D8A970A00422BD9 /* shaders */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 		0DA8418A1DB5C504002A7879 /* Samples */ = {
@@ -278,7 +333,7 @@
 			name = 2DModels;
 			sourceTree = "<group>";
 		};
-		0DF2A1C91D97E65A00303E07 /* 3DModel */ = {
+		0DF2A1C91D97E65A00303E07 /* 3DModels */ = {
 			isa = PBXGroup;
 			children = (
 				0DF2A1CA1D97E66C00303E07 /* Cube.cpp */,
@@ -289,7 +344,7 @@
 				0D76070E1DA78FD6000031BA /* Sphere.cpp */,
 				0D76070F1DA78FD6000031BA /* Sphere.hpp */,
 			);
-			name = 3DModel;
+			name = 3DModels;
 			sourceTree = "<group>";
 		};
 		0DF2A1E01D9926F800303E07 /* Camera */ = {
@@ -391,6 +446,7 @@
 				0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */,
 				0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */,
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
+				0D9E603E1DB8AE730084591E /* GameEngineManager.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
 				0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */,
