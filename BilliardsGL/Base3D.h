@@ -37,7 +37,7 @@ public:
   virtual void rotation(Quaternion rot) { transform.rotation = rot; }
   virtual void scale(Vector3D scl) { transform.scale = scl; }
   
-  virtual void rotate(Quaternion rot) { transform.rotation = rot; }
+  virtual void rotate(Quaternion rot) { transform.rotation *= rot; }
 };
 
 NS_END

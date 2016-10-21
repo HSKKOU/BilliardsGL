@@ -82,12 +82,8 @@ union Quaternion {
     GLfloat x, y, z, w;
   };
   struct {
-    Vector3D axisV;
-    GLfloat angleF;
-  };
-  struct {
-    GLfloat axis[3];
-    GLfloat angle;
+    Vector3D vV;
+    GLfloat wF;
   };
   GLfloat q[4];
   
@@ -102,11 +98,13 @@ public:
   { /* do nothing */ }
   Quaternion(const GLfloat _x, const GLfloat _y, const GLfloat _z) { /* do nothing */ }
   
-  Quaternion operator*(Quaternion q) {
-    return Quaternion(
-      q.axisV * angle + axisV * q.angle + axisV.cross(q.axisV),
-      angle*q.angle - axisV.dot(q.axisV)
-    );
+  Quaternion operator*(Quaternion _q) {
+    Vector3D v = vV * _q.wF + _q.vV * wF + vV.cross(_q.vV);
+    return Quaternion(v.x, v.y, v.z, wF*_q.wF - vV.dot(_q.vV) );
+  }
+  Quaternion& operator*=(Quaternion _q) {
+    *this = *this*_q;
+    return *this;
   }
   
   static Quaternion one() { return Quaternion(0.0f, 0.0f, 0.0f, 1.0f); }

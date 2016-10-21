@@ -50,7 +50,7 @@ void GameManager::update() {
     float posX = 1.01f * (2.0f*(i-sumAtLastRow)-row-1);
     float posZ = (row-1) * 1.75033f + sinf(glfwGetTime())*3.0f;
     balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
-    balls[i]->rotation(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
+    balls[i]->rotate(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/180.0f));
   }
 }
 
