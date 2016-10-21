@@ -30,7 +30,9 @@ public:
   
   Matrix4D getViewMatrix() const;
   virtual void translate(Vector3D dest);
+  virtual void rotation(Quaternion rot);
   virtual void rotate(Quaternion rot);
+  virtual void calcCameraTransform();
   
 protected:
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) = 0;

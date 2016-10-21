@@ -29,8 +29,17 @@ void CameraControllerBase::translate(Vector3D dest) {
   Base3D::translate(dest);
 }
 
+void CameraControllerBase::rotation(Quaternion rot) {
+  Base3D::rotation(rot);
+}
+
 void CameraControllerBase::rotate(Quaternion rot) {
   Base3D::rotate(rot);
 }
+
+void CameraControllerBase::calcCameraTransform() {
+  // TODO : calc center and upDir by changing Camera transform.
+}
+
 
 NS_END2
