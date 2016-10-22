@@ -19,27 +19,27 @@ Transform::Transform(Vector3D pos, Quaternion rot, Vector3D scl)
 Transform::~Transform() { /* do nothing */ }
 
 Vector3D Transform::up() const {
-  return Vector3D::zero();
+  return rotation * Vector3D::up();
 }
 
 Vector3D Transform::down() const {
-  return Vector3D::zero();
+  return rotation * Vector3D::down();
 }
 
 Vector3D Transform::left() const {
-  return Vector3D::zero();
+  return rotation * Vector3D::left();
 }
 
 Vector3D Transform::right() const {
-  return Vector3D::zero();
+  return rotation * Vector3D::right();
 }
 
 Vector3D Transform::forward() const {
-  return Vector3D::zero();
+  return rotation * Vector3D::forward();
 }
 
 Vector3D Transform::back() const {
-  return Vector3D::zero();
+  return rotation * Vector3D::back();
 }
 
 
