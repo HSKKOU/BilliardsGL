@@ -14,6 +14,16 @@ BaseObject3D::BaseObject3D() : Engine::Base3D(Transform(Vector3D::zero(), Quater
 BaseObject3D::BaseObject3D(Transform t) : Engine::Base3D(t) { /* do nothing */ }
 BaseObject3D::~BaseObject3D() { /* do nothing */ }
 
+void BaseObject3D::addModel(BaseModel3D* model) { modelList.emplace_back(model); }
+BaseModel3D* BaseObject3D::getModel(int index) const {
+  if (index < 0 || index >= modelList.size()) { return nullptr; }
+  return modelList.at(index);
+}
+void BaseObject3D::removeModel(int index) {
+  if (index < 0 || index >= modelList.size()) { return; }
+  modelList.erase(modelList.begin() + index);
+}
+
 void BaseObject3D::awake() { /* do nothing */ }
 void BaseObject3D::start() { /* do nothing */ }
 void BaseObject3D::update() { /* do nothing */ }
