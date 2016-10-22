@@ -1,25 +1,25 @@
 //
-//  Base3DController.hpp
+//  BaseObject3D.hpp
 //  BilliardsGL
 //
 //  Created by 比佐 幸基 on 2016/10/22.
 //  Copyright © 2016年 比佐 幸基. All rights reserved.
 //
 
-#ifndef Base3DController_hpp
-#define Base3DController_hpp
+#ifndef BaseObject3D_hpp
+#define BaseObject3D_hpp
 
 #include "GlobalHeader.h"
 #include "Base3D.h"
 
 NS_ENGINE
 
-class Base3DController : public Base3D {
+class BaseObject3D : public Base3D {
   
 public:
-  Base3DController();
-  Base3DController(Transform t);
-  virtual ~Base3DController();
+  BaseObject3D();
+  BaseObject3D(Transform t);
+  virtual ~BaseObject3D();
   
   void virtual awake();
   void virtual start();
@@ -29,4 +29,4 @@ public:
 
 NS_END
 
-#endif /* Base3DController_hpp */
+#endif /* BaseObject3D_hpp */

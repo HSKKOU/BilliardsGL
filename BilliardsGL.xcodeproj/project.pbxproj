@@ -14,7 +14,7 @@
 		0D31CB291DBAE45F00BF8F65 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB271DBAE45F00BF8F65 /* Vector4D.cpp */; };
 		0D31CB2C1DBAE51E00BF8F65 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB2A1DBAE51E00BF8F65 /* Quaternion.cpp */; };
 		0D31CB2F1DBAE5D900BF8F65 /* Matrix4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB2D1DBAE5D900BF8F65 /* Matrix4D.cpp */; };
-		0D31CB381DBB5E9A00BF8F65 /* Base3DController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB361DBB5E9A00BF8F65 /* Base3DController.cpp */; };
+		0D31CB381DBB5E9A00BF8F65 /* BaseObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */; };
 		0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607061DA75393000031BA /* ObjectManager.cpp */; };
 		0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */; };
 		0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070E1DA78FD6000031BA /* Sphere.cpp */; };
@@ -65,8 +65,8 @@
 		0D31CB2B1DBAE51E00BF8F65 /* Quaternion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Quaternion.hpp; sourceTree = "<group>"; };
 		0D31CB2D1DBAE5D900BF8F65 /* Matrix4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4D.cpp; sourceTree = "<group>"; };
 		0D31CB2E1DBAE5D900BF8F65 /* Matrix4D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix4D.hpp; sourceTree = "<group>"; };
-		0D31CB361DBB5E9A00BF8F65 /* Base3DController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base3DController.cpp; sourceTree = "<group>"; };
-		0D31CB371DBB5E9A00BF8F65 /* Base3DController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Base3DController.hpp; sourceTree = "<group>"; };
+		0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject3D.cpp; sourceTree = "<group>"; };
+		0D31CB371DBB5E9A00BF8F65 /* BaseObject3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseObject3D.hpp; sourceTree = "<group>"; };
 		0D7606B71DA4EE2E000031BA /* Default.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.vert; sourceTree = "<group>"; };
 		0D7606B81DA4EE40000031BA /* Default.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.frag; sourceTree = "<group>"; };
 		0D7606B91DA5C70C000031BA /* LightTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.vert; sourceTree = "<group>"; };
@@ -180,8 +180,8 @@
 		0D31CB351DBB5E8600BF8F65 /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				0D31CB361DBB5E9A00BF8F65 /* Base3DController.cpp */,
-				0D31CB371DBB5E9A00BF8F65 /* Base3DController.hpp */,
+				0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */,
+				0D31CB371DBB5E9A00BF8F65 /* BaseObject3D.hpp */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -523,7 +523,7 @@
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
 				0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */,
-				0D31CB381DBB5E9A00BF8F65 /* Base3DController.cpp in Sources */,
+				0D31CB381DBB5E9A00BF8F65 /* BaseObject3D.cpp in Sources */,
 				0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */,
 				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,
 				0D31CB2C1DBAE51E00BF8F65 /* Quaternion.cpp in Sources */,
