@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
 		0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */; };
+		0D31CB201DBADFC800BF8F65 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB1E1DBADFC800BF8F65 /* Transform.cpp */; };
+		0D31CB261DBAE2F800BF8F65 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB241DBAE2F800BF8F65 /* Vector3D.cpp */; };
+		0D31CB291DBAE45F00BF8F65 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB271DBAE45F00BF8F65 /* Vector4D.cpp */; };
+		0D31CB2C1DBAE51E00BF8F65 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB2A1DBAE51E00BF8F65 /* Quaternion.cpp */; };
+		0D31CB2F1DBAE5D900BF8F65 /* Matrix4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB2D1DBAE5D900BF8F65 /* Matrix4D.cpp */; };
 		0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607061DA75393000031BA /* ObjectManager.cpp */; };
 		0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */; };
 		0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070E1DA78FD6000031BA /* Sphere.cpp */; };
@@ -49,6 +54,16 @@
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
 		0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
+		0D31CB1E1DBADFC800BF8F65 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		0D31CB1F1DBADFC800BF8F65 /* Transform.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
+		0D31CB241DBAE2F800BF8F65 /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
+		0D31CB251DBAE2F800BF8F65 /* Vector3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3D.hpp; sourceTree = "<group>"; };
+		0D31CB271DBAE45F00BF8F65 /* Vector4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
+		0D31CB281DBAE45F00BF8F65 /* Vector4D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector4D.hpp; sourceTree = "<group>"; };
+		0D31CB2A1DBAE51E00BF8F65 /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quaternion.cpp; sourceTree = "<group>"; };
+		0D31CB2B1DBAE51E00BF8F65 /* Quaternion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Quaternion.hpp; sourceTree = "<group>"; };
+		0D31CB2D1DBAE5D900BF8F65 /* Matrix4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4D.cpp; sourceTree = "<group>"; };
+		0D31CB2E1DBAE5D900BF8F65 /* Matrix4D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix4D.hpp; sourceTree = "<group>"; };
 		0D7606B71DA4EE2E000031BA /* Default.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.vert; sourceTree = "<group>"; };
 		0D7606B81DA4EE40000031BA /* Default.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.frag; sourceTree = "<group>"; };
 		0D7606B91DA5C70C000031BA /* LightTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.vert; sourceTree = "<group>"; };
@@ -148,6 +163,16 @@
 				0D02C3E61D8A83360097F8F1 /* main.cpp */,
 			);
 			path = BilliardsGL;
+			sourceTree = "<group>";
+		};
+		0D31CB1D1DBADFB900BF8F65 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0DF2A1DB1D98C28D00303E07 /* Base3D.h */,
+				0D31CB1E1DBADFC800BF8F65 /* Transform.cpp */,
+				0D31CB1F1DBADFC800BF8F65 /* Transform.hpp */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		0D7606B61DA4EE08000031BA /* test */ = {
@@ -360,11 +385,11 @@
 		0DF2A1C91D97E65A00303E07 /* 3DModels */ = {
 			isa = PBXGroup;
 			children = (
+				0D31CB1D1DBADFB900BF8F65 /* Utils */,
 				0DF2A1CA1D97E66C00303E07 /* Cube.cpp */,
 				0DF2A1CB1D97E66C00303E07 /* Cube.hpp */,
 				0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */,
 				0DF2A1CE1D97E95F00303E07 /* BaseObject3D.hpp */,
-				0DF2A1DB1D98C28D00303E07 /* Base3D.h */,
 				0D76070E1DA78FD6000031BA /* Sphere.cpp */,
 				0D76070F1DA78FD6000031BA /* Sphere.hpp */,
 			);
@@ -398,6 +423,14 @@
 			isa = PBXGroup;
 			children = (
 				0DF2A1DC1D990FEB00303E07 /* Matrix.h */,
+				0D31CB241DBAE2F800BF8F65 /* Vector3D.cpp */,
+				0D31CB251DBAE2F800BF8F65 /* Vector3D.hpp */,
+				0D31CB271DBAE45F00BF8F65 /* Vector4D.cpp */,
+				0D31CB281DBAE45F00BF8F65 /* Vector4D.hpp */,
+				0D31CB2A1DBAE51E00BF8F65 /* Quaternion.cpp */,
+				0D31CB2B1DBAE51E00BF8F65 /* Quaternion.hpp */,
+				0D31CB2D1DBAE5D900BF8F65 /* Matrix4D.cpp */,
+				0D31CB2E1DBAE5D900BF8F65 /* Matrix4D.hpp */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -461,7 +494,10 @@
 				0DF2A1CC1D97E66C00303E07 /* Cube.cpp in Sources */,
 				0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */,
 				0DF2A1EA1D99307400303E07 /* DirectionalLightController.cpp in Sources */,
+				0D31CB261DBAE2F800BF8F65 /* Vector3D.cpp in Sources */,
+				0D31CB291DBAE45F00BF8F65 /* Vector4D.cpp in Sources */,
 				0DBF5D171D95211800A037BA /* Square.cpp in Sources */,
+				0D31CB2F1DBAE5D900BF8F65 /* Matrix4D.cpp in Sources */,
 				0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */,
 				0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */,
 				0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */,
@@ -476,6 +512,8 @@
 				0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */,
 				0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */,
 				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,
+				0D31CB2C1DBAE51E00BF8F65 /* Quaternion.cpp in Sources */,
+				0D31CB201DBADFC800BF8F65 /* Transform.cpp in Sources */,
 				0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */,
 				0D9E602E1DB8A8570084591E /* GameScene.cpp in Sources */,
 				0DF2A1DA1D98BF0000303E07 /* PerspectiveCameraController.cpp in Sources */,

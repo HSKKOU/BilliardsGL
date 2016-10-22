@@ -10,15 +10,9 @@
 #define Base3D_h
 
 #include "Matrix.h"
+#include "Transform.hpp"
 
 NS_ENGINE
-
-struct Transform {
-  Vector3D position;
-  Quaternion rotation;
-  Vector3D scale;
-  Transform(Vector3D pos, Quaternion rot = Quaternion::one(), Vector3D scl = Vector3D::one()) : position(pos), rotation(rot), scale(scl) { /* do nothing */ }
-};
 
 class Base3D {
   
