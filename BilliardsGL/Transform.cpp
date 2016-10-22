@@ -18,29 +18,12 @@ Transform::Transform(Vector3D pos, Quaternion rot, Vector3D scl)
 
 Transform::~Transform() { /* do nothing */ }
 
-Vector3D Transform::up() const {
-  return rotation * Vector3D::up();
-}
-
-Vector3D Transform::down() const {
-  return rotation * Vector3D::down();
-}
-
-Vector3D Transform::left() const {
-  return rotation * Vector3D::left();
-}
-
-Vector3D Transform::right() const {
-  return rotation * Vector3D::right();
-}
-
-Vector3D Transform::forward() const {
-  return rotation * Vector3D::forward();
-}
-
-Vector3D Transform::back() const {
-  return rotation * Vector3D::back();
-}
+Vector3D Transform::up() const { return rotation * Vector3D::up(); }
+Vector3D Transform::down() const { return rotation * Vector3D::down(); }
+Vector3D Transform::left() const { return rotation * Vector3D::left(); }
+Vector3D Transform::right() const { return rotation * Vector3D::right(); }
+Vector3D Transform::forward() const { return rotation * Vector3D::forward(); }
+Vector3D Transform::back() const { return rotation * Vector3D::back(); }
 
 
 NS_END
