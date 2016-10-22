@@ -29,6 +29,8 @@ public:
   Vector3D right() const;
   Vector3D forward() const;
   Vector3D back() const;
+  
+  void lookAt(Vector3D target, Vector3D upDir = Vector3D::up());
 };
 
 NS_END

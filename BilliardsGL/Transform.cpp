@@ -10,6 +10,7 @@
 
 NS_ENGINE
 
+Transform::Transform(Transform const &t) : Transform::Transform(t.position, t.rotation, t.scale) { /* do nothing */ }
 Transform::Transform(Vector3D pos, Quaternion rot, Vector3D scl)
 : position(pos)
 , rotation(rot)
@@ -25,5 +26,8 @@ Vector3D Transform::right() const { return rotation * Vector3D::right(); }
 Vector3D Transform::forward() const { return rotation * Vector3D::forward(); }
 Vector3D Transform::back() const { return rotation * Vector3D::back(); }
 
+void Transform::lookAt(Vector3D target, Vector3D upDir) {
+  // TODO : impl lookAt
+}
 
 NS_END
