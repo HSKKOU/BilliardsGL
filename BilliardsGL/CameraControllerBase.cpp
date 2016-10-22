@@ -10,17 +10,15 @@
 
 NS_ENGINE_CAMERA
 
-CameraControllerBase::CameraControllerBase(Vector3D _pos, Vector3D _center, Vector3D _up)
-: Base3D(_pos)
-, center(_center)
-, upDir(_up)
+CameraControllerBase::CameraControllerBase(Transform t)
+: Base3D(t)
 , projectionMatrix(Matrix4D::zero())
 , viewMatrix(Matrix4D::zero())
 { /* do nothing */ }
 
 CameraControllerBase::~CameraControllerBase() { /* do nothing */ }
 
-Vector3D CameraControllerBase::getDirection() { return center - transform.position; }
+Vector3D CameraControllerBase::getDirection() { return transform.forward(); }
 
 Matrix4D CameraControllerBase::getProjectionMatrix() const { return projectionMatrix; }
 Matrix4D CameraControllerBase::getViewMatrix() const { return viewMatrix; }
@@ -36,10 +34,5 @@ void CameraControllerBase::rotation(Quaternion rot) {
 void CameraControllerBase::rotate(Quaternion rot) {
   Base3D::rotate(rot);
 }
-
-void CameraControllerBase::calcCameraTransform() {
-  // TODO : calc center and upDir by changing Camera transform.
-}
-
 
 NS_END2

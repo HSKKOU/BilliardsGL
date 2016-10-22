@@ -15,13 +15,11 @@ NS_ENGINE_CAMERA
 
 class CameraControllerBase : public Base3D {
 protected:
-  Vector3D center;
-  Vector3D upDir;
   Matrix4D projectionMatrix;
   Matrix4D viewMatrix;
   
 public:
-  CameraControllerBase(Vector3D _pos, Vector3D _center, Vector3D _up = Vector3D::up());
+  CameraControllerBase(Transform t);
   virtual ~CameraControllerBase();
   
   Vector3D getDirection();
@@ -32,7 +30,6 @@ public:
   virtual void translate(Vector3D dest);
   virtual void rotation(Quaternion rot);
   virtual void rotate(Quaternion rot);
-  virtual void calcCameraTransform();
   
 protected:
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) = 0;

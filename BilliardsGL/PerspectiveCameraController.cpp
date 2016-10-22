@@ -10,17 +10,11 @@
 
 NS_ENGINE_CAMERA
 
-PerspectiveCameraController::PerspectiveCameraController(Vector3D _pos, Vector3D _center, Vector3D _up)
-: CameraControllerBase(_pos, _center, _up)
-{
-  calcViewMatrix();
-}
+PerspectiveCameraController::PerspectiveCameraController(Transform t)
+: CameraControllerBase(t)
+{ /* do nothing */ }
 
-PerspectiveCameraController::~PerspectiveCameraController() {
-  /* do nothing */
-}
-
-void PerspectiveCameraController::lookAt(Vector3D targetPos) { center = targetPos; }
+PerspectiveCameraController::~PerspectiveCameraController() { /* do nothing */ }
 
 void PerspectiveCameraController::setPerspective(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) {
   calcProjectionMatrix(_fovy, _aspect, _zNear, _zFar);
@@ -49,8 +43,8 @@ void PerspectiveCameraController::calcProjectionMatrix(const GLfloat _fovy, cons
 }
 
 void PerspectiveCameraController::calcViewMatrix() {
-  Vector3D f = (center - transform.position).normalize();
-  Vector3D s = f.cross(upDir).normalize();
+  Vector3D f = transform.forward();
+  Vector3D s = f.cross(transform.up()).normalize();
   Vector3D u = s.cross(f);
   
   Matrix4D view = Matrix4D::one();

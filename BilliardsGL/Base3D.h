@@ -20,7 +20,7 @@ protected:
   Transform transform;
   
 public:
-  Base3D(Vector3D pos) : transform(pos) { /* do nothing */ }
+  Base3D(Transform t) : transform(t) { /* do nothing */ }
   virtual ~Base3D() { /* do nothing */ }
   
   Vector3D getPosition() const { return transform.position; }

@@ -19,6 +19,7 @@ struct Transform {
   Vector3D scale;
   
 public:
+  Transform(Transform const &t);
   Transform(Vector3D pos, Quaternion rot = Quaternion::one(), Vector3D scl = Vector3D::one());
   virtual ~Transform();
   

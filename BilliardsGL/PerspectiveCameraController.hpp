@@ -17,10 +17,8 @@ NS_ENGINE_CAMERA
 class PerspectiveCameraController : public CameraControllerBase {
   
 public:
-  PerspectiveCameraController(Vector3D _pos, Vector3D _center, Vector3D _up = Vector3D::up());
+  PerspectiveCameraController(Transform t);
   virtual ~PerspectiveCameraController();
-  
-  void lookAt(Vector3D);
   
   void setPerspective(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar);
 //  void setPerspective(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat near, GLfloat far);
@@ -29,6 +27,7 @@ public:
   virtual void rotate(Quaternion rot);
   
 protected:
+  virtual void calcCameraTransform();
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar);
   virtual void calcViewMatrix();
 };
