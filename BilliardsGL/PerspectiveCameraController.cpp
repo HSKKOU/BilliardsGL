@@ -12,7 +12,7 @@ NS_ENGINE_CAMERA
 
 PerspectiveCameraController::PerspectiveCameraController(Transform t)
 : CameraControllerBase(t)
-{ /* do nothing */ }
+{ calcViewMatrix(); }
 
 PerspectiveCameraController::~PerspectiveCameraController() { /* do nothing */ }
 
