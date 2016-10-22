@@ -24,11 +24,11 @@ public:
   Matrix4D();
   Matrix4D(GLfloat val);
 
-  Matrix4D operator+(Matrix4D _m);
-  Matrix4D operator-(Matrix4D _m);
-  Matrix4D operator*(Matrix4D _m);
-  GLfloat* operator[](int i);
-  GLfloat& operator()(int i, int j);
+  Matrix4D operator+(Matrix4D _m) const;
+  Matrix4D operator-(Matrix4D _m) const;
+  Matrix4D operator*(Matrix4D _m) const;
+  GLfloat* operator[](int i) const;
+  GLfloat& operator()(int i, int j) const;
   
   static Matrix4D one();
   static Matrix4D zero();
@@ -42,7 +42,7 @@ public:
   
   static Matrix4D fromQuaternion(Quaternion q);
   
-  void printElem();
+  void printElem() const;
 };
 
 NS_END

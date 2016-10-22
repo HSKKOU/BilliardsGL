@@ -20,24 +20,24 @@ Matrix4D::Matrix4D(GLfloat val) {
   }
 }
 
-Matrix4D Matrix4D::operator+(Matrix4D _m) {
+Matrix4D Matrix4D::operator+(Matrix4D _m) const {
   Matrix4D ret = zero();
   for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] + _m[i][j]; } }
   return ret;
 }
-Matrix4D Matrix4D::operator-(Matrix4D _m) {
+Matrix4D Matrix4D::operator-(Matrix4D _m) const {
   Matrix4D ret = zero();
   for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] - _m[i][j]; } }
   return ret;
 }
-Matrix4D Matrix4D::operator*(Matrix4D _m) {
+Matrix4D Matrix4D::operator*(Matrix4D _m) const {
   Matrix4D ret = zero();
   for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { for (int k=0; k<4; k++) { ret[i][j] += m[i][k] * _m[k][j]; } } }
   return ret;
 }
 
-GLfloat* Matrix4D::operator[](int i) { return m[i]; }
-GLfloat& Matrix4D::operator()(int i, int j) { return m[i][j]; }
+GLfloat* Matrix4D::operator[](int i) const { return m[i]; }
+GLfloat& Matrix4D::operator()(int i, int j) const { return m[i][j]; }
 
 Matrix4D Matrix4D::one() { return Matrix4D(1.0f); }
 Matrix4D Matrix4D::zero() { return Matrix4D(0.0f); }
@@ -99,7 +99,7 @@ Matrix4D Matrix4D::fromQuaternion(Quaternion q) {
   return m;
 }
 
-void Matrix4D::printElem() {
+void Matrix4D::printElem() const {
   for (int i=0; i<4; i++) {
     std::cout << m[i][0] << ", " << m[i][1] << ", " << m[i][2] << ", " << m[i][3] << std::endl;
   }
