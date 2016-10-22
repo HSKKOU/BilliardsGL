@@ -18,13 +18,13 @@ void ObjectManager::initialize() {
 
 
 // Object Control
-BaseObject3D* ObjectManager::instantiateObject(ObjectType type) {
-  BaseObject3D* object = ObjectFactory::instantiateObject(type);
+BaseModel3D* ObjectManager::instantiateObject(ObjectType type) {
+  BaseModel3D* object = ObjectFactory::instantiateObject(type);
   objectList.push_back(object);
   return object;
 }
 
-BaseObject3D* ObjectManager::getObject(const int objectId) const {
+BaseModel3D* ObjectManager::getObject(const int objectId) const {
   if (objectId < 0 || objectId > objectList.size()) {
     std::cout << "objectId is out of list" << std::endl;
     return nullptr;
@@ -42,7 +42,7 @@ void ObjectManager::destroyObject(const int objectId) const {
 }
 
 void ObjectManager::updateObject() {
-  for (std::list<BaseObject3D*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+  for (std::list<BaseModel3D*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
     if ( *itr == nullptr ) { continue; }
     (*itr)->draw();
   }

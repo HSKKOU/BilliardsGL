@@ -9,7 +9,7 @@
 #ifndef Models_h
 #define Models_h
 
-#include "BaseObject3D.hpp"
+#include "BaseModel3D.hpp"
 
 #include "Cube.hpp"
 #include "Sphere.hpp"

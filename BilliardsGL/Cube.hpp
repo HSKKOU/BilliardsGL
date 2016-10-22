@@ -9,11 +9,11 @@
 #ifndef Cube_hpp
 #define Cube_hpp
 
-#include "BaseObject3D.hpp"
+#include "BaseModel3D.hpp"
 
 NS_ENGINE_MODEL
 
-class Cube : public BaseObject3D {
+class Cube : public BaseModel3D {
   
 protected:
   Vector3D size;

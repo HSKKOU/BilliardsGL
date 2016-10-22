@@ -9,11 +9,11 @@
 #ifndef Sphere_hpp
 #define Sphere_hpp
 
-#include "BaseObject3D.hpp"
+#include "BaseModel3D.hpp"
 
 NS_ENGINE_MODEL
 
-class Sphere : public BaseObject3D {
+class Sphere : public BaseModel3D {
   GLfloat radius;
   
 public:

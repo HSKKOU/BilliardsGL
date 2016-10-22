@@ -15,7 +15,7 @@
 #include "ObjectManager.hpp"
 
 #include "Matrix.h"
-#include "BaseObject3D.hpp"
+#include "BaseModel3D.hpp"
 #include "Cube.hpp"
 
 #include "Camera.h"
@@ -29,7 +29,7 @@ class GameManager : public Singleton<GameManager> {
   friend class Singleton<GameManager>;
   
   // for Debug
-  BaseObject3D* balls[16];
+  BaseModel3D* balls[16];
   
 public:
   virtual ~GameManager();

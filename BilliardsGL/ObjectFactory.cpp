@@ -10,8 +10,8 @@
 
 NS_ENGINE_MODEL
 
-BaseObject3D* ObjectFactory::instantiateObject(const ObjectType type) {
-  BaseObject3D *object = nullptr;
+BaseModel3D* ObjectFactory::instantiateObject(const ObjectType type) {
+  BaseModel3D *object = nullptr;
   switch (type) {
     case CUBE:
       object = new Cube(Vector3D::zero(), Vector3D::one());

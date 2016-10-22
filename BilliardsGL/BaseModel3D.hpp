@@ -1,13 +1,13 @@
 //
-//  BaseObject3D.hpp
+//  BaseModel3D.hpp
 //  BilliardsGL
 //
 //  Created by 比佐 幸基 on 2016/09/25.
 //  Copyright © 2016年 比佐 幸基. All rights reserved.
 //
 
-#ifndef BaseObject3D_hpp
-#define BaseObject3D_hpp
+#ifndef BaseModel3D_hpp
+#define BaseModel3D_hpp
 
 #include "GlobalHeader.h"
 #include "Base3D.h"
@@ -67,7 +67,7 @@ typedef GLuint TextureID;
 
 
 
-class BaseObject3D : public Base3D {
+class BaseModel3D : public Base3D {
 
 protected:
   GLuint shaderProgram;
@@ -84,9 +84,9 @@ protected:
   LightControllerBase *targetLight;
   
 public:
-  BaseObject3D();
-  BaseObject3D(const Vector3D _pos);
-  virtual ~BaseObject3D();
+  BaseModel3D();
+  BaseModel3D(const Vector3D _pos);
+  virtual ~BaseModel3D();
   
   // accessor
   Color getObjectColor() const;
@@ -132,4 +132,4 @@ private:
 
 NS_END2
 
-#endif /* BaseObject3D_hpp */
+#endif /* BaseModel3D_hpp */

@@ -24,12 +24,12 @@ NS_ENGINE
 class ObjectManager : public Singleton<ObjectManager> {
   friend class Singleton<ObjectManager>;
   
-  std::list<BaseObject3D*> objectList;
+  std::list<BaseModel3D*> objectList;
   
 public:
   void initialize();
-  BaseObject3D* instantiateObject(ObjectType type);
-  BaseObject3D* getObject(const int objectId) const;
+  BaseModel3D* instantiateObject(ObjectType type);
+  BaseModel3D* getObject(const int objectId) const;
   void destroyObject(const int objectId) const;
   
   void updateObject();

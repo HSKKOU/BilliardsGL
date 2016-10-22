@@ -11,7 +11,7 @@
 NS_ENGINE_MODEL
 
 Sphere::Sphere(const Vector3D _center, const GLfloat _radius, const int _slices, const int _stacks)
-: BaseObject3D(_center)
+: BaseModel3D(_center)
 , radius(_radius)
 {
   GLfloat vPos[2*3*_slices*_stacks][3+2+3];

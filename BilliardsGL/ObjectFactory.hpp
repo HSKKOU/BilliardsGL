@@ -18,7 +18,7 @@ NS_ENGINE_MODEL
 class ObjectFactory {
   
 public:
-  static BaseObject3D* instantiateObject(const ObjectType type);
+  static BaseModel3D* instantiateObject(const ObjectType type);
 };
 
 NS_END2

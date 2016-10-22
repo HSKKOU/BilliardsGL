@@ -30,7 +30,7 @@
 		0DBF5D171D95211800A037BA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D151D95211800A037BA /* Square.cpp */; };
 		0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D1F1D95237700A037BA /* BaseObject2D.cpp */; };
 		0DF2A1CC1D97E66C00303E07 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1CA1D97E66C00303E07 /* Cube.cpp */; };
-		0DF2A1CF1D97E95F00303E07 /* BaseObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */; };
+		0DF2A1CF1D97E95F00303E07 /* BaseModel3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1CD1D97E95F00303E07 /* BaseModel3D.cpp */; };
 		0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */; };
 		0DF2A1DA1D98BF0000303E07 /* PerspectiveCameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1D81D98BF0000303E07 /* PerspectiveCameraController.cpp */; };
 		0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2A1DD1D99265F00303E07 /* LightManager.cpp */; };
@@ -112,8 +112,8 @@
 		0DBF5D201D95237700A037BA /* BaseObject2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseObject2D.hpp; sourceTree = "<group>"; };
 		0DF2A1CA1D97E66C00303E07 /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
 		0DF2A1CB1D97E66C00303E07 /* Cube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Cube.hpp; sourceTree = "<group>"; };
-		0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject3D.cpp; sourceTree = "<group>"; };
-		0DF2A1CE1D97E95F00303E07 /* BaseObject3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseObject3D.hpp; sourceTree = "<group>"; };
+		0DF2A1CD1D97E95F00303E07 /* BaseModel3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseModel3D.cpp; sourceTree = "<group>"; };
+		0DF2A1CE1D97E95F00303E07 /* BaseModel3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseModel3D.hpp; sourceTree = "<group>"; };
 		0DF2A1D01D97F5E700303E07 /* camera.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = camera.vert; sourceTree = "<group>"; };
 		0DF2A1D11D97F5FC00303E07 /* camera.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = camera.frag; sourceTree = "<group>"; };
 		0DF2A1D51D98BEB200303E07 /* CameraManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraManager.cpp; sourceTree = "<group>"; };
@@ -401,8 +401,8 @@
 				0DF2A1DB1D98C28D00303E07 /* Base3D.h */,
 				0DF2A1CA1D97E66C00303E07 /* Cube.cpp */,
 				0DF2A1CB1D97E66C00303E07 /* Cube.hpp */,
-				0DF2A1CD1D97E95F00303E07 /* BaseObject3D.cpp */,
-				0DF2A1CE1D97E95F00303E07 /* BaseObject3D.hpp */,
+				0DF2A1CD1D97E95F00303E07 /* BaseModel3D.cpp */,
+				0DF2A1CE1D97E95F00303E07 /* BaseModel3D.hpp */,
 				0D76070E1DA78FD6000031BA /* Sphere.cpp */,
 				0D76070F1DA78FD6000031BA /* Sphere.hpp */,
 			);
@@ -515,7 +515,7 @@
 				0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */,
 				0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */,
 				0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */,
-				0DF2A1CF1D97E95F00303E07 /* BaseObject3D.cpp in Sources */,
+				0DF2A1CF1D97E95F00303E07 /* BaseModel3D.cpp in Sources */,
 				0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */,
 				0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */,
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
