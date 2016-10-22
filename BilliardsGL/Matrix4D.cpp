@@ -22,22 +22,33 @@ Matrix4D::Matrix4D(GLfloat val) {
 
 Matrix4D Matrix4D::operator+(Matrix4D _m) const {
   Matrix4D ret = zero();
-  for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] + _m[i][j]; } }
+  for(int i=0; i<4; i++) { ret.v[i] = v[i] + _m.v[i]; }
   return ret;
 }
 Matrix4D Matrix4D::operator-(Matrix4D _m) const {
   Matrix4D ret = zero();
-  for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[i][j] - _m[i][j]; } }
+  for(int i=0; i<4; i++) { ret.v[i] = v[i] - _m.v[i]; }
   return ret;
 }
 Matrix4D Matrix4D::operator*(Matrix4D _m) const {
   Matrix4D ret = zero();
-  for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { for (int k=0; k<4; k++) { ret[i][j] += m[i][k] * _m[k][j]; } } }
+  Matrix4D _mInv = _m.inverse();
+  for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] += v[i].dot(_mInv.v[j]); } }
+  return ret;
+}
+Vector4D Matrix4D::operator*(Vector4D _v) const {
+  Vector4D ret = Vector4D::zero();
+  for(int i=0; i<4; i++) { ret.v[i] = v[i].dot(_v); }
   return ret;
 }
 
-GLfloat* Matrix4D::operator[](int i) const { return m[i]; }
-GLfloat& Matrix4D::operator()(int i, int j) const { return m[i][j]; }
+Vector4D& Matrix4D::operator[](int i) { return v[i]; }
+
+Matrix4D Matrix4D::inverse() const {
+  Matrix4D ret = zero();
+  for(int i=0; i<4; i++) { for (int j=0; j<4; j++) { ret[i][j] = m[j][i]; } }
+  return ret;
+}
 
 Matrix4D Matrix4D::one() { return Matrix4D(1.0f); }
 Matrix4D Matrix4D::zero() { return Matrix4D(0.0f); }

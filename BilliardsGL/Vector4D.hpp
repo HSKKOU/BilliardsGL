@@ -25,11 +25,21 @@ union Vector4D {
 public:
   Vector4D(const GLfloat _x, const GLfloat _y, const GLfloat _z, const GLfloat _w);
   Vector4D(const Vector3D _v3, const GLfloat _w);
-  
+
   Vector4D operator+(const GLfloat add) const;
+  Vector4D operator+(const Vector4D v4) const;
   Vector4D operator-(const GLfloat sub) const;
+  Vector4D operator-(const Vector4D v4) const;
   Vector4D operator*(const GLfloat mul) const;
   Vector4D operator/(const GLfloat div) const;
+  GLfloat& operator[](int i);
+  
+  GLfloat dot(const Vector4D v) const;
+  
+  GLfloat length() const;
+  Vector4D normalize() const;
+  
+  Vector3D vec3() const;
   
   static Vector4D zero();
   static Vector4D one();

@@ -17,7 +17,12 @@
 
 NS_ENGINE
 
-struct Matrix4D {
+union Quaternion;
+
+union Matrix4D {
+  struct {
+    Vector4D v[4];
+  };
   GLfloat m[4][4];
   
 public:
@@ -27,8 +32,10 @@ public:
   Matrix4D operator+(Matrix4D _m) const;
   Matrix4D operator-(Matrix4D _m) const;
   Matrix4D operator*(Matrix4D _m) const;
-  GLfloat* operator[](int i) const;
-  GLfloat& operator()(int i, int j) const;
+  Vector4D operator*(Vector4D _v) const;
+  Vector4D& operator[](int i);
+
+  Matrix4D inverse() const;
   
   static Matrix4D one();
   static Matrix4D zero();

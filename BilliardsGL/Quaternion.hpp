@@ -13,8 +13,12 @@
 #include <cmath>
 
 #include "Vector3D.hpp"
+#include "Vector4D.hpp"
+#include "Matrix4D.hpp"
 
 NS_ENGINE
+
+union Matrix4D;
 
 union Quaternion {
   struct {
@@ -32,8 +36,12 @@ public:
   Quaternion(const Vector3D axis, const GLfloat angle);
   Quaternion(const GLfloat _x, const GLfloat _y, const GLfloat _z);
   
-  Quaternion operator*(Quaternion _q);
+  Quaternion operator*(Quaternion _q) const;
   Quaternion& operator*=(Quaternion _q);
+  Vector3D operator*(Vector3D _v3) const;
+  Vector4D operator*(Vector4D _v4) const;
+  
+  Matrix4D mat4() const;
   
   static Quaternion one();
 };
