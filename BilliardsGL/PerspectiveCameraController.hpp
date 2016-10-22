@@ -27,7 +27,6 @@ public:
   virtual void rotate(Quaternion rot);
   
 protected:
-  virtual void calcCameraTransform();
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar);
   virtual void calcViewMatrix();
 };
