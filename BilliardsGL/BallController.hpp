@@ -10,8 +10,14 @@
 #define BallController_hpp
 
 #include "BaseObject3D.hpp"
+#include "Sphere.hpp"
+
+#include "ModelFactory.hpp"
+
+#include <cmath>
 
 US_NS_ENGINE
+US_NS_ENGINE_MODEL
 
 NS_GAME
 

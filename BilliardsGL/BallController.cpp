@@ -14,7 +14,12 @@ BallController::BallController(Transform t) : Engine::BaseObject3D(t) { /* do no
 BallController::~BallController() { /* do nothing */ }
 
 void BallController::awake() {
-  
+  Sphere* ballModel = (Sphere*)ModelFactory::instantiateModel(ModelType::SPHERE);
+  ballModel->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  ballModel->setTexture(Tex::Ball00);
+  ballModel->setObjectColor(Color::one());
+  ballModel->translate(Vector3D(0.0f, 0.0f, 10.0f));
+  modelList.emplace_back(ballModel);
 }
 
 void BallController::start() {
