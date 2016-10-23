@@ -54,6 +54,14 @@ private:
   TextureLoader();
 };
 
+
+
+class TexUtil {
+public:
+  static int toInt(Tex t);
+  static Tex toTex(int i);
+};
+
 NS_END2
 
 #endif /* TextureLoader_hpp */

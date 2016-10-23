@@ -70,4 +70,12 @@ GLuint TextureLoader::loadTexture(const char* imagePath) {
 
 GLuint TextureLoader::getTextureId(const Tex tex) const { return textureDict.at(tex); }
 
+
+
+
+
+
+int TexUtil::toInt(Tex t) { return static_cast<int>(t); }
+Tex TexUtil::toTex(int i) { return static_cast<Tex>(i); }
+
 NS_END2
