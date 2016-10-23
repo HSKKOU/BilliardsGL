@@ -23,6 +23,8 @@ public:
   Transform(Vector3D pos, Quaternion rot = Quaternion::one(), Vector3D scl = Vector3D::one());
   virtual ~Transform();
   
+  static Transform identity();
+  
   Vector3D up() const;
   Vector3D down() const;
   Vector3D left() const;
