@@ -33,7 +33,6 @@ public:
   void switchSceneTo(int index);
   void switchSceneTo(SceneBase* scene);
   
-  void startScene() const;
   void updateScene() const;
   
 private:

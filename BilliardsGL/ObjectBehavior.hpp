@@ -24,6 +24,7 @@ public:
   void virtual update();
   void virtual lateUpdate();
   void virtual draw();
+  void virtual destroy();
 };
 
 NS_END

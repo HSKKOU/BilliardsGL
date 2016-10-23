@@ -40,16 +40,15 @@ void SceneManager::removeScene(int index) {
 
 void SceneManager::switchSceneTo(int index) {
   if (index < 0 || index >= scenes.size()) { return; }
-  currentScene = scenes.at(index);
+  SceneBase* nextScene = scenes.at(index);
+  switchSceneTo(nextScene);
 }
 
 void SceneManager::switchSceneTo(SceneBase* scene) {
-  if (scene) { currentScene = scene; }
-}
-
-
-void SceneManager::startScene() const {
-  currentScene->start();
+  if (!scene) { return; }
+  if (!currentScene) { currentScene->exit(); }
+  currentScene = scene;
+  currentScene->enter();
 }
 
 void SceneManager::updateScene() const {

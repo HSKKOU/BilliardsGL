@@ -17,10 +17,16 @@ GameScene::GameScene()
 }
 GameScene::~GameScene() { /* do nothing */ }
 
-void GameScene::start() {
+void GameScene::enter() {
+  SceneBase::enter();
+}
+
+void GameScene::exit() {
+  SceneBase::exit();
 }
 
 void GameScene::update() {
+  SceneBase::update();
 }
 
 NS_END

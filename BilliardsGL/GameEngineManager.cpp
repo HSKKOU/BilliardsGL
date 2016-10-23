@@ -50,10 +50,10 @@ void GameEngineManager::initialize() {
   fps.initialize(glfwGetTime());
   
   // Managers initialize
+  objectManager.initialize();
   sceneManager.initialize();
   lightManager.initialize();
   cameraManager.initialize();
-  objectManager.initialize();
 }
 
 void GameEngineManager::startMainLoop() {
@@ -85,11 +85,9 @@ void GameEngineManager::startMainLoop() {
    );
   lightManager.addLight(light0);
   
-  objectManager.awakeObjects();
   
   // game loop
-  sceneManager.startScene();
-  objectManager.startObjects();
+  sceneManager.switchSceneTo(0);
   while (window->shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());
     mainLoop();
@@ -102,12 +100,7 @@ void GameEngineManager::mainLoop() {
   window->resetWindow();
   
   // Managers update
-  lightManager.updateLights();
   sceneManager.updateScene();
-  objectManager.updateObjects();
-  objectManager.lateUpdateObjects();
-  
-  objectManager.draw();
   
   // finish this frame, change another drawing buffer
   window->swapBuffers();

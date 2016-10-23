@@ -36,6 +36,7 @@ public:
   void updateObjects();
   void lateUpdateObjects();
   void draw();
+  void destroyObjects();
   
 private:
   ObjectManager();

@@ -76,5 +76,12 @@ void ObjectManager::draw() {
   }
 }
 
+void ObjectManager::destroyObjects() {
+  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+    if ( *itr == nullptr ) { continue; }
+    (*itr)->destroy();
+  }
+}
+
 
 NS_END

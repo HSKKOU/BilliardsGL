@@ -12,6 +12,8 @@
 #include "GlobalHeader.h"
 #include "Vector4D.hpp"
 
+#include "ObjectManager.hpp"
+
 NS_ENGINE
 
 class SceneBase {
@@ -22,7 +24,9 @@ public:
   SceneBase(Color c);
   virtual ~SceneBase();
   
-  virtual void start();
+  virtual void enter();
+  virtual void exit();
+  
   virtual void update();
   
   virtual void setBackground(Color c);

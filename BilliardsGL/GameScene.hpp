@@ -24,7 +24,8 @@ public:
   GameScene();
   virtual ~GameScene();
   
-  virtual void start();
+  virtual void enter();
+  virtual void exit();
   virtual void update();
 };
 
