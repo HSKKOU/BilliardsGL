@@ -45,6 +45,8 @@ public:
   static Vector4D one();
 };
 
+typedef Vector4D Color;
+
 NS_END
 
 #endif /* Vector4D_hpp */

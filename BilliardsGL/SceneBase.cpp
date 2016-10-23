@@ -10,7 +10,8 @@
 
 NS_ENGINE
 
-SceneBase::SceneBase() { /* do nothing */ }
+SceneBase::SceneBase() : bgColor(Color::one()) { /* do nothing */ }
+SceneBase::SceneBase(Color c) : bgColor(c) { /* do nothing */ }
 SceneBase::~SceneBase() { /* do nothing */ }
 
 void SceneBase::start() {
@@ -20,5 +21,7 @@ void SceneBase::start() {
 void SceneBase::update() {
   
 }
+
+void SceneBase::setBackground(Color c) { bgColor = c; }
 
 NS_END

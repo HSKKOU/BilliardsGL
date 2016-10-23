@@ -60,8 +60,6 @@ struct MVP {
   }
 };
 
-typedef Vector4D Color;
-
 typedef GLuint TextureID;
 
 
