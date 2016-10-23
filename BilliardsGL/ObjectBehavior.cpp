@@ -17,5 +17,6 @@ void ObjectBehavior::awake() { /* do nothing */ }
 void ObjectBehavior::start() { /* do nothing */ }
 void ObjectBehavior::update() { /* do nothing */ }
 void ObjectBehavior::lateUpdate() { /* do nothing */ }
+void ObjectBehavior::draw() { /* do nothing */ }
 
 NS_END

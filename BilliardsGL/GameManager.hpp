@@ -29,7 +29,7 @@ class GameManager : public BehaviorSingleton<GameManager> {
   friend class BehaviorSingleton<GameManager>;
   
   // for Debug
-//  BaseModel3D* balls[16];
+  BallController* ball;
   
 public:
   virtual ~GameManager();

@@ -69,5 +69,12 @@ void ObjectManager::lateUpdateObjects() {
   }
 }
 
+void ObjectManager::draw() {
+  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+    if ( *itr == nullptr ) { continue; }
+    (*itr)->draw();
+  }
+}
+
 
 NS_END

@@ -46,5 +46,9 @@ void BaseObject3D::update() {
 void BaseObject3D::lateUpdate() {
   for (BaseObject3D* obj : childrenList) { obj->lateUpdate(); }
 }
+void BaseObject3D::draw() {
+  for (BaseModel3D* model : modelList) { model->draw(); }
+  for (BaseObject3D* obj : childrenList) { obj->draw(); }
+}
 
 NS_END

@@ -18,11 +18,9 @@ GameScene::GameScene()
 GameScene::~GameScene() { /* do nothing */ }
 
 void GameScene::start() {
-  gameManager.start();
 }
 
 void GameScene::update() {
-  gameManager.update();
 }
 
 NS_END

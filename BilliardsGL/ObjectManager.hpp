@@ -35,6 +35,7 @@ public:
   void startObjects();
   void updateObjects();
   void lateUpdateObjects();
+  void draw();
   
 private:
   ObjectManager();

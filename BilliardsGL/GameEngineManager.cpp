@@ -107,6 +107,8 @@ void GameEngineManager::mainLoop() {
   objectManager.updateObjects();
   objectManager.lateUpdateObjects();
   
+  objectManager.draw();
+  
   // finish this frame, change another drawing buffer
   window->swapBuffers();
 }

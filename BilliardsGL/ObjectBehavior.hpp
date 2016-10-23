@@ -23,6 +23,7 @@ public:
   void virtual start();
   void virtual update();
   void virtual lateUpdate();
+  void virtual draw();
 };
 
 NS_END

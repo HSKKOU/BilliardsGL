@@ -21,6 +21,7 @@ US_NS_ENGINE_MODEL
 NS_ENGINE
 
 class BaseObject3D : public Base3D, public ObjectBehavior {
+protected:
   std::vector<BaseModel3D*> modelList;
   std::vector<BaseObject3D*> childrenList;
   
@@ -41,6 +42,7 @@ public:
   void virtual start();
   void virtual update();
   void virtual lateUpdate();
+  void virtual draw();
 };
 
 NS_END

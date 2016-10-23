@@ -21,15 +21,14 @@ void GameManager::initialize() {
 }
 
 void GameManager::awake() {
+  ball = new BallController(Transform::identity());
+  (ObjectManager::instance()).registerObject(ball);
+  ball->awake();
 }
 
 void GameManager::start() {
+  ball->start();
   // for Debug create ball objects
-//  balls[0] = (ObjectManager::instance()).instantiateObject(ObjectType::SPHERE);
-//  balls[0]->loadShaderProgram("LightTest.vert", "LightTest.frag");
-//  balls[0]->setTexture(Tex::Ball00);
-//  balls[0]->setObjectColor(Color::one());
-//  balls[0]->translate(Vector3D(0.0f, 0.0f, 10.0f));
 //  for (int i=1; i<=15; i++) {
 //    balls[i] = (ObjectManager::instance()).instantiateObject(ObjectType::SPHERE);
 //    balls[i]->loadShaderProgram("LightTest.vert", "LightTest.frag");
@@ -46,6 +45,7 @@ void GameManager::start() {
 
 
 void GameManager::update() {
+  ball->update();
 //  balls[0]->translate(Vector3D(0.0f, 0.0f, 10.0f-sinf(glfwGetTime())*3.0f));
 //  for (int i=1; i<=15; i++) {
 //    float row = ceilf((sqrtf(1.0 + 8.0*i) - 1.0f) / 2.0f);
