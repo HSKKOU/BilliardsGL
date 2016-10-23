@@ -15,6 +15,8 @@
 		0D31CB2C1DBAE51E00BF8F65 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB2A1DBAE51E00BF8F65 /* Quaternion.cpp */; };
 		0D31CB2F1DBAE5D900BF8F65 /* Matrix4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB2D1DBAE5D900BF8F65 /* Matrix4D.cpp */; };
 		0D31CB381DBB5E9A00BF8F65 /* BaseObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */; };
+		0D31CB3E1DBC492000BF8F65 /* EmptyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB3C1DBC492000BF8F65 /* EmptyObject.cpp */; };
+		0D31CB411DBC4C3700BF8F65 /* ObjectBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB3F1DBC4C3700BF8F65 /* ObjectBehavior.cpp */; };
 		0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607061DA75393000031BA /* ObjectManager.cpp */; };
 		0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */; };
 		0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070E1DA78FD6000031BA /* Sphere.cpp */; };
@@ -67,6 +69,10 @@
 		0D31CB2E1DBAE5D900BF8F65 /* Matrix4D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix4D.hpp; sourceTree = "<group>"; };
 		0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject3D.cpp; sourceTree = "<group>"; };
 		0D31CB371DBB5E9A00BF8F65 /* BaseObject3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseObject3D.hpp; sourceTree = "<group>"; };
+		0D31CB3C1DBC492000BF8F65 /* EmptyObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmptyObject.cpp; sourceTree = "<group>"; };
+		0D31CB3D1DBC492000BF8F65 /* EmptyObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EmptyObject.hpp; sourceTree = "<group>"; };
+		0D31CB3F1DBC4C3700BF8F65 /* ObjectBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectBehavior.cpp; sourceTree = "<group>"; };
+		0D31CB401DBC4C3700BF8F65 /* ObjectBehavior.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObjectBehavior.hpp; sourceTree = "<group>"; };
 		0D7606B71DA4EE2E000031BA /* Default.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.vert; sourceTree = "<group>"; };
 		0D7606B81DA4EE40000031BA /* Default.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.frag; sourceTree = "<group>"; };
 		0D7606B91DA5C70C000031BA /* LightTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.vert; sourceTree = "<group>"; };
@@ -180,10 +186,22 @@
 		0D31CB351DBB5E8600BF8F65 /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				0D31CB421DBC4E0A00BF8F65 /* Base */,
+				0D31CB3C1DBC492000BF8F65 /* EmptyObject.cpp */,
+				0D31CB3D1DBC492000BF8F65 /* EmptyObject.hpp */,
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
+		0D31CB421DBC4E0A00BF8F65 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0D31CB3F1DBC4C3700BF8F65 /* ObjectBehavior.cpp */,
+				0D31CB401DBC4C3700BF8F65 /* ObjectBehavior.hpp */,
 				0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */,
 				0D31CB371DBB5E9A00BF8F65 /* BaseObject3D.hpp */,
 			);
-			name = Object;
+			name = Base;
 			sourceTree = "<group>";
 		};
 		0D7606B61DA4EE08000031BA /* test */ = {
@@ -511,6 +529,7 @@
 				0D31CB291DBAE45F00BF8F65 /* Vector4D.cpp in Sources */,
 				0DBF5D171D95211800A037BA /* Square.cpp in Sources */,
 				0D31CB2F1DBAE5D900BF8F65 /* Matrix4D.cpp in Sources */,
+				0D31CB411DBC4C3700BF8F65 /* ObjectBehavior.cpp in Sources */,
 				0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */,
 				0DF2A1D71D98BEB200303E07 /* CameraManager.cpp in Sources */,
 				0DF2A1DF1D99265F00303E07 /* LightManager.cpp in Sources */,
@@ -522,6 +541,7 @@
 				0D9E603E1DB8AE730084591E /* GameEngineManager.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
+				0D31CB3E1DBC492000BF8F65 /* EmptyObject.cpp in Sources */,
 				0D9E60311DB8A8680084591E /* SceneManager.cpp in Sources */,
 				0D31CB381DBB5E9A00BF8F65 /* BaseObject3D.cpp in Sources */,
 				0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */,
