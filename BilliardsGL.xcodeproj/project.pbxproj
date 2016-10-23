@@ -77,6 +77,7 @@
 		0D31CB431DBC4FFB00BF8F65 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
 		0D31CB461DBC540700BF8F65 /* BallController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallController.cpp; sourceTree = "<group>"; };
 		0D31CB471DBC540700BF8F65 /* BallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BallController.hpp; sourceTree = "<group>"; };
+		0D31CB4A1DBC589600BF8F65 /* BehaviorSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviorSingleton.h; sourceTree = "<group>"; };
 		0D7606B71DA4EE2E000031BA /* Default.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.vert; sourceTree = "<group>"; };
 		0D7606B81DA4EE40000031BA /* Default.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.frag; sourceTree = "<group>"; };
 		0D7606B91DA5C70C000031BA /* LightTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.vert; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 				0D31CB401DBC4C3700BF8F65 /* ObjectBehavior.hpp */,
 				0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */,
 				0D31CB371DBB5E9A00BF8F65 /* BaseObject3D.hpp */,
+				0D31CB4A1DBC589600BF8F65 /* BehaviorSingleton.h */,
 			);
 			name = Base;
 			sourceTree = "<group>";

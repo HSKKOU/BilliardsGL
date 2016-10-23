@@ -9,9 +9,6 @@
 #ifndef Objects_h
 #define Objects_h
 
-#include "ObjectBehavior.hpp"
 #include "BaseObject3D.hpp"
-
-#include "EmptyObject.hpp"
 
 #endif /* Objects_h */

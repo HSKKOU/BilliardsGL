@@ -12,7 +12,9 @@ NS_GAME
 
 GameScene::GameScene()
 : gameManager(GameManager::instance())
-{ /* do nothing */ }
+{
+  (ObjectManager::instance()).registerObject(&gameManager);
+}
 GameScene::~GameScene() { /* do nothing */ }
 
 void GameScene::start() {

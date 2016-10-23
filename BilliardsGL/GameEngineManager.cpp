@@ -88,6 +88,7 @@ void GameEngineManager::startMainLoop() {
   objectManager.awakeObjects();
   
   // game loop
+  sceneManager.startScene();
   objectManager.startObjects();
   while (window->shouldClose() == GL_FALSE) {
     fps.update(glfwGetTime());
@@ -102,9 +103,9 @@ void GameEngineManager::mainLoop() {
   
   // Managers update
   lightManager.updateLights();
+  sceneManager.updateScene();
   objectManager.updateObjects();
   objectManager.lateUpdateObjects();
-  sceneManager.updateScene();
   
   // finish this frame, change another drawing buffer
   window->swapBuffers();

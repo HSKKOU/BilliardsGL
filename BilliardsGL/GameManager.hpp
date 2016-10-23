@@ -10,15 +10,13 @@
 #define GameManager_hpp
 
 #include "GlobalHeader.h"
-#include "Singleton.h"
+#include "BehaviorSingleton.h"
 
 #include "ObjectManager.hpp"
 
 #include "Matrix.h"
-#include "BaseModel3D.hpp"
-#include "Cube.hpp"
 
-#include "BaseObject3D.hpp"
+#include "BallController.hpp"
 
 #include "Camera.h"
 
@@ -27,8 +25,8 @@ US_NS_ENGINE_MODEL
 
 NS_GAME
 
-class GameManager : public Singleton<GameManager> {
-  friend class Singleton<GameManager>;
+class GameManager : public BehaviorSingleton<GameManager> {
+  friend class BehaviorSingleton<GameManager>;
   
   // for Debug
 //  BaseModel3D* balls[16];
@@ -37,9 +35,9 @@ public:
   virtual ~GameManager();
   void initialize();
   
-  void awake();
-  void start();
-  void update();
+  virtual void awake();
+  virtual void start();
+  virtual void update();
   
 private:
   GameManager();
