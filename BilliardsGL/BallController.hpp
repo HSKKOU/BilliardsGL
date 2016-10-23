@@ -9,6 +9,23 @@
 #ifndef BallController_hpp
 #define BallController_hpp
 
-#include <stdio.h>
+#include "BaseObject3D.hpp"
+
+US_NS_ENGINE
+
+NS_GAME
+
+class BallController : public BaseObject3D {
+  
+public:
+  BallController(Transform t);
+  virtual ~BallController();
+  
+  void virtual awake();
+  void virtual start();
+  void virtual update();
+};
+
+NS_END
 
 #endif /* BallController_hpp */

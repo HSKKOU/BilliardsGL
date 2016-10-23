@@ -7,3 +7,22 @@
 //
 
 #include "BallController.hpp"
+
+NS_GAME
+
+BallController::BallController(Transform t) : Engine::BaseObject3D(t) { /* do nothing */ }
+BallController::~BallController() { /* do nothing */ }
+
+void BallController::awake() {
+  
+}
+
+void BallController::start() {
+  
+}
+
+void BallController::update() {
+  
+}
+
+NS_END
