@@ -14,13 +14,15 @@
 
 #include "Base3D.h"
 #include "BaseModel3D.hpp"
+#include "ObjectBehavior.hpp"
 
 US_NS_ENGINE_MODEL
 
 NS_ENGINE
 
-class BaseObject3D : public Base3D {
+class BaseObject3D : public Base3D, public ObjectBehavior {
   std::vector<BaseModel3D*> modelList;
+  std::vector<BaseObject3D*> childrenList;
   
 public:
   BaseObject3D();
@@ -30,6 +32,10 @@ public:
   void addModel(BaseModel3D* model);
   BaseModel3D* getModel(int index) const;
   void removeModel(int index);
+  
+  void addObject(BaseObject3D* model);
+  BaseObject3D* getObject(int index) const;
+  void removeObject(int index);
   
   void virtual awake();
   void virtual start();

@@ -24,9 +24,27 @@ void BaseObject3D::removeModel(int index) {
   modelList.erase(modelList.begin() + index);
 }
 
-void BaseObject3D::awake() { /* do nothing */ }
-void BaseObject3D::start() { /* do nothing */ }
-void BaseObject3D::update() { /* do nothing */ }
-void BaseObject3D::lateUpdate() { /* do nothing */ }
+void BaseObject3D::addObject(BaseObject3D* object) { childrenList.emplace_back(object); }
+BaseObject3D* BaseObject3D::getObject(int index) const {
+  if (index < 0 || index >= childrenList.size()) { return nullptr; }
+  return childrenList.at(index);
+}
+void BaseObject3D::removeObject(int index) {
+  if (index < 0 || index >= childrenList.size()) { return; }
+  childrenList.erase(childrenList.begin() + index);
+}
+
+void BaseObject3D::awake() {
+  for (BaseObject3D* obj : childrenList) { obj->awake(); }
+}
+void BaseObject3D::start() {
+  for (BaseObject3D* obj : childrenList) { obj->start(); }
+}
+void BaseObject3D::update() {
+  for (BaseObject3D* obj : childrenList) { obj->update(); }
+}
+void BaseObject3D::lateUpdate() {
+  for (BaseObject3D* obj : childrenList) { obj->lateUpdate(); }
+}
 
 NS_END
