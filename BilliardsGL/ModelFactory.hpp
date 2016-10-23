@@ -1,13 +1,13 @@
 //
-//  ObjectFactory.hpp
+//  ModelFactory.hpp
 //  BilliardsGL
 //
 //  Created by 比佐 幸基 on 2016/10/07.
 //  Copyright © 2016年 比佐 幸基. All rights reserved.
 //
 
-#ifndef ObjectFactory_hpp
-#define ObjectFactory_hpp
+#ifndef ModelFactory_hpp
+#define ModelFactory_hpp
 
 #include "GlobalHeader.h"
 
@@ -15,12 +15,12 @@
 
 NS_ENGINE_MODEL
 
-class ObjectFactory {
+class ModelFactory {
   
 public:
-  static BaseModel3D* instantiateObject(const ObjectType type);
+  static BaseModel3D* instantiateModel(const ModelType type);
 };
 
 NS_END2
 
-#endif /* ObjectFactory_hpp */
+#endif /* ModelFactory_hpp */

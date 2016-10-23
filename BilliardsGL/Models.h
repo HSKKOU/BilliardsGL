@@ -16,7 +16,7 @@
 
 NS_ENGINE_MODEL
 
-enum ObjectType {
+enum ModelType {
   CUBE,
   SPHERE,
   NUM,

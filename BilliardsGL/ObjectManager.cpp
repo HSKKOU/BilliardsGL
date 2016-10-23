@@ -18,13 +18,12 @@ void ObjectManager::initialize() {
 
 
 // Object Control
-BaseModel3D* ObjectManager::instantiateObject(ObjectType type) {
-  BaseModel3D* object = ObjectFactory::instantiateObject(type);
+ObjectBehavior* ObjectManager::registerObject(ObjectBehavior* object) {
   objectList.push_back(object);
   return object;
 }
 
-BaseModel3D* ObjectManager::getObject(const int objectId) const {
+ObjectBehavior* ObjectManager::getObject(const int objectId) const {
   if (objectId < 0 || objectId > objectList.size()) {
     std::cout << "objectId is out of list" << std::endl;
     return nullptr;
@@ -41,11 +40,34 @@ void ObjectManager::destroyObject(const int objectId) const {
   
 }
 
-void ObjectManager::updateObject() {
-  for (std::list<BaseModel3D*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+
+void ObjectManager::awakeObjects() {
+  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
     if ( *itr == nullptr ) { continue; }
-    (*itr)->draw();
+    (*itr)->awake();
   }
 }
+
+void ObjectManager::startObjects() {
+  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+    if ( *itr == nullptr ) { continue; }
+    (*itr)->start();
+  }
+}
+
+void ObjectManager::updateObjects() {
+  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+    if ( *itr == nullptr ) { continue; }
+    (*itr)->update();
+  }
+}
+
+void ObjectManager::lateUpdateObjects() {
+  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+    if ( *itr == nullptr ) { continue; }
+    (*itr)->lateUpdate();
+  }
+}
+
 
 NS_END

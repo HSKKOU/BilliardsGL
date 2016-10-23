@@ -17,8 +17,9 @@
 		0D31CB381DBB5E9A00BF8F65 /* BaseObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB361DBB5E9A00BF8F65 /* BaseObject3D.cpp */; };
 		0D31CB3E1DBC492000BF8F65 /* EmptyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB3C1DBC492000BF8F65 /* EmptyObject.cpp */; };
 		0D31CB411DBC4C3700BF8F65 /* ObjectBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB3F1DBC4C3700BF8F65 /* ObjectBehavior.cpp */; };
+		0D31CB481DBC540700BF8F65 /* BallController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB461DBC540700BF8F65 /* BallController.cpp */; };
 		0D7607081DA75393000031BA /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607061DA75393000031BA /* ObjectManager.cpp */; };
-		0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */; };
+		0D76070D1DA75D1E000031BA /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070B1DA75D1E000031BA /* ModelFactory.cpp */; };
 		0D7607101DA78FD6000031BA /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D76070E1DA78FD6000031BA /* Sphere.cpp */; };
 		0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D7607161DAF6888000031BA /* TextureLoader.cpp */; };
 		0D94B7331D8A9C1900422BD9 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7311D8A9C1900422BD9 /* Window.cpp */; };
@@ -73,6 +74,9 @@
 		0D31CB3D1DBC492000BF8F65 /* EmptyObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EmptyObject.hpp; sourceTree = "<group>"; };
 		0D31CB3F1DBC4C3700BF8F65 /* ObjectBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectBehavior.cpp; sourceTree = "<group>"; };
 		0D31CB401DBC4C3700BF8F65 /* ObjectBehavior.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObjectBehavior.hpp; sourceTree = "<group>"; };
+		0D31CB431DBC4FFB00BF8F65 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
+		0D31CB461DBC540700BF8F65 /* BallController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallController.cpp; sourceTree = "<group>"; };
+		0D31CB471DBC540700BF8F65 /* BallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BallController.hpp; sourceTree = "<group>"; };
 		0D7606B71DA4EE2E000031BA /* Default.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.vert; sourceTree = "<group>"; };
 		0D7606B81DA4EE40000031BA /* Default.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Default.frag; sourceTree = "<group>"; };
 		0D7606B91DA5C70C000031BA /* LightTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.vert; sourceTree = "<group>"; };
@@ -80,8 +84,8 @@
 		0D7607061DA75393000031BA /* ObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectManager.cpp; sourceTree = "<group>"; };
 		0D7607071DA75393000031BA /* ObjectManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
 		0D7607091DA754EA000031BA /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
-		0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
-		0D76070C1DA75D1E000031BA /* ObjectFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObjectFactory.hpp; sourceTree = "<group>"; };
+		0D76070B1DA75D1E000031BA /* ModelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelFactory.cpp; sourceTree = "<group>"; };
+		0D76070C1DA75D1E000031BA /* ModelFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ModelFactory.hpp; sourceTree = "<group>"; };
 		0D76070E1DA78FD6000031BA /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		0D76070F1DA78FD6000031BA /* Sphere.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
 		0D7607161DAF6888000031BA /* TextureLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
@@ -204,6 +208,23 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		0D31CB441DBC53F200BF8F65 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D31CB451DBC53FA00BF8F65 /* Game */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0D31CB451DBC53FA00BF8F65 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				0D31CB461DBC540700BF8F65 /* BallController.cpp */,
+				0D31CB471DBC540700BF8F65 /* BallController.hpp */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 		0D7606B61DA4EE08000031BA /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,8 +239,8 @@
 		0D76070A1DA75D0F000031BA /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				0D76070B1DA75D1E000031BA /* ObjectFactory.cpp */,
-				0D76070C1DA75D1E000031BA /* ObjectFactory.hpp */,
+				0D76070B1DA75D1E000031BA /* ModelFactory.cpp */,
+				0D76070C1DA75D1E000031BA /* ModelFactory.hpp */,
 			);
 			name = Factory;
 			sourceTree = "<group>";
@@ -249,6 +270,7 @@
 			children = (
 				0DF2A1F01D9CB1A600303E07 /* Math */,
 				0D7607091DA754EA000031BA /* Models.h */,
+				0D31CB431DBC4FFB00BF8F65 /* Objects.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -356,6 +378,7 @@
 		0D9E603B1DB8AE480084591E /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				0D31CB441DBC53F200BF8F65 /* Controllers */,
 				0D94B7361D8AE62300422BD9 /* Managers */,
 				0D9E602B1DB8A82D0084591E /* Scenes */,
 				0D94B73B1D8AE68700422BD9 /* Utils */,
@@ -523,7 +546,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DF2A1CC1D97E66C00303E07 /* Cube.cpp in Sources */,
-				0D76070D1DA75D1E000031BA /* ObjectFactory.cpp in Sources */,
+				0D76070D1DA75D1E000031BA /* ModelFactory.cpp in Sources */,
+				0D31CB481DBC540700BF8F65 /* BallController.cpp in Sources */,
 				0DF2A1EA1D99307400303E07 /* DirectionalLightController.cpp in Sources */,
 				0D31CB261DBAE2F800BF8F65 /* Vector3D.cpp in Sources */,
 				0D31CB291DBAE45F00BF8F65 /* Vector4D.cpp in Sources */,

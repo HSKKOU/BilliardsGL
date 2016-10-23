@@ -14,8 +14,7 @@
 
 #include <list>
 
-#include "Models.h"
-#include "ObjectFactory.hpp"
+#include "Objects.h"
 
 US_NS_ENGINE_MODEL
 
@@ -24,15 +23,18 @@ NS_ENGINE
 class ObjectManager : public Singleton<ObjectManager> {
   friend class Singleton<ObjectManager>;
   
-  std::list<BaseModel3D*> objectList;
+  std::list<ObjectBehavior*> objectList;
   
 public:
   void initialize();
-  BaseModel3D* instantiateObject(ObjectType type);
-  BaseModel3D* getObject(const int objectId) const;
+  ObjectBehavior* registerObject(ObjectBehavior* object);
+  ObjectBehavior* getObject(const int objectId) const;
   void destroyObject(const int objectId) const;
   
-  void updateObject();
+  void awakeObjects();
+  void startObjects();
+  void updateObjects();
+  void lateUpdateObjects();
   
 private:
   ObjectManager();
