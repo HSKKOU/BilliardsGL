@@ -10,13 +10,14 @@
 
 NS_GAME
 
-BallController::BallController(Transform t) : Engine::BaseObject3D(t) { /* do nothing */ }
+BallController::BallController(Transform t) : Engine::BaseObject3D(t), number(0) { /* do nothing */ }
+BallController::BallController(Transform t, int n) : Engine::BaseObject3D(t), number(n) { /* do nothing */ }
 BallController::~BallController() { /* do nothing */ }
 
 void BallController::awake() {
   Sphere* ballModel = (Sphere*)ModelFactory::instantiateModel(ModelType::SPHERE);
   ballModel->loadShaderProgram("LightTest.vert", "LightTest.frag");
-  ballModel->setTexture(Tex::Ball00);
+  ballModel->setTexture(TexUtil::toTex(TexUtil::toInt(Tex::Ball00)+number));
   ballModel->setObjectColor(Color::one());
   ballModel->translate(Vector3D(0.0f, 0.0f, 10.0f));
   modelList.emplace_back(ballModel);

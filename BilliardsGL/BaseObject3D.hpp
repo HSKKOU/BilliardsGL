@@ -23,26 +23,23 @@ NS_ENGINE
 class BaseObject3D : public Base3D, public ObjectBehavior {
 protected:
   std::vector<BaseModel3D*> modelList;
-  std::vector<BaseObject3D*> childrenList;
   
 public:
   BaseObject3D();
   BaseObject3D(Transform t);
   virtual ~BaseObject3D();
-  
-  void addModel(BaseModel3D* model);
-  BaseModel3D* getModel(int index) const;
-  void removeModel(int index);
-  
-  void addObject(BaseObject3D* model);
-  BaseObject3D* getObject(int index) const;
-  void removeObject(int index);
-  
+    
   void virtual awake();
   void virtual start();
   void virtual update();
   void virtual lateUpdate();
   void virtual draw();
+  void virtual destroy();
+  
+  virtual void translate(Vector3D dest);
+  virtual void rotation(Quaternion rot);
+  virtual void scale(Vector3D scl);
+  virtual void rotate(Quaternion rot);
 };
 
 NS_END

@@ -17,6 +17,7 @@
 #include "Matrix.h"
 
 #include "BallController.hpp"
+#include "WhiteBallController.hpp"
 
 #include "Camera.h"
 
@@ -29,7 +30,8 @@ class GameManager : public BehaviorSingleton<GameManager> {
   friend class BehaviorSingleton<GameManager>;
   
   // for Debug
-  BallController* ball;
+  BallController* whiteBall;
+  BallController* balls[15];
   
 public:
   virtual ~GameManager();

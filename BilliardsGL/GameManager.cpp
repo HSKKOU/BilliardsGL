@@ -21,40 +21,36 @@ void GameManager::initialize() {
 }
 
 void GameManager::awake() {
-  ball = new BallController(Transform::identity());
-  (ObjectManager::instance()).registerObject(ball);
-  ball->awake();
+  whiteBall = new WhiteBallController(Transform::identity());
+  (ObjectManager::instance()).registerObject(whiteBall);
+  
+  for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
+    balls[i] = new BallController(Transform::identity(), i+1);
+    (ObjectManager::instance()).registerObject(balls[i]);
+
+    float row = ceilf((sqrtf(1.0 + 8.0*(i+1)) - 1.0f) / 2.0f);
+    int sumAtLastRow = (int)((row*(row-1))/2.0f);
+    float posX = 1.01f * (2.0f*((i+1)-sumAtLastRow)-row-1);
+    float posZ = (row-1) * 1.75033f;
+    balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
+    balls[i]->rotation(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
+  }
 }
 
 void GameManager::start() {
-  ball->start();
-  // for Debug create ball objects
-//  for (int i=1; i<=15; i++) {
-//    balls[i] = (ObjectManager::instance()).instantiateObject(ObjectType::SPHERE);
-//    balls[i]->loadShaderProgram("LightTest.vert", "LightTest.frag");
-//    balls[i]->setTexture(static_cast<Tex>(static_cast<int>(Tex::Ball00)+i));
-//    balls[i]->setObjectColor(Color::one());
-//    float row = ceilf((sqrtf(1.0 + 8.0*i) - 1.0f) / 2.0f);
-//    int sumAtLastRow = (int)((row*(row-1))/2.0f);
-//    float posX = 1.01f * (2.0f*(i-sumAtLastRow)-row-1);
-//    float posZ = (row-1) * 1.75033f;
-//    balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
-//    balls[i]->rotation(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
-//  }
 }
 
 
 void GameManager::update() {
-  ball->update();
-//  balls[0]->translate(Vector3D(0.0f, 0.0f, 10.0f-sinf(glfwGetTime())*3.0f));
-//  for (int i=1; i<=15; i++) {
-//    float row = ceilf((sqrtf(1.0 + 8.0*i) - 1.0f) / 2.0f);
-//    int sumAtLastRow = (int)((row*(row-1))/2.0f);
-//    float posX = 1.01f * (2.0f*(i-sumAtLastRow)-row-1);
-//    float posZ = (row-1) * 1.75033f + sinf(glfwGetTime())*3.0f;
-//    balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
-//    balls[i]->rotate(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/180.0f));
-//  }
+  whiteBall->translate(Vector3D(0.0f, 0.0f, 10.0f-sinf(glfwGetTime())*3.0f));
+  for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
+    float row = ceilf((sqrtf(1.0 + 8.0*(i+1)) - 1.0f) / 2.0f);
+    int sumAtLastRow = (int)((row*(row-1))/2.0f);
+    float posX = 1.01f * (2.0f*((i+1)-sumAtLastRow)-row-1);
+    float posZ = (row-1) * 1.75033f + sinf(glfwGetTime())*3.0f;
+    balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
+    balls[i]->rotate(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/180.0f));
+  }
 }
 
 NS_END

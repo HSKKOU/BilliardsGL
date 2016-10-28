@@ -22,9 +22,11 @@ US_NS_ENGINE_MODEL
 NS_GAME
 
 class BallController : public BaseObject3D {
+  int number;
   
 public:
   BallController(Transform t);
+  BallController(Transform t, int number);
   virtual ~BallController();
   
   void virtual awake();
