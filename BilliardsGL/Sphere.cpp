@@ -57,10 +57,4 @@ void Sphere::setVPos(GLfloat *vPos, int ist, int jsl, int stk, int slc, float as
 
 Sphere::~Sphere() { /* do nothing */ }
 
-void Sphere::draw() {
-  drawReady();
-  sendParams2Shd();
-  drawRun();
-}
-
 NS_END2

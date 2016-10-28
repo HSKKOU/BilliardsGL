@@ -87,10 +87,4 @@ Cube::Cube(const Vector3D _center, const Vector3D _size) : BaseModel3D(_center),
 
 Cube::~Cube() { /* do nothing */ }
 
-void Cube::draw() {
-  drawReady();
-  sendParams2Shd();
-  drawRun();
-}
-
 NS_END2

@@ -19,7 +19,6 @@ class Sphere : public BaseModel3D {
 public:
   Sphere(const Vector3D _center, const GLfloat _radius, const int _slices, const int _stacks);
   virtual ~Sphere();
-  virtual void draw();
   
 private:
   void setVPos(GLfloat *vPos, int ist, int jsl, int stk, int slc, float ast, float asl);

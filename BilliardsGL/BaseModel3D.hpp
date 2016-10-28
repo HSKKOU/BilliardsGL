@@ -94,7 +94,7 @@ public:
 
   virtual void setTexture(Tex tex);
   
-  virtual void draw() = 0;
+  virtual void draw();
   virtual void drawReady();
   virtual void sendParams2Shd();
   virtual void drawRun(int mode = GL_TRIANGLES);

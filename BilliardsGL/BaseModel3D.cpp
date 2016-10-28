@@ -31,6 +31,12 @@ void BaseModel3D::setObjectColor(Color c) { objectColor = c; }
 
 
 // drawing methods
+void BaseModel3D::draw() {
+  drawReady();
+  sendParams2Shd();
+  drawRun();
+}
+
 void BaseModel3D::drawReady() {
   // set vertices and shader
   glUseProgram(shaderProgram);

@@ -21,7 +21,6 @@ protected:
 public:
   Cube(const Vector3D _center, const Vector3D _size);
   virtual ~Cube();
-  virtual void draw();
 };
 
 NS_END2
