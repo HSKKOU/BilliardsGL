@@ -26,6 +26,11 @@ void BaseObject3D::draw() {
 void BaseObject3D::destroy() { ObjectBehavior::destroy(); }
 
 
+void BaseObject3D::setTransform(Engine::Transform trsf) {
+  for (BaseModel3D* model : modelList) { model->setTransform(trsf); }
+}
+
+
 void BaseObject3D::translate(Vector3D dest) {
   for (BaseModel3D* model : modelList) { model->translate(dest); }
 }

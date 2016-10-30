@@ -36,6 +36,8 @@ public:
   void virtual draw();
   void virtual destroy();
   
+  virtual void setTransform(Transform trsf);
+  
   virtual void translate(Vector3D dest);
   virtual void rotation(Quaternion rot);
   virtual void scale(Vector3D scl);
