@@ -10,8 +10,9 @@
 
 NS_ENGINE
 
-BaseObject3D::BaseObject3D() : Engine::Base3D(Transform(Vector3D::zero(), Quaternion::one(), Vector3D::one())) { /* do nothing */ }
-BaseObject3D::BaseObject3D(Transform t) : Engine::Base3D(t) { /* do nothing */ }
+BaseObject3D::BaseObject3D() : BaseObject3D(Transform(Vector3D::zero(), Quaternion::one(), Vector3D::one())) { /* do nothing */ }
+BaseObject3D::BaseObject3D(Transform t) : Engine::Base3D(t) { for (BaseModel3D* model : modelList) { model->setTransform(t); } }
+
 BaseObject3D::~BaseObject3D() { /* do nothing */ }
 
 void BaseObject3D::awake() { ObjectBehavior::awake(); }
