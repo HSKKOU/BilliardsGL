@@ -30,6 +30,8 @@
 		0D9E60341DB8A8A40084591E /* SceneBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E60321DB8A8A40084591E /* SceneBase.cpp */; };
 		0D9E603E1DB8AE730084591E /* GameEngineManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E603C1DB8AE730084591E /* GameEngineManager.cpp */; };
 		0DA841871DB5B830002A7879 /* CameraControllerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DA841851DB5B830002A7879 /* CameraControllerBase.cpp */; };
+		0DB485361DC65399005E8B7D /* BaseRigidObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DB485341DC65399005E8B7D /* BaseRigidObject3D.cpp */; };
+		0DB4853A1DC65430005E8B7D /* ColliderBase3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DB485381DC65430005E8B7D /* ColliderBase3D.cpp */; };
 		0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */; };
 		0DBF5D171D95211800A037BA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D151D95211800A037BA /* Square.cpp */; };
 		0DBF5D211D95237700A037BA /* BaseObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF5D1F1D95237700A037BA /* BaseObject2D.cpp */; };
@@ -118,6 +120,10 @@
 		0DA8418B1DB5C515002A7879 /* Sample001.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample001.frag; sourceTree = "<group>"; };
 		0DA8418C1DB5C52D002A7879 /* Sample002.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample002.vert; sourceTree = "<group>"; };
 		0DA8418D1DB5C538002A7879 /* Sample002.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample002.frag; sourceTree = "<group>"; };
+		0DB485341DC65399005E8B7D /* BaseRigidObject3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseRigidObject3D.cpp; sourceTree = "<group>"; };
+		0DB485351DC65399005E8B7D /* BaseRigidObject3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseRigidObject3D.hpp; sourceTree = "<group>"; };
+		0DB485381DC65430005E8B7D /* ColliderBase3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColliderBase3D.cpp; sourceTree = "<group>"; };
+		0DB485391DC65430005E8B7D /* ColliderBase3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ColliderBase3D.hpp; sourceTree = "<group>"; };
 		0DBF5D111D951CD300A037BA /* FPSCounter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FPSCounter.hpp; sourceTree = "<group>"; };
 		0DBF5D121D951F5A00A037BA /* FPSCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSCounter.cpp; sourceTree = "<group>"; };
 		0DBF5D151D95211800A037BA /* Square.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 				0D31CB421DBC4E0A00BF8F65 /* Base */,
 				0D31CB3C1DBC492000BF8F65 /* EmptyObject.cpp */,
 				0D31CB3D1DBC492000BF8F65 /* EmptyObject.hpp */,
+				0DB485341DC65399005E8B7D /* BaseRigidObject3D.cpp */,
+				0DB485351DC65399005E8B7D /* BaseRigidObject3D.hpp */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -301,6 +309,7 @@
 		0D94B7371D8AE62900422BD9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0DB485371DC65402005E8B7D /* Collider */,
 				0D31CB351DBB5E8600BF8F65 /* Object */,
 				0D9E60411DB8C5FE0084591E /* Scene */,
 				0DF2A1E11D99270300303E07 /* Light */,
@@ -437,6 +446,15 @@
 				0DA8418D1DB5C538002A7879 /* Sample002.frag */,
 			);
 			name = Samples;
+			sourceTree = "<group>";
+		};
+		0DB485371DC65402005E8B7D /* Collider */ = {
+			isa = PBXGroup;
+			children = (
+				0DB485381DC65430005E8B7D /* ColliderBase3D.cpp */,
+				0DB485391DC65430005E8B7D /* ColliderBase3D.hpp */,
+			);
+			name = Collider;
 			sourceTree = "<group>";
 		};
 		0DBF5D141D9520FF00A037BA /* 2DModels */ = {
@@ -577,7 +595,9 @@
 				0DF2A1CF1D97E95F00303E07 /* BaseModel3D.cpp in Sources */,
 				0DF2A1E71D99281F00303E07 /* LightControllerBase.cpp in Sources */,
 				0D7607181DAF6888000031BA /* TextureLoader.cpp in Sources */,
+				0DB485361DC65399005E8B7D /* BaseRigidObject3D.cpp in Sources */,
 				0D1E8F301D96454300620688 /* ShaderLoader.cpp in Sources */,
+				0DB4853A1DC65430005E8B7D /* ColliderBase3D.cpp in Sources */,
 				0D9E603E1DB8AE730084591E /* GameEngineManager.cpp in Sources */,
 				0DBF5D131D951F5A00A037BA /* FPSCounter.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
