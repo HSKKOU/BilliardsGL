@@ -12,24 +12,25 @@ NS_ENGINE_UTIL
 
 FPSCounter::FPSCounter() { /* do nothing */ }
 
-void FPSCounter::initialize(double startTime) {
+void FPSCounter::initialize(double startTime, bool isShow) {
   // set initial time
   lastTime = startTime;
+  isShowFPS = isShow;
 }
 
-void FPSCounter::update(double currentTime) {
-  // increment fps counter
-  nbFrames++;
-  
-  // show fps in 1sec.
-  if (currentTime - lastTime >= 1.0) {
-//    std::cout << "= fps =======================" << std::endl;
-//    std::cout << 1000.0/double(nbFrames) << " ms/frame" << std::endl;
-//    std::cout << nbFrames << " fps" << std::endl;
-//    std::cout << "=============================" << std::endl;
-    nbFrames = 0;
-    lastTime += 1.0;
+double FPSCounter::update(double currentTime) {
+  double deltaTime = currentTime - lastTime;
+
+  if (isShowFPS) {
+    std::cout << "= fps =======================" << std::endl;
+    std::cout << deltaTime*1000.0 << " ms/frame" << std::endl;
+    std::cout << 1.0/deltaTime << " fps" << std::endl;
+    std::cout << "=============================" << std::endl;
   }
+  
+  lastTime = currentTime;
+  return deltaTime;
 }
+
 
 NS_END2

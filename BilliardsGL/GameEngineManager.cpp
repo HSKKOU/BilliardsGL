@@ -44,7 +44,10 @@ void GameEngineManager::initialize() {
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
   
   // FPS initialize
-  fps.initialize(glfwGetTime());
+  fps.initialize(glfwGetTime()
+//                 , true
+                 , false
+                 );
   
   // Managers initialize
   objectManager.initialize();
@@ -86,18 +89,18 @@ void GameEngineManager::startMainLoop() {
   // game loop
   sceneManager.switchSceneTo(0);
   while (window->shouldClose() == GL_FALSE) {
-    fps.update(glfwGetTime());
-    mainLoop();
+    double deltaTime = fps.update(glfwGetTime());
+    mainLoop(deltaTime);
   }
 }
 
 
-void GameEngineManager::mainLoop() {
+void GameEngineManager::mainLoop(GLfloat deltaTime) {
   // clear buffer,  enable "DEPTH_BUFFER, CULL_FACE"
   window->resetWindow();
   
   // Managers update
-  sceneManager.updateScene();
+  sceneManager.updateScene(deltaTime);
   
   // finish this frame, change another drawing buffer
   window->swapBuffers();

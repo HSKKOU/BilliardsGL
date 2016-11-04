@@ -31,8 +31,8 @@ public:
     
   void virtual awake();
   void virtual start();
-  void virtual update();
-  void virtual lateUpdate();
+  void virtual update(GLfloat deltaTime);
+  void virtual lateUpdate(GLfloat deltaTime);
   void virtual draw();
   void virtual destroy();
   

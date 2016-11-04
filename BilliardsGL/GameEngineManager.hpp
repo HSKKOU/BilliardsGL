@@ -46,7 +46,7 @@ public:
   
 private:
   GameEngineManager();
-  void mainLoop();
+  void mainLoop(GLfloat deltaTime);
 };
 
 NS_END

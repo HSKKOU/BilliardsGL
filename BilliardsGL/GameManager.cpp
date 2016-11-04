@@ -50,7 +50,7 @@ void GameManager::start() {
 }
 
 
-void GameManager::update() {
+void GameManager::update(GLfloat deltaTime) {
 }
 
 NS_END

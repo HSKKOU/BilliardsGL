@@ -54,8 +54,8 @@ void SceneManager::switchSceneTo(SceneBase* scene) {
   currentScene->enter();
 }
 
-void SceneManager::updateScene() const {
-  currentScene->update();
+void SceneManager::updateScene(GLfloat deltaTime) const {
+  currentScene->update(deltaTime);
 }
 
 NS_END

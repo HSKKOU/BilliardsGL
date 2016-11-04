@@ -33,7 +33,7 @@ public:
   void switchSceneTo(int index);
   void switchSceneTo(SceneBase* scene);
   
-  void updateScene() const;
+  void updateScene(GLfloat deltaTime) const;
   
 private:
   SceneManager();

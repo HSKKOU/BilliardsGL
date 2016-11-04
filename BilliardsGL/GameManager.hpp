@@ -39,7 +39,7 @@ public:
   
   virtual void awake();
   virtual void start();
-  virtual void update();
+  virtual void update(GLfloat deltaTime);
   
 private:
   GameManager();

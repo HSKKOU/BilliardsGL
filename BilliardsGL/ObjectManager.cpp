@@ -49,24 +49,24 @@ void ObjectManager::startAwakenObjects() {
   awakenObjectList.clear();
 }
 
-void ObjectManager::updateObjectsPhysics() {
+void ObjectManager::updateObjectsPhysics(GLfloat deltaTime) {
   for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
     if ( *itr == nullptr ) { continue; }
-    (*itr)->updatePhysics();
+    (*itr)->updatePhysics(deltaTime);
   }
 }
 
-void ObjectManager::updateObjects() {
+void ObjectManager::updateObjects(GLfloat deltaTime) {
   for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
     if ( *itr == nullptr ) { continue; }
-    (*itr)->update();
+    (*itr)->update(deltaTime);
   }
 }
 
-void ObjectManager::lateUpdateObjects() {
+void ObjectManager::lateUpdateObjects(GLfloat deltaTime) {
   for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
     if ( *itr == nullptr ) { continue; }
-    (*itr)->lateUpdate();
+    (*itr)->lateUpdate(deltaTime);
   }
 }
 

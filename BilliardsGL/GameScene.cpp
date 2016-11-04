@@ -26,8 +26,8 @@ void GameScene::exit() {
   SceneBase::exit();
 }
 
-void GameScene::update() {
-  SceneBase::update();
+void GameScene::update(GLfloat deltaTime) {
+  SceneBase::update(deltaTime);
 }
 
 NS_END

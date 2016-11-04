@@ -28,7 +28,8 @@ public:
   
   ColliderBase3D* getCollider3D() const;
   
-  virtual void updatePhysics();
+  
+  virtual void updatePhysics(GLfloat deltaTime);
   
   
   void addForce(float power, Vector3D dir);

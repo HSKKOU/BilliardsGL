@@ -18,13 +18,18 @@ class FPSCounter : public Singleton<FPSCounter> {
   friend class Singleton<FPSCounter>;
   
   // last looping time
-  double lastTime = 0;
+  GLfloat lastTime = 0;
+  // last passed 1sec
+  GLfloat lastSec = 0;
   // frame count in 1 sec.
   int nbFrames = 0;
   
+  // show flag
+  bool isShowFPS = false;
+  
 public:
-  void initialize(double);
-  void update(double);
+  void initialize(double, bool);
+  double update(double);
   
 private:
   FPSCounter();

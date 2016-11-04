@@ -20,8 +20,8 @@ BaseObject3D::~BaseObject3D() {
 
 void BaseObject3D::awake() { ObjectBehavior::awake(); }
 void BaseObject3D::start() { ObjectBehavior::start(); }
-void BaseObject3D::update() { ObjectBehavior::update(); }
-void BaseObject3D::lateUpdate() { ObjectBehavior::lateUpdate(); }
+void BaseObject3D::update(GLfloat deltaTime) { ObjectBehavior::update(deltaTime); }
+void BaseObject3D::lateUpdate(GLfloat deltaTime) { ObjectBehavior::lateUpdate(deltaTime); }
 void BaseObject3D::draw() {
   ObjectBehavior::draw();
   for (BaseModel3D* model : modelList) { model->draw(); }

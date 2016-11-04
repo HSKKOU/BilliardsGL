@@ -36,10 +36,10 @@ public:
   /* Life Cycles */
   void startAwakenObjects();
   
-  void updateObjectsPhysics();
+  void updateObjectsPhysics(GLfloat deltaTime);
 
-  void updateObjects();
-  void lateUpdateObjects();
+  void updateObjects(GLfloat deltaTime);
+  void lateUpdateObjects(GLfloat deltaTime);
   
   void draw();
   

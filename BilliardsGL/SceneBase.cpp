@@ -20,11 +20,15 @@ void SceneBase::exit() {
   (ObjectManager::instance()).destroyObjects();
 }
 
-void SceneBase::update() {
+void SceneBase::update(GLfloat deltaTime) {
   (ObjectManager::instance()).startAwakenObjects();
   (LightManager::instance()).updateLights();
-  (ObjectManager::instance()).updateObjects();
-  (ObjectManager::instance()).lateUpdateObjects();
+
+  (ObjectManager::instance()).updateObjectsPhysics(deltaTime);
+  
+  (ObjectManager::instance()).updateObjects(deltaTime);
+  (ObjectManager::instance()).lateUpdateObjects(deltaTime);
+  
   (ObjectManager::instance()).draw();
 }
 

@@ -22,10 +22,10 @@ public:
   virtual void awake();
   virtual void start();
   
-  virtual void updatePhysics();
+  virtual void updatePhysics(GLfloat deltaTime);
   
-  virtual void update();
-  virtual void lateUpdate();
+  virtual void update(GLfloat deltaTime);
+  virtual void lateUpdate(GLfloat deltaTime);
   
   virtual void draw();
   
