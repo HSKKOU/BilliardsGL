@@ -38,7 +38,6 @@ void BallController::createBall(Tex texture) {
   ballModel->loadShaderProgram("LightTest.vert", "LightTest.frag");
   ballModel->setTexture(texture);
   ballModel->setObjectColor(Color::one());
-  ballModel->translate(Vector3D(0.0f, 0.0f, 10.0f));
   modelList.emplace_back(ballModel);
 }
 
