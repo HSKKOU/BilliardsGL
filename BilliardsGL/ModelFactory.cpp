@@ -10,7 +10,7 @@
 
 NS_ENGINE_MODEL
 
-BaseModel3D* ModelFactory::instantiateModel(const ModelType type) {
+BaseModel3D* ModelFactory::instantiateSimpleModel(const ModelType type) {
   BaseModel3D *model = nullptr;
   switch (type) {
     case CUBE:
@@ -22,6 +22,14 @@ BaseModel3D* ModelFactory::instantiateModel(const ModelType type) {
       break;
   }
   return model;
+}
+
+Sphere* ModelFactory::createSphereModel(const GLfloat radius) {
+  return new Sphere(Vector3D::zero(), radius, 100, 50);
+}
+
+Cube* ModelFactory::createCubeModel(const Vector3D size) {
+  return new Cube(Vector3D::zero(), size);
 }
 
 NS_END2
