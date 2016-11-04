@@ -88,22 +88,27 @@ void GameEngineManager::startMainLoop() {
   
   // game loop
   sceneManager.switchSceneTo(0);
+  bool waitStable = true;
   while (window->shouldClose() == GL_FALSE) {
     double deltaTime = fps.update(glfwGetTime());
-    mainLoop(deltaTime);
+   
+    // clear buffer,  enable "DEPTH_BUFFER, CULL_FACE"
+    window->resetWindow();
+    
+    if (!waitStable) {
+      mainLoop(deltaTime);
+    }
+    
+    // finish this frame, change another drawing buffer
+    window->swapBuffers();
+
+    if (std::abs(fps.getFPS()-60.0) < 5.0) { waitStable = false; }
   }
 }
 
 
 void GameEngineManager::mainLoop(GLfloat deltaTime) {
-  // clear buffer,  enable "DEPTH_BUFFER, CULL_FACE"
-  window->resetWindow();
-  
-  // Managers update
   sceneManager.updateScene(deltaTime);
-  
-  // finish this frame, change another drawing buffer
-  window->swapBuffers();
 }
 
 NS_END
