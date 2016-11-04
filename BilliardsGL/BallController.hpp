@@ -9,7 +9,9 @@
 #ifndef BallController_hpp
 #define BallController_hpp
 
-#include "BaseObject3D.hpp"
+#include "BaseRigidObject3D.hpp"
+#include "SphereCollider.hpp"
+
 #include "Sphere.hpp"
 
 #include "ModelFactory.hpp"
@@ -21,7 +23,7 @@ US_NS_ENGINE_MODEL
 
 NS_GAME
 
-class BallController : public BaseObject3D {
+class BallController : public BaseRigidObject3D {
   int number;
   
 public:
@@ -32,6 +34,9 @@ public:
   void virtual awake();
   void virtual start();
   void virtual update();
+  
+protected:
+  void createBall(Tex texture);
 };
 
 NS_END

@@ -14,12 +14,7 @@ WhiteBallController::WhiteBallController(Transform t) : Game::BallController(t) 
 WhiteBallController::~WhiteBallController() { /* do nothing */ }
 
 void WhiteBallController::awake() {
-  Sphere* ballModel = (Sphere*)ModelFactory::instantiateModel(ModelType::SPHERE);
-  ballModel->loadShaderProgram("LightTest.vert", "LightTest.frag");
-  ballModel->setTexture(Tex::Ball00);
-  ballModel->setObjectColor(Color::one());
-  ballModel->translate(Vector3D(0.0f, 0.0f, 10.0f));
-  modelList.emplace_back(ballModel);
+  createBall(Tex::Ball00);
 }
 
 void WhiteBallController::start() {
