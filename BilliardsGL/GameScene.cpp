@@ -12,12 +12,13 @@ NS_GAME
 
 GameScene::GameScene()
 : gameManager(GameManager::instance())
-{
-  (ObjectManager::instance()).registerObject(&gameManager);
-}
+{ /* do nothing */ }
 GameScene::~GameScene() { /* do nothing */ }
 
 void GameScene::enter() {
+  gameManager.initialize();
+  (ObjectManager::instance()).registerObject(&gameManager);
+
   SceneBase::enter();
 }
 

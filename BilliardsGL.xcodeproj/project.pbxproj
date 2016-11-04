@@ -299,6 +299,7 @@
 				0D7607091DA754EA000031BA /* Models.h */,
 				0D31CB431DBC4FFB00BF8F65 /* Objects.h */,
 				0D24F3CD1DCC505C000E7244 /* Collisions.h */,
+				0D9E603F1DB8B0270084591E /* Scenes.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -335,7 +336,6 @@
 			children = (
 				0D9E602C1DB8A8570084591E /* GameScene.cpp */,
 				0D9E602D1DB8A8570084591E /* GameScene.hpp */,
-				0D9E603F1DB8B0270084591E /* Scenes.h */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";

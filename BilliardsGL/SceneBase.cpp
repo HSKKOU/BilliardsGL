@@ -14,16 +14,14 @@ SceneBase::SceneBase() : bgColor(Color::one()) { /* do nothing */ }
 SceneBase::SceneBase(Color c) : bgColor(c) { /* do nothing */ }
 SceneBase::~SceneBase() { /* do nothing */ }
 
-void SceneBase::enter() {
-  (ObjectManager::instance()).awakeObjects();
-  (ObjectManager::instance()).startObjects();
-}
+void SceneBase::enter() { /* do nothing */ }
 
 void SceneBase::exit() {
   (ObjectManager::instance()).destroyObjects();
 }
 
 void SceneBase::update() {
+  (ObjectManager::instance()).startAwakenObjects();
   (LightManager::instance()).updateLights();
   (ObjectManager::instance()).updateObjects();
   (ObjectManager::instance()).lateUpdateObjects();

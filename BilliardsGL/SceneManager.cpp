@@ -14,6 +14,7 @@
 NS_ENGINE
 
 SceneManager::SceneManager()
+: currentScene(nullptr)
 { /* do nothing */ }
 SceneManager::~SceneManager() {
   for (SceneBase* scene : scenes) { delete scene; scene = nullptr; }
@@ -22,10 +23,8 @@ SceneManager::~SceneManager() {
 }
 
 void SceneManager::initialize() {
-  // for Debug
   Game::GameScene* gameScene = new Game::GameScene();
   addScene(gameScene);
-  currentScene = gameScene;
 }
 
 void SceneManager::addScene(SceneBase* scene) {
@@ -50,7 +49,7 @@ void SceneManager::switchSceneTo(int index) {
 
 void SceneManager::switchSceneTo(SceneBase* scene) {
   if (!scene) { return; }
-  if (!currentScene) { currentScene->exit(); }
+  if (currentScene) { currentScene->exit(); }
   currentScene = scene;
   currentScene->enter();
 }

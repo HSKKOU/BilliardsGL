@@ -12,14 +12,13 @@ NS_ENGINE
 
 ObjectManager::ObjectManager() { /* do nothing */ }
 
-void ObjectManager::initialize() {
-  objectList = {};
-}
+void ObjectManager::initialize() { /* do nothing */ }
 
 
 // Object Control
 ObjectBehavior* ObjectManager::registerObject(ObjectBehavior* object) {
-  objectList.push_back(object);
+  object->awake();
+  awakenObjectList.push_back(object);
   return object;
 }
 
@@ -41,18 +40,13 @@ void ObjectManager::destroyObject(const int objectId) const {
 }
 
 
-void ObjectManager::awakeObjects() {
-  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
-    if ( *itr == nullptr ) { continue; }
-    (*itr)->awake();
-  }
-}
 
-void ObjectManager::startObjects() {
-  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
-    if ( *itr == nullptr ) { continue; }
-    (*itr)->start();
+void ObjectManager::startAwakenObjects() {
+  for (ObjectBehavior* ob : awakenObjectList) {
+    ob->start();
+    objectList.push_back(ob);
   }
+  awakenObjectList.clear();
 }
 
 void ObjectManager::updateObjectsPhysics() {

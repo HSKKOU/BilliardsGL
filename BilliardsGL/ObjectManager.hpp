@@ -12,6 +12,7 @@
 #include "GlobalHeader.h"
 #include "Singleton.h"
 
+#include <vector>
 #include <list>
 
 #include "Objects.h"
@@ -23,6 +24,7 @@ NS_ENGINE
 class ObjectManager : public Singleton<ObjectManager> {
   friend class Singleton<ObjectManager>;
   
+  std::vector<ObjectBehavior*> awakenObjectList;
   std::list<ObjectBehavior*> objectList;
   
 public:
@@ -32,8 +34,7 @@ public:
   void destroyObject(const int objectId) const;
   
   /* Life Cycles */
-  void awakeObjects();
-  void startObjects();
+  void startAwakenObjects();
   
   void updateObjectsPhysics();
 
