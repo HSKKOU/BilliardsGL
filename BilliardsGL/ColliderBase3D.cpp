@@ -13,7 +13,8 @@ NS_ENGINE
 ColliderBase3D::ColliderBase3D() { /* do nothing */ }
 ColliderBase3D::~ColliderBase3D() { /* do nothing */ }
 
-bool ColliderBase3D::isCollideWith(BaseObject3D* object) {
+bool ColliderBase3D::isCollideWith(ColliderBase3D* other) {
+  // TODO
   return false;
 }
 

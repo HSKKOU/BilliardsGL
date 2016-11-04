@@ -21,11 +21,7 @@ public:
   ColliderBase3D();
   virtual ~ColliderBase3D();
   
-  virtual bool isCollideWith(BaseObject3D* object);
-  
-  virtual void onCollisionEnter(BaseObject3D* object) = 0;
-  virtual void onCollisionStay(BaseObject3D* object) = 0;
-  virtual void onCollisionExit(BaseObject3D* object) = 0;
+  virtual bool isCollideWith(ColliderBase3D* other);
 };
 
 NS_END

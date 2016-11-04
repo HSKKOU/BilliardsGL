@@ -24,6 +24,12 @@ public:
   virtual ~BaseRigidObject3D();
   
   ColliderBase3D* getCollider3D() const;
+  
+  virtual void updatePhysics();
+  
+  virtual void onCollisionEnter(BaseRigidObject3D* object);
+  virtual void onCollisionStay(BaseRigidObject3D* object);
+  virtual void onCollisionExit(BaseRigidObject3D* object);
 };
 
 NS_END
