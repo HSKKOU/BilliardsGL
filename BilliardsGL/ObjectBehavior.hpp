@@ -19,17 +19,17 @@ public:
   ObjectBehavior();
   virtual ~ObjectBehavior();
   
-  void virtual awake();
-  void virtual start();
+  virtual void awake();
+  virtual void start();
   
-  void virtual updatePhysics();
+  virtual void updatePhysics();
   
-  void virtual update();
-  void virtual lateUpdate();
+  virtual void update();
+  virtual void lateUpdate();
   
-  void virtual draw();
+  virtual void draw();
   
-  void virtual destroy();
+  virtual void destroy();
 };
 
 NS_END
