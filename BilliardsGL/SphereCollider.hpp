@@ -9,7 +9,7 @@
 #ifndef SphereCollider_hpp
 #define SphereCollider_hpp
 
-#include "ColliderBase3D.cpp"
+#include "ColliderBase3D.hpp"
 
 NS_ENGINE
 
