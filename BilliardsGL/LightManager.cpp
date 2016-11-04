@@ -11,6 +11,10 @@
 NS_ENGINE
 
 LightManager::LightManager() { /* do nothing */ }
+LightManager::~LightManager() {
+  for (LightControllerBase* light : lightCtrls) { delete light; light = nullptr; }
+  lightCtrls.clear();
+}
 
 void LightManager::initialize() {
   glCullFace(GL_FRONT);

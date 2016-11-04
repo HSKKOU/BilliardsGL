@@ -13,7 +13,10 @@ NS_ENGINE
 BaseObject3D::BaseObject3D() : BaseObject3D(Transform(Vector3D::zero(), Quaternion::one(), Vector3D::one())) { /* do nothing */ }
 BaseObject3D::BaseObject3D(Transform t) : Engine::Base3D(t) { for (BaseModel3D* model : modelList) { model->setTransform(t); } }
 
-BaseObject3D::~BaseObject3D() { /* do nothing */ }
+BaseObject3D::~BaseObject3D() {
+  for (BaseModel3D* model : modelList) { delete model; model = nullptr; }
+  modelList.clear();
+}
 
 void BaseObject3D::awake() { ObjectBehavior::awake(); }
 void BaseObject3D::start() { ObjectBehavior::start(); }

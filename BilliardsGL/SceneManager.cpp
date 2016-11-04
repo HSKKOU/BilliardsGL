@@ -15,7 +15,11 @@ NS_ENGINE
 
 SceneManager::SceneManager()
 { /* do nothing */ }
-SceneManager::~SceneManager() { /* do nothing */ }
+SceneManager::~SceneManager() {
+  for (SceneBase* scene : scenes) { delete scene; scene = nullptr; }
+  scenes.clear();
+  currentScene = nullptr;
+}
 
 void SceneManager::initialize() {
   // for Debug

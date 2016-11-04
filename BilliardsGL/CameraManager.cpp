@@ -11,6 +11,10 @@
 NS_ENGINE
 
 CameraManager::CameraManager() { /* do nothing */ }
+CameraManager::~CameraManager() {
+  for (CameraControllerBase* camera : cameraCtrls) { delete camera; camera = nullptr; }
+  cameraCtrls.clear();
+}
 
 void CameraManager::initialize() {  }
 

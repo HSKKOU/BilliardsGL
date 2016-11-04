@@ -13,7 +13,15 @@ NS_GAME
 GameManager::GameManager()
 { /* do nothing */ }
 
-GameManager::~GameManager() { /* do nothing */ }
+GameManager::~GameManager() {
+  delete whiteBall;
+  whiteBall = nullptr;
+  
+  for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
+    delete balls[i];
+    balls[i] = nullptr;
+  }
+}
 
 void GameManager::initialize() {
   // set background color

@@ -18,10 +18,7 @@ GameEngineManager::GameEngineManager()
 , fps(FPSCounter::instance())
 { /* do nothing */ }
 
-GameEngineManager::~GameEngineManager() {
-  delete window;
-  window = nullptr;
-}
+GameEngineManager::~GameEngineManager() { /* do nothing */ }
 
 void GameEngineManager::initialize() {
   // initialize GLFW
