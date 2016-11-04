@@ -12,7 +12,7 @@ NS_GAME
 
 BallController::BallController(Transform t) : BallController::BallController(t, 0) { /* do nothing */ }
 BallController::BallController(Transform t, int n)
-: Engine::BaseRigidObject3D(t, 1.0f, SphereCollider(1.0f))
+: Engine::BaseRigidObject3D(t, 1.0f, new SphereCollider(1.0f))
 , number(n)
 { /* do nothing */ }
 BallController::~BallController() { /* do nothing */ }
