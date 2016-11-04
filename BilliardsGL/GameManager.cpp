@@ -51,13 +51,6 @@ void GameManager::start() {
 
 
 void GameManager::update() {
-  for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
-    float row = ceilf((sqrtf(1.0 + 8.0*(i+1)) - 1.0f) / 2.0f);
-    int sumAtLastRow = (int)((row*(row-1))/2.0f);
-    float posX = 1.01f * (2.0f*((i+1)-sumAtLastRow)-row-1);
-    float posZ = (row-1) * 1.75033f;
-    balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
-  }
 }
 
 NS_END
