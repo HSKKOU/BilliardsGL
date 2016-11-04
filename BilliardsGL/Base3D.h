@@ -33,7 +33,7 @@ public:
   virtual void rotation(Quaternion rot) { transform.rotation = rot; }
   virtual void scale(Vector3D scl) { transform.scale = scl; }
   
-  virtual void translateTo(Vector3D delta) { transform.position += delta; }
+  virtual void translate(Vector3D delta) { transform.position += delta; }
   virtual void rotate(Quaternion rot) { transform.rotation *= rot; }
 };
 
