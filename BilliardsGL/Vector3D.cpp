@@ -12,8 +12,15 @@ NS_ENGINE
 
 Vector3D::Vector3D(const GLfloat _x, const GLfloat _y, const GLfloat _z) : x(_x), y(_y), z(_z) { /* do nothing */ }
 
+Vector3D Vector3D::operator=(const Vector3D &va) {
+  this->x = va.x;
+  this->y = va.y;
+  this->z = va.z;
+  return *this;
+}
 Vector3D Vector3D::operator+(const GLfloat add) const { return Vector3D(x+add, y+add, z+add); }
 Vector3D Vector3D::operator+(const Vector3D va) const { return Vector3D(x+va.x, y+va.y, z+va.z); }
+Vector3D Vector3D::operator+=(const Vector3D &va) { *this=*this+va; return *this; }
 Vector3D Vector3D::operator-(const GLfloat sub) const { return Vector3D(x-sub, y-sub, z-sub); }
 Vector3D Vector3D::operator-(const Vector3D vs) const { return Vector3D(x-vs.x, y-vs.y, z-vs.z); }
 Vector3D Vector3D::operator*(const GLfloat mul) const { return Vector3D(x*mul, y*mul, z*mul); }

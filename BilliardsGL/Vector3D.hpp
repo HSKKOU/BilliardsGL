@@ -23,8 +23,10 @@ union Vector3D {
 public:
   Vector3D(const GLfloat _x, const GLfloat _y, const GLfloat _z);
   
+  Vector3D operator=(const Vector3D &va);
   Vector3D operator+(const GLfloat add) const;
   Vector3D operator+(const Vector3D va) const;
+  Vector3D operator+=(const Vector3D &va);
   Vector3D operator-(const GLfloat sub) const;
   Vector3D operator-(const Vector3D vs) const;
   Vector3D operator*(const GLfloat mul) const;

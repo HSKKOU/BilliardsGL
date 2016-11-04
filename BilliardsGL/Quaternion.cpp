@@ -22,7 +22,15 @@ Quaternion::Quaternion(const Vector3D axis, const GLfloat angle)
 { /* do nothing */ }
 Quaternion::Quaternion(const GLfloat _x, const GLfloat _y, const GLfloat _z) { /* do nothing */ }
 
-Quaternion Quaternion::operator*(Quaternion _q) const {
+
+Quaternion Quaternion::operator=(const Quaternion &_q) {
+  this->x = _q.x;
+  this->y = _q.y;
+  this->z = _q.z;
+  this->w = _q.w;
+  return *this;
+}
+Quaternion Quaternion::operator*(const Quaternion _q) const {
   Vector3D v = vV * _q.wF + _q.vV * wF + vV.cross(_q.vV);
   return Quaternion(v.x, v.y, v.z, wF*_q.wF - vV.dot(_q.vV) );
 }
@@ -31,10 +39,10 @@ Quaternion& Quaternion::operator*=(Quaternion _q) {
   return *this;
 }
 
-Vector4D Quaternion::operator*(Vector4D _v4) const {
+Vector4D Quaternion::operator*(const Vector4D _v4) const {
   return mat4() * _v4;
 }
-Vector3D Quaternion::operator*(Vector3D _v3) const {
+Vector3D Quaternion::operator*(const Vector3D _v3) const {
   return (*this * Vector4D(_v3, 1.0f)).vec3();
 }
 

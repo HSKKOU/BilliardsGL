@@ -36,10 +36,11 @@ public:
   Quaternion(const Vector3D axis, const GLfloat angle);
   Quaternion(const GLfloat _x, const GLfloat _y, const GLfloat _z);
   
-  Quaternion operator*(Quaternion _q) const;
+  Quaternion operator=(const Quaternion &_q);
+  Quaternion operator*(const Quaternion _q) const;
   Quaternion& operator*=(Quaternion _q);
-  Vector3D operator*(Vector3D _v3) const;
-  Vector4D operator*(Vector4D _v4) const;
+  Vector3D operator*(const Vector3D _v3) const;
+  Vector4D operator*(const Vector4D _v4) const;
   
   Matrix4D mat4() const;
   

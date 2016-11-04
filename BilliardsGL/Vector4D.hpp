@@ -26,6 +26,7 @@ public:
   Vector4D(const GLfloat _x, const GLfloat _y, const GLfloat _z, const GLfloat _w);
   Vector4D(const Vector3D _v3, const GLfloat _w);
 
+  Vector4D operator=(const Vector4D & va);
   Vector4D operator+(const GLfloat add) const;
   Vector4D operator+(const Vector4D v4) const;
   Vector4D operator-(const GLfloat sub) const;

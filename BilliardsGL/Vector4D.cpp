@@ -13,6 +13,13 @@ NS_ENGINE
 Vector4D::Vector4D(const GLfloat _x, const GLfloat _y, const GLfloat _z, const GLfloat _w) : x(_x), y(_y), z(_z), w(_w) { /* do nothing */ }
 Vector4D::Vector4D(const Vector3D _v3, const GLfloat _w) : x(_v3.x), y(_v3.y), z(_v3.z), w(_w) { /* do nothing */ }
 
+Vector4D Vector4D::operator=(const Vector4D & va) {
+  this->x = va.x;
+  this->y = va.y;
+  this->z = va.z;
+  this->w = va.w;
+  return *this;
+}
 Vector4D Vector4D::operator+(const GLfloat add) const { return Vector4D(x+add, y+add, z+add, w+add); }
 Vector4D Vector4D::operator+(const Vector4D v4) const { return Vector4D(x+v4.x, y+v4.y, z+v4.z, w+v4.w); }
 Vector4D Vector4D::operator-(const GLfloat sub) const { return Vector4D(x-sub, y-sub, z-sub, w-sub); }

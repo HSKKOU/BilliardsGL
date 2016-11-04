@@ -29,11 +29,12 @@ public:
   Matrix4D();
   Matrix4D(GLfloat val);
 
-  Matrix4D operator+(Matrix4D _m) const;
-  Matrix4D operator-(Matrix4D _m) const;
-  Matrix4D operator*(Matrix4D _m) const;
-  Vector4D operator*(Vector4D _v) const;
-  Vector4D& operator[](int i);
+  Matrix4D operator=(const Matrix4D &_m);
+  Matrix4D operator+(const Matrix4D _m) const;
+  Matrix4D operator-(const Matrix4D _m) const;
+  Matrix4D operator*(const Matrix4D _m) const;
+  Vector4D operator*(const Vector4D _v) const;
+  Vector4D& operator[](const int i);
 
   Matrix4D inverse() const;
   
