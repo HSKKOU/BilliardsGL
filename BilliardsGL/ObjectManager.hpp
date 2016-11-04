@@ -31,12 +31,19 @@ public:
   ObjectBehavior* getObject(const int objectId) const;
   void destroyObject(const int objectId) const;
   
+  /* Life Cycles */
   void awakeObjects();
   void startObjects();
+  
+  void updateObjectsPhysics();
+
   void updateObjects();
   void lateUpdateObjects();
+  
   void draw();
+  
   void destroyObjects();
+  /* end Life Cycles */
   
 private:
   ObjectManager();

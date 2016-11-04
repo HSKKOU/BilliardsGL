@@ -309,6 +309,7 @@
 		0D94B7371D8AE62900422BD9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0DB485391DC65430005E8B7D /* ColliderBase3D.hpp */,
 				0DB485371DC65402005E8B7D /* Collider */,
 				0D31CB351DBB5E8600BF8F65 /* Object */,
 				0D9E60411DB8C5FE0084591E /* Scene */,
@@ -452,7 +453,6 @@
 			isa = PBXGroup;
 			children = (
 				0DB485381DC65430005E8B7D /* ColliderBase3D.cpp */,
-				0DB485391DC65430005E8B7D /* ColliderBase3D.hpp */,
 			);
 			name = Collider;
 			sourceTree = "<group>";

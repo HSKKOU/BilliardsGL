@@ -21,9 +21,14 @@ public:
   
   void virtual awake();
   void virtual start();
+  
+  void virtual updatePhysics();
+  
   void virtual update();
   void virtual lateUpdate();
+  
   void virtual draw();
+  
   void virtual destroy();
 };
 

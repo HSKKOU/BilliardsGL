@@ -55,6 +55,13 @@ void ObjectManager::startObjects() {
   }
 }
 
+void ObjectManager::updateObjectsPhysics() {
+  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
+    if ( *itr == nullptr ) { continue; }
+    (*itr)->updatePhysics();
+  }
+}
+
 void ObjectManager::updateObjects() {
   for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
     if ( *itr == nullptr ) { continue; }
