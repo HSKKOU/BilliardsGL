@@ -29,7 +29,7 @@ public:
 
   virtual void setTransform(Transform trsf) { transform = trsf; }
 
-  virtual void translate(Vector3D dest) { transform.position = dest; }
+  virtual void translateTo(Vector3D dest) { transform.position = dest; }
   virtual void rotation(Quaternion rot) { transform.rotation = rot; }
   virtual void scale(Vector3D scl) { transform.scale = scl; }
   

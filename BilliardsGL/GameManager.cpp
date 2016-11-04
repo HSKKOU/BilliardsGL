@@ -31,7 +31,7 @@ void GameManager::initialize() {
 void GameManager::awake() {
   whiteBall = new WhiteBallController(Transform::identity());
   (ObjectManager::instance()).registerObject(whiteBall);
-  whiteBall->translate(Vector3D::back()*10.0f);
+  whiteBall->translateTo(Vector3D::back()*10.0f);
   
   for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
     balls[i] = new BallController(Transform::identity(), i+1);
@@ -41,12 +41,13 @@ void GameManager::awake() {
     int sumAtLastRow = (int)((row*(row-1))/2.0f);
     float posX = 1.01f * (2.0f*((i+1)-sumAtLastRow)-row-1);
     float posZ = (row-1) * 1.75033f;
-    balls[i]->translate(Vector3D(posX, 0.0f, -posZ));
+    balls[i]->translateTo(Vector3D(posX, 0.0f, -posZ));
     balls[i]->rotation(Quaternion(Vector3D(1.0f, 0.0f, 0.0f).normalize(), -M_PI/2.0f));
   }
 }
 
 void GameManager::start() {
+  whiteBall->addForce(1.0f, Vector3D::forward());
 }
 
 

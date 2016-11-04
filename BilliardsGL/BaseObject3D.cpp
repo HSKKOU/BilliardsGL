@@ -35,9 +35,9 @@ void BaseObject3D::setTransform(Engine::Transform trsf) {
 }
 
 
-void BaseObject3D::translate(Vector3D dest) {
-  Base3D::translate(dest);
-  for (BaseModel3D* model : modelList) { model->translate(dest); }
+void BaseObject3D::translateTo(Vector3D dest) {
+  Base3D::translateTo(dest);
+  for (BaseModel3D* model : modelList) { model->translateTo(dest); }
 }
 
 void BaseObject3D::rotation(Quaternion rot) {

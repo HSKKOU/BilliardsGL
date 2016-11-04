@@ -24,7 +24,7 @@ Matrix4D CameraControllerBase::getProjectionMatrix() const { return projectionMa
 Matrix4D CameraControllerBase::getViewMatrix() const { return viewMatrix; }
 
 void CameraControllerBase::translate(Vector3D dest) {
-  Base3D::translate(dest);
+  Base3D::translateTo(dest);
 }
 
 void CameraControllerBase::rotation(Quaternion rot) {
