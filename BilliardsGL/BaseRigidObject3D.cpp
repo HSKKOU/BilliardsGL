@@ -28,6 +28,7 @@ ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return collider; }
 
 void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
   // TODO: update Physics transform
+  translate(velocity * deltaTime);
 }
 
 

@@ -41,6 +41,8 @@ public:
   virtual void translateTo(Vector3D dest);
   virtual void rotation(Quaternion rot);
   virtual void scale(Vector3D scl);
+  
+  virtual void translate(Vector3D delta);
   virtual void rotate(Quaternion rot);
 };
 

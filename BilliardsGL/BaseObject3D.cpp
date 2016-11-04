@@ -39,17 +39,19 @@ void BaseObject3D::translateTo(Vector3D dest) {
   Base3D::translateTo(dest);
   for (BaseModel3D* model : modelList) { model->translateTo(dest); }
 }
-
 void BaseObject3D::rotation(Quaternion rot) {
   Base3D::rotation(rot);
   for (BaseModel3D* model : modelList) { model->rotation(rot); }
 }
-
 void BaseObject3D::scale(Vector3D scl) {
   Base3D::scale(scl);
   for (BaseModel3D* model : modelList) { model->scale(scl); }
 }
 
+void BaseObject3D::translate(Vector3D delta) {
+  Base3D::translate(delta);
+  for (BaseModel3D* model : modelList) { model->translate(delta); }
+}
 void BaseObject3D::rotate(Quaternion rot) {
   Base3D::rotate(rot);
   for (BaseModel3D* model : modelList) { model->rotate(rot); }
