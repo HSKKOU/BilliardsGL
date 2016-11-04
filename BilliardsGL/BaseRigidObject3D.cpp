@@ -10,17 +10,20 @@
 
 NS_ENGINE
 
-BaseRigidObject3D::BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D col)
+BaseRigidObject3D::BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D* col)
 : Engine::BaseObject3D(t)
 , collider(col)
 , mass(mass)
 , velocity(Vector3D::zero())
 { /* do nothing */ }
 
-BaseRigidObject3D::~BaseRigidObject3D() { /* do nothing */ }
+BaseRigidObject3D::~BaseRigidObject3D() {
+  delete collider;
+  collider = nullptr;
+}
 
 
-ColliderBase3D* BaseRigidObject3D::getCollider3D() { return &collider; }
+ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return collider; }
 
 
 void BaseRigidObject3D::updatePhysics() {
