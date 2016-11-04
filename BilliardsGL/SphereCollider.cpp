@@ -10,7 +10,7 @@
 
 NS_ENGINE
 
-SphereCollider::SphereCollider(GLfloat r) : radius(r) { /* do nothing */ }
+SphereCollider::SphereCollider(GLfloat r) : Engine::ColliderBase3D(), radius(r) { /* do nothing */ }
 SphereCollider::~SphereCollider() { /* do nothing */ }
 
 

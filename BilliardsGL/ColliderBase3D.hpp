@@ -11,8 +11,6 @@
 
 #include "GlobalHeader.h"
 
-#include "BaseObject3D.hpp"
-
 NS_ENGINE
 
 class ColliderBase3D {

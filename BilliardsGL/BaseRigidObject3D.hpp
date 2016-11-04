@@ -11,7 +11,7 @@
 
 #include "BaseObject3D.hpp"
 
-#include "ColliderBase3D.hpp"
+#include "Collisions.h"
 
 NS_ENGINE
 
@@ -20,13 +20,13 @@ protected:
   GLfloat mass;
   Vector3D velocity;
   
-  ColliderBase3D* collider;
+  ColliderBase3D collider;
   
 public:
-  BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D* col);
+  BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D col);
   virtual ~BaseRigidObject3D();
   
-  ColliderBase3D* getCollider3D() const;
+  ColliderBase3D* getCollider3D();
   
   virtual void updatePhysics();
   

@@ -10,7 +10,7 @@
 #define BallController_hpp
 
 #include "BaseRigidObject3D.hpp"
-#include "SphereCollider.hpp"
+#include "Collisions.h"
 
 #include "Sphere.hpp"
 

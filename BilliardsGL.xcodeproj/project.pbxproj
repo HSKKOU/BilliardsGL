@@ -62,6 +62,7 @@
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0D1E8F2E1D96454300620688 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
 		0D1E8F2F1D96454300620688 /* ShaderLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
+		0D24F3CD1DCC505C000E7244 /* Collisions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collisions.h; sourceTree = "<group>"; };
 		0D31CB1E1DBADFC800BF8F65 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
 		0D31CB1F1DBADFC800BF8F65 /* Transform.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
 		0D31CB241DBAE2F800BF8F65 /* Vector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
@@ -297,6 +298,7 @@
 				0DF2A1F01D9CB1A600303E07 /* Math */,
 				0D7607091DA754EA000031BA /* Models.h */,
 				0D31CB431DBC4FFB00BF8F65 /* Objects.h */,
+				0D24F3CD1DCC505C000E7244 /* Collisions.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
