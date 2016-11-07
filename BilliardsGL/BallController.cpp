@@ -35,7 +35,7 @@ void BallController::update() {
 
 void BallController::createBall(Tex texture) {
   Sphere* ballModel = ModelFactory::createSphereModel(1.0f);
-  ballModel->loadShaderProgram("LightTest.vert", "LightTest.frag");
+  ballModel->loadShaderProgram("Shaders/Project/test/LightTest.vert", "Shaders/Project/test/LightTest.frag");
   ballModel->setTexture(texture);
   ballModel->setObjectColor(Color::one());
   modelList.emplace_back(ballModel);

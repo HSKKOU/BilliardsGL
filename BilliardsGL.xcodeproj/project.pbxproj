@@ -64,18 +64,10 @@
 		0D31CB471DBC540700BF8F65 /* BallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BallController.hpp; sourceTree = "<group>"; };
 		0D31CB4D1DBC7C8700BF8F65 /* WhiteBallController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WhiteBallController.cpp; sourceTree = "<group>"; };
 		0D31CB4E1DBC7C8700BF8F65 /* WhiteBallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WhiteBallController.hpp; sourceTree = "<group>"; };
-		0D7606B91DA5C70C000031BA /* LightTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.vert; sourceTree = "<group>"; };
-		0D7606BA1DA5C72A000031BA /* LightTest.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightTest.frag; sourceTree = "<group>"; };
-		0D94B72E1D8A971E00422BD9 /* point.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.vert; sourceTree = "<group>"; };
-		0D94B72F1D8A972800422BD9 /* point.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = point.frag; sourceTree = "<group>"; };
 		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameManager.hpp; sourceTree = "<group>"; };
 		0D9E602C1DB8A8570084591E /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		0D9E602D1DB8A8570084591E /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
-		0DA841891DB5C502002A7879 /* Sample001.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample001.vert; sourceTree = "<group>"; };
-		0DA8418B1DB5C515002A7879 /* Sample001.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample001.frag; sourceTree = "<group>"; };
-		0DA8418C1DB5C52D002A7879 /* Sample002.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample002.vert; sourceTree = "<group>"; };
-		0DA8418D1DB5C538002A7879 /* Sample002.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sample002.frag; sourceTree = "<group>"; };
 		0DD156591DD02CE400877E40 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GlobalHeader.h; path = Headers/GlobalHeader.h; sourceTree = "<group>"; };
 		0DD1565A1DD02DF700877E40 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix.h; path = Engine/Headers/Headers/Math/Matrix.h; sourceTree = "<group>"; };
 		0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4D.cpp; path = Engine/Headers/Headers/Math/Matrix4D.cpp; sourceTree = "<group>"; };
@@ -90,8 +82,6 @@
 		0DD156681DD02E0500877E40 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Models.h; path = Engine/Headers/Headers/Models.h; sourceTree = "<group>"; };
 		0DD156691DD02E0500877E40 /* Objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Objects.h; path = Engine/Headers/Headers/Objects.h; sourceTree = "<group>"; };
 		0DD1566A1DD02E0500877E40 /* Scenes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Scenes.h; path = Engine/Headers/Headers/Scenes.h; sourceTree = "<group>"; };
-		0DD1566B1DD02E1900877E40 /* Default.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default.frag; path = Engine/Shaders/Default.frag; sourceTree = "<group>"; };
-		0DD1566C1DD02E1900877E40 /* Default.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default.vert; path = Engine/Shaders/Default.vert; sourceTree = "<group>"; };
 		0DD1566D1DD02E5B00877E40 /* FPSCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FPSCounter.cpp; path = Engine/Utils/FPSCounter.cpp; sourceTree = "<group>"; };
 		0DD1566E1DD02E5B00877E40 /* FPSCounter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FPSCounter.hpp; path = Engine/Utils/FPSCounter.hpp; sourceTree = "<group>"; };
 		0DD156711DD02E5B00877E40 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = Engine/Utils/Singleton.h; sourceTree = "<group>"; };
@@ -150,8 +140,18 @@
 		0DD156C31DD0326600877E40 /* ModelFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ModelFactory.hpp; path = Engine/ModelObjects/Factory/ModelFactory.hpp; sourceTree = "<group>"; };
 		0DD156C91DD0345E00877E40 /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderLoader.cpp; path = Engine/Utils/ShaderLoader.cpp; sourceTree = "<group>"; };
 		0DD156CA1DD0345E00877E40 /* ShaderLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShaderLoader.hpp; path = Engine/Utils/ShaderLoader.hpp; sourceTree = "<group>"; };
-		0DF2A1D01D97F5E700303E07 /* camera.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = camera.vert; sourceTree = "<group>"; };
-		0DF2A1D11D97F5FC00303E07 /* camera.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = camera.frag; sourceTree = "<group>"; };
+		0DD156CC1DD036DF00877E40 /* Sample001.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Sample001.frag; path = Shaders/Project/Samples/Sample001.frag; sourceTree = "<group>"; };
+		0DD156CD1DD036DF00877E40 /* Sample001.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Sample001.vert; path = Shaders/Project/Samples/Sample001.vert; sourceTree = "<group>"; };
+		0DD156CE1DD036DF00877E40 /* Sample002.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Sample002.frag; path = Shaders/Project/Samples/Sample002.frag; sourceTree = "<group>"; };
+		0DD156CF1DD036DF00877E40 /* Sample002.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Sample002.vert; path = Shaders/Project/Samples/Sample002.vert; sourceTree = "<group>"; };
+		0DD156D01DD036EB00877E40 /* camera.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = camera.frag; path = Shaders/Project/test/camera.frag; sourceTree = "<group>"; };
+		0DD156D11DD036EB00877E40 /* camera.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = camera.vert; path = Shaders/Project/test/camera.vert; sourceTree = "<group>"; };
+		0DD156D21DD036EB00877E40 /* LightTest.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = LightTest.frag; path = Shaders/Project/test/LightTest.frag; sourceTree = "<group>"; };
+		0DD156D31DD036EB00877E40 /* LightTest.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = LightTest.vert; path = Shaders/Project/test/LightTest.vert; sourceTree = "<group>"; };
+		0DD156D41DD036EB00877E40 /* point.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = point.frag; path = Shaders/Project/test/point.frag; sourceTree = "<group>"; };
+		0DD156D51DD036EB00877E40 /* point.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = point.vert; path = Shaders/Project/test/point.vert; sourceTree = "<group>"; };
+		0DD156D61DD0370700877E40 /* Default.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default.frag; path = Shaders/Engine/Default.frag; sourceTree = "<group>"; };
+		0DD156D71DD0370700877E40 /* Default.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default.vert; path = Shaders/Engine/Default.vert; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,10 +255,12 @@
 		0D7606B61DA4EE08000031BA /* test */ = {
 			isa = PBXGroup;
 			children = (
-				0D94B72E1D8A971E00422BD9 /* point.vert */,
-				0D94B72F1D8A972800422BD9 /* point.frag */,
-				0DF2A1D01D97F5E700303E07 /* camera.vert */,
-				0DF2A1D11D97F5FC00303E07 /* camera.frag */,
+				0DD156D01DD036EB00877E40 /* camera.frag */,
+				0DD156D11DD036EB00877E40 /* camera.vert */,
+				0DD156D21DD036EB00877E40 /* LightTest.frag */,
+				0DD156D31DD036EB00877E40 /* LightTest.vert */,
+				0DD156D41DD036EB00877E40 /* point.frag */,
+				0DD156D51DD036EB00877E40 /* point.vert */,
 			);
 			name = test;
 			sourceTree = "<group>";
@@ -277,8 +279,6 @@
 			children = (
 				0DA8418A1DB5C504002A7879 /* Samples */,
 				0D7606B61DA4EE08000031BA /* test */,
-				0D7606B91DA5C70C000031BA /* LightTest.vert */,
-				0D7606BA1DA5C72A000031BA /* LightTest.frag */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
@@ -398,8 +398,8 @@
 		0D9E603A1DB8ADF00084591E /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				0DD1566B1DD02E1900877E40 /* Default.frag */,
-				0DD1566C1DD02E1900877E40 /* Default.vert */,
+				0DD156D61DD0370700877E40 /* Default.frag */,
+				0DD156D71DD0370700877E40 /* Default.vert */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -445,10 +445,10 @@
 		0DA8418A1DB5C504002A7879 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
-				0DA841891DB5C502002A7879 /* Sample001.vert */,
-				0DA8418B1DB5C515002A7879 /* Sample001.frag */,
-				0DA8418C1DB5C52D002A7879 /* Sample002.vert */,
-				0DA8418D1DB5C538002A7879 /* Sample002.frag */,
+				0DD156CC1DD036DF00877E40 /* Sample001.frag */,
+				0DD156CD1DD036DF00877E40 /* Sample001.vert */,
+				0DD156CE1DD036DF00877E40 /* Sample002.frag */,
+				0DD156CF1DD036DF00877E40 /* Sample002.vert */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
