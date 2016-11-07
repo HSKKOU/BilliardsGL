@@ -28,6 +28,8 @@ public:
   
   ColliderBase3D* getCollider3D() const;
   
+  virtual bool isRigid() const;
+  virtual bool isCollidable() const;
   
   virtual void updatePhysics(GLfloat deltaTime);
   

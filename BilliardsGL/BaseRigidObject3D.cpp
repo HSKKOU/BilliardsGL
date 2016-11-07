@@ -25,6 +25,8 @@ BaseRigidObject3D::~BaseRigidObject3D() {
 
 ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return collider; }
 
+bool BaseRigidObject3D::isRigid() const { return true; }
+bool BaseRigidObject3D::isCollidable() const { return true; }
 
 void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
   // TODO: update Physics transform

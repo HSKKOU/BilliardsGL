@@ -19,6 +19,9 @@ public:
   ObjectBehavior();
   virtual ~ObjectBehavior();
   
+  virtual bool isRigid() const;
+  virtual bool isCollidable() const;
+  
   virtual void awake();
   virtual void start();
   
