@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
-		0D31CB481DBC540700BF8F65 /* BallController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB461DBC540700BF8F65 /* BallController.cpp */; };
-		0D31CB4F1DBC7C8700BF8F65 /* WhiteBallController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D31CB4D1DBC7C8700BF8F65 /* WhiteBallController.cpp */; };
-		0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B7381D8AE64700422BD9 /* GameManager.cpp */; };
-		0D9E602E1DB8A8570084591E /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E602C1DB8A8570084591E /* GameScene.cpp */; };
 		0DD156631DD02DF700877E40 /* Matrix4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */; };
 		0DD156641DD02DF700877E40 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565D1DD02DF700877E40 /* Quaternion.cpp */; };
 		0DD156651DD02DF700877E40 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565F1DD02DF700877E40 /* Vector3D.cpp */; };
@@ -43,6 +39,10 @@
 		0DD156C11DD02FE100877E40 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156BF1DD02FE100877E40 /* Window.cpp */; };
 		0DD156C41DD0326600877E40 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156C21DD0326600877E40 /* ModelFactory.cpp */; };
 		0DD156CB1DD0345E00877E40 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156C91DD0345E00877E40 /* ShaderLoader.cpp */; };
+		0DD156DC1DD037E200877E40 /* BallController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156D81DD037E200877E40 /* BallController.cpp */; };
+		0DD156DD1DD037E200877E40 /* WhiteBallController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156DA1DD037E200877E40 /* WhiteBallController.cpp */; };
+		0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156DE1DD037F000877E40 /* GameManager.cpp */; };
+		0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156E11DD037FE00877E40 /* GameScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,14 +60,6 @@
 /* Begin PBXFileReference section */
 		0D02C3E31D8A83360097F8F1 /* BilliardsGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BilliardsGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		0D31CB461DBC540700BF8F65 /* BallController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallController.cpp; sourceTree = "<group>"; };
-		0D31CB471DBC540700BF8F65 /* BallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BallController.hpp; sourceTree = "<group>"; };
-		0D31CB4D1DBC7C8700BF8F65 /* WhiteBallController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WhiteBallController.cpp; sourceTree = "<group>"; };
-		0D31CB4E1DBC7C8700BF8F65 /* WhiteBallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WhiteBallController.hpp; sourceTree = "<group>"; };
-		0D94B7381D8AE64700422BD9 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
-		0D94B7391D8AE64700422BD9 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameManager.hpp; sourceTree = "<group>"; };
-		0D9E602C1DB8A8570084591E /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
-		0D9E602D1DB8A8570084591E /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		0DD156591DD02CE400877E40 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GlobalHeader.h; path = Headers/GlobalHeader.h; sourceTree = "<group>"; };
 		0DD1565A1DD02DF700877E40 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix.h; path = Engine/Headers/Headers/Math/Matrix.h; sourceTree = "<group>"; };
 		0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4D.cpp; path = Engine/Headers/Headers/Math/Matrix4D.cpp; sourceTree = "<group>"; };
@@ -152,6 +144,14 @@
 		0DD156D51DD036EB00877E40 /* point.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = point.vert; path = Shaders/Project/test/point.vert; sourceTree = "<group>"; };
 		0DD156D61DD0370700877E40 /* Default.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default.frag; path = Shaders/Engine/Default.frag; sourceTree = "<group>"; };
 		0DD156D71DD0370700877E40 /* Default.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default.vert; path = Shaders/Engine/Default.vert; sourceTree = "<group>"; };
+		0DD156D81DD037E200877E40 /* BallController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BallController.cpp; path = Project/Controllers/Game/Balls/BallController.cpp; sourceTree = "<group>"; };
+		0DD156D91DD037E200877E40 /* BallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BallController.hpp; path = Project/Controllers/Game/Balls/BallController.hpp; sourceTree = "<group>"; };
+		0DD156DA1DD037E200877E40 /* WhiteBallController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WhiteBallController.cpp; path = Project/Controllers/Game/Balls/WhiteBallController.cpp; sourceTree = "<group>"; };
+		0DD156DB1DD037E200877E40 /* WhiteBallController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = WhiteBallController.hpp; path = Project/Controllers/Game/Balls/WhiteBallController.hpp; sourceTree = "<group>"; };
+		0DD156DE1DD037F000877E40 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = Project/Managers/Game/GameManager.cpp; sourceTree = "<group>"; };
+		0DD156DF1DD037F000877E40 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameManager.hpp; path = Project/Managers/Game/GameManager.hpp; sourceTree = "<group>"; };
+		0DD156E11DD037FE00877E40 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Project/Scenes/GameScene.cpp; sourceTree = "<group>"; };
+		0DD156E21DD037FE00877E40 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameScene.hpp; path = Project/Scenes/GameScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,10 +244,10 @@
 		0D31CB4C1DBC7C7800BF8F65 /* Balls */ = {
 			isa = PBXGroup;
 			children = (
-				0D31CB461DBC540700BF8F65 /* BallController.cpp */,
-				0D31CB471DBC540700BF8F65 /* BallController.hpp */,
-				0D31CB4D1DBC7C8700BF8F65 /* WhiteBallController.cpp */,
-				0D31CB4E1DBC7C8700BF8F65 /* WhiteBallController.hpp */,
+				0DD156D81DD037E200877E40 /* BallController.cpp */,
+				0DD156D91DD037E200877E40 /* BallController.hpp */,
+				0DD156DA1DD037E200877E40 /* WhiteBallController.cpp */,
+				0DD156DB1DD037E200877E40 /* WhiteBallController.hpp */,
 			);
 			name = Balls;
 			sourceTree = "<group>";
@@ -334,8 +334,8 @@
 		0D9E602B1DB8A82D0084591E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				0D9E602C1DB8A8570084591E /* GameScene.cpp */,
-				0D9E602D1DB8A8570084591E /* GameScene.hpp */,
+				0DD156E11DD037FE00877E40 /* GameScene.cpp */,
+				0DD156E21DD037FE00877E40 /* GameScene.hpp */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -436,8 +436,8 @@
 		0D9E60451DB8C6F90084591E /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				0D94B7381D8AE64700422BD9 /* GameManager.cpp */,
-				0D94B7391D8AE64700422BD9 /* GameManager.hpp */,
+				0DD156DE1DD037F000877E40 /* GameManager.cpp */,
+				0DD156DF1DD037F000877E40 /* GameManager.hpp */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -585,12 +585,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DD156DC1DD037E200877E40 /* BallController.cpp in Sources */,
 				0DD156881DD02ED700877E40 /* Cube.cpp in Sources */,
 				0DD156631DD02DF700877E40 /* Matrix4D.cpp in Sources */,
-				0D31CB481DBC540700BF8F65 /* BallController.cpp in Sources */,
 				0DD156B11DD02F9A00877E40 /* SceneBase.cpp in Sources */,
 				0DD156A11DD02F4000877E40 /* SphereCollider.cpp in Sources */,
-				0D31CB4F1DBC7C8700BF8F65 /* WhiteBallController.cpp in Sources */,
 				0DD156A71DD02F6900877E40 /* EmptyObject.cpp in Sources */,
 				0DD156BE1DD02FCA00877E40 /* PerspectiveCameraController.cpp in Sources */,
 				0DD156971DD02F0300877E40 /* CameraManager.cpp in Sources */,
@@ -599,6 +598,7 @@
 				0DD156AE1DD02F7F00877E40 /* ObjectBehavior.cpp in Sources */,
 				0DD1569A1DD02F0300877E40 /* ObjectManager.cpp in Sources */,
 				0DD156761DD02E5B00877E40 /* TextureLoader.cpp in Sources */,
+				0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */,
 				0DD156A61DD02F6900877E40 /* BaseRigidObject3D.cpp in Sources */,
 				0DD156CB1DD0345E00877E40 /* ShaderLoader.cpp in Sources */,
 				0DD1567E1DD02ECB00877E40 /* BaseObject2D.cpp in Sources */,
@@ -618,8 +618,8 @@
 				0DD156871DD02ED700877E40 /* BaseModel3D.cpp in Sources */,
 				0DD156981DD02F0300877E40 /* GameEngineManager.cpp in Sources */,
 				0DD156C11DD02FE100877E40 /* Window.cpp in Sources */,
-				0D94B73A1D8AE64700422BD9 /* GameManager.cpp in Sources */,
-				0D9E602E1DB8A8570084591E /* GameScene.cpp in Sources */,
+				0DD156DD1DD037E200877E40 /* WhiteBallController.cpp in Sources */,
+				0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */,
 				0DD156B71DD02FB100877E40 /* LightControllerBase.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
