@@ -90,7 +90,7 @@ public:
   Color getObjectColor() const;
   void setObjectColor(const Color c);
 
-  virtual void loadShaderProgram(const char* vs = "Default.vert", const char* fs = "Default.frag");
+  virtual void loadShaderProgram(const char* vs = "Shaders/Default.vert", const char* fs = "Shaders/Default.frag");
 
   virtual void setTexture(Tex tex);
   
