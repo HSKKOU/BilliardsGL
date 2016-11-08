@@ -539,6 +539,7 @@
 				0D02C3DF1D8A83360097F8F1 /* Sources */,
 				0D02C3E01D8A83360097F8F1 /* Frameworks */,
 				0D02C3E11D8A83360097F8F1 /* CopyFiles */,
+				0DD156E41DD1A7A100877E40 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -579,6 +580,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DD156E41DD1A7A100877E40 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -a $BUILT_PRODUCTS_DIR/ $SRCROOT/bin/";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0D02C3DF1D8A83360097F8F1 /* Sources */ = {
