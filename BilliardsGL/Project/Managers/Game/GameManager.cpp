@@ -11,6 +11,7 @@
 NS_GAME
 
 GameManager::GameManager()
+: cameraDefaultPosition(Vector3D::zero())
 { /* do nothing */ }
 
 GameManager::~GameManager() {
@@ -29,6 +30,9 @@ void GameManager::initialize() {
 }
 
 void GameManager::awake() {
+  mainCamera = (PerspectiveCameraController*)(CameraManager::instance()).getCamera();
+  cameraDefaultPosition = mainCamera->getPosition();
+  
   whiteBall = new WhiteBallController(Transform::identity());
   (ObjectManager::instance()).registerObject(whiteBall);
   whiteBall->translateTo(Vector3D::back()*10.0f);
@@ -52,6 +56,7 @@ void GameManager::start() {
 
 
 void GameManager::update(GLfloat deltaTime) {
+  mainCamera->translateTo(cameraDefaultPosition + Vector3D::forward() * sinf(glfwGetTime() * 3.0f));
 }
 
 NS_END

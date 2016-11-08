@@ -33,6 +33,9 @@ class GameManager : public BehaviorSingleton<GameManager> {
   BallController* whiteBall;
   BallController* balls[15];
   
+  PerspectiveCameraController* mainCamera;
+  Vector3D cameraDefaultPosition;
+  
 public:
   virtual ~GameManager();
   void initialize();

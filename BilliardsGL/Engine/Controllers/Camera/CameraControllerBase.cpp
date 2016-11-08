@@ -23,12 +23,18 @@ Vector3D CameraControllerBase::getDirection() { return transform.forward(); }
 Matrix4D CameraControllerBase::getProjectionMatrix() const { return projectionMatrix; }
 Matrix4D CameraControllerBase::getViewMatrix() const { return viewMatrix; }
 
-void CameraControllerBase::translate(Vector3D dest) {
+void CameraControllerBase::translateTo(Vector3D dest) {
   Base3D::translateTo(dest);
+  calcViewMatrix();
 }
 
 void CameraControllerBase::rotation(Quaternion rot) {
   Base3D::rotation(rot);
+}
+
+void CameraControllerBase::translate(Vector3D delta) {
+  Base3D::translate(delta);
+  calcViewMatrix();
 }
 
 void CameraControllerBase::rotate(Quaternion rot) {
