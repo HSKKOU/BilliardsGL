@@ -9,7 +9,6 @@
 #ifndef ShaderLoader_hpp
 #define ShaderLoader_hpp
 
-#include "GlobalHeader.h"
 #include "Singleton.h"
 
 #include <vector>

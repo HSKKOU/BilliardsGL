@@ -9,7 +9,6 @@
 #ifndef SceneManager_hpp
 #define SceneManager_hpp
 
-#include "GlobalHeader.h"
 #include "Singleton.h"
 
 #include "SceneBase.hpp"

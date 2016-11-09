@@ -9,7 +9,6 @@
 #ifndef GameEngineManager_hpp
 #define GameEngineManager_hpp
 
-#include "GlobalHeader.h"
 #include "Singleton.h"
 
 #include "Window.hpp"

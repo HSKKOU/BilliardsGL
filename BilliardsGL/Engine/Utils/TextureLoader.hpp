@@ -9,13 +9,12 @@
 #ifndef TextureLoader_hpp
 #define TextureLoader_hpp
 
-#include "GlobalHeader.h"
 #include <SOIL/SOIL.h>
-
-#include "Singleton.h"
 
 #include <string>
 #include <map>
+
+#include "Singleton.h"
 
 NS_ENGINE_UTIL
 

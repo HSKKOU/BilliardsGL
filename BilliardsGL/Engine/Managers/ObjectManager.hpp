@@ -9,12 +9,11 @@
 #ifndef ObjectManager_hpp
 #define ObjectManager_hpp
 
-#include "GlobalHeader.h"
-#include "Singleton.h"
 
 #include <vector>
 #include <list>
 
+#include "Singleton.h"
 #include "Objects.h"
 
 US_NS_ENGINE_MODEL

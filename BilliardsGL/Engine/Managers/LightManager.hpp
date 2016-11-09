@@ -9,7 +9,6 @@
 #ifndef LightManager_hpp
 #define LightManager_hpp
 
-#include "GlobalHeader.h"
 #include "Singleton.h"
 
 #include <vector>
