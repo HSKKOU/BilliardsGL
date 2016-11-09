@@ -56,7 +56,7 @@ void GameManager::start() {
 
 
 void GameManager::update(GLfloat deltaTime) {
-  mainCamera->translateTo(cameraDefaultPosition + Vector3D::forward() * sinf(glfwGetTime() * 3.0f));
+//  mainCamera->translateTo(cameraDefaultPosition + Vector3D::forward() * sinf(glfwGetTime() * 3.0f));
 }
 
 NS_END
