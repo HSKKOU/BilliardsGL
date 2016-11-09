@@ -30,6 +30,7 @@ void CameraControllerBase::translateTo(Vector3D dest) {
 
 void CameraControllerBase::rotation(Quaternion rot) {
   Base3D::rotation(rot);
+  calcViewMatrix();
 }
 
 void CameraControllerBase::translate(Vector3D delta) {
@@ -39,6 +40,7 @@ void CameraControllerBase::translate(Vector3D delta) {
 
 void CameraControllerBase::rotate(Quaternion rot) {
   Base3D::rotate(rot);
+  calcViewMatrix();
 }
 
 NS_END2
