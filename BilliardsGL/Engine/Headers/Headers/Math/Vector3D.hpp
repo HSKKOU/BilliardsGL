@@ -36,6 +36,7 @@ public:
   Vector3D cross(const Vector3D v) const;
   
   GLfloat length() const;
+  GLfloat squareLength() const;
   Vector3D normalize() const;
   
   static Vector3D zero();
