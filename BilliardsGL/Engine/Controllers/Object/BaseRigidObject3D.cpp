@@ -39,11 +39,13 @@ bool BaseRigidObject3D::isCollidable() const { return true; }
 void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
   // TODO: update Physics transform
   translate(velocity * deltaTime);
+  velocity = velocity * 0.99f;
+  if (velocity.squareLength() <= 0.01f) { velocity = Vector3D::zero(); }
 }
 
 
 void BaseRigidObject3D::addForce(float power, Vector3D dir) {
-  velocity = dir.normalize() * power / mass;
+  velocity += dir.normalize() * power / mass;
 }
 
 

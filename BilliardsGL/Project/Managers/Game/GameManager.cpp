@@ -19,7 +19,6 @@ GameManager::~GameManager() {
   whiteBall = nullptr;
   
   for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
-    if (i > 2) { continue; }
     delete balls[i];
     balls[i] = nullptr;
   }
@@ -39,7 +38,6 @@ void GameManager::awake() {
   whiteBall->translateTo(Vector3D::back()*10.0f);
   
   for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
-    if (i > 2) { continue; }
     balls[i] = new BallController(Transform::identity(), i+1);
     (ObjectManager::instance()).registerObject(balls[i]);
 
@@ -53,7 +51,7 @@ void GameManager::awake() {
 }
 
 void GameManager::start() {
-  whiteBall->addForce(10.0f, Vector3D::forward());
+  whiteBall->addForce(20.0f, Vector3D::forward());
 }
 
 
