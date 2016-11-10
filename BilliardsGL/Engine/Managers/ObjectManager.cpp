@@ -44,43 +44,77 @@ void ObjectManager::destroyObject(const int objectId) const {
 void ObjectManager::startAwakenObjects() {
   for (ObjectBehavior* ob : awakenObjectList) {
     ob->start();
+    if (ob->isRigid()) { rigidObjectList.push_back(static_cast<BaseRigidObject3D*>(ob)); }
     objectList.push_back(ob);
   }
   awakenObjectList.clear();
 }
 
 void ObjectManager::updateObjectsPhysics(GLfloat deltaTime) {
-  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
-    if ( *itr == nullptr ) { continue; }
-    (*itr)->updatePhysics(deltaTime);
+  for (int i=0; i<rigidObjectList.size(); i++) {
+    if (rigidObjectList[i] == nullptr) { continue; }
+    rigidObjectList[i]->updatePhysics(deltaTime);
+  }
+  
+  std::vector<BaseRigidObject3D*> collidedObjectList;
+  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
+    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+
+    if (targetObject == nullptr) { continue; }
+    if (!targetObject->isCollidable()) { continue; }
+
+//    std::vector<BaseRigidObject3D*> collisionObjectList;
+    BaseRigidObject3D* collidedObject = nullptr;
+    for (int otherIndex=targetIndex+1; otherIndex<rigidObjectList.size(); otherIndex++) {
+      BaseRigidObject3D* otherObject = rigidObjectList[otherIndex];
+      
+      if (otherObject == nullptr || otherIndex == targetIndex) { continue; }
+      if (!otherObject->isCollidable()) { continue; }
+      if (targetObject->isCollideWith(otherObject)) {
+//        collisionObjectList.push_back(otherObject);
+        collidedObject = otherObject;
+        break;
+      }
+    }
+    
+//    if (collisionObjectList.size() > 0) { std::cout << "collisions: " << collisionObjectList.size() << std::endl; }
+    if (collidedObject == nullptr) { continue; }
+    
+    CollisionCalculator::calcCollidedVelocityBetweenSphere(targetObject, collidedObject);
+    targetObject->translate(targetObject->getVelocity()*deltaTime);
+    collidedObject->translate(collidedObject->getVelocity()*deltaTime);
   }
 }
 
 void ObjectManager::updateObjects(GLfloat deltaTime) {
-  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
-    if ( *itr == nullptr ) { continue; }
-    (*itr)->update(deltaTime);
+  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
+    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+    if ( targetObject == nullptr ) { continue; }
+    targetObject->update(deltaTime);
   }
 }
 
 void ObjectManager::lateUpdateObjects(GLfloat deltaTime) {
-  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
-    if ( *itr == nullptr ) { continue; }
-    (*itr)->lateUpdate(deltaTime);
+  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
+    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+    if ( targetObject == nullptr ) { continue; }
+    targetObject->lateUpdate(deltaTime);
   }
 }
 
 void ObjectManager::draw() {
-  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
-    if ( *itr == nullptr ) { continue; }
-    (*itr)->draw();
+  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
+    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+    if ( targetObject == nullptr ) { continue; }
+    targetObject->draw();
   }
 }
 
 void ObjectManager::destroyObjects() {
-  for (std::list<ObjectBehavior*>::iterator itr = objectList.begin(); itr != objectList.end(); itr++) {
-    if ( *itr == nullptr ) { continue; }
-    (*itr)->destroy();
+  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
+    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+    if ( targetObject == nullptr ) { continue; }
+    targetObject->destroy();
   }
 }
 

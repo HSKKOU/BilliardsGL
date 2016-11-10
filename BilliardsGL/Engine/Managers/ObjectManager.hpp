@@ -15,6 +15,7 @@
 
 #include "Singleton.h"
 #include "Objects.h"
+#include "CollisionCalculator.hpp"
 
 US_NS_ENGINE_MODEL
 
@@ -24,7 +25,8 @@ class ObjectManager : public Singleton<ObjectManager> {
   friend class Singleton<ObjectManager>;
   
   std::vector<ObjectBehavior*> awakenObjectList;
-  std::list<ObjectBehavior*> objectList;
+  std::vector<ObjectBehavior*> objectList;
+  std::vector<BaseRigidObject3D*> rigidObjectList;
   
 public:
   void initialize();

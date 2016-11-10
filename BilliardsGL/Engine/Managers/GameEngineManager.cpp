@@ -65,7 +65,7 @@ void GameEngineManager::startMainLoop() {
   PerspectiveCameraController *mainCamera
   = new PerspectiveCameraController(
     Transform(
-      Vector3D(0.0f,30.0f,0.0f),
+      Vector3D(0.0f,35.0f,0.0f),
       Quaternion(Vector3D::right(), M_PI/2.0f)
     )
   );

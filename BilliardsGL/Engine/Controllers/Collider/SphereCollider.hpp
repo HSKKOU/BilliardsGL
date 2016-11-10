@@ -18,8 +18,11 @@ protected:
   GLfloat radius;
   
 public:
+  SphereCollider(Transform t, GLfloat r);
   SphereCollider(GLfloat r);
   virtual ~SphereCollider();
+  
+  GLfloat getRadius() const;
 };
 
 NS_END

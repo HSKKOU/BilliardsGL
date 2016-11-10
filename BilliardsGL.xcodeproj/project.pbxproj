@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
+		0D0C85581DD2E266004DE063 /* CollisionCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */; };
 		0DD156631DD02DF700877E40 /* Matrix4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */; };
 		0DD156641DD02DF700877E40 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565D1DD02DF700877E40 /* Quaternion.cpp */; };
 		0DD156651DD02DF700877E40 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565F1DD02DF700877E40 /* Vector3D.cpp */; };
@@ -60,6 +61,8 @@
 /* Begin PBXFileReference section */
 		0D02C3E31D8A83360097F8F1 /* BilliardsGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BilliardsGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CollisionCalculator.cpp; path = Engine/Controllers/Collider/CollisionCalculator.cpp; sourceTree = "<group>"; };
+		0D0C85571DD2E266004DE063 /* CollisionCalculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CollisionCalculator.hpp; path = Engine/Controllers/Collider/CollisionCalculator.hpp; sourceTree = "<group>"; };
 		0DD156591DD02CE400877E40 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GlobalHeader.h; path = Headers/GlobalHeader.h; sourceTree = "<group>"; };
 		0DD1565A1DD02DF700877E40 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix.h; path = Engine/Headers/Headers/Math/Matrix.h; sourceTree = "<group>"; };
 		0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4D.cpp; path = Engine/Headers/Headers/Math/Matrix4D.cpp; sourceTree = "<group>"; };
@@ -460,6 +463,8 @@
 				0DD1569D1DD02F4000877E40 /* ColliderBase3D.hpp */,
 				0DD1569E1DD02F4000877E40 /* SphereCollider.cpp */,
 				0DD1569F1DD02F4000877E40 /* SphereCollider.hpp */,
+				0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */,
+				0D0C85571DD2E266004DE063 /* CollisionCalculator.hpp */,
 			);
 			name = Collider;
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				0DD156C41DD0326600877E40 /* ModelFactory.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
 				0DD156991DD02F0300877E40 /* LightManager.cpp in Sources */,
+				0D0C85581DD2E266004DE063 /* CollisionCalculator.cpp in Sources */,
 				0DD156871DD02ED700877E40 /* BaseModel3D.cpp in Sources */,
 				0DD156981DD02F0300877E40 /* GameEngineManager.cpp in Sources */,
 				0DD156C11DD02FE100877E40 /* Window.cpp in Sources */,

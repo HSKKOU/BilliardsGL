@@ -10,5 +10,6 @@
 #define Objects_h
 
 #include "BaseObject3D.hpp"
+#include "BaseRigidObject3D.hpp"
 
 #endif /* Objects_h */

@@ -10,12 +10,13 @@
 
 NS_ENGINE
 
-ColliderBase3D::ColliderBase3D() { /* do nothing */ }
+ColliderBase3D::ColliderBase3D(Transform local)
+: Engine::Base3D(local)
+{ /* do nothing */ }
 ColliderBase3D::~ColliderBase3D() { /* do nothing */ }
 
-bool ColliderBase3D::isCollideWith(ColliderBase3D* other) {
-  // TODO
-  return false;
-}
+void ColliderBase3D::setParentTransform(Transform* t) { parentTransform = t; }
+
+Vector3D ColliderBase3D::getPosition() const { return parentTransform->position + transform.position; }
 
 NS_END

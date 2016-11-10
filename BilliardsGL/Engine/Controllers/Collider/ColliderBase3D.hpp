@@ -11,15 +11,19 @@
 
 #include "GlobalHeader.h"
 
+#include "Base3D.h"
+
 NS_ENGINE
 
-class ColliderBase3D {
+class ColliderBase3D : Base3D {
+  Transform* parentTransform;
   
 public:
-  ColliderBase3D();
+  ColliderBase3D(Transform local);
   virtual ~ColliderBase3D();
   
-  virtual bool isCollideWith(ColliderBase3D* other);
+  void setParentTransform(Transform* t);
+  Vector3D getPosition() const;
 };
 
 NS_END
