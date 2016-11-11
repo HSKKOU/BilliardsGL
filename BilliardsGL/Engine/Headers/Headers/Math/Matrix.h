@@ -12,6 +12,7 @@
 #include "GlobalHeader.h"
 #include <cmath>
 
+#include "Vector2D.hpp"
 #include "Vector3D.hpp"
 #include "Vector4D.hpp"
 #include "Quaternion.hpp"

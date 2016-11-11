@@ -10,51 +10,26 @@
 #define BaseModel2D_hpp
 
 #include "GlobalHeader.h"
+#include "Base2D.h"
+
+#include "BaseModel.hpp"
 
 NS_ENGINE_MODEL
 
-struct BaseModel2D {
-  GLuint vao;
-  GLsizei count;
-  
-public:
-  void initializeModel(const GLfloat (*position)[2], int cnt) {
-    vao = createObject(cnt, position);
-    count = cnt;
-  }
-  
-private:
-  GLuint createObject (GLuint vertices, const GLfloat (*position)[2]) {
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-    
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*2*vertices, position, GL_STATIC_DRAW);
-    
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
-    glEnableVertexAttribArray(0);
-    
-    glBindVertexArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
-    return vao;
-  }
-};
-
-class BaseModel2D {
-  
-protected:
-  GLuint shaderProgram;
-  GLint sizeLoc;
-  GLint scaleLoc;
+class BaseModel2D : public Base2D, public BaseModel {
   
 public:
   BaseModel2D();
+  BaseModel2D(const Point2D _pos);
   virtual ~BaseModel2D();
-  virtual void draw();
+  virtual void loadShaderProgram(const char* vs = "./Shaders/Engine/Default.vert", const char* fs = "./Shaders/Engine/Default.frag");
+  
+protected:
+  virtual const GLuint createModel(const GLfloat (*vertices)[2+2], const GLuint vCnt, const int pCnt, const int uvCnt);
+  
+private:
+  GLuint setVertexBuffer(const GLfloat (*vertices)[2+2], const int vSize) const;
+
 };
 
 NS_END2

@@ -9,29 +9,25 @@
 #ifndef Base2D_h
 #define Base2D_h
 
+#include "Matrix.h"
+
 NS_ENGINE
+
+typedef Vector2D Point2D;
 
 class Base2D {
   
 protected:
-  
+  Point2D position;
   
 public:
-  Base2D(Vector2D t) { /* do nothing */ }
+  Base2D() : Base2D(Point2D::zero()) { /* do nothing */ }
+  Base2D(Point2D p) : position(p) { /* do nothing */ }
   virtual ~Base2D() { /* do nothing */ }
   
-  Vector3D getPosition() const { return transform.position; }
-  Vector4D getPosition4D() const { return Vector4D(transform.position,1.0); }
-  void setPosition(const Vector3D pos) { transform.position = pos; }
-  
-  virtual void setTransform(Transform trsf) { transform = trsf; }
-  
-  virtual void translateTo(Vector3D dest) { transform.position = dest; }
-  virtual void rotation(Quaternion rot) { transform.rotation = rot; }
-  virtual void scale(Vector3D scl) { transform.scale = scl; }
-  
-  virtual void translate(Vector3D delta) { transform.position += delta; }
-  virtual void rotate(Quaternion rot) { transform.rotation *= rot; }
+  Vector2D getPosition() const { return position; }
+  Vector3D getPosition3D() const { return Vector3D(position.x, position.y, 1.0); }
+  void setPosition(const Vector2D pos) { position = pos; }
 };
 
 NS_END

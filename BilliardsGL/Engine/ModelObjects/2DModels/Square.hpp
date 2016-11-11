@@ -11,35 +11,16 @@
 
 #include "BaseModel2D.hpp"
 
-#include "ShaderLoader.hpp"
-
 NS_ENGINE_MODEL
 
-struct SquareModel : public BaseModel2D {
-  GLfloat x, y, w, h;
-  
-public:
-  SquareModel(GLfloat _x, GLfloat _y, GLfloat _w, GLfloat _h): x(_x), y(_y), w(_w), h(_h) {
-    const GLfloat pos[6][2] = {
-      { x  , y   },
-      { x+w, y   },
-      { x+w, y+h },
-      { x  , y   },
-      { x  , y+h },
-      { x+w, y+h }
-    };
-    initializeModel(pos, sizeof(pos)/sizeof(pos[0]));
-  }
-};
-
-
 class Square : public BaseModel2D {
-  SquareModel square;
+
+protected:
+  Vector2D size;
 
 public:
-  Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h);
+  Square(Point2D _center, Vector2D _size);
   virtual ~Square();
-  virtual void draw();
 };
 
 NS_END2

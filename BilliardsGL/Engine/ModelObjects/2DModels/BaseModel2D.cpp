@@ -10,17 +10,31 @@
 
 NS_ENGINE_MODEL
 
-BaseModel2D::BaseModel2D() {
-  sizeLoc = glGetUniformLocation(shaderProgram, "size");
-  scaleLoc = glGetUniformLocation(shaderProgram, "scale");
+BaseModel2D::BaseModel2D(Point2D _pos)
+: Engine::Base2D(_pos)
+, Engine::Model::BaseModel()
+{ /* do nothing */ }
+BaseModel2D::~BaseModel2D() { /* do nothing */ }
+
+
+const GLuint BaseModel2D::createModel(const GLfloat (*vertices)[2+2], const GLuint vCnt, const int pCnt, const int uvCnt) {
+  GLuint vao = readyVAO();
+  setVertexBuffer(vertices, (pCnt+uvCnt)*vCnt);
+  
+  setPositionBuffer (pCnt+uvCnt, 0, 2);
+  setUVBuffer       (pCnt+uvCnt, pCnt);
+  
+  releaseBuffer();
+  return vao;
 }
 
-BaseModel2D::~BaseModel2D() {
-  /* do nothing */
+GLuint BaseModel2D::setVertexBuffer(const GLfloat (*vertices)[2+2], const int vSize) const {
+  GLuint vertexBuffer;
+  glGenBuffers(1, &vertexBuffer);
+  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vSize, vertices, GL_STATIC_DRAW);
+  return vertexBuffer;
 }
 
-void BaseModel2D::draw() {
-  /* do nothing */
-}
 
 NS_END2

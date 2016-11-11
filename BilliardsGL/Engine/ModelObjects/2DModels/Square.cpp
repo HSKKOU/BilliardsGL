@@ -10,19 +10,27 @@
 
 NS_ENGINE_MODEL
 
-Square::Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h) : square(x,y,w,h) {
-  BaseModel2D::BaseModel2D();
-//  shaderProgram = Engine::Util::ShaderLoader::loadShaderProgram("point.vert", "pv", "point.frag", "fc");
+Square::Square(Point2D _center, Vector2D _size)
+: BaseModel2D(_center)
+, size(_size)
+{
+  GLfloat vPos[6][2+2] = {
+//  { pos.x  , pos.y  ,    uv.x, uv.y },
+    
+    { -size.x, -size.y,    0.0f, 0.0f },
+    {  size.x, -size.y,    1.0f, 0.0f },
+    {  size.x,  size.y,    1.0f, 1.0f },
+    {  size.x,  size.y,    1.0f, 1.0f },
+    { -size.x,  size.y,    0.0f, 1.0f },
+    { -size.x, -size.y,    0.0f, 0.0f },
+  };
+  
+  loadShaderProgram();
+  
+  vertices.count = sizeof(vPos)/sizeof(vPos[0]);
+  vertices.vao = createModel(vPos, vertices.count, 2, 2);
 }
 
 Square::~Square() { /* do nothing */ }
-
-void Square::draw() {
-  draw();
-  glUseProgram(shaderProgram);
-  
-  glBindVertexArray(square.vao);
-  glDrawArrays(GL_TRIANGLES, 0, square.count);
-}
 
 NS_END2
