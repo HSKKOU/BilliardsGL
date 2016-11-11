@@ -20,7 +20,7 @@ BallController::~BallController() { /* do nothing */ }
 
 
 void BallController::awake() {
-  createBall(TexUtil::toTex(TexUtil::toInt(Tex::Ball00)+number));
+  createBall(TexUtil::toTex(TexUtil::toInt(ETex::Ball00)+number));
 }
 
 void BallController::start() {
@@ -33,7 +33,7 @@ void BallController::update() {
 
 
 
-void BallController::createBall(Tex texture) {
+void BallController::createBall(ETex texture) {
   Sphere* ballModel = ModelFactory::createSphereModel(1.0f);
   ballModel->loadShaderProgram("Shaders/Project/test/LightTest.vert", "Shaders/Project/test/LightTest.frag");
   ballModel->setTexture(texture);

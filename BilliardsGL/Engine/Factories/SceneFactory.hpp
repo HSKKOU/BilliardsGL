@@ -17,7 +17,7 @@ NS_ENGINE_SCENE
 
 class SceneFactory {
 public:
-  static SceneBase* initializeScene(Scenes scene);
+  static SceneBase* initializeScene(EScene scene);
 };
 
 NS_END2

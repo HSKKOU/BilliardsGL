@@ -13,7 +13,7 @@
 
 NS_ENGINE_SCENE
 
-enum class Scenes : int {
+enum class EScene : int {
   Title,
   Game,
   Num,

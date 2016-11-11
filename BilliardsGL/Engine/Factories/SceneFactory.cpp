@@ -13,10 +13,10 @@
 
 NS_ENGINE_SCENE
 
-SceneBase* SceneFactory::initializeScene(Scenes scene) {
+SceneBase* SceneFactory::initializeScene(EScene scene) {
   switch (scene) {
-    case Scenes::Title : return new Game::TitleScene();
-    case Scenes::Game  : return new Game::GameScene();
+    case EScene::Title : return new Game::TitleScene();
+    case EScene::Game  : return new Game::GameScene();
     default: return nullptr;
   }
 }

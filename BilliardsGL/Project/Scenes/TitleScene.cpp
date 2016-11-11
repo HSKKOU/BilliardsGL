@@ -28,7 +28,7 @@ void TitleScene::update(GLfloat deltaTime) {
   SceneBase::update(deltaTime);
   updateCnt++;
   if (updateCnt >= 60) {
-    (SceneManager::instance()).switchSceneTo(Scenes::Game);
+    (SceneManager::instance()).switchSceneTo(EScene::Game);
   }
 }
 

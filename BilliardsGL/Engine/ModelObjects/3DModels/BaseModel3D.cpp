@@ -114,7 +114,7 @@ void BaseModel3D::setShaderLoc() {
 
 
 // related to texture
-void BaseModel3D::setTexture(Tex tex) { textureId = (TextureLoader::instance()).getTextureId(tex); }
+void BaseModel3D::setTexture(ETex tex) { textureId = (TextureLoader::instance()).getTextureId(tex); }
 
 
 

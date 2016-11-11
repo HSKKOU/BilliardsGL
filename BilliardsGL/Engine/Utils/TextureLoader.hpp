@@ -22,12 +22,12 @@ NS_ENGINE_UTIL
 class TextureLoader : public Singleton<TextureLoader> {
   friend class Singleton<TextureLoader>;
   
-  std::map<Tex, GLuint> textureDict;
+  std::map<ETex, GLuint> textureDict;
   
 public:
   void initialize();
   GLuint loadTexture(const char* imagePath);
-  GLuint getTextureId(const Tex tex) const;
+  GLuint getTextureId(const ETex tex) const;
   
 private:
   TextureLoader();
@@ -37,8 +37,8 @@ private:
 
 class TexUtil {
 public:
-  static int toInt(Tex t);
-  static Tex toTex(int i);
+  static int toInt(ETex t);
+  static ETex toTex(int i);
 };
 
 NS_END2

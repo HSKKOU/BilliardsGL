@@ -18,7 +18,7 @@ NS_ENGINE_MODEL
 class ModelFactory {
   
 public:
-  static BaseModel3D* instantiateSimpleModel(const ModelType type);
+  static BaseModel3D* instantiateSimpleModel(const EModel type);
   static Sphere* createSphereModel(const GLfloat radius);
   static Cube* createCubeModel(const Vector3D size);
 };

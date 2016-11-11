@@ -22,8 +22,8 @@ SceneManager::~SceneManager() {
 }
 
 void SceneManager::initialize() {
-  for (int i=0; i<static_cast<int>(Scenes::Num); i++) {
-    SceneBase* scene = SceneFactory::initializeScene(static_cast<Scenes>(i));
+  for (int i=0; i<static_cast<int>(EScene::Num); i++) {
+    SceneBase* scene = SceneFactory::initializeScene(static_cast<EScene>(i));
     if (!scene) {
       std::cout << "There is no Scene index of " << i << std::endl;
       exit(EXIT_FAILURE);
@@ -53,7 +53,7 @@ void SceneManager::switchSceneTo(int index) {
   switchSceneTo(nextScene);
 }
 
-void SceneManager::switchSceneTo(Scenes scene) { switchSceneTo(static_cast<int>(scene)); }
+void SceneManager::switchSceneTo(EScene scene) { switchSceneTo(static_cast<int>(scene)); }
 
 void SceneManager::switchSceneTo(SceneBase* scene) {
   if (!scene) { return; }

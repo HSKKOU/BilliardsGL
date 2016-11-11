@@ -10,7 +10,7 @@
 
 NS_ENGINE_MODEL
 
-BaseModel3D* ModelFactory::instantiateSimpleModel(const ModelType type) {
+BaseModel3D* ModelFactory::instantiateSimpleModel(const EModel type) {
   BaseModel3D *model = nullptr;
   switch (type) {
     case CUBE:

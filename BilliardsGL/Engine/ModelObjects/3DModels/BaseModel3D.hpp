@@ -92,7 +92,7 @@ public:
 
   virtual void loadShaderProgram(const char* vs = "./Shaders/Engine/Default.vert", const char* fs = "./Shaders/Engine/Default.frag");
 
-  virtual void setTexture(Tex tex);
+  virtual void setTexture(ETex tex);
   
   virtual void draw();
   virtual void drawReady();

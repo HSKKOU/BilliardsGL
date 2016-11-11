@@ -17,8 +17,8 @@ TextureLoader::TextureLoader()
 void TextureLoader::initialize() {
   glEnable(GL_TEXTURE);
   
-  for (int i=0; i<static_cast<int>(Tex::Num); i++) {
-    Tex tex = static_cast<Tex>(i);
+  for (int i=0; i<static_cast<int>(ETex::Num); i++) {
+    ETex tex = static_cast<ETex>(i);
     std::string imagePath = Textures::getTexturePath(tex);
     GLuint tId = loadTexture(imagePath.c_str());
     textureDict[tex] = tId;
@@ -47,14 +47,14 @@ GLuint TextureLoader::loadTexture(const char* imagePath) {
 
 
 
-GLuint TextureLoader::getTextureId(const Tex tex) const { return textureDict.at(tex); }
+GLuint TextureLoader::getTextureId(const ETex tex) const { return textureDict.at(tex); }
 
 
 
 
 
 
-int TexUtil::toInt(Tex t) { return static_cast<int>(t); }
-Tex TexUtil::toTex(int i) { return static_cast<Tex>(i); }
+int TexUtil::toInt(ETex t) { return static_cast<int>(t); }
+ETex TexUtil::toTex(int i) { return static_cast<ETex>(i); }
 
 NS_END2

@@ -33,7 +33,7 @@ public:
   SceneBase* getScene(int index) const;
   void removeScene(int index);
   void switchSceneTo(int index);
-  void switchSceneTo(Scenes scene);
+  void switchSceneTo(EScene scene);
   void switchSceneTo(SceneBase* scene);
   void startFirstScene();
   

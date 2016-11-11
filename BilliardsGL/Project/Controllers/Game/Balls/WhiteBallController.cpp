@@ -14,7 +14,7 @@ WhiteBallController::WhiteBallController(Transform t) : Game::BallController(t) 
 WhiteBallController::~WhiteBallController() { /* do nothing */ }
 
 void WhiteBallController::awake() {
-  createBall(Tex::Ball00);
+  createBall(ETex::Ball00);
 }
 
 void WhiteBallController::start() {

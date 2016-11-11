@@ -36,7 +36,7 @@ public:
   void virtual update();
   
 protected:
-  void createBall(Tex texture);
+  void createBall(ETex texture);
 };
 
 NS_END
