@@ -10,22 +10,19 @@
 #define Window_hpp
 
 #include "GlobalHeader.h"
+#include "Constants.h"
 
 NS_ENGINE
 
 class Window {
   GLFWwindow *const window;
-  GLfloat size[2];
-  GLfloat scale;
   
 public:
-  Window(int width = 640, int height = 640, const char *title = "BilliardsGL");
+  Window(int width = Const::WINDOW_WIDTH, int height = Const::WINDOW_WIDTH, const char *title = Const::WINDOW_TITLE);
   virtual ~Window();
   
   int shouldClose() const;
   void swapBuffers();
-  const GLfloat *getSize() const;
-  const GLfloat getScale() const;
   
   void resetWindow();
   

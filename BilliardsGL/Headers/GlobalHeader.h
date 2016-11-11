@@ -18,6 +18,7 @@
 #define NS_ENGINE               namespace Engine {
 #define NS_ENGINE_MODEL         namespace Engine { namespace Model {
 #define NS_ENGINE_UTIL          namespace Engine { namespace Util {
+#define NS_ENGINE_CONST         namespace Engine { namespace Const {
 
 #define NS_ENGINE_LIGHT         namespace Engine { namespace Light {
 #define NS_ENGINE_CAMERA        namespace Engine { namespace Camera {

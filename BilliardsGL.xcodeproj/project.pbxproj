@@ -156,6 +156,7 @@
 		0DD156E11DD037FE00877E40 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Project/Scenes/GameScene.cpp; sourceTree = "<group>"; };
 		0DD156E21DD037FE00877E40 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameScene.hpp; path = Project/Scenes/GameScene.hpp; sourceTree = "<group>"; };
 		0DFD6D761DD5923500F99B5A /* Textures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Textures.h; path = Engine/Headers/Headers/Textures.h; sourceTree = "<group>"; };
+		0DFD6D781DD59A9900F99B5A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Engine/Headers/Headers/Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +306,7 @@
 				0DD156691DD02E0500877E40 /* Objects.h */,
 				0DD1566A1DD02E0500877E40 /* Scenes.h */,
 				0DFD6D761DD5923500F99B5A /* Textures.h */,
+				0DFD6D781DD59A9900F99B5A /* Constants.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";

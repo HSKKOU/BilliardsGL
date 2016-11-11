@@ -38,7 +38,7 @@ void GameEngineManager::initialize() {
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   
   // create window
-  window = new Window(640, 640, "BilliardGL");
+  window = new Window();
   
   // set background color
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);

@@ -12,11 +12,11 @@ NS_ENGINE
 
 Window::Window(int width, int height, const char *title)
 : window(glfwCreateWindow(width, height, title, nullptr, nullptr))
-, scale(100.0f) {
+{
   
   if (window == nullptr) {
     std::cerr << "Can't create GLFW window." << std::endl;
-    exit(1);
+    exit(EXIT_FAILURE);
   }
   
   glfwMakeContextCurrent(window);
@@ -25,7 +25,7 @@ Window::Window(int width, int height, const char *title)
   glewExperimental = GL_TRUE;
   if (glewInit() != GLEW_OK) {
     std::cerr << "Can't initialize GLEW" << std::endl;
-    exit(1);
+    exit(EXIT_FAILURE);
   }
 
   glfwSwapInterval(1);
@@ -55,9 +55,6 @@ void Window::resetWindow() {
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
 }
-
-const GLfloat* Window::getSize() const { return size; }
-const GLfloat Window::getScale() const { return scale; }
 
 void Window::getFrameSize(int *width, int *height) { glfwGetFramebufferSize(window, width, height); }
 

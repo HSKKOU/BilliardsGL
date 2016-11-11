@@ -9,6 +9,8 @@
 #include "BaseRigidObject3D.hpp"
 #include "CollisionCalculator.hpp"
 
+#include "Constants.h"
+
 NS_ENGINE
 
 BaseRigidObject3D::BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D* col)
@@ -39,8 +41,8 @@ bool BaseRigidObject3D::isCollidable() const { return true; }
 void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
   // TODO: update Physics transform
   translate(velocity * deltaTime);
-  velocity = velocity * 0.99f;
-  if (velocity.squareLength() <= 0.01f) { velocity = Vector3D::zero(); }
+  velocity = velocity * Const::DEC_VELOCITY_RATE;
+  if (velocity.squareLength() <= Const::VELOCITY_EPS) { velocity = Vector3D::zero(); }
 }
 
 
