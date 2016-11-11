@@ -12,6 +12,11 @@ NS_ENGINE
 
 Vector2D::Vector2D(const GLfloat _x, const GLfloat _y) : x(_x), y(_y) { /* do nothing */ }
 
+Vector2D Vector2D::operator=(const Vector2D &va) {
+  this->x = va.x;
+  this->y = va.y;
+  return *this;
+}
 Vector2D Vector2D::operator+(const GLfloat add) const { return Vector2D(x+add, y+add); }
 Vector2D Vector2D::operator+(const Vector2D va) const { return Vector2D(x+va.x, y+va.y); }
 Vector2D Vector2D::operator+=(const Vector2D &va) { *this=*this+va; return *this; }

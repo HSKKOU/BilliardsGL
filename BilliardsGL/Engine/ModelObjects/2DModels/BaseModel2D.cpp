@@ -17,6 +17,10 @@ BaseModel2D::BaseModel2D(Point2D _pos)
 BaseModel2D::~BaseModel2D() { /* do nothing */ }
 
 
+void BaseModel2D::loadShaderProgram(const char* vs, const char* fs) { BaseModel::loadShaderProgram(vs, fs); }
+
+
+
 const GLuint BaseModel2D::createModel(const GLfloat (*vertices)[2+2], const GLuint vCnt, const int pCnt, const int uvCnt) {
   GLuint vao = readyVAO();
   setVertexBuffer(vertices, (pCnt+uvCnt)*vCnt);

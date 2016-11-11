@@ -22,6 +22,10 @@ BaseModel3D::~BaseModel3D() { /* do nothing */ }
 
 
 
+void BaseModel3D::loadShaderProgram(const char* vs, const char* fs) { BaseModel::loadShaderProgram(vs, fs); }
+
+
+
 // drawing methods
 void BaseModel3D::drawReady() {
   BaseModel::drawReady();
