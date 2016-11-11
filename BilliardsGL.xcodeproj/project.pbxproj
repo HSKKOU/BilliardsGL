@@ -15,7 +15,7 @@
 		0DD156661DD02DF700877E40 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156611DD02DF700877E40 /* Vector4D.cpp */; };
 		0DD156741DD02E5B00877E40 /* FPSCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1566D1DD02E5B00877E40 /* FPSCounter.cpp */; };
 		0DD156761DD02E5B00877E40 /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156721DD02E5B00877E40 /* TextureLoader.cpp */; };
-		0DD1567E1DD02ECB00877E40 /* BaseObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1567A1DD02ECB00877E40 /* BaseObject2D.cpp */; };
+		0DD1567E1DD02ECB00877E40 /* BaseModel2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1567A1DD02ECB00877E40 /* BaseModel2D.cpp */; };
 		0DD1567F1DD02ECB00877E40 /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1567C1DD02ECB00877E40 /* Square.cpp */; };
 		0DD156871DD02ED700877E40 /* BaseModel3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156811DD02ED700877E40 /* BaseModel3D.cpp */; };
 		0DD156881DD02ED700877E40 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156831DD02ED700877E40 /* Cube.cpp */; };
@@ -46,6 +46,7 @@
 		0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156E11DD037FE00877E40 /* GameScene.cpp */; };
 		0DFD6D7B1DD5A2AD00F99B5A /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */; };
 		0DFD6D831DD5AC1800F99B5A /* SceneFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D811DD5AC1800F99B5A /* SceneFactory.cpp */; };
+		0DFD6D891DD5CBCF00F99B5A /* Vector2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D871DD5CBCF00F99B5A /* Vector2D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,8 +85,8 @@
 		0DD156711DD02E5B00877E40 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = Engine/Utils/Singleton.h; sourceTree = "<group>"; };
 		0DD156721DD02E5B00877E40 /* TextureLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureLoader.cpp; path = Engine/Utils/TextureLoader.cpp; sourceTree = "<group>"; };
 		0DD156731DD02E5B00877E40 /* TextureLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TextureLoader.hpp; path = Engine/Utils/TextureLoader.hpp; sourceTree = "<group>"; };
-		0DD1567A1DD02ECB00877E40 /* BaseObject2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseObject2D.cpp; path = Engine/ModelObjects/2DModels/BaseObject2D.cpp; sourceTree = "<group>"; };
-		0DD1567B1DD02ECB00877E40 /* BaseObject2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BaseObject2D.hpp; path = Engine/ModelObjects/2DModels/BaseObject2D.hpp; sourceTree = "<group>"; };
+		0DD1567A1DD02ECB00877E40 /* BaseModel2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseModel2D.cpp; path = Engine/ModelObjects/2DModels/BaseModel2D.cpp; sourceTree = "<group>"; };
+		0DD1567B1DD02ECB00877E40 /* BaseModel2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BaseModel2D.hpp; path = Engine/ModelObjects/2DModels/BaseModel2D.hpp; sourceTree = "<group>"; };
 		0DD1567C1DD02ECB00877E40 /* Square.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Square.cpp; path = Engine/ModelObjects/2DModels/Square.cpp; sourceTree = "<group>"; };
 		0DD1567D1DD02ECB00877E40 /* Square.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Square.hpp; path = Engine/ModelObjects/2DModels/Square.hpp; sourceTree = "<group>"; };
 		0DD156801DD02ED700877E40 /* Base3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base3D.h; path = Engine/ModelObjects/3DModels/Base3D.h; sourceTree = "<group>"; };
@@ -163,6 +164,9 @@
 		0DFD6D7A1DD5A2AD00F99B5A /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TitleScene.hpp; path = Project/Scenes/TitleScene.hpp; sourceTree = "<group>"; };
 		0DFD6D811DD5AC1800F99B5A /* SceneFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneFactory.cpp; path = Engine/Factories/SceneFactory.cpp; sourceTree = "<group>"; };
 		0DFD6D821DD5AC1800F99B5A /* SceneFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SceneFactory.hpp; path = Engine/Factories/SceneFactory.hpp; sourceTree = "<group>"; };
+		0DFD6D851DD5CB0900F99B5A /* Base2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Base2D.h; path = Engine/ModelObjects/2DModels/Base2D.h; sourceTree = "<group>"; };
+		0DFD6D871DD5CBCF00F99B5A /* Vector2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2D.cpp; path = Engine/Headers/Headers/Math/Vector2D.cpp; sourceTree = "<group>"; };
+		0DFD6D881DD5CBCF00F99B5A /* Vector2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Vector2D.hpp; path = Engine/Headers/Headers/Math/Vector2D.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +367,7 @@
 				0D9E603A1DB8ADF00084591E /* Shaders */,
 				0D9E60391DB8ADD70084591E /* Utils */,
 				0D9E60381DB8ADC30084591E /* ModelObjects */,
+				0DFD6D841DD5C9B200F99B5A /* UI */,
 				0D9E60371DB8ADAD0084591E /* Managers */,
 				0D94B7371D8AE62900422BD9 /* Controllers */,
 				0D94B7301D8A9BFA00422BD9 /* Window */,
@@ -485,8 +490,10 @@
 		0DBF5D141D9520FF00A037BA /* 2DModels */ = {
 			isa = PBXGroup;
 			children = (
-				0DD1567A1DD02ECB00877E40 /* BaseObject2D.cpp */,
-				0DD1567B1DD02ECB00877E40 /* BaseObject2D.hpp */,
+				0DFD6D861DD5CB1300F99B5A /* Utils */,
+				0DFD6D851DD5CB0900F99B5A /* Base2D.h */,
+				0DD1567A1DD02ECB00877E40 /* BaseModel2D.cpp */,
+				0DD1567B1DD02ECB00877E40 /* BaseModel2D.hpp */,
 				0DD1567C1DD02ECB00877E40 /* Square.cpp */,
 				0DD1567D1DD02ECB00877E40 /* Square.hpp */,
 			);
@@ -539,6 +546,8 @@
 				0DD1565C1DD02DF700877E40 /* Matrix4D.hpp */,
 				0DD1565D1DD02DF700877E40 /* Quaternion.cpp */,
 				0DD1565E1DD02DF700877E40 /* Quaternion.hpp */,
+				0DFD6D871DD5CBCF00F99B5A /* Vector2D.cpp */,
+				0DFD6D881DD5CBCF00F99B5A /* Vector2D.hpp */,
 				0DD1565F1DD02DF700877E40 /* Vector3D.cpp */,
 				0DD156601DD02DF700877E40 /* Vector3D.hpp */,
 				0DD156611DD02DF700877E40 /* Vector4D.cpp */,
@@ -554,6 +563,20 @@
 				0DFD6D821DD5AC1800F99B5A /* SceneFactory.hpp */,
 			);
 			name = Factories;
+			sourceTree = "<group>";
+		};
+		0DFD6D841DD5C9B200F99B5A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		0DFD6D861DD5CB1300F99B5A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -646,7 +669,7 @@
 				0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */,
 				0DD156A61DD02F6900877E40 /* BaseRigidObject3D.cpp in Sources */,
 				0DD156CB1DD0345E00877E40 /* ShaderLoader.cpp in Sources */,
-				0DD1567E1DD02ECB00877E40 /* BaseObject2D.cpp in Sources */,
+				0DD1567E1DD02ECB00877E40 /* BaseModel2D.cpp in Sources */,
 				0DD1567F1DD02ECB00877E40 /* Square.cpp in Sources */,
 				0DD1569B1DD02F0300877E40 /* SceneManager.cpp in Sources */,
 				0DD156BD1DD02FCA00877E40 /* CameraControllerBase.cpp in Sources */,
@@ -667,6 +690,7 @@
 				0DD156C11DD02FE100877E40 /* Window.cpp in Sources */,
 				0DD156DD1DD037E200877E40 /* WhiteBallController.cpp in Sources */,
 				0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */,
+				0DFD6D891DD5CBCF00F99B5A /* Vector2D.cpp in Sources */,
 				0DD156B71DD02FB100877E40 /* LightControllerBase.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
