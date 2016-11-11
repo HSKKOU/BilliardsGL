@@ -28,7 +28,7 @@ class CameraManager : public Singleton<CameraManager> {
 public:
   virtual ~CameraManager();
   void initialize();
-  CameraControllerBase* getCamera() const;
+  CameraControllerBase* getMainCamera() const;
   CameraControllerBase* getCamera(const int) const;
   void addCamera(CameraControllerBase*);
   

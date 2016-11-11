@@ -30,7 +30,7 @@ void GameManager::initialize() {
 }
 
 void GameManager::awake() {
-  mainCamera = (PerspectiveCameraController*)(CameraManager::instance()).getCamera();
+  mainCamera = (PerspectiveCameraController*)(CameraManager::instance()).getMainCamera();
   cameraDefaultPosition = mainCamera->getPosition();
   
   whiteBall = new WhiteBallController(Transform::identity());

@@ -19,7 +19,7 @@ BaseModel3D::BaseModel3D(Vector3D _pos)
 , mvp(MVP())
 , objectColor(Vector4D(0.5f, 0.5f, 0.5f, 1.0f))
 , textureId(0)
-, targetCamera((CameraManager::instance()).getCamera())
+, targetCamera((CameraManager::instance()).getMainCamera())
 , targetLight((LightManager::instance()).getLight())
 { /* do nothing */ }
 
