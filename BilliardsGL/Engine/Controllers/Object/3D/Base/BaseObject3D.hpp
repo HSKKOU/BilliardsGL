@@ -9,7 +9,6 @@
 #ifndef BaseObject3D_hpp
 #define BaseObject3D_hpp
 
-#include "GlobalHeader.h"
 #include <vector>
 
 #include "Base3D.h"
