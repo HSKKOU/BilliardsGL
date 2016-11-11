@@ -9,7 +9,7 @@
 #ifndef Square_hpp
 #define Square_hpp
 
-#include "BaseObject2D.hpp"
+#include "BaseModel2D.hpp"
 
 #include "ShaderLoader.hpp"
 
@@ -33,7 +33,7 @@ public:
 };
 
 
-class Square : public BaseObject2D {
+class Square : public BaseModel2D {
   SquareModel square;
 
 public:

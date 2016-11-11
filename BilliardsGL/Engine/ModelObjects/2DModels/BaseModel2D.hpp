@@ -1,13 +1,13 @@
 //
-//  BaseObject2D.hpp
+//  BaseModel2D.hpp
 //  BilliardsGL
 //
 //  Created by 比佐 幸基 on 2016/09/23.
 //  Copyright © 2016年 比佐 幸基. All rights reserved.
 //
 
-#ifndef BaseObject2D_hpp
-#define BaseObject2D_hpp
+#ifndef BaseModel2D_hpp
+#define BaseModel2D_hpp
 
 #include "GlobalHeader.h"
 
@@ -44,7 +44,7 @@ private:
   }
 };
 
-class BaseObject2D {
+class BaseModel2D {
   
 protected:
   GLuint shaderProgram;
@@ -52,11 +52,11 @@ protected:
   GLint scaleLoc;
   
 public:
-  BaseObject2D();
-  virtual ~BaseObject2D();
+  BaseModel2D();
+  virtual ~BaseModel2D();
   virtual void draw();
 };
 
 NS_END2
 
-#endif /* BaseObject2D_hpp */
+#endif /* BaseModel2D_hpp */

@@ -11,14 +11,14 @@
 NS_ENGINE_MODEL
 
 Square::Square(GLfloat x, GLfloat y, GLfloat w, GLfloat h) : square(x,y,w,h) {
-  BaseObject2D::BaseObject2D();
+  BaseModel2D::BaseModel2D();
 //  shaderProgram = Engine::Util::ShaderLoader::loadShaderProgram("point.vert", "pv", "point.frag", "fc");
 }
 
 Square::~Square() { /* do nothing */ }
 
 void Square::draw() {
-  BaseObject2D::draw();
+  draw();
   glUseProgram(shaderProgram);
   
   glBindVertexArray(square.vao);
