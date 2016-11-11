@@ -44,6 +44,7 @@
 		0DD156DD1DD037E200877E40 /* WhiteBallController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156DA1DD037E200877E40 /* WhiteBallController.cpp */; };
 		0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156DE1DD037F000877E40 /* GameManager.cpp */; };
 		0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156E11DD037FE00877E40 /* GameScene.cpp */; };
+		0DFD6D7B1DD5A2AD00F99B5A /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,6 +158,8 @@
 		0DD156E21DD037FE00877E40 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameScene.hpp; path = Project/Scenes/GameScene.hpp; sourceTree = "<group>"; };
 		0DFD6D761DD5923500F99B5A /* Textures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Textures.h; path = Engine/Headers/Headers/Textures.h; sourceTree = "<group>"; };
 		0DFD6D781DD59A9900F99B5A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Engine/Headers/Headers/Constants.h; sourceTree = "<group>"; };
+		0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleScene.cpp; path = Project/Scenes/TitleScene.cpp; sourceTree = "<group>"; };
+		0DFD6D7A1DD5A2AD00F99B5A /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TitleScene.hpp; path = Project/Scenes/TitleScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +346,8 @@
 			children = (
 				0DD156E11DD037FE00877E40 /* GameScene.cpp */,
 				0DD156E21DD037FE00877E40 /* GameScene.hpp */,
+				0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */,
+				0DFD6D7A1DD5A2AD00F99B5A /* TitleScene.hpp */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				0D0C85581DD2E266004DE063 /* CollisionCalculator.cpp in Sources */,
 				0DD156871DD02ED700877E40 /* BaseModel3D.cpp in Sources */,
 				0DD156981DD02F0300877E40 /* GameEngineManager.cpp in Sources */,
+				0DFD6D7B1DD5A2AD00F99B5A /* TitleScene.cpp in Sources */,
 				0DD156C11DD02FE100877E40 /* Window.cpp in Sources */,
 				0DD156DD1DD037E200877E40 /* WhiteBallController.cpp in Sources */,
 				0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */,
