@@ -37,5 +37,6 @@ double FPSCounter::update(double currentTime) {
 
 double FPSCounter::getFPS() const { return currentFPS; }
 
+bool FPSCounter::isStable() const { return std::abs(currentFPS-60.0) < 5.0; }
 
 NS_END2

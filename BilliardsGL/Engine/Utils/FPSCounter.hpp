@@ -9,8 +9,8 @@
 #ifndef FPSCounter_h
 #define FPSCounter_h
 
-#include <iostream>
 #include "Singleton.h"
+#include <cmath>
 
 NS_ENGINE_UTIL
 
@@ -31,6 +31,7 @@ public:
   void initialize(double, bool);
   double update(double);
   double getFPS() const;
+  bool isStable() const;
   
 private:
   FPSCounter();
