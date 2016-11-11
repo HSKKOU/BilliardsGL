@@ -17,8 +17,8 @@ US_NS_ENGINE
 
 NS_GAME
 
-class GameScene : public SceneBase {
-  GameManager &gameManager;
+class GameScene : public Scene::SceneBase {
+  GameManager* gameManager;
   
 public:
   GameScene();

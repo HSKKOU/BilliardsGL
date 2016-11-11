@@ -23,23 +23,27 @@
 #define NS_ENGINE_LIGHT         namespace Engine { namespace Light {
 #define NS_ENGINE_CAMERA        namespace Engine { namespace Camera {
 
+#define NS_ENGINE_SCENE         namespace Engine { namespace Scene {
+
 #define NS_GAME                 namespace Game {
+
+
+#define NS_END                  }
+#define NS_END2                 }}
+
+
 
 
 
 #define US_NS_ENGINE            using namespace Engine;
 #define US_NS_ENGINE_MODEL      using namespace Engine::Model;
 #define US_NS_ENGINE_UTIL       using namespace Engine::Util;
+#define US_NS_ENGINE_CONST      using namespace Engine::Const;
 #define US_NS_ENGINE_LIGHT      using namespace Engine::Light;
 #define US_NS_ENGINE_CAMERA     using namespace Engine::Camera;
+#define US_NS_ENGINE_SCENE      using namespace Engine::Scene;
 
 #define US_NS_GAME              using namespace Game;
-
-
-
-
-#define NS_END                  }
-#define NS_END2                 }}
 
 
 #endif /* GlobalHeader_h */

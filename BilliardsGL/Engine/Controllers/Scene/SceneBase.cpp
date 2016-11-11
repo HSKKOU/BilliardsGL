@@ -8,7 +8,7 @@
 
 #include "SceneBase.hpp"
 
-NS_ENGINE
+NS_ENGINE_SCENE
 
 SceneBase::SceneBase() : bgColor(Color::one()) { /* do nothing */ }
 SceneBase::SceneBase(Color c) : bgColor(c) { /* do nothing */ }
@@ -34,4 +34,4 @@ void SceneBase::update(GLfloat deltaTime) {
 
 void SceneBase::setBackground(Color c) { bgColor = c; }
 
-NS_END
+NS_END2

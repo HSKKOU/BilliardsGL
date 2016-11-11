@@ -14,7 +14,7 @@
 
 #include "ObjectManager.hpp"
 
-NS_ENGINE
+NS_ENGINE_SCENE
 
 class SceneBase {
   Color bgColor;
@@ -32,6 +32,6 @@ public:
   virtual void setBackground(Color c);
 };
 
-NS_END
+NS_END2
 
 #endif /* SceneBase_hpp */

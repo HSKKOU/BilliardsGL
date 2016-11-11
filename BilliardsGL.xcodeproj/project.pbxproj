@@ -45,6 +45,7 @@
 		0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156DE1DD037F000877E40 /* GameManager.cpp */; };
 		0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156E11DD037FE00877E40 /* GameScene.cpp */; };
 		0DFD6D7B1DD5A2AD00F99B5A /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */; };
+		0DFD6D831DD5AC1800F99B5A /* SceneFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D811DD5AC1800F99B5A /* SceneFactory.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -160,6 +161,8 @@
 		0DFD6D781DD59A9900F99B5A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Engine/Headers/Headers/Constants.h; sourceTree = "<group>"; };
 		0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleScene.cpp; path = Project/Scenes/TitleScene.cpp; sourceTree = "<group>"; };
 		0DFD6D7A1DD5A2AD00F99B5A /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TitleScene.hpp; path = Project/Scenes/TitleScene.hpp; sourceTree = "<group>"; };
+		0DFD6D811DD5AC1800F99B5A /* SceneFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneFactory.cpp; path = Engine/Factories/SceneFactory.cpp; sourceTree = "<group>"; };
+		0DFD6D821DD5AC1800F99B5A /* SceneFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SceneFactory.hpp; path = Engine/Factories/SceneFactory.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +358,7 @@
 		0D9E60361DB8AD990084591E /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				0DFD6D7D1DD5ABD700F99B5A /* Factories */,
 				0D94B7341D8A9C6000422BD9 /* Headers */,
 				0D9E603A1DB8ADF00084591E /* Shaders */,
 				0D9E60391DB8ADD70084591E /* Utils */,
@@ -543,6 +547,15 @@
 			name = Math;
 			sourceTree = "<group>";
 		};
+		0DFD6D7D1DD5ABD700F99B5A /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0DFD6D811DD5AC1800F99B5A /* SceneFactory.cpp */,
+				0DFD6D821DD5AC1800F99B5A /* SceneFactory.hpp */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -626,6 +639,7 @@
 				0DD156971DD02F0300877E40 /* CameraManager.cpp in Sources */,
 				0DD156661DD02DF700877E40 /* Vector4D.cpp in Sources */,
 				0DD156651DD02DF700877E40 /* Vector3D.cpp in Sources */,
+				0DFD6D831DD5AC1800F99B5A /* SceneFactory.cpp in Sources */,
 				0DD156AE1DD02F7F00877E40 /* ObjectBehavior.cpp in Sources */,
 				0DD1569A1DD02F0300877E40 /* ObjectManager.cpp in Sources */,
 				0DD156761DD02E5B00877E40 /* TextureLoader.cpp in Sources */,

@@ -8,8 +8,7 @@
 
 #include "SceneManager.hpp"
 
-// for Debug
-#include "GameScene.hpp"
+#include "SceneFactory.hpp"
 
 NS_ENGINE
 
@@ -23,8 +22,15 @@ SceneManager::~SceneManager() {
 }
 
 void SceneManager::initialize() {
-  Game::GameScene* gameScene = new Game::GameScene();
-  addScene(gameScene);
+  for (int i=0; i<static_cast<int>(Scenes::Num); i++) {
+    SceneBase* scene = SceneFactory::initializeScene(static_cast<Scenes>(i));
+    if (!scene) {
+      std::cout << "There is no Scene index of " << i << std::endl;
+      exit(EXIT_FAILURE);
+      return;
+    }
+    addScene(scene);
+  }
 }
 
 void SceneManager::addScene(SceneBase* scene) {
@@ -47,11 +53,17 @@ void SceneManager::switchSceneTo(int index) {
   switchSceneTo(nextScene);
 }
 
+void SceneManager::switchSceneTo(Scenes scene) { switchSceneTo(static_cast<int>(scene)); }
+
 void SceneManager::switchSceneTo(SceneBase* scene) {
   if (!scene) { return; }
   if (currentScene) { currentScene->exit(); }
   currentScene = scene;
   currentScene->enter();
+}
+
+void SceneManager::startFirstScene() {
+  switchSceneTo(0);
 }
 
 void SceneManager::updateScene(GLfloat deltaTime) const {

@@ -8,16 +8,18 @@
 
 #include "GameScene.hpp"
 
+#include "Scenes.h"
+
 NS_GAME
 
 GameScene::GameScene()
-: gameManager(GameManager::instance())
 { /* do nothing */ }
 GameScene::~GameScene() { /* do nothing */ }
 
 void GameScene::enter() {
-  gameManager.initialize();
-  (ObjectManager::instance()).registerObject(&gameManager);
+  gameManager = &(GameManager::instance());
+  gameManager->initialize();
+  (ObjectManager::instance()).registerObject(gameManager);
 
   SceneBase::enter();
 }

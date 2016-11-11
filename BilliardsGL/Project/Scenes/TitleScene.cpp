@@ -8,9 +8,12 @@
 
 #include "TitleScene.hpp"
 
+#include "Scenes.h"
+#include "SceneManager.hpp"
+
 NS_GAME
 
-TitleScene::TitleScene() { /* do nothing */ }
+TitleScene::TitleScene() : updateCnt(0) { /* do nothing */ }
 TitleScene::~TitleScene() { /* do nothing */ }
 
 void TitleScene::enter() {
@@ -19,6 +22,14 @@ void TitleScene::enter() {
 
 void TitleScene::exit() {
   SceneBase::exit();
+}
+
+void TitleScene::update(GLfloat deltaTime) {
+  SceneBase::update(deltaTime);
+  updateCnt++;
+  if (updateCnt >= 60) {
+    (SceneManager::instance()).switchSceneTo(Scenes::Game);
+  }
 }
 
 NS_END

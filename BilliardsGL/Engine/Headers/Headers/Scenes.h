@@ -9,9 +9,16 @@
 #ifndef Scenes_h
 #define Scenes_h
 
+#include "GlobalHeader.h"
+
+NS_ENGINE_SCENE
+
 enum class Scenes : int {
-  GameScene,
+  Title,
+  Game,
   Num,
 };
+
+NS_END2
 
 #endif /* Scenes_h */

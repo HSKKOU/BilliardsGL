@@ -15,7 +15,8 @@ US_NS_ENGINE
 
 NS_GAME
 
-class TitleScene : public SceneBase {
+class TitleScene : public Scene::SceneBase {
+  int updateCnt;
   
 public:
   TitleScene();
@@ -23,6 +24,7 @@ public:
   
   virtual void enter();
   virtual void exit();
+  virtual void update(GLfloat deltaTime);
 };
 
 NS_END

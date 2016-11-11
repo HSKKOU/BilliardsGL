@@ -11,9 +11,12 @@
 
 #include "Singleton.h"
 
+#include "Scenes.h"
 #include "SceneBase.hpp"
 
 #include <vector>
+
+US_NS_ENGINE_SCENE
 
 NS_ENGINE
 
@@ -30,7 +33,9 @@ public:
   SceneBase* getScene(int index) const;
   void removeScene(int index);
   void switchSceneTo(int index);
+  void switchSceneTo(Scenes scene);
   void switchSceneTo(SceneBase* scene);
+  void startFirstScene();
   
   void updateScene(GLfloat deltaTime) const;
   

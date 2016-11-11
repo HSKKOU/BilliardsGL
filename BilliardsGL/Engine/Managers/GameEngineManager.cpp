@@ -87,7 +87,7 @@ void GameEngineManager::startMainLoop() {
   
   
   // start first scene
-  sceneManager.switchSceneTo(0);
+  sceneManager.startFirstScene();
 
   // wait for fps stable
   while (!fps.isStable()) {
