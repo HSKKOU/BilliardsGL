@@ -35,7 +35,7 @@ void GameManager::awake() {
   
   whiteBall = new WhiteBallController(Transform::identity());
   (ObjectManager::instance()).registerObject(whiteBall);
-  whiteBall->translateTo(Vector3D::back()*10.0f);
+  whiteBall->translateTo(Vector3D::back()*30.0f);
   
   for (int i=0; i<sizeof(balls)/sizeof(balls[0]); i++) {
     balls[i] = new BallController(Transform::identity(), i+1);
@@ -51,7 +51,7 @@ void GameManager::awake() {
 }
 
 void GameManager::start() {
-  whiteBall->addForce(20.0f, Vector3D::forward());
+  whiteBall->addForce(30.0f, Vector3D::forward());
 }
 
 
