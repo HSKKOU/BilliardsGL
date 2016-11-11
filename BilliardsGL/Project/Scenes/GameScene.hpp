@@ -26,7 +26,6 @@ public:
   
   virtual void enter();
   virtual void exit();
-  virtual void update(GLfloat deltaTime);
 };
 
 NS_END
