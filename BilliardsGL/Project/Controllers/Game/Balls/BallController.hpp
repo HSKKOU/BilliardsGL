@@ -12,10 +12,6 @@
 #include "SphereRigidObject3D.hpp"
 #include "Collisions.h"
 
-#include "Sphere.hpp"
-
-#include "ModelFactory.hpp"
-
 #include <cmath>
 
 US_NS_ENGINE

@@ -26,11 +26,7 @@ void BallController::awake() {
 
 
 void BallController::createBall(ETex texture) {
-  Sphere* ballModel = ModelFactory::createSphereModel(1.0f);
-  ballModel->loadShaderProgram("Shaders/Project/test/LightTest.vert", "Shaders/Project/test/LightTest.frag");
-  ballModel->setTexture(texture);
-  ballModel->setObjectColor(Color::one());
-  modelList.emplace_back(ballModel);
+  SphereRigidObject3D::createSphereModel(texture, Color::one());
 }
 
 NS_END

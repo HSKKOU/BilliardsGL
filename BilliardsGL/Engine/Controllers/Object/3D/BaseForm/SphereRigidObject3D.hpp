@@ -11,6 +11,10 @@
 
 #include "BaseRigidObject3D.hpp"
 
+#include "Sphere.hpp"
+
+#include "ModelFactory.hpp"
+
 NS_ENGINE
 
 class SphereRigidObject3D : public BaseRigidObject3D {
@@ -19,6 +23,8 @@ class SphereRigidObject3D : public BaseRigidObject3D {
 public:
   SphereRigidObject3D(Transform t, GLfloat mass, GLfloat r);
   virtual ~SphereRigidObject3D();
+  
+  virtual void createSphereModel(ETex tex, Color c);
   
   virtual void updatePhysics(GLfloat deltaTime);
 };
