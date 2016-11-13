@@ -11,6 +11,10 @@
 
 #include "BaseObject2D.hpp"
 
+#include "Sphere.hpp"
+
+#include "ModelFactory.hpp"
+
 NS_ENGINE
 
 class SquareObject2D : public BaseObject2D {
@@ -19,6 +23,9 @@ class SquareObject2D : public BaseObject2D {
 public:
   SquareObject2D(Point2D p, Vector2D s);
   virtual ~SquareObject2D();
+  
+protected:
+  virtual void createSquareModel(ETex tex, Color c);
 };
 
 NS_END

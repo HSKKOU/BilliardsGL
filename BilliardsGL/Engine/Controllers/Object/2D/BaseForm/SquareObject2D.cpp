@@ -17,4 +17,13 @@ SquareObject2D::SquareObject2D(Point2D p, Vector2D s)
 
 SquareObject2D::~SquareObject2D() { /* do nothing */ }
 
+
+void SquareObject2D::createSquareModel(ETex tex, Color c) {
+  Square* squareModel = ModelFactory::createSquareModel(size);
+  squareModel->setTexture(tex);
+  squareModel->setObjectColor(c);
+  modelList.emplace_back(squareModel);
+}
+
+
 NS_END
