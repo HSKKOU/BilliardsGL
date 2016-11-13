@@ -23,8 +23,6 @@ public:
   virtual ~WhiteBallController();
   
   void virtual awake();
-  void virtual start();
-  void virtual update();
 };
 
 NS_END

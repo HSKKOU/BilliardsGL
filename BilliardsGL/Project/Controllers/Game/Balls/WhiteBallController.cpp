@@ -17,11 +17,4 @@ void WhiteBallController::awake() {
   createBall(ETex::Ball00);
 }
 
-void WhiteBallController::start() {
-  
-}
-
-void WhiteBallController::update() {
-}
-
 NS_END
