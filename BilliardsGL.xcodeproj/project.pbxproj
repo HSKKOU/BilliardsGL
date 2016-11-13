@@ -54,6 +54,7 @@
 		0DFD6DB21DD839CD00F99B5A /* CubeCollider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB01DD839CD00F99B5A /* CubeCollider.cpp */; };
 		0DFD6DB61DD83BDD00F99B5A /* BoardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB41DD83BDD00F99B5A /* BoardController.cpp */; };
 		0DFD6DBA1DD83FB800F99B5A /* TitleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB81DD83FB800F99B5A /* TitleManager.cpp */; };
+		0DFD6DBE1DD8432800F99B5A /* SquareObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DBC1DD8432800F99B5A /* SquareObject2D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -188,6 +189,8 @@
 		0DFD6DB51DD83BDD00F99B5A /* BoardController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BoardController.hpp; path = Project/Controllers/Game/Board/BoardController.hpp; sourceTree = "<group>"; };
 		0DFD6DB81DD83FB800F99B5A /* TitleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleManager.cpp; path = Project/Managers/Title/TitleManager.cpp; sourceTree = "<group>"; };
 		0DFD6DB91DD83FB800F99B5A /* TitleManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TitleManager.hpp; path = Project/Managers/Title/TitleManager.hpp; sourceTree = "<group>"; };
+		0DFD6DBC1DD8432800F99B5A /* SquareObject2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SquareObject2D.cpp; path = Engine/Controllers/Object/2D/BaseForm/SquareObject2D.cpp; sourceTree = "<group>"; };
+		0DFD6DBD1DD8432800F99B5A /* SquareObject2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SquareObject2D.hpp; path = Engine/Controllers/Object/2D/BaseForm/SquareObject2D.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -625,6 +628,7 @@
 		0DFD6D8F1DD5FDF400F99B5A /* 2D */ = {
 			isa = PBXGroup;
 			children = (
+				0DFD6DBB1DD842EC00F99B5A /* BaseForm */,
 				0DFD6D9D1DD5FF6200F99B5A /* Base */,
 			);
 			name = 2D;
@@ -676,6 +680,15 @@
 				0DFD6DB91DD83FB800F99B5A /* TitleManager.hpp */,
 			);
 			name = Title;
+			sourceTree = "<group>";
+		};
+		0DFD6DBB1DD842EC00F99B5A /* BaseForm */ = {
+			isa = PBXGroup;
+			children = (
+				0DFD6DBC1DD8432800F99B5A /* SquareObject2D.cpp */,
+				0DFD6DBD1DD8432800F99B5A /* SquareObject2D.hpp */,
+			);
+			name = BaseForm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -784,6 +797,7 @@
 				0DD156C41DD0326600877E40 /* ModelFactory.cpp in Sources */,
 				0DFD6DA81DD6001300F99B5A /* ObjectBehavior.cpp in Sources */,
 				0DFD6D9C1DD5FE2D00F99B5A /* EmptyObject.cpp in Sources */,
+				0DFD6DBE1DD8432800F99B5A /* SquareObject2D.cpp in Sources */,
 				0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */,
 				0DD156991DD02F0300877E40 /* LightManager.cpp in Sources */,
 				0DFD6D9B1DD5FE2D00F99B5A /* BaseRigidObject3D.cpp in Sources */,
