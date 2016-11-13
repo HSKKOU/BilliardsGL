@@ -9,15 +9,15 @@
 #ifndef UIPanel_hpp
 #define UIPanel_hpp
 
-#include "SquareObject2D.hpp"
+#include "UIBase.hpp"
 
 NS_ENGINE_UI
 
-class UIPanel : public SquareObject2D {
+class UIPanel : public UIBase {
   Color panelColor;
   
 public:
-  UIPanel(Point2D p, Vector2D s, Color c);
+  UIPanel(Point2D p, Vector2D s, UI_ALIGNMENT_MASK mask, Color c);
   virtual ~UIPanel();
   
   virtual void awake();

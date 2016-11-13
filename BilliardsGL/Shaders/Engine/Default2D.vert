@@ -1,8 +1,6 @@
 #version 410 core
 uniform vec2 position;
 
-layout(location=1) in vec4 objectColor;
-
 in vec4 pv;
 
 void main() {

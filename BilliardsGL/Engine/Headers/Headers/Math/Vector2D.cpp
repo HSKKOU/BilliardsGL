@@ -25,6 +25,8 @@ Vector2D Vector2D::operator-(const Vector2D vs) const { return Vector2D(x-vs.x, 
 Vector2D Vector2D::operator*(const GLfloat mul) const { return Vector2D(x*mul, y*mul); }
 Vector2D Vector2D::operator/(const GLfloat div) const { return Vector2D(x/div, y/div); }
 
+Vector2D Vector2D::divide(const GLfloat divX, const GLfloat divY) const { return Vector2D(x/divX, y/divY); }
+
 GLfloat Vector2D::dot(const Vector2D v) const { return x*v.x + y*v.y; }
 
 GLfloat Vector2D::squareLength() const { return x*x+y*y; }

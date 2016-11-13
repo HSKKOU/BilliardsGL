@@ -32,6 +32,8 @@ public:
   Vector2D operator*(const GLfloat mul) const;
   Vector2D operator/(const GLfloat div) const;
   
+  Vector2D divide(const GLfloat divX, const GLfloat divY) const;
+  
   GLfloat dot(const Vector2D v) const;
   
   GLfloat squareLength() const;

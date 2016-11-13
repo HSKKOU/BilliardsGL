@@ -10,8 +10,8 @@
 
 NS_ENGINE_UI
 
-UIPanel::UIPanel(Point2D p, Vector2D s, Color c)
-: Engine::SquareObject2D(p, s)
+UIPanel::UIPanel(Point2D p, Vector2D s, UI_ALIGNMENT_MASK mask, Color c)
+: Engine::UI::UIBase(p, s, mask)
 , panelColor(c)
 { /* do nothing */ }
 
@@ -19,7 +19,7 @@ UIPanel::~UIPanel() { /* do nothing */ }
 
 
 void UIPanel::awake() {
-  createSquareModel(ETex::None, Color::one());
+  UIBase::awake();
 }
 
 NS_END2

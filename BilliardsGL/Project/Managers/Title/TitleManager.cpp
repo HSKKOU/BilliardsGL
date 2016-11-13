@@ -8,6 +8,8 @@
 
 #include "TitleManager.hpp"
 
+#include "Constants.h"
+
 NS_GAME
 
 TitleManager::TitleManager() { /* do nothing */ }
@@ -17,7 +19,7 @@ void TitleManager::initialize() {
   // set background color
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
   
-  panel = new UIPanel(Point2D::zero(), Vector2D(10.0f, 20.0f), Color::one());
+  panel = new UIPanel(Point2D(110.0f, 60.0f), Vector2D(100.0f, 50.0f), UI_ALIGNMENT::Top|UI_ALIGNMENT::Right, Color::one());
   (ObjectManager::instance()).registerObject(panel);
 }
 

@@ -56,6 +56,7 @@
 		0DFD6DBA1DD83FB800F99B5A /* TitleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB81DD83FB800F99B5A /* TitleManager.cpp */; };
 		0DFD6DBE1DD8432800F99B5A /* SquareObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DBC1DD8432800F99B5A /* SquareObject2D.cpp */; };
 		0DFD6DC11DD8442200F99B5A /* UIPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DBF1DD8442200F99B5A /* UIPanel.cpp */; };
+		0DFD6DC81DD852B200F99B5A /* UIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DC61DD852B200F99B5A /* UIBase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -197,6 +198,8 @@
 		0DFD6DC21DD8453100F99B5A /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UI.h; path = Engine/Headers/Headers/UI.h; sourceTree = "<group>"; };
 		0DFD6DC31DD84BD600F99B5A /* Default2D.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Default2D.vert; path = Shaders/Engine/Default2D.vert; sourceTree = "<group>"; };
 		0DFD6DC41DD84BF500F99B5A /* Default2D.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default2D.frag; path = Shaders/Engine/Default2D.frag; sourceTree = "<group>"; };
+		0DFD6DC61DD852B200F99B5A /* UIBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIBase.cpp; path = Engine/UI/Base/UIBase.cpp; sourceTree = "<group>"; };
+		0DFD6DC71DD852B200F99B5A /* UIBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIBase.hpp; path = Engine/UI/Base/UIBase.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,6 +604,7 @@
 		0DFD6D841DD5C9B200F99B5A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0DFD6DC51DD8529D00F99B5A /* Base */,
 				0DFD6DBF1DD8442200F99B5A /* UIPanel.cpp */,
 				0DFD6DC01DD8442200F99B5A /* UIPanel.hpp */,
 			);
@@ -702,6 +706,15 @@
 			name = BaseForm;
 			sourceTree = "<group>";
 		};
+		0DFD6DC51DD8529D00F99B5A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0DFD6DC61DD852B200F99B5A /* UIBase.cpp */,
+				0DFD6DC71DD852B200F99B5A /* UIBase.hpp */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -793,6 +806,7 @@
 				0DFD6DBA1DD83FB800F99B5A /* TitleManager.cpp in Sources */,
 				0DD1569A1DD02F0300877E40 /* ObjectManager.cpp in Sources */,
 				0DD156761DD02E5B00877E40 /* TextureLoader.cpp in Sources */,
+				0DFD6DC81DD852B200F99B5A /* UIBase.cpp in Sources */,
 				0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */,
 				0DFD6DC11DD8442200F99B5A /* UIPanel.cpp in Sources */,
 				0DD156CB1DD0345E00877E40 /* ShaderLoader.cpp in Sources */,
