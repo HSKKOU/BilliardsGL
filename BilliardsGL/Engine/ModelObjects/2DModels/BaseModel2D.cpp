@@ -29,7 +29,7 @@ void BaseModel2D::sendParams2Shd() {
   sendPosition2Shd();
   sendTexture2Shd();
 }
-void BaseModel2D::sendPosition2Shd() const { position.printElem(); glUniform2fv(sLocs.positionLoc, 1, position.v); }
+void BaseModel2D::sendPosition2Shd() const { glUniform2fv(sLocs.positionLoc, 1, position.v); }
 void BaseModel2D::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
 
 

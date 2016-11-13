@@ -87,7 +87,7 @@ void ObjectManager::updateObjectsPhysics(GLfloat deltaTime) {
 }
 
 void ObjectManager::updateObjects(GLfloat deltaTime) {
-  std::cout << "objects: " << objectList.size() << std::endl;
+//  std::cout << "objects: " << objectList.size() << std::endl;
   for (int targetIndex=0; targetIndex<objectList.size(); targetIndex++) {
     ObjectBehavior* targetObject = objectList[targetIndex];
     if ( targetObject == nullptr ) { continue; }
