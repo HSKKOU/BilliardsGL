@@ -21,11 +21,12 @@ US_NS_ENGINE_UI
 
 NS_GAME
 
-class TitleManager : public BehaviorSingleton<TitleManager> {
+class TitleManager : public BehaviorSingleton<TitleManager>, public IButtonHandler {
   friend class BehaviorSingleton<TitleManager>;
   
   // for Debug
   UIPanel* panel;
+  UIButton* button;
   
 public:
   virtual ~TitleManager();
@@ -34,6 +35,11 @@ public:
   virtual void awake();
   virtual void start();
   virtual void update(GLfloat deltaTime);
+  
+  
+  void onButtonDown();
+  void onButtonDownRepeat();
+  void onButtonUp();
   
 private:
   TitleManager();

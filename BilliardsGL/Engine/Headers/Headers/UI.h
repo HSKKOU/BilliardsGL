@@ -9,6 +9,9 @@
 #ifndef UI_h
 #define UI_h
 
+#include "UIBase.hpp"
+
 #include "UIPanel.hpp"
+#include "UIButton.hpp"
 
 #endif /* UI_h */

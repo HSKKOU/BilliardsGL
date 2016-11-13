@@ -12,8 +12,8 @@ NS_ENGINE_UI
 
 UIBase::UIBase(Point2D p, Vector2D s, UI_ALIGNMENT_MASK alignmentMask)
 : Engine::SquareObject2D( p, s.divide(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT) )
-, uiPosition(p)
-, uiSize(s)
+, uiPosition(p/2)
+, uiSize(s/2)
 {
   Point2D alignedPos = p;
   if (alignmentMask == UI_ALIGNMENT::None) {
@@ -27,14 +27,15 @@ UIBase::UIBase(Point2D p, Vector2D s, UI_ALIGNMENT_MASK alignmentMask)
     {
       /* do nothing */
     } else {
-      if (alignmentMask & UI_ALIGNMENT::Top)    { alignedPos.y = Const::WINDOW_HEIGHT - alignedPos.y; }
-      if (alignmentMask & UI_ALIGNMENT::Bottom) { alignedPos.y = alignedPos.y - Const::WINDOW_HEIGHT; }
-      if (alignmentMask & UI_ALIGNMENT::Left)   { alignedPos.x = alignedPos.x - Const::WINDOW_WIDTH ; }
-      if (alignmentMask & UI_ALIGNMENT::Right)  { alignedPos.x = Const::WINDOW_WIDTH - alignedPos.x ; }
+      if (alignmentMask & UI_ALIGNMENT::Top)    { alignedPos.y = Const::WINDOW_HEIGHT/2 - alignedPos.y; }
+      if (alignmentMask & UI_ALIGNMENT::Bottom) { alignedPos.y = alignedPos.y - Const::WINDOW_HEIGHT/2; }
+      if (alignmentMask & UI_ALIGNMENT::Left)   { alignedPos.x = alignedPos.x - Const::WINDOW_WIDTH/2 ; }
+      if (alignmentMask & UI_ALIGNMENT::Right)  { alignedPos.x = Const::WINDOW_WIDTH/2 - alignedPos.x ; }
     }
   }
 
-  position = alignedPos.divide(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT);
+  uiPosition = alignedPos;
+  position = alignedPos.divide(Const::WINDOW_WIDTH/2, Const::WINDOW_HEIGHT/2);
 }
 
 UIBase::~UIBase() { /* do nothing */ }

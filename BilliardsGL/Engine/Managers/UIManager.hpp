@@ -9,18 +9,29 @@
 #ifndef UIManager_hpp
 #define UIManager_hpp
 
+#include <vector>
+
 #include "Singleton.h"
+#include "UI.h"
 
 US_NS_ENGINE_UTIL
+US_NS_ENGINE_UI
 
 NS_ENGINE
 
 class UIManager : public Singleton<UIManager> {
   friend class Singleton<UIManager>;
   
+  std::vector<UIButton*> buttonList;
+  
 public:
   virtual ~UIManager();
   void initialize();
+  
+  void registerButton(UIButton* button);
+  
+  void recieveEventPressed(Point2D p);
+  void recieveEventReleased(Point2D p);
   
 private:
   UIManager();

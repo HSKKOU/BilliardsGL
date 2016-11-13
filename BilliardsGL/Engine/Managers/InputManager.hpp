@@ -12,6 +12,10 @@
 #include "Singleton.h"
 #include "Matrix.h"
 
+#include "Constants.h"
+
+#include "UIManager.hpp"
+
 US_NS_ENGINE_UTIL
 
 NS_ENGINE
@@ -25,9 +29,13 @@ enum class EButton {
 class InputManager : public Singleton<InputManager> {
   friend class Singleton<InputManager>;
   
+  UIManager* uiManagerDelegate;
+  
 public:
   virtual ~InputManager();
   void initialize();
+  
+  void setUIManagerDelegate(UIManager* delegate);
   
   // delegate function by Window
   void pressedButton(EButton btn, Point2D point);
@@ -35,6 +43,7 @@ public:
   
 private:
   InputManager();
+  void calcMousePointCentering(Point2D& point);
   
 };
 

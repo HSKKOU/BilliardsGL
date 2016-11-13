@@ -21,6 +21,7 @@
 #include "SceneManager.hpp"
 
 #include "InputManager.hpp"
+#include "UIManager.hpp"
 
 #include "Camera.h"
 
@@ -39,6 +40,7 @@ class GameEngineManager : public Singleton<GameEngineManager> {
   ObjectManager &objectManager;
   
   InputManager &inputManager;
+  UIManager &uiManager;
   
   FPSCounter &fps;
 
