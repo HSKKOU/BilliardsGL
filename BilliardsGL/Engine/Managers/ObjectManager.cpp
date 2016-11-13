@@ -44,26 +44,28 @@ void ObjectManager::destroyObject(const int objectId) const {
 void ObjectManager::startAwakenObjects() {
   for (ObjectBehavior* ob : awakenObjectList) {
     ob->start();
-    if (ob->isRigid()) { rigidObjectList.push_back(static_cast<BaseRigidObject3D*>(ob)); }
+    if (ob->isRigid()) {
+      if (!ob->isStatic()) { movableRigidObjectList.push_back(static_cast<BaseRigidObject3D*>(ob)); }
+      rigidObjectList.push_back(static_cast<BaseRigidObject3D*>(ob));
+    }
     objectList.push_back(ob);
   }
   awakenObjectList.clear();
 }
 
 void ObjectManager::updateObjectsPhysics(GLfloat deltaTime) {
-  for (int i=0; i<rigidObjectList.size(); i++) {
+  for (int i=0; i<movableRigidObjectList.size(); i++) {
     if (rigidObjectList[i] == nullptr) { continue; }
     rigidObjectList[i]->updatePhysics(deltaTime);
   }
   
   std::vector<BaseRigidObject3D*> collidedObjectList;
-  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
+  for (int targetIndex=0; targetIndex<movableRigidObjectList.size(); targetIndex++) {
     BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
 
     if (targetObject == nullptr) { continue; }
     if (!targetObject->isCollidable()) { continue; }
 
-//    std::vector<BaseRigidObject3D*> collisionObjectList;
     BaseRigidObject3D* collidedObject = nullptr;
     for (int otherIndex=targetIndex+1; otherIndex<rigidObjectList.size(); otherIndex++) {
       BaseRigidObject3D* otherObject = rigidObjectList[otherIndex];
@@ -71,13 +73,11 @@ void ObjectManager::updateObjectsPhysics(GLfloat deltaTime) {
       if (otherObject == nullptr || otherIndex == targetIndex) { continue; }
       if (!otherObject->isCollidable()) { continue; }
       if (targetObject->isCollideWith(otherObject)) {
-//        collisionObjectList.push_back(otherObject);
         collidedObject = otherObject;
         break;
       }
     }
     
-//    if (collisionObjectList.size() > 0) { std::cout << "collisions: " << collisionObjectList.size() << std::endl; }
     if (collidedObject == nullptr) { continue; }
     
     CollisionCalculator::calcCollidedVelocityBetweenSphere(targetObject, collidedObject);

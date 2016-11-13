@@ -21,6 +21,7 @@ public:
   
   virtual bool isRigid() const;
   virtual bool isCollidable() const;
+  virtual bool isStatic() const;
   
   virtual void awake();
   virtual void start();

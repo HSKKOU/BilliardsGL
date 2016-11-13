@@ -27,6 +27,7 @@ class ObjectManager : public Singleton<ObjectManager> {
   std::vector<ObjectBehavior*> awakenObjectList;
   std::vector<ObjectBehavior*> objectList;
   std::vector<BaseRigidObject3D*> rigidObjectList;
+  std::vector<BaseRigidObject3D*> movableRigidObjectList;
   
 public:
   void initialize();

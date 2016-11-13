@@ -15,6 +15,7 @@ ObjectBehavior::~ObjectBehavior() { /* do nothing */ }
 
 bool ObjectBehavior::isRigid() const { return false; }
 bool ObjectBehavior::isCollidable() const { return false; }
+bool ObjectBehavior::isStatic() const { return false; }
 
 void ObjectBehavior::awake() { /* do nothing */ }
 void ObjectBehavior::start() { /* do nothing */ }
