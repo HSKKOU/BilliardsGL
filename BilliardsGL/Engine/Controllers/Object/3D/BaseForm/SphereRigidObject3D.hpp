@@ -24,9 +24,10 @@ public:
   SphereRigidObject3D(Transform t, GLfloat mass, GLfloat r);
   virtual ~SphereRigidObject3D();
   
-  virtual void createSphereModel(ETex tex, Color c);
-  
   virtual void updatePhysics(GLfloat deltaTime);
+  
+protected:
+  virtual void createSphereModel(ETex tex, Color c);
 };
 
 NS_END
