@@ -12,7 +12,7 @@ NS_GAME
 
 BallController::BallController(Transform t) : BallController::BallController(t, 0) { /* do nothing */ }
 BallController::BallController(Transform t, int n)
-: Engine::BaseRigidObject3D(t, 1.0f, new SphereCollider(1.0f))
+: Engine::SphereRigidObject3D(t, 1.0f, 1.0f)
 , number(n)
 { /* do nothing */ }
 BallController::~BallController() { /* do nothing */ }
@@ -21,14 +21,6 @@ BallController::~BallController() { /* do nothing */ }
 
 void BallController::awake() {
   createBall(TexUtil::toTex(TexUtil::toInt(ETex::Ball00)+number));
-}
-
-void BallController::start() {
-  
-}
-
-void BallController::update() {
-  
 }
 
 
