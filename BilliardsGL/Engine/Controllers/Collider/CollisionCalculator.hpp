@@ -15,7 +15,7 @@ NS_ENGINE
 
 class CollisionCalculator {
   constexpr static const GLfloat COL_DETECT_EPS = 0.0f;
-  constexpr static const GLfloat COL_SPRING_CST = 10.0f;
+  constexpr static const GLfloat COL_SPRING_CST = 23.0f;
   
 public:
   static bool isCollided(ColliderBase3D* col1, ColliderBase3D* col2);
