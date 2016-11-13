@@ -28,12 +28,12 @@ public:
   BaseObject3D(Transform t);
   virtual ~BaseObject3D();
     
-  void virtual awake();
-  void virtual start();
-  void virtual update(GLfloat deltaTime);
-  void virtual lateUpdate(GLfloat deltaTime);
-  void virtual draw();
-  void virtual destroy();
+  virtual void awake();
+  virtual void start();
+  virtual void update(GLfloat deltaTime);
+  virtual void lateUpdate(GLfloat deltaTime);
+  virtual void draw();
+  virtual void destroy();
   
   virtual void setTransform(Transform trsf);
   

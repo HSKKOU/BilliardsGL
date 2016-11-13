@@ -46,6 +46,8 @@ protected:
   TextureID textureId;
   Color objectColor;
   
+  GLuint vertexBuffer;
+  
   GLuint shaderProgram;
   Shaders shaders;
     

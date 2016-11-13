@@ -26,7 +26,6 @@ void TitleScene::enter() {
 
 void TitleScene::exit() {
   SceneBase::exit();
-  titleManager = nullptr;
 }
 
 

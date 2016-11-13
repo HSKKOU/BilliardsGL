@@ -14,7 +14,9 @@ BaseModel2D::BaseModel2D(Point2D _pos)
 : Engine::Base2D(_pos)
 , Engine::Model::BaseModel()
 { /* do nothing */ }
-BaseModel2D::~BaseModel2D() { /* do nothing */ }
+BaseModel2D::~BaseModel2D() {
+  glDeleteBuffers(1, &vertexBuffer);
+}
 
 
 void BaseModel2D::loadShaderProgram(const char* vs, const char* fs) { BaseModel::loadShaderProgram(vs, fs); }
@@ -35,7 +37,7 @@ void BaseModel2D::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, 
 
 const GLuint BaseModel2D::createModel(const GLfloat (*vertices)[2+2], const GLuint vCnt, const int pCnt, const int uvCnt) {
   GLuint vao = readyVAO();
-  setVertexBuffer(vertices, (pCnt+uvCnt)*vCnt);
+  vertexBuffer = setVertexBuffer(vertices, (pCnt+uvCnt)*vCnt);
   
   setPositionBuffer (pCnt+uvCnt, 0, 2);
   setUVBuffer       (pCnt+uvCnt, pCnt);

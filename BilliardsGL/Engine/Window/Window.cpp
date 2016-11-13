@@ -45,10 +45,11 @@ int Window::shouldClose() const { return glfwWindowShouldClose(window); }
 
 void Window::swapBuffers() {
   glfwSwapBuffers(window);
-  glfwPollEvents();
   
   sendMouseEvent();
-  
+
+  glfwPollEvents();
+
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
 }

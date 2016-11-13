@@ -18,7 +18,9 @@ BaseModel3D::BaseModel3D(Vector3D _pos)
 , targetLight((LightManager::instance()).getLight())
 { /* do nothing */ }
 
-BaseModel3D::~BaseModel3D() { /* do nothing */ }
+BaseModel3D::~BaseModel3D() {
+  glDeleteBuffers(1, &vertexBuffer);
+}
 
 
 

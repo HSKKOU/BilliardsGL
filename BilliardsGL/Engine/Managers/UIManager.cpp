@@ -11,7 +11,7 @@
 NS_ENGINE
 
 UIManager::UIManager() { /* do nothing */ }
-UIManager::~UIManager() { destroyUIs(); }
+UIManager::~UIManager() { /* do nothing */ }
 
 void UIManager::initialize() { /* do nothing */ }
 
