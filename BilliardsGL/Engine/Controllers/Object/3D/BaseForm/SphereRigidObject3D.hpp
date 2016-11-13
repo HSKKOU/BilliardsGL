@@ -20,7 +20,7 @@ public:
   SphereRigidObject3D(Transform t, GLfloat mass, GLfloat r);
   virtual ~SphereRigidObject3D();
   
-  void virtual updatePhysics(GLfloat deltaTime);
+  virtual void updatePhysics(GLfloat deltaTime);
 };
 
 NS_END

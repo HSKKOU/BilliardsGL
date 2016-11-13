@@ -11,5 +11,6 @@
 
 #include "ColliderBase3D.hpp"
 #include "SphereCollider.hpp"
+#include "CubeCollider.hpp"
 
 #endif /* Collisions_h */
