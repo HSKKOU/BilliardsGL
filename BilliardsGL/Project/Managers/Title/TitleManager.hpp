@@ -12,6 +12,7 @@
 #include "BehaviorSingleton.h"
 
 #include "ObjectManager.hpp"
+#include "SceneManager.hpp"
 
 #include "UI.h"
 

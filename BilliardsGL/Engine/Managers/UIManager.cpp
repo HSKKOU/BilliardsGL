@@ -11,10 +11,7 @@
 NS_ENGINE
 
 UIManager::UIManager() { /* do nothing */ }
-UIManager::~UIManager() {
-  for (UIButton* btn : buttonList) { delete btn; btn = nullptr; }
-  buttonList.clear();
-}
+UIManager::~UIManager() { destroyUIs(); }
 
 void UIManager::initialize() { /* do nothing */ }
 
@@ -33,7 +30,9 @@ void UIManager::recieveEventPressed(Point2D p) {
       continue;
     }
     if (!button->isPressed()) { button->press(); }
-    button->pressRepeat();
+    
+    // remove Repeat Button Event
+//    if (button != nullptr) { button->pressRepeat(); }
   }
 }
 
@@ -43,6 +42,11 @@ void UIManager::recieveEventReleased(Point2D p) {
     if (!button->isInRange(p)) { continue; }
     if (button->isPressed()) { button->release(); }
   }
+}
+
+void UIManager::destroyUIs() {
+  for (UIButton* btn : buttonList) { delete btn; btn = nullptr; }
+  buttonList.clear();
 }
 
 NS_END

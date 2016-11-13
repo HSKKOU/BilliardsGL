@@ -13,7 +13,10 @@
 NS_GAME
 
 TitleManager::TitleManager() { /* do nothing */ }
-TitleManager::~TitleManager() { /* do nothing */ }
+TitleManager::~TitleManager() {
+  panel = nullptr;
+  button = nullptr;
+}
 
 void TitleManager::initialize() {
   // set background color
@@ -34,6 +37,7 @@ void TitleManager::update(GLfloat deltaTime) { /* do nothing */ }
 
 void TitleManager::onButtonDown() {
   std::cout << "button down" << std::endl;
+  (SceneManager::instance()).switchSceneTo(EScene::Game);
 }
 void TitleManager::onButtonDownRepeat() {
 //  std::cout << "button down repeat" << std::endl;

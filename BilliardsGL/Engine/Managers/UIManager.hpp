@@ -33,6 +33,8 @@ public:
   void recieveEventPressed(Point2D p);
   void recieveEventReleased(Point2D p);
   
+  void destroyUIs();
+  
 private:
   UIManager();
 };

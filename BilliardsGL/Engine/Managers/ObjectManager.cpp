@@ -117,6 +117,10 @@ void ObjectManager::destroyObjects() {
     if ( targetObject == nullptr ) { continue; }
     targetObject->destroy();
   }
+  awakenObjectList.clear();
+  objectList.clear();
+  rigidObjectList.clear();
+  movableRigidObjectList.clear();
 }
 
 

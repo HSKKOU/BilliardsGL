@@ -14,6 +14,8 @@
 
 #include "ObjectManager.hpp"
 
+#include "UIManager.hpp"
+
 NS_ENGINE_SCENE
 
 class SceneBase {
