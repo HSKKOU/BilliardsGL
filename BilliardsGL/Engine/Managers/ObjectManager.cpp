@@ -87,32 +87,32 @@ void ObjectManager::updateObjectsPhysics(GLfloat deltaTime) {
 }
 
 void ObjectManager::updateObjects(GLfloat deltaTime) {
-  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
-    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+  for (int targetIndex=0; targetIndex<objectList.size(); targetIndex++) {
+    ObjectBehavior* targetObject = objectList[targetIndex];
     if ( targetObject == nullptr ) { continue; }
     targetObject->update(deltaTime);
   }
 }
 
 void ObjectManager::lateUpdateObjects(GLfloat deltaTime) {
-  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
-    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+  for (int targetIndex=0; targetIndex<objectList.size(); targetIndex++) {
+    ObjectBehavior* targetObject = objectList[targetIndex];
     if ( targetObject == nullptr ) { continue; }
     targetObject->lateUpdate(deltaTime);
   }
 }
 
 void ObjectManager::draw() {
-  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
-    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+  for (int targetIndex=0; targetIndex<objectList.size(); targetIndex++) {
+    ObjectBehavior* targetObject = objectList[targetIndex];
     if ( targetObject == nullptr ) { continue; }
     targetObject->draw();
   }
 }
 
 void ObjectManager::destroyObjects() {
-  for (int targetIndex=0; targetIndex<rigidObjectList.size(); targetIndex++) {
-    BaseRigidObject3D* targetObject = rigidObjectList[targetIndex];
+  for (int targetIndex=0; targetIndex<objectList.size(); targetIndex++) {
+    ObjectBehavior* targetObject = objectList[targetIndex];
     if ( targetObject == nullptr ) { continue; }
     targetObject->destroy();
   }
