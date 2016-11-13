@@ -33,7 +33,7 @@ void BaseModel3D::drawReady() {
   // reset MVP matrix
   mvp.projection = targetCamera->getProjectionMatrix();
   mvp.view = targetCamera->getViewMatrix();
-  mvp.model = Matrix4D(1.0f);
+  mvp.model = Matrix4D::one();
   mvp.model = Matrix4D::translate(mvp.model, transform.position);
   mvp.model = Matrix4D::rotate(mvp.model, transform.rotation);
   mvp.model = Matrix4D::scale(mvp.model, transform.scale);
