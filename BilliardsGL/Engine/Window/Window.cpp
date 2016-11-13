@@ -33,7 +33,13 @@ Window::Window(int width, int height, const char *title)
   glfwSetWindowUserPointer(window, this);
 }
 
-Window::~Window() { glfwDestroyWindow(window); }
+Window::~Window() {
+  inputManagerDelegate = nullptr;
+  glfwDestroyWindow(window);
+}
+
+
+void Window::setInputManagerDelegate(InputManager* delegate) { inputManagerDelegate = delegate; }
 
 int Window::shouldClose() const { return glfwWindowShouldClose(window); }
 
@@ -41,13 +47,28 @@ void Window::swapBuffers() {
   glfwSwapBuffers(window);
   glfwPollEvents();
   
-  if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1) != GLFW_RELEASE) {
-    double x, y;
-    glfwGetCursorPos(window, &x, &y);
-  }
+  sendMouseEvent();
   
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
+}
+
+void Window::sendMouseEvent() {
+  // TODO: use only BUTTON_1 for Debug
+  double x, y;
+  switch (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1)) {
+    case GLFW_PRESS:
+      glfwGetCursorPos(window, &x, &y);
+      inputManagerDelegate->pressedButton(EButton::Button1, Point2D(x,y));
+      break;
+    case GLFW_RELEASE:
+      glfwGetCursorPos(window, &x, &y);
+      inputManagerDelegate->releasedButton(EButton::Button1, Point2D(x,y));
+      break;
+
+    default:
+      break;
+  }
 }
 
 void Window::resetWindow() {

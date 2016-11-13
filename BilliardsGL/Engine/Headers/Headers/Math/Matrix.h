@@ -18,4 +18,10 @@
 #include "Quaternion.hpp"
 #include "Matrix4D.hpp"
 
+NS_ENGINE
+
+typedef Vector2D Point2D;
+
+NS_END
+
 #endif /* Math_h */

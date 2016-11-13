@@ -20,6 +20,8 @@
 #include "LightManager.hpp"
 #include "SceneManager.hpp"
 
+#include "InputManager.hpp"
+
 #include "Camera.h"
 
 #include "TextureLoader.hpp"
@@ -35,6 +37,8 @@ class GameEngineManager : public Singleton<GameEngineManager> {
   LightManager &lightManager;
   CameraManager &cameraManager;
   ObjectManager &objectManager;
+  
+  InputManager &inputManager;
   
   FPSCounter &fps;
 

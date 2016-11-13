@@ -15,6 +15,7 @@ GameEngineManager::GameEngineManager()
 , lightManager(LightManager::instance())
 , cameraManager(CameraManager::instance())
 , objectManager(ObjectManager::instance())
+, inputManager(InputManager::instance())
 , fps(FPSCounter::instance())
 { /* do nothing */ }
 
@@ -54,6 +55,7 @@ void GameEngineManager::initialize() {
   sceneManager.initialize();
   lightManager.initialize();
   cameraManager.initialize();
+  inputManager.initialize();
 }
 
 void GameEngineManager::startMainLoop() {

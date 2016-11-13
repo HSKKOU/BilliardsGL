@@ -12,14 +12,19 @@
 #include "GlobalHeader.h"
 #include "Constants.h"
 
+#include "InputManager.hpp"
+
 NS_ENGINE
 
 class Window {
   GLFWwindow *const window;
+  InputManager* inputManagerDelegate;
   
 public:
   Window(int width = Const::WINDOW_WIDTH, int height = Const::WINDOW_WIDTH, const char *title = Const::WINDOW_TITLE);
   virtual ~Window();
+  
+  void setInputManagerDelegate(InputManager* delegate);
   
   int shouldClose() const;
   void swapBuffers();
@@ -27,6 +32,9 @@ public:
   void resetWindow();
   
   void getFrameSize(int *width, int *height);
+  
+private:
+  void sendMouseEvent();
 };
 
 NS_END

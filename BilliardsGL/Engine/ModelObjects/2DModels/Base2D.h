@@ -13,8 +13,6 @@
 
 NS_ENGINE
 
-typedef Vector2D Point2D;
-
 class Base2D {
   
 protected:
