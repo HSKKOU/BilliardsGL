@@ -20,6 +20,7 @@ SquareObject2D::~SquareObject2D() { /* do nothing */ }
 
 void SquareObject2D::createSquareModel(ETex tex, Color c) {
   Square* squareModel = ModelFactory::createSquareModel(size);
+  squareModel->setPosition(position);
   squareModel->setTexture(tex);
   squareModel->setObjectColor(c);
   modelList.emplace_back(squareModel);

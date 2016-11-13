@@ -19,6 +19,18 @@ BaseModel2D::~BaseModel2D() { /* do nothing */ }
 
 void BaseModel2D::loadShaderProgram(const char* vs, const char* fs) { BaseModel::loadShaderProgram(vs, fs); }
 
+void BaseModel2D::setShaderLoc() {
+  sLocs.positionLoc = glGetUniformLocation(shaderProgram, "position");
+  sLocs.objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor");
+}
+
+void BaseModel2D::sendParams2Shd() {
+  sendColor2Shd();
+  sendPosition2Shd();
+  sendTexture2Shd();
+}
+void BaseModel2D::sendPosition2Shd() const { position.printElem(); glUniform2fv(sLocs.positionLoc, 1, position.v); }
+void BaseModel2D::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
 
 
 const GLuint BaseModel2D::createModel(const GLfloat (*vertices)[2+2], const GLuint vCnt, const int pCnt, const int uvCnt) {

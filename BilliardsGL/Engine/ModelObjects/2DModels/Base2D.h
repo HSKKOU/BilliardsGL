@@ -28,6 +28,9 @@ public:
   Vector2D getPosition() const { return position; }
   Vector3D getPosition3D() const { return Vector3D(position.x, position.y, 1.0); }
   void setPosition(const Vector2D pos) { position = pos; }
+  
+  virtual void translateTo(Vector2D dest) { position = dest; }
+  virtual void translate(Vector2D delta) { position += delta; }
 };
 
 NS_END

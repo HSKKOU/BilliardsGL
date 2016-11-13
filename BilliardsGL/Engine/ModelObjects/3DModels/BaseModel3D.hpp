@@ -32,6 +32,16 @@ struct MVP {
   }
 };
 
+struct ShaderLocs3D {
+  GLint projectionLoc;
+  GLint viewLoc;
+  GLint modelLoc;
+  GLint objectColorLoc;
+  GLint lightPosLoc;
+  GLint lightColorLoc;
+  GLint cameraPosLoc;
+  ShaderLocs3D() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightColorLoc = cameraPosLoc = -1; }
+};
 
 
 
@@ -39,6 +49,7 @@ class BaseModel3D : public Base3D, public BaseModel {
 
 protected:
   MVP mvp;
+  ShaderLocs3D sLocs;
   CameraControllerBase *targetCamera;
   LightControllerBase *targetLight;
   
@@ -57,6 +68,7 @@ protected:
   virtual const GLuint createModel(const GLfloat (*vertices)[3+2+3], const GLuint vCnt, const int pCnt, const int uvCnt, const int nCnt);
 
   virtual void sendMVP2Shd();
+  virtual void sendColor2Shd() const;
   void sendLightInfo2Shd() const;
   void sendCameraPos2Shd() const;
   

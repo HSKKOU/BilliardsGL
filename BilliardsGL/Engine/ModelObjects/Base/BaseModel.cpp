@@ -16,7 +16,6 @@ BaseModel::BaseModel()
 , textureId(0)
 , shaderProgram(-1)
 , shaders(Shaders())
-, sLocs(ShaderLocs())
 { /* do nothing */ }
 BaseModel::~BaseModel() { /* do nothing */ }
 
@@ -54,8 +53,6 @@ void BaseModel::drawRun(int mode) {
 
 
 
-void BaseModel::sendParams2Shd() { sendColor2Shd(); }
-void BaseModel::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
 void BaseModel::sendTexture2Shd() const {
   if (textureId == 0) { return; }
   glBindTexture(GL_TEXTURE_2D, textureId);
@@ -71,9 +68,6 @@ void BaseModel::loadShaderProgram(const char* vs, const char* fs) {
   shaderProgram = ShaderLoader::loadShaderProgram(shaders.vSrc, "pv", shaders.fSrc, "fc");
   setShaderLoc();
 }
-
-void BaseModel::setShaderLoc() { sLocs.objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor"); }
-
 
 
 

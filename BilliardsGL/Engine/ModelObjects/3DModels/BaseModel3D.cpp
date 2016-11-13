@@ -42,7 +42,7 @@ void BaseModel3D::drawReady() {
 
 // shader parameters
 void BaseModel3D::sendParams2Shd() {
-  BaseModel::sendParams2Shd();
+  sendColor2Shd();
   sendMVP2Shd();
   sendLightInfo2Shd();
   sendTexture2Shd();
@@ -52,6 +52,8 @@ void BaseModel3D::sendMVP2Shd() {
   glUniformMatrix4fv(sLocs.viewLoc, 1, GL_FALSE, &mvp.view[0][0]);
   glUniformMatrix4fv(sLocs.modelLoc, 1, GL_FALSE, &mvp.model[0][0]);
 }
+
+void BaseModel3D::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
 
 void BaseModel3D::sendLightInfo2Shd() const {
   glUniform3fv(sLocs.lightPosLoc, 1, (targetLight->getPosition()).v);
@@ -63,11 +65,11 @@ void BaseModel3D::sendCameraPos2Shd() const { glUniform3fv(sLocs.cameraPosLoc, 1
 
 
 void BaseModel3D::setShaderLoc() {
-  BaseModel::setShaderLoc();
-  
   sLocs.projectionLoc = glGetUniformLocation(shaderProgram, "projection");
   sLocs.viewLoc = glGetUniformLocation(shaderProgram, "view");
   sLocs.modelLoc = glGetUniformLocation(shaderProgram, "model");
+  
+  sLocs.objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor");
   
   sLocs.lightPosLoc = glGetUniformLocation(shaderProgram, "lightPos");
   sLocs.lightColorLoc = glGetUniformLocation(shaderProgram, "lightColor");

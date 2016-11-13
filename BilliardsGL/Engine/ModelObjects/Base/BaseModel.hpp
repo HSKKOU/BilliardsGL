@@ -32,17 +32,6 @@ struct Shaders {
   const char* fSrc;
 };
 
-struct ShaderLocs {
-  GLint projectionLoc;
-  GLint viewLoc;
-  GLint modelLoc;
-  GLint objectColorLoc;
-  GLint lightPosLoc;
-  GLint lightColorLoc;
-  GLint cameraPosLoc;
-  ShaderLocs() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightColorLoc = cameraPosLoc = -1; }
-};
-
 struct Vertices {
   GLuint vao;
   GLsizei count;
@@ -59,7 +48,6 @@ protected:
   
   GLuint shaderProgram;
   Shaders shaders;
-  ShaderLocs sLocs;
     
 public:
   BaseModel();
@@ -75,15 +63,12 @@ public:
   
   virtual void draw();
   virtual void drawReady();
-  virtual void sendParams2Shd();
+  virtual void sendParams2Shd() = 0;
   virtual void drawRun(int mode = GL_TRIANGLES);
 
 protected:
-  virtual void setShaderLoc();
-  
-  void sendColor2Shd() const;
-  void sendLightInfo2Shd() const;
-  void sendCameraPos2Shd() const;
+  virtual void setShaderLoc() = 0;
+  virtual void sendColor2Shd() const = 0;
   void sendTexture2Shd() const;
 
   GLuint readyVAO() const;
