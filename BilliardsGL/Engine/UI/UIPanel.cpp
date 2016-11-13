@@ -17,4 +17,9 @@ UIPanel::UIPanel(Point2D p, Vector2D s, Color c)
 
 UIPanel::~UIPanel() { /* do nothing */ }
 
+
+void UIPanel::awake() {
+  createSquareModel(ETex::None, Color::one());
+}
+
 NS_END2

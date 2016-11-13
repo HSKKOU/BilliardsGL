@@ -19,6 +19,8 @@ class UIPanel : public SquareObject2D {
 public:
   UIPanel(Point2D p, Vector2D s, Color c);
   virtual ~UIPanel();
+  
+  virtual void awake();
 };
 
 NS_END2

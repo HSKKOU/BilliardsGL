@@ -16,6 +16,7 @@
 NS_ENGINE_UTIL
 
 enum class ETex : int {
+  None,
   Ball00,
   Ball01,
   Ball02,
@@ -41,6 +42,7 @@ class Textures {
 public:
   static std::map<ETex, std::string> getTexturesMap() {
     return {
+      { ETex::None  , "Default"    },
       { ETex::Ball00, "Ball00"     },
       { ETex::Ball01, "Ball01"     },
       { ETex::Ball02, "Ball02"     },
