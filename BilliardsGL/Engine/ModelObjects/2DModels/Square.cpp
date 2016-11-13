@@ -17,12 +17,12 @@ Square::Square(Point2D _center, Vector2D _size)
   GLfloat vPos[6][2+2] = {
 //  { pos.x  , pos.y  ,    uv.x, uv.y },
     
-    { -size.x, -size.y,    0.0f, 0.0f },
+    {  size.x,  size.y,    1.0f, 1.0f },
     {  size.x, -size.y,    1.0f, 0.0f },
-    {  size.x,  size.y,    1.0f, 1.0f },
-    {  size.x,  size.y,    1.0f, 1.0f },
-    { -size.x,  size.y,    0.0f, 1.0f },
     { -size.x, -size.y,    0.0f, 0.0f },
+    { -size.x, -size.y,    0.0f, 0.0f },
+    { -size.x,  size.y,    0.0f, 1.0f },
+    {  size.x,  size.y,    1.0f, 1.0f },
   };
   
   loadShaderProgram();
