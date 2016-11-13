@@ -25,7 +25,11 @@ void UIManager::recieveEventPressed(Point2D p) {
   for (int i=0; i<buttonList.size(); i++) {
     UIButton* button = buttonList[i];
     if (!button->isInRange(p)) {
-      if (button->isPressed()) { button->release(); }
+      
+      // TODO : select correct method if out of Button Rectangle Range with Pressing.
+//      if (button->isPressed()) { button->release(); }
+      if (button->isPressed()) { button->setIsPressedFlag(false); }
+
       continue;
     }
     if (!button->isPressed()) { button->press(); }

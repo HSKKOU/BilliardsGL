@@ -36,6 +36,7 @@ public:
   
   virtual bool isInRange(Point2D p) const;
   virtual bool isPressed() const;
+  virtual void setIsPressedFlag(bool f);
 
   virtual void press();
   virtual void pressRepeat();

@@ -27,6 +27,7 @@ void UIButton::setHandler(IButtonHandler* hdl) { handler = hdl; }
 void UIButton::awake() { UIPanel::awake(); }
 
 bool UIButton::isPressed() const { return isPressedFlag; }
+void UIButton::setIsPressedFlag(bool f) { isPressedFlag = f; }
 
 bool UIButton::isInRange(Point2D p) const {
 //  std::cout << "point [" << p.x << "," << p.y << "]" << std::endl;
