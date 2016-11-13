@@ -11,12 +11,15 @@
 
 #include "BaseModel3D.hpp"
 
+#include "Square.hpp"
+
 #include "Cube.hpp"
 #include "Sphere.hpp"
 
 NS_ENGINE_MODEL
 
 enum EModel {
+  SQUARE,
   CUBE,
   SPHERE,
   NUM,
