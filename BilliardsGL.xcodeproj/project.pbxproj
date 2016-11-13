@@ -195,6 +195,8 @@
 		0DFD6DBF1DD8442200F99B5A /* UIPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIPanel.cpp; path = Engine/UI/UIPanel.cpp; sourceTree = "<group>"; };
 		0DFD6DC01DD8442200F99B5A /* UIPanel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIPanel.hpp; path = Engine/UI/UIPanel.hpp; sourceTree = "<group>"; };
 		0DFD6DC21DD8453100F99B5A /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UI.h; path = Engine/Headers/Headers/UI.h; sourceTree = "<group>"; };
+		0DFD6DC31DD84BD600F99B5A /* Default2D.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Default2D.vert; path = Shaders/Engine/Default2D.vert; sourceTree = "<group>"; };
+		0DFD6DC41DD84BF500F99B5A /* Default2D.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Default2D.frag; path = Shaders/Engine/Default2D.frag; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +450,8 @@
 			children = (
 				0DD156D61DD0370700877E40 /* Default.frag */,
 				0DD156D71DD0370700877E40 /* Default.vert */,
+				0DFD6DC41DD84BF500F99B5A /* Default2D.frag */,
+				0DFD6DC31DD84BD600F99B5A /* Default2D.vert */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";

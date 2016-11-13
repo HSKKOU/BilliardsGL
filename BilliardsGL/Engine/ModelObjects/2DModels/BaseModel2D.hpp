@@ -22,7 +22,7 @@ public:
   BaseModel2D();
   BaseModel2D(const Point2D _pos);
   virtual ~BaseModel2D();
-  virtual void loadShaderProgram(const char* vs = "./Shaders/Engine/Default.vert", const char* fs = "./Shaders/Engine/Default.frag");
+  virtual void loadShaderProgram(const char* vs = "./Shaders/Engine/Default2D.vert", const char* fs = "./Shaders/Engine/Default2D.frag");
   
 protected:
   virtual const GLuint createModel(const GLfloat (*vertices)[2+2], const GLuint vCnt, const int pCnt, const int uvCnt);
