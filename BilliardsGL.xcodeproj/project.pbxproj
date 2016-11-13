@@ -52,6 +52,7 @@
 		0DFD6DAC1DD7543400F99B5A /* SphereRigidObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DAA1DD7543400F99B5A /* SphereRigidObject3D.cpp */; };
 		0DFD6DAF1DD8390C00F99B5A /* CubeRigidObject3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DAD1DD8390C00F99B5A /* CubeRigidObject3D.cpp */; };
 		0DFD6DB21DD839CD00F99B5A /* CubeCollider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB01DD839CD00F99B5A /* CubeCollider.cpp */; };
+		0DFD6DB61DD83BDD00F99B5A /* BoardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB41DD83BDD00F99B5A /* BoardController.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -182,6 +183,8 @@
 		0DFD6DAE1DD8390C00F99B5A /* CubeRigidObject3D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CubeRigidObject3D.hpp; path = Engine/Controllers/Object/3D/BaseForm/CubeRigidObject3D.hpp; sourceTree = "<group>"; };
 		0DFD6DB01DD839CD00F99B5A /* CubeCollider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CubeCollider.cpp; path = Engine/Controllers/Collider/CubeCollider.cpp; sourceTree = "<group>"; };
 		0DFD6DB11DD839CD00F99B5A /* CubeCollider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CubeCollider.hpp; path = Engine/Controllers/Collider/CubeCollider.hpp; sourceTree = "<group>"; };
+		0DFD6DB41DD83BDD00F99B5A /* BoardController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoardController.cpp; path = Project/Controllers/Game/Board/BoardController.cpp; sourceTree = "<group>"; };
+		0DFD6DB51DD83BDD00F99B5A /* BoardController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BoardController.hpp; path = Project/Controllers/Game/Board/BoardController.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,7 @@
 		0D31CB451DBC53FA00BF8F65 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				0DFD6DB31DD83B9A00F99B5A /* Board */,
 				0D31CB4C1DBC7C7800BF8F65 /* Balls */,
 			);
 			name = Game;
@@ -652,6 +656,15 @@
 			name = BaseForm;
 			sourceTree = "<group>";
 		};
+		0DFD6DB31DD83B9A00F99B5A /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				0DFD6DB41DD83BDD00F99B5A /* BoardController.cpp */,
+				0DFD6DB51DD83BDD00F99B5A /* BoardController.hpp */,
+			);
+			name = Board;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -729,6 +742,7 @@
 				0DFD6D8D1DD5DD5200F99B5A /* BaseModel.cpp in Sources */,
 				0DD156881DD02ED700877E40 /* Cube.cpp in Sources */,
 				0DFD6DA31DD5FF9700F99B5A /* BaseObject2D.cpp in Sources */,
+				0DFD6DB61DD83BDD00F99B5A /* BoardController.cpp in Sources */,
 				0DD156631DD02DF700877E40 /* Matrix4D.cpp in Sources */,
 				0DFD6D951DD5FE2600F99B5A /* BaseObject3D.cpp in Sources */,
 				0DD156B11DD02F9A00877E40 /* SceneBase.cpp in Sources */,
