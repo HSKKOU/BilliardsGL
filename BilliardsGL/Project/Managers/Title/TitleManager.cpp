@@ -16,6 +16,9 @@ TitleManager::~TitleManager() { /* do nothing */ }
 void TitleManager::initialize() {
   // set background color
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
+  
+  panel = new UIPanel(Point2D::zero(), Vector2D(10.0f, 20.0f), Color::one());
+  (ObjectManager::instance()).registerObject(panel);
 }
 
 void TitleManager::awake() { /* do nothing */ }

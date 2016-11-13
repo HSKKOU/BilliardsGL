@@ -11,12 +11,21 @@
 
 #include "BehaviorSingleton.h"
 
+#include "ObjectManager.hpp"
+
+#include "UI.h"
+
+US_NS_ENGINE
 US_NS_ENGINE_UTIL
+US_NS_ENGINE_UI
 
 NS_GAME
 
 class TitleManager : public BehaviorSingleton<TitleManager> {
   friend class BehaviorSingleton<TitleManager>;
+  
+  // for Debug
+  UIPanel* panel;
   
 public:
   virtual ~TitleManager();

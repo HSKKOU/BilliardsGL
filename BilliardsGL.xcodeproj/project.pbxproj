@@ -55,6 +55,7 @@
 		0DFD6DB61DD83BDD00F99B5A /* BoardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB41DD83BDD00F99B5A /* BoardController.cpp */; };
 		0DFD6DBA1DD83FB800F99B5A /* TitleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DB81DD83FB800F99B5A /* TitleManager.cpp */; };
 		0DFD6DBE1DD8432800F99B5A /* SquareObject2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DBC1DD8432800F99B5A /* SquareObject2D.cpp */; };
+		0DFD6DC11DD8442200F99B5A /* UIPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6DBF1DD8442200F99B5A /* UIPanel.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -191,6 +192,9 @@
 		0DFD6DB91DD83FB800F99B5A /* TitleManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TitleManager.hpp; path = Project/Managers/Title/TitleManager.hpp; sourceTree = "<group>"; };
 		0DFD6DBC1DD8432800F99B5A /* SquareObject2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SquareObject2D.cpp; path = Engine/Controllers/Object/2D/BaseForm/SquareObject2D.cpp; sourceTree = "<group>"; };
 		0DFD6DBD1DD8432800F99B5A /* SquareObject2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SquareObject2D.hpp; path = Engine/Controllers/Object/2D/BaseForm/SquareObject2D.hpp; sourceTree = "<group>"; };
+		0DFD6DBF1DD8442200F99B5A /* UIPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIPanel.cpp; path = Engine/UI/UIPanel.cpp; sourceTree = "<group>"; };
+		0DFD6DC01DD8442200F99B5A /* UIPanel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UIPanel.hpp; path = Engine/UI/UIPanel.hpp; sourceTree = "<group>"; };
+		0DFD6DC21DD8453100F99B5A /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UI.h; path = Engine/Headers/Headers/UI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +341,7 @@
 				0DD1566A1DD02E0500877E40 /* Scenes.h */,
 				0DFD6D761DD5923500F99B5A /* Textures.h */,
 				0DFD6D781DD59A9900F99B5A /* Constants.h */,
+				0DFD6DC21DD8453100F99B5A /* UI.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -388,9 +393,9 @@
 				0D9E603A1DB8ADF00084591E /* Shaders */,
 				0D9E60391DB8ADD70084591E /* Utils */,
 				0D9E60381DB8ADC30084591E /* ModelObjects */,
-				0DFD6D841DD5C9B200F99B5A /* UI */,
 				0D9E60371DB8ADAD0084591E /* Managers */,
 				0D94B7371D8AE62900422BD9 /* Controllers */,
+				0DFD6D841DD5C9B200F99B5A /* UI */,
 				0D94B7301D8A9BFA00422BD9 /* Window */,
 			);
 			name = Engine;
@@ -592,6 +597,8 @@
 		0DFD6D841DD5C9B200F99B5A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0DFD6DBF1DD8442200F99B5A /* UIPanel.cpp */,
+				0DFD6DC01DD8442200F99B5A /* UIPanel.hpp */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -783,6 +790,7 @@
 				0DD1569A1DD02F0300877E40 /* ObjectManager.cpp in Sources */,
 				0DD156761DD02E5B00877E40 /* TextureLoader.cpp in Sources */,
 				0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */,
+				0DFD6DC11DD8442200F99B5A /* UIPanel.cpp in Sources */,
 				0DD156CB1DD0345E00877E40 /* ShaderLoader.cpp in Sources */,
 				0DD1567E1DD02ECB00877E40 /* BaseModel2D.cpp in Sources */,
 				0DD1567F1DD02ECB00877E40 /* Square.cpp in Sources */,

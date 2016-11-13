@@ -25,6 +25,8 @@
 
 #define NS_ENGINE_SCENE         namespace Engine { namespace Scene {
 
+#define NS_ENGINE_UI            namespace Engine { namespace UI {
+
 #define NS_GAME                 namespace Game {
 
 
@@ -42,6 +44,7 @@
 #define US_NS_ENGINE_LIGHT      using namespace Engine::Light;
 #define US_NS_ENGINE_CAMERA     using namespace Engine::Camera;
 #define US_NS_ENGINE_SCENE      using namespace Engine::Scene;
+#define US_NS_ENGINE_UI         using namespace Engine::UI;
 
 #define US_NS_GAME              using namespace Game;
 
