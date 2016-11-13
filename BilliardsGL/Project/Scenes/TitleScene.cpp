@@ -13,23 +13,22 @@
 
 NS_GAME
 
-TitleScene::TitleScene() : updateCnt(0) { /* do nothing */ }
+TitleScene::TitleScene() { /* do nothing */ }
 TitleScene::~TitleScene() { /* do nothing */ }
 
 void TitleScene::enter() {
+  titleManager = &(TitleManager::instance());
+  titleManager->initialize();
+  (ObjectManager::instance()).registerObject(titleManager);
+  
   SceneBase::enter();
 }
 
 void TitleScene::exit() {
   SceneBase::exit();
+  delete titleManager;
+  titleManager = nullptr;
 }
 
-void TitleScene::update(GLfloat deltaTime) {
-  SceneBase::update(deltaTime);
-  updateCnt++;
-  if (updateCnt >= 60) {
-    (SceneManager::instance()).switchSceneTo(EScene::Game);
-  }
-}
 
 NS_END

@@ -11,12 +11,14 @@
 
 #include "SceneBase.hpp"
 
+#include "TitleManager.hpp"
+
 US_NS_ENGINE
 
 NS_GAME
 
 class TitleScene : public Scene::SceneBase {
-  int updateCnt;
+  TitleManager* titleManager;
   
 public:
   TitleScene();
@@ -24,7 +26,6 @@ public:
   
   virtual void enter();
   virtual void exit();
-  virtual void update(GLfloat deltaTime);
 };
 
 NS_END

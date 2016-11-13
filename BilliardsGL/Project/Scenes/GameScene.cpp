@@ -12,8 +12,7 @@
 
 NS_GAME
 
-GameScene::GameScene()
-{ /* do nothing */ }
+GameScene::GameScene() { /* do nothing */ }
 GameScene::~GameScene() { /* do nothing */ }
 
 void GameScene::enter() {
@@ -26,6 +25,8 @@ void GameScene::enter() {
 
 void GameScene::exit() {
   SceneBase::exit();
+  delete gameManager;
+  gameManager = nullptr;
 }
 
 NS_END
