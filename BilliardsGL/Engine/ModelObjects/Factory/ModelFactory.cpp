@@ -24,6 +24,11 @@ BaseModel3D* ModelFactory::instantiateSimpleModel(const EModel type) {
   return model;
 }
 
+
+Square* ModelFactory::createSquareModel(const Vector2D size) {
+  return new Square(Point2D::zero(), size);
+}
+
 Sphere* ModelFactory::createSphereModel(const GLfloat radius) {
   return new Sphere(Vector3D::zero(), radius, 100, 50);
 }

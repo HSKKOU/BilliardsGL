@@ -19,6 +19,9 @@ class ModelFactory {
   
 public:
   static BaseModel3D* instantiateSimpleModel(const EModel type);
+
+  static Square* createSquareModel(const Vector2D size);
+  
   static Sphere* createSphereModel(const GLfloat radius);
   static Cube* createCubeModel(const Vector3D size);
 };
