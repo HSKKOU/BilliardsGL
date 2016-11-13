@@ -17,11 +17,11 @@ void InputManager::initialize() { /* do nothing */ }
 
 
 void InputManager::pressedButton(EButton btn, Point2D point) {
-  std::cout << "pressed button  " << static_cast<int>(btn) << ": [" << point.x << ", " << point.y << "]" << std::endl;
+//  std::cout << "pressed button  " << static_cast<int>(btn) << ": [" << point.x << ", " << point.y << "]" << std::endl;
 }
 
 void InputManager::releasedButton(EButton btn, Point2D point) {
-  std::cout << "released button " << static_cast<int>(btn) << ": [" << point.x << ", " << point.y << "]" << std::endl;
+//  std::cout << "released button " << static_cast<int>(btn) << ": [" << point.x << ", " << point.y << "]" << std::endl;
 }
 
 NS_END
