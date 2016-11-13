@@ -41,6 +41,10 @@ public:
   Quaternion& operator*=(Quaternion _q);
   Vector3D operator*(const Vector3D _v3) const;
   Vector4D operator*(const Vector4D _v4) const;
+  Quaternion operator/(const GLfloat div) const;
+  
+  GLfloat squareLength() const;
+  Quaternion inverse() const;
   
   Matrix4D mat4() const;
   

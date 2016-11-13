@@ -39,12 +39,12 @@ Quaternion& Quaternion::operator*=(Quaternion _q) {
   return *this;
 }
 
-Vector4D Quaternion::operator*(const Vector4D _v4) const {
-  return mat4() * _v4;
-}
-Vector3D Quaternion::operator*(const Vector3D _v3) const {
-  return (*this * Vector4D(_v3, 1.0f)).vec3();
-}
+Vector4D Quaternion::operator*(const Vector4D _v4) const { return mat4() * _v4; }
+Vector3D Quaternion::operator*(const Vector3D _v3) const { return (*this * Vector4D(_v3, 1.0f)).vec3(); }
+Quaternion Quaternion::operator/(const GLfloat div) const { return Quaternion(vV/div, wF/div); }
+
+GLfloat Quaternion::squareLength() const { return vV.squareLength() + wF*wF; }
+Quaternion Quaternion::inverse() const { return Quaternion(vV*-1.0f, wF) / squareLength(); }
 
 Matrix4D Quaternion::mat4() const {
   Matrix4D m = Matrix4D::one();
