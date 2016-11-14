@@ -22,7 +22,7 @@ class TitleScene : public Scene::SceneBase {
   
 public:
   TitleScene();
-  virtual ~TitleScene();
+  ~TitleScene();
   
   virtual void enter();
   virtual void exit();

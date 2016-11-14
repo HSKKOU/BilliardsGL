@@ -28,7 +28,7 @@ class LightManager : public Singleton<LightManager> {
   std::vector<LightControllerBase*> lightCtrls;
   
 public:
-  virtual ~LightManager();
+  ~LightManager();
   void initialize();
   LightControllerBase* getLight() const;
   LightControllerBase* getLight(const int) const;

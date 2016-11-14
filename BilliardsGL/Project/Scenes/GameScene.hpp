@@ -22,7 +22,7 @@ class GameScene : public Scene::SceneBase {
   
 public:
   GameScene();
-  virtual ~GameScene();
+  ~GameScene();
   
   virtual void enter();
   virtual void exit();

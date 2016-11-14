@@ -32,7 +32,7 @@ class InputManager : public Singleton<InputManager> {
   UIManager* uiManagerDelegate;
   
 public:
-  virtual ~InputManager();
+  ~InputManager();
   void initialize();
   
   void setUIManagerDelegate(UIManager* delegate);

@@ -20,7 +20,7 @@ class WhiteBallController : public BallController {
   
 public:
   WhiteBallController(Transform t);
-  virtual ~WhiteBallController();
+  ~WhiteBallController();
   
   void virtual awake();
 };

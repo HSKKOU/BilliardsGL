@@ -45,7 +45,7 @@ class GameEngineManager : public Singleton<GameEngineManager> {
   FPSCounter &fps;
 
 public:
-  virtual ~GameEngineManager();
+  ~GameEngineManager();
   void initialize();
   void startMainLoop();
   

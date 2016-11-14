@@ -22,7 +22,7 @@ class Window {
   
 public:
   Window(int width = Const::WINDOW_WIDTH, int height = Const::WINDOW_WIDTH, const char *title = Const::WINDOW_TITLE);
-  virtual ~Window();
+  ~Window();
   
   void setInputManagerDelegate(InputManager* delegate);
   

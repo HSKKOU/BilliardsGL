@@ -25,7 +25,7 @@ class UIManager : public Singleton<UIManager> {
   std::vector<UIButton*> buttonList;
   
 public:
-  virtual ~UIManager();
+  ~UIManager();
   void initialize();
   
   void registerButton(UIButton* button);

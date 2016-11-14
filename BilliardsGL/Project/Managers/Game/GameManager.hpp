@@ -37,7 +37,7 @@ class GameManager : public BehaviorSingleton<GameManager> {
   Vector3D cameraDefaultPosition;
   
 public:
-  virtual ~GameManager();
+  ~GameManager();
   void initialize();
   
   virtual void awake();

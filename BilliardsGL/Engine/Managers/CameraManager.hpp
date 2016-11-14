@@ -26,7 +26,7 @@ class CameraManager : public Singleton<CameraManager> {
   std::vector<CameraControllerBase*> cameraCtrls;
   
 public:
-  virtual ~CameraManager();
+  ~CameraManager();
   void initialize();
   CameraControllerBase* getMainCamera() const;
   CameraControllerBase* getCamera(const int) const;

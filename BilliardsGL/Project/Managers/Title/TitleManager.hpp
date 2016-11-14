@@ -30,7 +30,7 @@ class TitleManager : public BehaviorSingleton<TitleManager>, public IButtonHandl
   UIButton* button;
   
 public:
-  virtual ~TitleManager();
+  ~TitleManager();
   void initialize();
   
   virtual void awake();
