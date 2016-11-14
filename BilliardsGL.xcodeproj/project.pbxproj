@@ -40,6 +40,7 @@
 		0DD156DD1DD037E200877E40 /* WhiteBallController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156DA1DD037E200877E40 /* WhiteBallController.cpp */; };
 		0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156DE1DD037F000877E40 /* GameManager.cpp */; };
 		0DD156E31DD037FE00877E40 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD156E11DD037FE00877E40 /* GameScene.cpp */; };
+		0DE015601DD9FEF70088941C /* BallManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0155E1DD9FEF70088941C /* BallManager.cpp */; };
 		0DFD6D7B1DD5A2AD00F99B5A /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */; };
 		0DFD6D831DD5AC1800F99B5A /* SceneFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D811DD5AC1800F99B5A /* SceneFactory.cpp */; };
 		0DFD6D891DD5CBCF00F99B5A /* Vector2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD6D871DD5CBCF00F99B5A /* Vector2D.cpp */; };
@@ -162,6 +163,8 @@
 		0DD156DF1DD037F000877E40 /* GameManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameManager.hpp; path = Project/Managers/Game/GameManager.hpp; sourceTree = "<group>"; };
 		0DD156E11DD037FE00877E40 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Project/Scenes/GameScene.cpp; sourceTree = "<group>"; };
 		0DD156E21DD037FE00877E40 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameScene.hpp; path = Project/Scenes/GameScene.hpp; sourceTree = "<group>"; };
+		0DE0155E1DD9FEF70088941C /* BallManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BallManager.cpp; path = Project/Managers/Game/BallManager.cpp; sourceTree = "<group>"; };
+		0DE0155F1DD9FEF70088941C /* BallManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BallManager.hpp; path = Project/Managers/Game/BallManager.hpp; sourceTree = "<group>"; };
 		0DFD6D761DD5923500F99B5A /* Textures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Textures.h; path = Engine/Headers/Headers/Textures.h; sourceTree = "<group>"; };
 		0DFD6D781DD59A9900F99B5A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Engine/Headers/Headers/Constants.h; sourceTree = "<group>"; };
 		0DFD6D791DD5A2AD00F99B5A /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleScene.cpp; path = Project/Scenes/TitleScene.cpp; sourceTree = "<group>"; };
@@ -506,6 +509,8 @@
 			children = (
 				0DD156DE1DD037F000877E40 /* GameManager.cpp */,
 				0DD156DF1DD037F000877E40 /* GameManager.hpp */,
+				0DE0155E1DD9FEF70088941C /* BallManager.cpp */,
+				0DE0155F1DD9FEF70088941C /* BallManager.hpp */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -815,6 +820,7 @@
 				0DD156A11DD02F4000877E40 /* SphereCollider.cpp in Sources */,
 				0DD156BE1DD02FCA00877E40 /* PerspectiveCameraController.cpp in Sources */,
 				0DD156971DD02F0300877E40 /* CameraManager.cpp in Sources */,
+				0DE015601DD9FEF70088941C /* BallManager.cpp in Sources */,
 				0DD156661DD02DF700877E40 /* Vector4D.cpp in Sources */,
 				0DFD6DB21DD839CD00F99B5A /* CubeCollider.cpp in Sources */,
 				0DD156651DD02DF700877E40 /* Vector3D.cpp in Sources */,

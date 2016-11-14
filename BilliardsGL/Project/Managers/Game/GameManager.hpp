@@ -16,8 +16,7 @@
 
 #include "Matrix.h"
 
-#include "BallController.hpp"
-#include "WhiteBallController.hpp"
+#include "BallManager.hpp"
 
 #include "Camera.h"
 
@@ -29,9 +28,7 @@ NS_GAME
 class GameManager : public BehaviorSingleton<GameManager> {
   friend class BehaviorSingleton<GameManager>;
   
-  // for Debug
-  BallController* whiteBall;
-  BallController* balls[15];
+  BallManager* ballManager;
   
   PerspectiveCameraController* mainCamera;
   Vector3D cameraDefaultPosition;
@@ -43,6 +40,8 @@ public:
   virtual void awake();
   virtual void start();
   virtual void update(GLfloat deltaTime);
+  
+  virtual void destroy();
   
 private:
   GameManager();

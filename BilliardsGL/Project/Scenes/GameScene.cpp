@@ -25,7 +25,6 @@ void GameScene::enter() {
 
 void GameScene::exit() {
   SceneBase::exit();
-  gameManager = nullptr;
 }
 
 NS_END
