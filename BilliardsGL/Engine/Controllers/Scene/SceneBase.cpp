@@ -18,7 +18,7 @@ void SceneBase::enter() { /* do nothing */ }
 
 void SceneBase::exit() {
   (ObjectManager::instance()).destroyObjects();
-  (UIManager::instance()).destroyUIs();
+  (UIManager::instance()).clearButtonList();
 }
 
 void SceneBase::update(GLfloat deltaTime) {

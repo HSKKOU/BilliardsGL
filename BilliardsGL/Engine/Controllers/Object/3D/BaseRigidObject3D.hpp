@@ -40,7 +40,7 @@ public:
   
   void addForce(float power, Vector3D dir);
   
-  bool isCollideWith(BaseRigidObject3D* other) const;
+  bool isCollideWith(BaseRigidObject3D* other);
   
   virtual void onCollisionEnter(BaseRigidObject3D* object);
   virtual void onCollisionStay(BaseRigidObject3D* object);

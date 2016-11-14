@@ -18,9 +18,7 @@ BaseRigidObject3D::BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D* 
 , collider(col)
 , mass(mass)
 , velocity(Vector3D::zero())
-{
-  col->setParentTransform(&transform);
-}
+{ /* do nothing */ }
 
 BaseRigidObject3D::~BaseRigidObject3D() {
   delete collider;
@@ -51,8 +49,8 @@ void BaseRigidObject3D::addForce(float power, Vector3D dir) {
 }
 
 
-bool BaseRigidObject3D::isCollideWith(BaseRigidObject3D* other) const {
-  return CollisionCalculator::isCollided(collider, other->getCollider3D());
+bool BaseRigidObject3D::isCollideWith(BaseRigidObject3D* other) {
+  return CollisionCalculator::isCollided(this, other);
 }
 
 void BaseRigidObject3D::onCollisionEnter(BaseRigidObject3D* object) { /* do nothing */ }

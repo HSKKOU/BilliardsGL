@@ -11,7 +11,7 @@
 NS_ENGINE
 
 CubeCollider::CubeCollider(Transform t, Vector3D s)
-: Engine::ColliderBase3D(t), size(s)
+: Engine::ColliderBase3D(t, COL_TYPE::CUBE), size(s)
 { /* do nothing */ }
 CubeCollider::CubeCollider(Vector3D s)
 : CubeCollider(Transform::identity(), s)

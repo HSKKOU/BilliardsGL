@@ -18,8 +18,8 @@ class CollisionCalculator {
   constexpr static const GLfloat COL_SPRING_CST = 23.0f;
   
 public:
-  static bool isCollided(ColliderBase3D* col1, ColliderBase3D* col2);
-  static bool isCollidedBetweenSphere(SphereCollider* col1, SphereCollider* col2);
+  static bool isCollided(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
+  static bool isCollidedBetweenSphere(SphereCollider* col1, SphereCollider* col2, Vector3D objectCenterDist);
   
   static void calcCollidedVelocityBetweenSphere(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
 };

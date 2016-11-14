@@ -13,10 +13,7 @@
 NS_GAME
 
 TitleManager::TitleManager() { /* do nothing */ }
-TitleManager::~TitleManager() {
-  panel = nullptr;
-  button = nullptr;
-}
+TitleManager::~TitleManager() { destroy(); }
 
 void TitleManager::initialize() {
   // set background color
@@ -34,6 +31,12 @@ void TitleManager::awake() { /* do nothing */ }
 void TitleManager::start() { /* do nothing */ }
 void TitleManager::update(GLfloat deltaTime) { /* do nothing */ }
 
+void TitleManager::destroy() {
+  delete panel;
+  panel = nullptr;
+  delete button;
+  button = nullptr;
+}
 
 void TitleManager::onButtonDown() {
   std::cout << "button down" << std::endl;

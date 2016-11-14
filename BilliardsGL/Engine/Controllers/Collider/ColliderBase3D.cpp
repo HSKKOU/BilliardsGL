@@ -10,13 +10,14 @@
 
 NS_ENGINE
 
-ColliderBase3D::ColliderBase3D(Transform local)
+ColliderBase3D::ColliderBase3D(Transform local, COL_MASK cType)
 : Engine::Base3D(local)
+, colliderType(cType)
 { /* do nothing */ }
 ColliderBase3D::~ColliderBase3D() { /* do nothing */ }
 
-void ColliderBase3D::setParentTransform(Transform* t) { parentTransform = t; }
+Vector3D ColliderBase3D::getPosition() const { return transform.position; }
 
-Vector3D ColliderBase3D::getPosition() const { return parentTransform->position + transform.position; }
+COL_MASK ColliderBase3D::getColliderType() const { return colliderType; }
 
 NS_END

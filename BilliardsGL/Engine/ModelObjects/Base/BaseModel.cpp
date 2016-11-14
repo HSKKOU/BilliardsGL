@@ -17,7 +17,10 @@ BaseModel::BaseModel()
 , shaderProgram(-1)
 , shaders(Shaders())
 { /* do nothing */ }
-BaseModel::~BaseModel() { glDeleteVertexArrays(1, &vertices.vao); }
+BaseModel::~BaseModel() {
+  glDeleteProgram(shaderProgram);
+  glDeleteVertexArrays(1, &vertices.vao);
+}
 
 
 // color accessor

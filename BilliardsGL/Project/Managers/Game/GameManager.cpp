@@ -51,7 +51,7 @@ void GameManager::awake() {
 }
 
 void GameManager::start() {
-  whiteBall->addForce(40.0f, Vector3D::forward());
+  whiteBall->addForce(35.0f, Vector3D::forward());
 }
 
 

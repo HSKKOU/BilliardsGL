@@ -37,6 +37,7 @@ public:
   virtual void start();
   virtual void update(GLfloat deltaTime);
   
+  virtual void destroy();
   
   void onButtonDown();
   void onButtonDownRepeat();

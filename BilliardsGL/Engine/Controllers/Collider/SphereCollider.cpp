@@ -11,7 +11,7 @@
 NS_ENGINE
 
 SphereCollider::SphereCollider(Transform t, GLfloat r)
-: Engine::ColliderBase3D(t), radius(r)
+: Engine::ColliderBase3D(t, COL_TYPE::SPHERE), radius(r)
 { /* do nothing */ }
 SphereCollider::SphereCollider(GLfloat r)
 : SphereCollider(Transform::identity(), r)

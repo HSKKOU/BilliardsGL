@@ -121,8 +121,6 @@ void ObjectManager::destroyObjects() {
   objectList.clear();
   rigidObjectList.clear();
   movableRigidObjectList.clear();
-  
-  
 }
 
 

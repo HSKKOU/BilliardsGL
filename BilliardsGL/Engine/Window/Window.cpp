@@ -44,9 +44,9 @@ void Window::setInputManagerDelegate(InputManager* delegate) { inputManagerDeleg
 int Window::shouldClose() const { return glfwWindowShouldClose(window); }
 
 void Window::swapBuffers() {
-  glfwSwapBuffers(window);
-  
   sendMouseEvent();
+
+  glfwSwapBuffers(window);
 
   glfwPollEvents();
 

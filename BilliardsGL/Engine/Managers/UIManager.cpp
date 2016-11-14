@@ -44,9 +44,6 @@ void UIManager::recieveEventReleased(Point2D p) {
   }
 }
 
-void UIManager::destroyUIs() {
-  for (UIButton* btn : buttonList) { delete btn; btn = nullptr; }
-  buttonList.clear();
-}
+void UIManager::clearButtonList() { buttonList.clear(); }
 
 NS_END
