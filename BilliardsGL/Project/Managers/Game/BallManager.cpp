@@ -8,9 +8,11 @@
 
 #include "BallManager.hpp"
 
+#include "SceneManager.hpp"
+
 NS_GAME
 
-BallManager::BallManager() { /* do nothing */ }
+BallManager::BallManager() : isStoppingAllBalls(true), isHaveShot(false) { /* do nothing */ }
 BallManager::~BallManager() {
   delete whiteBall;
   whiteBall = nullptr;
@@ -24,6 +26,8 @@ BallManager::~BallManager() {
 
 
 void BallManager::initialize() {
+  isStoppingAllBalls = true;
+  isHaveShot = false;
   whiteBall = new WhiteBallController(Transform::identity());
   (ObjectManager::instance()).registerObject(whiteBall);
   whiteBall->translateTo(Vector3D::back()*30.0f);
@@ -43,8 +47,33 @@ void BallManager::initialize() {
   }
 }
 
+
+void BallManager::awake() { /* do nothing */ }
+
+void BallManager::update(GLfloat deltaTime) {
+  isStoppingAllBalls = true;
+  if (!whiteBall->isStopping()) {
+    isStoppingAllBalls = false;
+    std::cout << "white ball moving" << std::endl;
+    return;
+  }
+  for (BallController* ball : ballList) {
+    if (!ball->isStopping()) {
+      isStoppingAllBalls = false;
+      std::cout << "ball " << ball->getNum() << " moving" << std::endl;
+      break;
+    }
+  }
+  
+  if (isHaveShot && isStoppingAllBalls) {
+    (SceneManager::instance()).switchSceneTo(EScene::Title);
+  }
+}
+
+
 void BallManager::shotWhiteBall() {
   whiteBall->addForce(35.0f, Vector3D::forward());
+  isHaveShot = true;
 }
 
 NS_END

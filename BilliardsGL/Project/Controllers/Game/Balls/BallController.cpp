@@ -23,7 +23,8 @@ void BallController::awake() {
   createBall(TexUtil::toTex(TexUtil::toInt(ETex::Ball00)+number));
 }
 
-
+bool BallController::isStopping() { return velocity == Vector3D::zero(); }
+int BallController::getNum() const { return number; }
 
 void BallController::createBall(ETex texture) {
   SphereRigidObject3D::createSphereModel(texture, Color::one());

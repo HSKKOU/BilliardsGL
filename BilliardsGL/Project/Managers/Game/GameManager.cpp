@@ -27,6 +27,7 @@ void GameManager::awake() {
   
   ballManager = &(BallManager::instance());
   ballManager->initialize();
+  (ObjectManager::instance()).registerObject(ballManager);
 }
 
 void GameManager::start() {
@@ -39,7 +40,6 @@ void GameManager::update(GLfloat deltaTime) {
 }
 
 void GameManager::destroy() {
-  delete ballManager;
   ballManager = nullptr;
 }
 

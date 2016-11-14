@@ -29,6 +29,9 @@ public:
   
   void virtual awake();
   
+  bool isStopping();
+  int getNum() const;
+  
 protected:
   void createBall(ETex texture);
 };

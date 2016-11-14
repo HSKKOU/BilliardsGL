@@ -9,7 +9,7 @@
 #ifndef BallManager_hpp
 #define BallManager_hpp
 
-#include "Singleton.h"
+#include "BehaviorSingleton.h"
 
 #include <vector>
 
@@ -22,18 +22,23 @@ US_NS_ENGINE_UTIL
 
 NS_GAME
 
-class BallManager : public Singleton<BallManager> {
-  friend class Singleton<BallManager>;
+class BallManager : public BehaviorSingleton<BallManager> {
+  friend class BehaviorSingleton<BallManager>;
   
   std::vector<BallController*> ballList;
   WhiteBallController* whiteBall;
   
   // for Debug
   static const int BALL_NUM = 15;
+  bool isStoppingAllBalls;
+  bool isHaveShot;
   
 public:
   ~BallManager();
   void initialize();
+  
+  void awake();
+  virtual void update(GLfloat deltaTime);
   
   void shotWhiteBall();
   
