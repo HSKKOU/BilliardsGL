@@ -81,15 +81,7 @@ void GameEngineManager::startMainLoop() {
   
   
   // set main light
-  LightControllerBase *light0 = new DirectionalLightController
-  (
-   Vector3D(0.0f, 30.0f, 0.0f),
-   Vector3D::one(),
-   Vector3D::one(),
-   Vector3D::one()*0.25f,
-   Vector3D::one(),
-   Vector4D::one()
-   );
+  LightControllerBase *light0 = new SpotLightController(Vector3D(0.0f, 30.0f, 0.0f));
   lightManager.addLight(light0);
   
   

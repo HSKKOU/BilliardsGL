@@ -22,7 +22,7 @@ void main() {
   
   // directional or spot light
   vec3 lDir = lightDir;
-  if (lDir == vec3(0.0f)) {
+  if (length(lDir) == 0.0f) {
     lDir = normalize(lightPos - fragPos);
   }
 

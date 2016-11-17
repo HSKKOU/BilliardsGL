@@ -33,7 +33,11 @@ Vector3D Vector3D::cross(const Vector3D v) const { return Vector3D(y*v.z-z*v.y, 
 
 GLfloat Vector3D::length() const { return (GLfloat)sqrt(x*x+y*y+z*z); }
 GLfloat Vector3D::squareLength() const { return x*x+y*y+z*z; }
-Vector3D Vector3D::normalize() const { return this->operator/(length()); }
+Vector3D Vector3D::normalize() const {
+  GLfloat l = length();
+  if (l == 0.0f) { return Vector3D::zero(); }
+  return *this/l;
+}
 
 Vector3D Vector3D::zero() { return Vector3D(0.0f, 0.0f, 0.0f); }
 Vector3D Vector3D::one() { return Vector3D(1.0f, 1.0f, 1.0f); }

@@ -1,34 +1,29 @@
 //
-//  DirectionalLightController.hpp
+//  SpotLightController.hpp
 //  BilliardsGL
 //
-//  Created by 比佐 幸基 on 2016/09/26.
+//  Created by 比佐 幸基 on 2016/11/18.
 //  Copyright © 2016年 比佐 幸基. All rights reserved.
 //
 
-#ifndef DirectionalLightController_hpp
-#define DirectionalLightController_hpp
-
-#include "GlobalHeader.h"
+#ifndef SpotLightController_hpp
+#define SpotLightController_hpp
 
 #include "LightControllerBase.hpp"
 
 NS_ENGINE_LIGHT
 
-class DirectionalLightController : public LightControllerBase {
+class SpotLightController : public LightControllerBase {
   
 public:
-  DirectionalLightController(
+  SpotLightController(
    Vector3D _position,
-   Vector3D _direction = Vector3D::down(),
    Vector3D _diffuse = Vector3D::one(),
    Vector3D _ambient = Vector3D::one(),
    Vector3D _specular = Vector3D::one(),
    Vector4D _color = Vector4D::one()
   );
-  virtual ~DirectionalLightController();
-  
-  void setDirection(Vector3D);
+  virtual ~SpotLightController();
   
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar);
   
@@ -37,4 +32,4 @@ public:
 
 NS_END2
 
-#endif /* DirectionalLightController_hpp */
+#endif /* SpotLightController_hpp */

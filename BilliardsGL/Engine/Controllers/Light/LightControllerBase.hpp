@@ -53,6 +53,8 @@ public:
   Matrix4D getDepthProjectionMatrix() const;
   Matrix4D getDepthViewMatrix() const;
   
+  virtual void calcViewMatrix();
+  
   virtual void updateLight();
 };
 

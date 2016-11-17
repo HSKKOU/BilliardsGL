@@ -16,6 +16,7 @@
 #include "LightControllerBase.hpp"
 
 #include "DirectionalLightController.hpp"
+#include "SpotLightController.hpp"
 
 US_NS_ENGINE_UTIL
 US_NS_ENGINE_LIGHT

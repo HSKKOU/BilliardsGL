@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
 		0D0C85581DD2E266004DE063 /* CollisionCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */; };
+		0D874A4D1DDE0AB000728B74 /* SpotLightController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D874A4B1DDE0AB000728B74 /* SpotLightController.cpp */; };
 		0DD156631DD02DF700877E40 /* Matrix4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */; };
 		0DD156641DD02DF700877E40 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565D1DD02DF700877E40 /* Quaternion.cpp */; };
 		0DD156651DD02DF700877E40 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565F1DD02DF700877E40 /* Vector3D.cpp */; };
@@ -80,6 +81,10 @@
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CollisionCalculator.cpp; path = Engine/Controllers/Collider/CollisionCalculator.cpp; sourceTree = "<group>"; };
 		0D0C85571DD2E266004DE063 /* CollisionCalculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CollisionCalculator.hpp; path = Engine/Controllers/Collider/CollisionCalculator.hpp; sourceTree = "<group>"; };
+		0D874A491DDDE1BF00728B74 /* ShadowTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = ShadowTest.vert; path = Shaders/Project/test/ShadowTest.vert; sourceTree = "<group>"; };
+		0D874A4A1DDDE1D900728B74 /* ShadowTest.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = ShadowTest.frag; path = Shaders/Project/test/ShadowTest.frag; sourceTree = "<group>"; };
+		0D874A4B1DDE0AB000728B74 /* SpotLightController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpotLightController.cpp; path = Engine/Controllers/Light/SpotLightController.cpp; sourceTree = "<group>"; };
+		0D874A4C1DDE0AB000728B74 /* SpotLightController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SpotLightController.hpp; path = Engine/Controllers/Light/SpotLightController.hpp; sourceTree = "<group>"; };
 		0DD156591DD02CE400877E40 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GlobalHeader.h; path = Headers/GlobalHeader.h; sourceTree = "<group>"; };
 		0DD1565A1DD02DF700877E40 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix.h; path = Engine/Headers/Headers/Math/Matrix.h; sourceTree = "<group>"; };
 		0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4D.cpp; path = Engine/Headers/Headers/Math/Matrix4D.cpp; sourceTree = "<group>"; };
@@ -317,6 +322,8 @@
 				0DD156D31DD036EB00877E40 /* LightTest.vert */,
 				0DD156D41DD036EB00877E40 /* point.frag */,
 				0DD156D51DD036EB00877E40 /* point.vert */,
+				0D874A4A1DDDE1D900728B74 /* ShadowTest.frag */,
+				0D874A491DDDE1BF00728B74 /* ShadowTest.vert */,
 			);
 			name = test;
 			sourceTree = "<group>";
@@ -586,6 +593,8 @@
 			children = (
 				0DD156B21DD02FB100877E40 /* DirectionalLightController.cpp */,
 				0DD156B31DD02FB100877E40 /* DirectionalLightController.hpp */,
+				0D874A4B1DDE0AB000728B74 /* SpotLightController.cpp */,
+				0D874A4C1DDE0AB000728B74 /* SpotLightController.hpp */,
 				0DD156B41DD02FB100877E40 /* LightControllerBase.cpp */,
 				0DD156B51DD02FB100877E40 /* LightControllerBase.hpp */,
 			);
@@ -827,6 +836,7 @@
 				0DFD6D831DD5AC1800F99B5A /* SceneFactory.cpp in Sources */,
 				0DFD6DBA1DD83FB800F99B5A /* TitleManager.cpp in Sources */,
 				0DD1569A1DD02F0300877E40 /* ObjectManager.cpp in Sources */,
+				0D874A4D1DDE0AB000728B74 /* SpotLightController.cpp in Sources */,
 				0DD156761DD02E5B00877E40 /* TextureLoader.cpp in Sources */,
 				0DFD6DC81DD852B200F99B5A /* UIBase.cpp in Sources */,
 				0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */,

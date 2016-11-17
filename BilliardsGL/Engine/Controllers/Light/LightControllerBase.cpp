@@ -28,6 +28,7 @@ LightControllerBase::LightControllerBase(
 //  glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse.v);
 //  glLightfv(GL_LIGHT0, GL_AMBIENT, ambient.v);
 //  glLightfv(GL_LIGHT0, GL_SPECULAR, specular.v);
+  calcViewMatrix();
 }
 
 LightControllerBase::~LightControllerBase() { /* do nothing */ }
@@ -48,6 +49,30 @@ Vector3D LightControllerBase::getDirection() const { return direction; }
 
 Matrix4D LightControllerBase::getDepthProjectionMatrix() const { return depthViewMatrix; }
 Matrix4D LightControllerBase::getDepthViewMatrix() const { return depthViewMatrix; }
+
+void LightControllerBase::calcViewMatrix() {
+  Vector3D f = transform.forward();
+  Vector3D s = f.cross(transform.up()).normalize();
+  Vector3D u = s.cross(f);
+  
+  Matrix4D view = Matrix4D::one();
+  view[0][0] = s.x;
+  view[1][0] = s.y;
+  view[2][0] = s.z;
+  view[0][1] = u.x;
+  view[1][1] = u.y;
+  view[2][1] = u.z;
+  view[0][2] =-f.x;
+  view[1][2] =-f.y;
+  view[2][2] =-f.z;
+  view[3][0] =-s.dot(transform.position);
+  view[3][1] =-u.dot(transform.position);
+  view[3][2] = f.dot(transform.position);
+  
+  depthViewMatrix = view;
+}
+
+
 
 void LightControllerBase::updateLight() {
   static GLfloat lightPos[4] = { 0.0f, 10.0f, 0.0f, 1.0f };
