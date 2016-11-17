@@ -27,7 +27,7 @@ bool BallController::isStopping() { return velocity == Vector3D::zero(); }
 int BallController::getNum() const { return number; }
 
 void BallController::createBall(ETex texture) {
-  SphereRigidObject3D::createSphereModel(texture, Color::one());
+  Sphere* sphereModel = SphereRigidObject3D::createSphereModel(texture, Color::one());
 }
 
 NS_END

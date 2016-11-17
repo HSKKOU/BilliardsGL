@@ -12,7 +12,6 @@
 #include "BaseRigidObject3D.hpp"
 
 #include "Sphere.hpp"
-
 #include "ModelFactory.hpp"
 
 NS_ENGINE
@@ -27,7 +26,7 @@ public:
   virtual void updatePhysics(GLfloat deltaTime);
   
 protected:
-  virtual void createSphereModel(ETex tex, Color c);
+  Sphere* createSphereModel(ETex tex, Color c);
 };
 
 NS_END
