@@ -12,6 +12,8 @@
 #include "ObjectBehavior.hpp"
 #include "CubeRigidObject3D.hpp"
 
+#include "ObjectManager.hpp"
+
 #include <vector>
 
 US_NS_ENGINE
@@ -24,9 +26,10 @@ class BoardController : public Base3D, public ObjectBehavior {
 public:
   BoardController(Transform t);
   ~BoardController();
+  void setupStage();
   
 private:
-  void setupStage();
+  CubeRigidObject3D* createFloor();
 };
 
 NS_END

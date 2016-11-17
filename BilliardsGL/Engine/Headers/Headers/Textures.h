@@ -34,6 +34,7 @@ enum class ETex : int {
   Ball14,
   Ball15,
   Stone,
+  BFloor,
   Num,
 };
 
@@ -59,7 +60,8 @@ public:
       { ETex::Ball13, "Ball13"     },
       { ETex::Ball14, "Ball14"     },
       { ETex::Ball15, "Ball15"     },
-      { ETex::Stone , "BrownStony" },
+      { ETex::Stone , "Stone"      },
+      { ETex::BFloor, "Floor"      },
     };
   }
   

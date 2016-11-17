@@ -65,9 +65,9 @@ void BallManager::update(GLfloat deltaTime) {
     }
   }
   
-  if (isHaveShot && isStoppingAllBalls) {
-    (SceneManager::instance()).switchSceneTo(EScene::Title);
-  }
+//  if (isHaveShot && isStoppingAllBalls) {
+//    (SceneManager::instance()).switchSceneTo(EScene::Title);
+//  }
 }
 
 

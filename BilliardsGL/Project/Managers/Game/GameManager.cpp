@@ -22,12 +22,18 @@ void GameManager::initialize() {
 }
 
 void GameManager::awake() {
-//  mainCamera = (PerspectiveCameraController*)(CameraManager::instance()).getMainCamera();
-//  cameraDefaultPosition = mainCamera->getPosition();
+  mainCamera = (PerspectiveCameraController*)(CameraManager::instance()).getMainCamera();
+  mainCamera->translateTo(Vector3D(0.0f, 30.0f, 30.0f));
+  mainCamera->rotate(Quaternion(Vector3D::left(), M_PI/4.0f));
+  cameraDefaultPosition = mainCamera->getPosition();
   
   ballManager = &(BallManager::instance());
   ballManager->initialize();
   (ObjectManager::instance()).registerObject(ballManager);
+  
+  boardCtrl = new BoardController(Transform::identity());
+  (ObjectManager::instance()).registerObject(boardCtrl);
+  boardCtrl->setupStage();
 }
 
 void GameManager::start() {
@@ -37,10 +43,14 @@ void GameManager::start() {
 
 void GameManager::update(GLfloat deltaTime) {
 //  mainCamera->translateTo(cameraDefaultPosition + Vector3D::forward() * sinf(glfwGetTime() * 3.0f));
+//  mainCamera->translateTo(cameraDefaultPosition + Vector3D::up()*30.0f + Vector3D::down() * glfwGetTime());
 }
 
 void GameManager::destroy() {
   ballManager = nullptr;
+  
+  delete boardCtrl;
+  boardCtrl = nullptr;
 }
 
 NS_END

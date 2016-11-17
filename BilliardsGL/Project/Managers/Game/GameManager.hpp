@@ -13,11 +13,10 @@
 #include "BehaviorSingleton.h"
 
 #include "ObjectManager.hpp"
+#include "BallManager.hpp"
+#include "BoardController.hpp"
 
 #include "Matrix.h"
-
-#include "BallManager.hpp"
-
 #include "Camera.h"
 
 US_NS_ENGINE
@@ -29,6 +28,7 @@ class GameManager : public BehaviorSingleton<GameManager> {
   friend class BehaviorSingleton<GameManager>;
   
   BallManager* ballManager;
+  BoardController* boardCtrl;
   
   PerspectiveCameraController* mainCamera;
   Vector3D cameraDefaultPosition;
