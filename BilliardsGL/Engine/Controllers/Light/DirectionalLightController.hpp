@@ -16,7 +16,6 @@
 NS_ENGINE_LIGHT
 
 class DirectionalLightController : public LightControllerBase {
-  Vector3D direction;
   
 public:
   DirectionalLightController(
@@ -29,7 +28,6 @@ public:
   );
   virtual ~DirectionalLightController();
   
-  Vector3D getDirection() const;
   void setDirection(Vector3D);
   
   void updateLight();

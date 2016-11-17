@@ -21,6 +21,12 @@ protected:
   Vector3D ambient;
   Vector3D specular;
   Vector4D color;
+
+  Vector3D direction;
+  
+  Matrix4D depthProjectionMatrix;
+  Matrix4D depthViewMatrix;
+
   
 public:
   LightControllerBase(
@@ -28,7 +34,8 @@ public:
    Vector3D _diffuse = Vector3D::one(),
    Vector3D _ambient = Vector3D::one(),
    Vector3D _specular = Vector3D::one(),
-   Vector4D _color = Vector4D::one()
+   Vector4D _color = Vector4D::one(),
+   Vector3D _direction = Vector3D::zero()
   );
   virtual ~LightControllerBase();
   
@@ -40,6 +47,11 @@ public:
   void setSpecular(Vector3D);
   Vector4D getColor() const;
   void setColor(Vector4D);
+  
+  virtual Vector3D getDirection() const;
+  
+  Matrix4D getDepthProjectionMatrix() const;
+  Matrix4D getDepthViewMatrix() const;
   
   virtual void updateLight();
 };

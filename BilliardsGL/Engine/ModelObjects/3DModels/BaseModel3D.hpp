@@ -38,9 +38,10 @@ struct ShaderLocs3D {
   GLint modelLoc;
   GLint objectColorLoc;
   GLint lightPosLoc;
+  GLint lightDirLoc;
   GLint lightColorLoc;
   GLint cameraPosLoc;
-  ShaderLocs3D() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightColorLoc = cameraPosLoc = -1; }
+  ShaderLocs3D() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightDirLoc = lightColorLoc = cameraPosLoc = -1; }
 };
 
 

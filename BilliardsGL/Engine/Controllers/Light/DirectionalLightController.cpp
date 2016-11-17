@@ -18,15 +18,11 @@ DirectionalLightController::DirectionalLightController(
  Vector3D _specular,
  Vector4D _color
 )
-: LightControllerBase(_position, _diffuse, _ambient, _specular, _color)
-, direction(_direction)
-{
-  
-}
+: LightControllerBase(_position, _diffuse, _ambient, _specular, _color, _direction)
+{ /* do nothing */ }
 
 DirectionalLightController::~DirectionalLightController() { /* do nothing */ }
 
-Vector3D DirectionalLightController::getDirection() const { return direction; }
 void DirectionalLightController::setDirection(Vector3D _direction) { direction = _direction; }
 
 void DirectionalLightController::updateLight() {
