@@ -11,6 +11,9 @@
 
 #include "BaseRigidObject3D.hpp"
 
+#include "Sphere.hpp"
+#include "ModelFactory.hpp"
+
 NS_ENGINE
 
 class CubeRigidObject3D : public BaseRigidObject3D {
@@ -21,6 +24,9 @@ public:
   virtual ~CubeRigidObject3D();
   
   virtual void updatePhysics(GLfloat deltaTime);
+  
+protected:
+  Cube* createCubeModel(ETex tex, Color c);
 };
 
 NS_END

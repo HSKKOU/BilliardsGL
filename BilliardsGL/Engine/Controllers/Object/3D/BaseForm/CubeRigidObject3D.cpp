@@ -24,4 +24,13 @@ void CubeRigidObject3D::updatePhysics(GLfloat deltaTime) {
   // TODO: calc rolling
 }
 
+Cube* CubeRigidObject3D::createCubeModel(ETex tex, Color c) {
+  Cube* cubeModel = ModelFactory::createCubeModel(size);
+  cubeModel->loadShaderProgram("Shaders/Project/test/LightTest.vert", "Shaders/Project/test/LightTest.frag");
+  cubeModel->setTexture(tex);
+  cubeModel->setObjectColor(c);
+  modelList.emplace_back(cubeModel);
+  return cubeModel;
+}
+
 NS_END
