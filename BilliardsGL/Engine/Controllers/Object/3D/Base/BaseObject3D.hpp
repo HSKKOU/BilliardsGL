@@ -19,13 +19,32 @@ US_NS_ENGINE_MODEL
 
 NS_ENGINE
 
+struct ShaderPair {
+  const char* vert = "Shaders/Project/test/LightTest.vert";
+  const char* frag = "Shaders/Project/test/LightTest.frag";
+  ShaderPair() { /* do nothing */ }
+};
+
+struct Surface {
+  ETex texture;
+  Color color;
+  ShaderPair shaders;
+  Surface(ETex tex = ETex::None, Color c = Color::one(), ShaderPair sp = ShaderPair())
+  : texture(tex)
+  , color(c)
+  , shaders(sp)
+  { /* do nothing */ }
+};
+
 class BaseObject3D : public Base3D, public ObjectBehavior {
 protected:
   std::vector<BaseModel3D*> modelList;
+  Surface surface;
+
   
 public:
   BaseObject3D();
-  BaseObject3D(Transform t);
+  BaseObject3D(Transform t, Surface surf);
   virtual ~BaseObject3D();
     
   virtual void awake();
@@ -35,7 +54,9 @@ public:
   virtual void draw();
   virtual void destroy();
   
-  virtual void setTransform(Transform trsf);
+  void setTransform(Transform trsf);
+  void setColor(Color c);
+  Color getColor() const;
   
   virtual void translateTo(Vector3D dest);
   virtual void rotation(Quaternion rot);
@@ -43,6 +64,10 @@ public:
   
   virtual void translate(Vector3D delta);
   virtual void rotate(Quaternion rot);
+
+protected:
+  virtual BaseModel3D* createModel() = 0;
+  BaseModel3D* createModelWithSetSurface();
 };
 
 NS_END

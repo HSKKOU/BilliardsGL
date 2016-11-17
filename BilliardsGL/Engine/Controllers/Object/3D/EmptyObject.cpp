@@ -10,7 +10,9 @@
 
 NS_ENGINE
 
-EmptyObject::EmptyObject(Transform t) : Engine::BaseObject3D(t) { /* do nothing */ }
+EmptyObject::EmptyObject(Transform t)
+: Engine::BaseObject3D(t, Surface())
+{ /* do nothing */ }
 EmptyObject::~EmptyObject() { /* do nothing */ }
 
 NS_END

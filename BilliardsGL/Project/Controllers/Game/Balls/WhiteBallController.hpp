@@ -21,10 +21,7 @@ class WhiteBallController : public BallController {
 public:
   WhiteBallController(Transform t);
   ~WhiteBallController();
-  
-  void virtual awake();
 };
-
 NS_END
 
 #endif /* WhiteBallController_hpp */

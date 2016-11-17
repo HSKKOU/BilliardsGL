@@ -20,13 +20,16 @@ class CubeRigidObject3D : public BaseRigidObject3D {
   Vector3D size;
   
 public:
-  CubeRigidObject3D(Transform t, GLfloat mass, Vector3D s);
+  CubeRigidObject3D(Transform t, Vector3D s, RigidBody rig, Surface surf);
   virtual ~CubeRigidObject3D();
+  
+  void setSize(Vector3D s);
+  Vector3D getSize() const;
   
   virtual void updatePhysics(GLfloat deltaTime);
   
 protected:
-  Cube* createCubeModel(ETex tex, Color c);
+  virtual BaseModel3D* createModel();
 };
 
 NS_END

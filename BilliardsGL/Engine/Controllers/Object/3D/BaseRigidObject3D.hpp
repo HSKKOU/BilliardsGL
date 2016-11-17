@@ -15,22 +15,29 @@
 
 NS_ENGINE
 
+struct RigidBody {
+  GLfloat mass;
+  ColliderBase3D* collider;
+  Vector3D velocity;
+  RigidBody(GLfloat m = 0.0f, ColliderBase3D* col = nullptr, Vector3D vec = Vector3D::zero())
+  : mass(m)
+  , collider(col)
+  , velocity(vec)
+  { /* do nothing */ }
+};
+
 class BaseRigidObject3D : public BaseObject3D {
 protected:
-  GLfloat mass;
-  Vector3D velocity;
-  
-  ColliderBase3D* collider;
-  
+  RigidBody rigidBody;
+
 public:
-  BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D* col);
+  BaseRigidObject3D(Transform t, RigidBody rig, Surface surf);
   virtual ~BaseRigidObject3D();
   
   GLfloat getMass() const;
   Vector3D getVelocity() const;
   ColliderBase3D* getCollider3D() const;
-  
-  void setVelocity(Vector3D v);
+    
   
   virtual bool isRigid() const;
   virtual bool isCollidable() const;

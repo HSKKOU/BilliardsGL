@@ -20,13 +20,16 @@ class SphereRigidObject3D : public BaseRigidObject3D {
   GLfloat radius;
   
 public:
-  SphereRigidObject3D(Transform t, GLfloat mass, GLfloat r);
+  SphereRigidObject3D(Transform t, GLfloat r, RigidBody rig, Surface surf);
   virtual ~SphereRigidObject3D();
+  
+  void setRadius(GLfloat r);
+  GLfloat getRadius() const;
   
   virtual void updatePhysics(GLfloat deltaTime);
   
 protected:
-  Sphere* createSphereModel(ETex tex, Color c);
+  virtual BaseModel3D* createModel();
 };
 
 NS_END

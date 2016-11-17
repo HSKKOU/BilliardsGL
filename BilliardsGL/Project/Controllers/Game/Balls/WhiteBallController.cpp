@@ -13,8 +13,4 @@ NS_GAME
 WhiteBallController::WhiteBallController(Transform t) : Game::BallController(t) { /* do nothing */ }
 WhiteBallController::~WhiteBallController() { /* do nothing */ }
 
-void WhiteBallController::awake() {
-  createBall(ETex::Ball00);
-}
-
 NS_END

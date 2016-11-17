@@ -10,27 +10,22 @@
 
 NS_ENGINE
 
-CubeRigidObject3D::CubeRigidObject3D(Transform t, GLfloat mass, Vector3D s)
-: Engine::BaseRigidObject3D(t, mass, new CubeCollider(s))
+CubeRigidObject3D::CubeRigidObject3D(Transform t, Vector3D s, RigidBody rig, Surface surf)
+: Engine::BaseRigidObject3D(t, rig, surf)
 , size(s)
 { /* do nothing */ }
 
 CubeRigidObject3D::~CubeRigidObject3D() { /* do nothing */ }
 
+void CubeRigidObject3D::setSize(Vector3D s) { size = s; }
+Vector3D CubeRigidObject3D::getSize() const { return size; }
 
 void CubeRigidObject3D::updatePhysics(GLfloat deltaTime) {
   BaseRigidObject3D::updatePhysics(deltaTime);
-  if (velocity == Vector3D::zero()) { return; }
+  if (rigidBody.velocity == Vector3D::zero()) { return; }
   // TODO: calc rolling
 }
 
-Cube* CubeRigidObject3D::createCubeModel(ETex tex, Color c) {
-  Cube* cubeModel = ModelFactory::createCubeModel(size);
-  cubeModel->loadShaderProgram("Shaders/Project/test/LightTest.vert", "Shaders/Project/test/LightTest.frag");
-  cubeModel->setTexture(tex);
-  cubeModel->setObjectColor(c);
-  modelList.emplace_back(cubeModel);
-  return cubeModel;
-}
+BaseModel3D* CubeRigidObject3D::createModel() { return ModelFactory::createCubeModel(size); }
 
 NS_END

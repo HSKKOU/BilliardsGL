@@ -12,22 +12,17 @@ NS_GAME
 
 BallController::BallController(Transform t) : BallController::BallController(t, 0) { /* do nothing */ }
 BallController::BallController(Transform t, int n)
-: Engine::SphereRigidObject3D(t, 1.0f, 1.0f)
+: Engine::SphereRigidObject3D(t, 1.0f, ballRigidBody(), ballSurface(n))
 , number(n)
 { /* do nothing */ }
 BallController::~BallController() { /* do nothing */ }
 
 
 
-void BallController::awake() {
-  createBall(TexUtil::toTex(TexUtil::toInt(ETex::Ball00)+number));
-}
-
-bool BallController::isStopping() { return velocity == Vector3D::zero(); }
+bool BallController::isStopping() { return rigidBody.velocity == Vector3D::zero(); }
 int BallController::getNum() const { return number; }
 
-void BallController::createBall(ETex texture) {
-  Sphere* sphereModel = SphereRigidObject3D::createSphereModel(texture, Color::one());
-}
+RigidBody BallController::ballRigidBody() const { return RigidBody(1.0f, new SphereCollider(1.0f)); }
+Surface BallController::ballSurface(int number) const { return Surface(TexUtil::toTex(TexUtil::toInt(ETex::Ball00)+number)); }
 
 NS_END

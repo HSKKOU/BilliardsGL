@@ -10,29 +10,24 @@
 
 NS_ENGINE
 
-SphereRigidObject3D::SphereRigidObject3D(Transform t, GLfloat mass, GLfloat r)
-: Engine::BaseRigidObject3D(t, mass, new SphereCollider(r))
+SphereRigidObject3D::SphereRigidObject3D(Transform t, GLfloat r, RigidBody rig, Surface surf)
+: Engine::BaseRigidObject3D(t, rig, surf)
 , radius(r)
 { /* do nothing */ }
 
 SphereRigidObject3D::~SphereRigidObject3D() { /* do nothing */ }
 
+void SphereRigidObject3D::setRadius(GLfloat r) { radius = r; }
+GLfloat SphereRigidObject3D::getRadius() const { return radius; }
 
 void SphereRigidObject3D::updatePhysics(GLfloat deltaTime) {
   BaseRigidObject3D::updatePhysics(deltaTime);
-  if (velocity == Vector3D::zero()) { return; }
-  Vector3D rotationAxis = velocity.cross(Vector3D::down()).normalize();
-  GLfloat rotationAng = velocity.length()*deltaTime / (1.9f*M_PI*radius);
+  if (rigidBody.velocity == Vector3D::zero()) { return; }
+  Vector3D rotationAxis = rigidBody.velocity.cross(Vector3D::down()).normalize();
+  GLfloat rotationAng = rigidBody.velocity.length()*deltaTime / (1.9f*M_PI*radius);
   rotate(Quaternion(rotationAxis, rotationAng));
 }
 
-Sphere* SphereRigidObject3D::createSphereModel(ETex tex, Color c) {
-  Sphere* sphereModel = ModelFactory::createSphereModel(radius);
-  sphereModel->loadShaderProgram("Shaders/Project/test/LightTest.vert", "Shaders/Project/test/LightTest.frag");
-  sphereModel->setTexture(tex);
-  sphereModel->setObjectColor(c);
-  modelList.emplace_back(sphereModel);
-  return sphereModel;
-}
+BaseModel3D* SphereRigidObject3D::createModel() { return ModelFactory::createSphereModel(radius); }
 
 NS_END

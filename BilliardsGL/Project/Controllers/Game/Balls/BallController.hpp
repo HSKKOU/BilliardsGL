@@ -27,13 +27,12 @@ public:
   BallController(Transform t, int number);
   virtual ~BallController();
   
-  void virtual awake();
-  
   bool isStopping();
   int getNum() const;
   
 protected:
-  void createBall(ETex texture);
+  RigidBody ballRigidBody() const;
+  virtual Surface ballSurface(int number) const;
 };
 
 NS_END

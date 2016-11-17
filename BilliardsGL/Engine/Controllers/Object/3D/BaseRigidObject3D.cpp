@@ -13,24 +13,20 @@
 
 NS_ENGINE
 
-BaseRigidObject3D::BaseRigidObject3D(Transform t, GLfloat mass, ColliderBase3D* col)
-: Engine::BaseObject3D(t)
-, collider(col)
-, mass(mass)
-, velocity(Vector3D::zero())
+BaseRigidObject3D::BaseRigidObject3D(Transform t, RigidBody rig, Surface surf)
+: Engine::BaseObject3D(t, surf)
+, rigidBody(rig)
 { /* do nothing */ }
 
 BaseRigidObject3D::~BaseRigidObject3D() {
-  delete collider;
-  collider = nullptr;
+  delete rigidBody.collider;
+  rigidBody.collider = nullptr;
 }
 
 
-GLfloat BaseRigidObject3D::getMass() const { return mass; }
-Vector3D BaseRigidObject3D::getVelocity() const { return velocity; }
-ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return collider; }
-
-void BaseRigidObject3D::setVelocity(Vector3D v) { velocity = v; }
+GLfloat BaseRigidObject3D::getMass() const { return rigidBody.mass; }
+Vector3D BaseRigidObject3D::getVelocity() const { return rigidBody.velocity; }
+ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return rigidBody.collider; }
 
 
 bool BaseRigidObject3D::isRigid() const { return true; }
@@ -38,14 +34,14 @@ bool BaseRigidObject3D::isCollidable() const { return true; }
 
 void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
   // TODO: update Physics transform
-  translate(velocity * deltaTime);
-  velocity = velocity * Const::DEC_VELOCITY_RATE;
-  if (velocity.squareLength() <= Const::VELOCITY_EPS) { velocity = Vector3D::zero(); }
+  translate(rigidBody.velocity * deltaTime);
+  rigidBody.velocity = rigidBody.velocity * Const::DEC_VELOCITY_RATE;
+  if (rigidBody.velocity.squareLength() <= Const::VELOCITY_EPS) { rigidBody.velocity = Vector3D::zero(); }
 }
 
 
 void BaseRigidObject3D::addForce(float power, Vector3D dir) {
-  velocity += dir.normalize() * power / mass;
+  rigidBody.velocity += dir.normalize() * power / rigidBody.mass;
 }
 
 
