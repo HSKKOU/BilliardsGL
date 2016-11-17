@@ -54,13 +54,13 @@ void BallManager::update(GLfloat deltaTime) {
   isStoppingAllBalls = true;
   if (!whiteBall->isStopping()) {
     isStoppingAllBalls = false;
-    std::cout << "white ball moving" << std::endl;
+//    std::cout << "white ball moving" << std::endl;
     return;
   }
   for (BallController* ball : ballList) {
     if (!ball->isStopping()) {
       isStoppingAllBalls = false;
-      std::cout << "ball " << ball->getNum() << " moving" << std::endl;
+//      std::cout << "ball " << ball->getNum() << " moving" << std::endl;
       break;
     }
   }
