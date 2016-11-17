@@ -44,7 +44,7 @@ public:
   static std::map<ETex, std::string> getTexturesMap() {
     return {
       { ETex::None  , "Default"    },
-      { ETex::Ball00, "Ball00"     },
+      { ETex::Ball00, "White"      },
       { ETex::Ball01, "Ball01"     },
       { ETex::Ball02, "Ball02"     },
       { ETex::Ball03, "Ball03"     },
@@ -61,7 +61,7 @@ public:
       { ETex::Ball14, "Ball14"     },
       { ETex::Ball15, "Ball15"     },
       { ETex::Stone , "Stone"      },
-      { ETex::BFloor, "Floor"      },
+      { ETex::BFloor, "White"      },
     };
   }
   
