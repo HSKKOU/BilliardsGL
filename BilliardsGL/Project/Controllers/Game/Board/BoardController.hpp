@@ -9,6 +9,26 @@
 #ifndef BoardController_hpp
 #define BoardController_hpp
 
-#include <stdio.h>
+#include "ObjectBehavior.hpp"
+#include "CubeRigidObject3D.hpp"
+
+#include <vector>
+
+US_NS_ENGINE
+
+NS_GAME
+
+class BoardController : public Base3D, public ObjectBehavior {
+  std::vector<CubeRigidObject3D*> stageCubeList;
+  
+public:
+  BoardController(Transform t);
+  ~BoardController();
+  
+private:
+  void setupStage();
+};
+
+NS_END
 
 #endif /* BoardController_hpp */

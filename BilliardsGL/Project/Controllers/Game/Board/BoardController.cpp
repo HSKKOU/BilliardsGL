@@ -7,3 +7,18 @@
 //
 
 #include "BoardController.hpp"
+
+NS_GAME
+
+BoardController::BoardController(Transform t)
+: Engine::Base3D(t)
+{ /* do nothing */ }
+
+BoardController::~BoardController() { /* do nothing */ }
+
+
+void BoardController::setupStage() {
+  // TODO: create stage objects
+}
+
+NS_END
