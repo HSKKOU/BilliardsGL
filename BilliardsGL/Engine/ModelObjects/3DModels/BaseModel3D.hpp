@@ -32,24 +32,41 @@ struct MVP {
   }
 };
 
+struct DepthMV {
+  Matrix4D projection;
+  Matrix4D view;
+  DepthMV() {
+    projection = Matrix4D::zero();
+    view = Matrix4D::zero();
+  }
+};
+
 struct ShaderLocs3D {
   GLint projectionLoc;
   GLint viewLoc;
   GLint modelLoc;
+  GLint depthProjectionLoc;
+  GLint depthViewLoc;
   GLint objectColorLoc;
   GLint lightPosLoc;
   GLint lightDirLoc;
   GLint lightColorLoc;
   GLint cameraPosLoc;
-  ShaderLocs3D() { projectionLoc = viewLoc = modelLoc = objectColorLoc = lightPosLoc = lightDirLoc = lightColorLoc = cameraPosLoc = -1; }
+  ShaderLocs3D() {
+    projectionLoc = viewLoc = modelLoc
+    = depthProjectionLoc = depthViewLoc
+    = objectColorLoc = lightPosLoc = lightDirLoc = lightColorLoc
+    = cameraPosLoc
+    = -1;
+  }
 };
-
 
 
 class BaseModel3D : public Base3D, public BaseModel {
 
 protected:
   MVP mvp;
+  DepthMV depthMV;
   ShaderLocs3D sLocs;
   CameraControllerBase *targetCamera;
   LightControllerBase *targetLight;
@@ -61,6 +78,7 @@ public:
 
   virtual void loadShaderProgram(const char* vs = "./Shaders/Engine/Default.vert", const char* fs = "./Shaders/Engine/Default.frag");
   
+  virtual void draw();
   virtual void drawReady();
   virtual void sendParams2Shd();
     

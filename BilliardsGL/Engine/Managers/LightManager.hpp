@@ -23,6 +23,23 @@ US_NS_ENGINE_LIGHT
 
 NS_ENGINE
 
+class ShadowMapper : public Singleton<ShadowMapper> {
+  friend class Singleton<ShadowMapper>;
+  
+  GLuint depthMap;
+  GLuint depthMapFBO;
+  
+public:
+  ~ShadowMapper();
+  void initialize();
+  
+  GLuint getDepthMap() const;
+  GLuint getDepthMapFBO() const;
+  
+private:
+  ShadowMapper();
+};
+
 class LightManager : public Singleton<LightManager> {
   friend class Singleton<LightManager>;
   

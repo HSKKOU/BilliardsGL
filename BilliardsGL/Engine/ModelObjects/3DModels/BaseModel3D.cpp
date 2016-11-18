@@ -14,6 +14,7 @@ BaseModel3D::BaseModel3D(Vector3D _pos)
 : Base3D(_pos)
 , Engine::Model::BaseModel()
 , mvp(MVP())
+, depthMV(DepthMV())
 , targetCamera((CameraManager::instance()).getMainCamera())
 , targetLight((LightManager::instance()).getLight())
 { /* do nothing */ }
@@ -29,6 +30,23 @@ void BaseModel3D::loadShaderProgram(const char* vs, const char* fs) { BaseModel:
 
 
 // drawing methods
+void BaseModel3D::draw() {
+  drawReady();
+  sendParams2Shd();
+
+  GLuint depthMapFBO = (ShadowMapper::instance()).getDepthMapFBO();
+//  glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+//  glClear(GL_DEPTH_BUFFER_BIT);
+  drawRun();
+//  glBindFramebuffer(GL_FRAMEBUFFER, 0);
+  
+  GLuint depthMap = (ShadowMapper::instance()).getDepthMap();
+//  glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+//  glBindTexture(GL_TEXTURE_2D, depthMap);
+//  drawRun();
+  
+  std::cout << depthMapFBO << ", " << depthMap << std::endl;
+}
 void BaseModel3D::drawReady() {
   BaseModel::drawReady();
   
@@ -39,6 +57,9 @@ void BaseModel3D::drawReady() {
   mvp.model = Matrix4D::translate(mvp.model, transform.position);
   mvp.model = Matrix4D::rotate(mvp.model, transform.rotation);
   mvp.model = Matrix4D::scale(mvp.model, transform.scale);
+  
+  depthMV.projection = targetLight->getDepthProjectionMatrix();
+  depthMV.view = targetLight->getDepthViewMatrix();
 }
 
 
@@ -53,6 +74,12 @@ void BaseModel3D::sendMVP2Shd() {
   glUniformMatrix4fv(sLocs.projectionLoc, 1, GL_FALSE, &mvp.projection[0][0]);
   glUniformMatrix4fv(sLocs.viewLoc, 1, GL_FALSE, &mvp.view[0][0]);
   glUniformMatrix4fv(sLocs.modelLoc, 1, GL_FALSE, &mvp.model[0][0]);
+
+  glUniformMatrix4fv(sLocs.depthProjectionLoc, 1, GL_FALSE, &depthMV.projection[0][0]);
+  glUniformMatrix4fv(sLocs.depthViewLoc, 1, GL_FALSE, &depthMV.view[0][0]);
+  
+  depthMV.projection.printElem();
+  depthMV.view.printElem();
 }
 
 void BaseModel3D::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }
@@ -71,7 +98,10 @@ void BaseModel3D::setShaderLoc() {
   sLocs.projectionLoc = glGetUniformLocation(shaderProgram, "projection");
   sLocs.viewLoc = glGetUniformLocation(shaderProgram, "view");
   sLocs.modelLoc = glGetUniformLocation(shaderProgram, "model");
-  
+
+  sLocs.depthProjectionLoc = glGetUniformLocation(shaderProgram, "depthProjection");
+  sLocs.depthViewLoc = glGetUniformLocation(shaderProgram, "depthView");
+
   sLocs.objectColorLoc = glGetUniformLocation(shaderProgram, "objectColor");
   
   sLocs.lightPosLoc = glGetUniformLocation(shaderProgram, "lightPos");
