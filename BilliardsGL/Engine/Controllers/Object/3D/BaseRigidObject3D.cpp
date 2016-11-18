@@ -16,6 +16,7 @@ NS_ENGINE
 BaseRigidObject3D::BaseRigidObject3D(Transform t, RigidBody rig, Surface surf)
 : Engine::BaseObject3D(t, surf)
 , rigidBody(rig)
+, isStaticFlag(false)
 { /* do nothing */ }
 
 BaseRigidObject3D::~BaseRigidObject3D() {
@@ -29,13 +30,17 @@ Vector3D BaseRigidObject3D::getVelocity() const { return rigidBody.velocity; }
 ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return rigidBody.collider; }
 
 
+bool BaseRigidObject3D::isStatic() const { return isStaticFlag; }
 bool BaseRigidObject3D::isRigid() const { return true; }
 bool BaseRigidObject3D::isCollidable() const { return true; }
 
+void BaseRigidObject3D::setIsStatic(bool flag) { isStaticFlag = flag; }
+
 void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
-  // TODO: update Physics transform
+  if (isStatic()) { return; }
   translate(rigidBody.velocity * deltaTime);
   rigidBody.velocity = rigidBody.velocity * Const::DEC_VELOCITY_RATE;
+  rigidBody.velocity += Vector3D::down() * GRAVITY * deltaTime;
   if (rigidBody.velocity.squareLength() <= Const::VELOCITY_EPS) { rigidBody.velocity = Vector3D::zero(); }
 }
 

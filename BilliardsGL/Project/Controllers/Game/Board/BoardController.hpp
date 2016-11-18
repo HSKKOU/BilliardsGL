@@ -26,6 +26,7 @@ class BoardController : public Base3D, public ObjectBehavior {
 public:
   BoardController(Transform t);
   ~BoardController();
+
   void setupStage();
   
 private:

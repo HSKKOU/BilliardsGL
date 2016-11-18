@@ -27,7 +27,10 @@ struct RigidBody {
 };
 
 class BaseRigidObject3D : public BaseObject3D {
+  
 protected:
+  const GLfloat GRAVITY = 9.8f;
+  bool isStaticFlag;
   RigidBody rigidBody;
 
 public:
@@ -37,10 +40,12 @@ public:
   GLfloat getMass() const;
   Vector3D getVelocity() const;
   ColliderBase3D* getCollider3D() const;
-    
   
+  virtual bool isStatic() const;
   virtual bool isRigid() const;
   virtual bool isCollidable() const;
+  
+  void setIsStatic(bool flag);
   
   virtual void updatePhysics(GLfloat deltaTime);
   

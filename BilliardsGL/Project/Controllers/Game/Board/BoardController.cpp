@@ -37,7 +37,9 @@ CubeRigidObject3D* BoardController::createFloor() {
   RigidBody rig = RigidBody(1.0f, new CubeCollider(Transform::identity(), size));
   Surface surf = Surface(ETex::Ball00, Color(0.27f, 0.53f, 0.13f, 1.0f));
   CubeRigidObject3D* floor = new CubeRigidObject3D(trsf, size, rig, surf);
+  floor->setIsStatic(true);
   return floor;
 }
+
 
 NS_END
