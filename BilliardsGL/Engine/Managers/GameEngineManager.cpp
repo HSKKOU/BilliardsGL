@@ -81,7 +81,8 @@ void GameEngineManager::startMainLoop() {
   
   
   // set main light
-  LightControllerBase *light0 = new SpotLightController(Vector3D(0.0f, 30.0f, 0.0f));
+  SpotLightController *light0 = new SpotLightController(Vector3D(0.0f, 150.0f, 0.0f));
+  light0->setPerspective(45.0f, 1.0f, 2.0f, 200.0f);
   lightManager.addLight(light0);
   
   

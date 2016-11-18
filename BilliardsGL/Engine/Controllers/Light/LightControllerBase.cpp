@@ -47,12 +47,12 @@ void LightControllerBase::setColor(Vector4D _color) { color = _color; }
 
 Vector3D LightControllerBase::getDirection() const { return direction; }
 
-Matrix4D LightControllerBase::getDepthProjectionMatrix() const { return depthViewMatrix; }
+Matrix4D LightControllerBase::getDepthProjectionMatrix() const { return depthProjectionMatrix; }
 Matrix4D LightControllerBase::getDepthViewMatrix() const { return depthViewMatrix; }
 
 void LightControllerBase::calcViewMatrix() {
-  Vector3D f = transform.forward();
-  Vector3D s = f.cross(transform.up()).normalize();
+  Vector3D f = transform.down();
+  Vector3D s = f.cross(transform.forward()).normalize();
   Vector3D u = s.cross(f);
   
   Matrix4D view = Matrix4D::one();

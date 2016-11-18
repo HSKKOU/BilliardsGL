@@ -25,6 +25,8 @@ public:
   );
   virtual ~SpotLightController();
   
+  void setPerspective(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar);
+
   virtual void calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar);
   
   void updateLight();

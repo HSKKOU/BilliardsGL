@@ -22,6 +22,10 @@ SpotLightController::SpotLightController(
 
 SpotLightController::~SpotLightController() { /* do nothing */ }
 
+void SpotLightController::setPerspective(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) {
+  calcProjectionMatrix(_fovy, _aspect, _zNear, _zFar);
+}
+
 void SpotLightController::calcProjectionMatrix(const GLfloat _fovy, const GLfloat _aspect, const GLfloat _zNear, const GLfloat _zFar) {
   const float fovyRad = _fovy / 180.0f * M_PI;
   const GLfloat tanHalfFovy = tanf(fovyRad / 2.0f);
