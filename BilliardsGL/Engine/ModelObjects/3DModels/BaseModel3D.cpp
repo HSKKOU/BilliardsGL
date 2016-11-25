@@ -78,8 +78,8 @@ void BaseModel3D::sendMVP2Shd() {
   glUniformMatrix4fv(sLocs.depthProjectionLoc, 1, GL_FALSE, &depthMV.projection[0][0]);
   glUniformMatrix4fv(sLocs.depthViewLoc, 1, GL_FALSE, &depthMV.view[0][0]);
   
-  depthMV.projection.printElem();
-  depthMV.view.printElem();
+//  depthMV.projection.printElem();
+//  depthMV.view.printElem();
 }
 
 void BaseModel3D::sendColor2Shd() const { glUniform4fv(sLocs.objectColorLoc, 1, objectColor.v); }

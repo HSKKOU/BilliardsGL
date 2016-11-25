@@ -13,21 +13,22 @@
 
 NS_ENGINE
 
-BaseRigidObject3D::BaseRigidObject3D(Transform t, RigidBody rig, Surface surf)
+BaseRigidObject3D::BaseRigidObject3D(Transform t, RigidBody rig, ColliderBase3D* col, Surface surf)
 : Engine::BaseObject3D(t, surf)
 , rigidBody(rig)
+, collider(col)
 , isStaticFlag(false)
 { /* do nothing */ }
 
 BaseRigidObject3D::~BaseRigidObject3D() {
-  delete rigidBody.collider;
-  rigidBody.collider = nullptr;
+  delete collider;
+  collider = nullptr;
 }
 
 
 GLfloat BaseRigidObject3D::getMass() const { return rigidBody.mass; }
 Vector3D BaseRigidObject3D::getVelocity() const { return rigidBody.velocity; }
-ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return rigidBody.collider; }
+ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return collider; }
 
 
 bool BaseRigidObject3D::isStatic() const { return isStaticFlag; }

@@ -20,11 +20,14 @@ class SphereRigidObject3D : public BaseRigidObject3D {
   GLfloat radius;
   
 public:
+  SphereRigidObject3D(Transform t, GLfloat r, RigidBody rig, SphereCollider* col, Surface surf);
   SphereRigidObject3D(Transform t, GLfloat r, RigidBody rig, Surface surf);
   virtual ~SphereRigidObject3D();
   
   void setRadius(GLfloat r);
   GLfloat getRadius() const;
+  
+  SphereCollider* getCollider3D() const;
   
   virtual void updatePhysics(GLfloat deltaTime);
   

@@ -10,8 +10,12 @@
 
 NS_ENGINE
 
+SphereRigidObject3D::SphereRigidObject3D(Transform t, GLfloat r, RigidBody rig, SphereCollider* col, Surface surf)
+: Engine::BaseRigidObject3D(t, rig, col, surf)
+, radius(r)
+{ /* do nothing */ }
 SphereRigidObject3D::SphereRigidObject3D(Transform t, GLfloat r, RigidBody rig, Surface surf)
-: Engine::BaseRigidObject3D(t, rig, surf)
+: Engine::BaseRigidObject3D(t, rig, new SphereCollider(Transform::identity(), r), surf)
 , radius(r)
 { /* do nothing */ }
 
@@ -19,6 +23,8 @@ SphereRigidObject3D::~SphereRigidObject3D() { /* do nothing */ }
 
 void SphereRigidObject3D::setRadius(GLfloat r) { radius = r; }
 GLfloat SphereRigidObject3D::getRadius() const { return radius; }
+
+SphereCollider* SphereRigidObject3D::getCollider3D() const { return static_cast<SphereCollider*>(collider); }
 
 void SphereRigidObject3D::updatePhysics(GLfloat deltaTime) {
   BaseRigidObject3D::updatePhysics(deltaTime);

@@ -22,7 +22,7 @@ BallController::~BallController() { /* do nothing */ }
 bool BallController::isStopping() { return rigidBody.velocity == Vector3D::zero(); }
 int BallController::getNum() const { return number; }
 
-RigidBody BallController::ballRigidBody() const { return RigidBody(1.0f, new SphereCollider(1.0f)); }
+RigidBody BallController::ballRigidBody() const { return RigidBody(1.0f); }
 Surface BallController::ballSurface(int number) const { return Surface(TexUtil::toTex(TexUtil::toInt(ETex::Ball00)+number)); }
 
 NS_END

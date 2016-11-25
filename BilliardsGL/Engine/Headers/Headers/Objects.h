@@ -12,6 +12,9 @@
 #include "BaseObject3D.hpp"
 #include "BaseRigidObject3D.hpp"
 
+#include "SphereRigidObject3D.hpp"
+#include "CubeRigidObject3D.hpp"
+
 #include "Collisions.h"
 
 #endif /* Objects_h */

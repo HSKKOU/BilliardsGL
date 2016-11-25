@@ -11,40 +11,44 @@
 NS_ENGINE
 
 bool CollisionCalculator::isCollided(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2) {
-  bool isCollided = false;
+  COL_MASK col1Mask = obj1->getCollider3D()->getColliderType();
+  COL_MASK col2Mask = obj2->getCollider3D()->getColliderType();
   
-  ColliderBase3D* col1 = obj1->getCollider3D();
-  ColliderBase3D* col2 = obj2->getCollider3D();
-  
-  COL_MASK col1Mask = col1->getColliderType();
-  COL_MASK col2Mask = col2->getColliderType();
-  
-  if (col1Mask == COL_TYPE::NONE || col2Mask == COL_TYPE::NONE) {
-    return false;
-  }
-  
-  COL_MASK colliderMask = col1Mask | col2Mask;
-  
-  switch(colliderMask) {
-    case COL_TYPE::SPHERE:
-      isCollided = isCollidedBetweenSphere(static_cast<SphereCollider*>(col1), static_cast<SphereCollider*>(col2), obj1->getPosition() - obj2->getPosition());
-      break;
-    case COL_TYPE::CUBE:
-      break;
+  COL_MASK colsMask = col1Mask | col2Mask;
+
+  switch(colsMask) {
     case COL_TYPE::SPHERE | COL_TYPE::CUBE:
+      if (col1Mask == COL_TYPE::SPHERE) {
+        return isCollidedBetweenSphereAndCube(static_cast<SphereRigidObject3D*>(obj1), static_cast<CubeRigidObject3D*>(obj2));
+      } else {
+        return isCollidedBetweenSphereAndCube(static_cast<SphereRigidObject3D*>(obj2), static_cast<CubeRigidObject3D*>(obj1));
+      }
       break;
+    case COL_TYPE::SPHERE:
+      return isCollidedBetweenSphere(static_cast<SphereRigidObject3D*>(obj1), static_cast<SphereRigidObject3D*>(obj2));
+    case COL_TYPE::CUBE:
+      return false;
     default:
-      break;
+      return false;
   }
-  
-  return isCollided;
 }
 
-bool CollisionCalculator::isCollidedBetweenSphere(SphereCollider* col1, SphereCollider* col2, Vector3D objectCenterGap) {
-  GLfloat objectCenterDist = (col1->getPosition() - col2->getPosition() - objectCenterGap).length();
-  GLfloat objectDist = objectCenterDist - (col1->getRadius() + col2->getRadius());
+
+bool CollisionCalculator::isCollidedBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
+  return cRig->isCollidedWithSphere(sRig);
+}
+bool CollisionCalculator::isCollidedBetweenSphere(SphereRigidObject3D* rig1, SphereRigidObject3D* rig2) {
+  Vector3D objectCenterDistVec
+  = (rig1->getPosition() + rig1->getCollider3D()->getPosition()) - (rig2->getPosition() + rig2->getCollider3D()->getPosition());
+  GLfloat objectDist = objectCenterDistVec.length() - (rig1->getCollider3D()->getRadius() + rig2->getCollider3D()->getRadius());
   return objectDist <= COL_DETECT_EPS;
 }
+bool CollisionCalculator::isCollidedBetweenCube(CubeRigidObject3D* rig1, CubeRigidObject3D* rig2) {
+  // TODO:
+  return false;
+}
+
+
 
 void CollisionCalculator::calcCollidedVelocityBetweenSphere(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2) {  
   Vector3D collisionAxis =

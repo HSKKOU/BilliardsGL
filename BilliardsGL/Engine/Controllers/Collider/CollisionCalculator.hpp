@@ -19,7 +19,10 @@ class CollisionCalculator {
   
 public:
   static bool isCollided(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
-  static bool isCollidedBetweenSphere(SphereCollider* col1, SphereCollider* col2, Vector3D objectCenterDist);
+
+  static bool isCollidedBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
+  static bool isCollidedBetweenSphere(SphereRigidObject3D* rig1, SphereRigidObject3D* rig2);
+  static bool isCollidedBetweenCube(CubeRigidObject3D* rig1, CubeRigidObject3D* rig2);
   
   static void calcCollidedVelocityBetweenSphere(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
 };
