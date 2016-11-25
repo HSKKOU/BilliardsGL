@@ -34,7 +34,8 @@ void CubeRigidObject3D::updatePhysics(GLfloat deltaTime) {
 }
 
 bool CubeRigidObject3D::isCollidedWithSphere(SphereRigidObject3D* sRig) {
-  return CollisionCalculator::isCollidedWithSphereByOBBCube(sRig, this);
+//  return CollisionCalculator::isCollidedWithSphereByOBBCube(sRig, this);
+  return CollisionCalculator::isCollidedWithSphereByAABBCube(sRig, this);
 }
 
 

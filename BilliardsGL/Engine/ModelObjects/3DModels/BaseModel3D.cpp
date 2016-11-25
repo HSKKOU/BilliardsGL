@@ -45,7 +45,7 @@ void BaseModel3D::draw() {
 //  glBindTexture(GL_TEXTURE_2D, depthMap);
 //  drawRun();
   
-  std::cout << depthMapFBO << ", " << depthMap << std::endl;
+//  std::cout << depthMapFBO << ", " << depthMap << std::endl;
 }
 void BaseModel3D::drawReady() {
   BaseModel::drawReady();

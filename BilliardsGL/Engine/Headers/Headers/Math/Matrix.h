@@ -21,6 +21,7 @@
 NS_ENGINE
 
 typedef Vector2D Point2D;
+typedef Vector3D Point3D;
 
 NS_END
 

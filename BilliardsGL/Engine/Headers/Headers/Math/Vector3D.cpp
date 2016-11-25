@@ -25,6 +25,7 @@ Vector3D Vector3D::operator-(const GLfloat sub) const { return Vector3D(x-sub, y
 Vector3D Vector3D::operator-(const Vector3D vs) const { return Vector3D(x-vs.x, y-vs.y, z-vs.z); }
 Vector3D Vector3D::operator*(const GLfloat mul) const { return Vector3D(x*mul, y*mul, z*mul); }
 Vector3D Vector3D::operator/(const GLfloat div) const { return Vector3D(x/div, y/div, z/div); }
+GLfloat& Vector3D::operator[](int i) { return v[i]; }
 
 bool Vector3D::operator==(const Vector3D v) { return x==v.x && y==v.y && z==v.z; }
 

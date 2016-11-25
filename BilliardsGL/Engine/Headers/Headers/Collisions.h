@@ -13,4 +13,13 @@
 #include "SphereCollider.hpp"
 #include "CubeCollider.hpp"
 
+NS_ENGINE
+
+struct Quad {
+  Point3D p;
+  Vector3D n;
+};
+
+NS_END
+
 #endif /* Collisions_h */

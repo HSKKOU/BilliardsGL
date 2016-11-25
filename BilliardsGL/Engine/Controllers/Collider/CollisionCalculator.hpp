@@ -18,17 +18,17 @@ class CollisionCalculator {
   constexpr static const GLfloat COL_SPRING_CST = 23.0f;
   
 public:
-  static bool isCollided(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
+  static bool collideObjects(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
 
   static bool isCollidedBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
   static bool isCollidedBetweenSphere(SphereRigidObject3D* rig1, SphereRigidObject3D* rig2);
   static bool isCollidedBetweenCube(CubeRigidObject3D* rig1, CubeRigidObject3D* rig2);
   
-  static void calcCollidedVelocityBetweenSphere(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
+  static void calcCollidedVelocityBetweenSphere(SphereRigidObject3D* rig1, SphereRigidObject3D* rig2);
+  static void calcCollidedVelocityBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
   
   
   /* Cube Collision Detectors */
-  static bool isCollidedWithSphereByFloor(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
   static bool isCollidedWithSphereByAABBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
   static bool isCollidedWithSphereByOBBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
 };

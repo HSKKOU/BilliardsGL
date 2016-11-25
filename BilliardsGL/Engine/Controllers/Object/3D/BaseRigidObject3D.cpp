@@ -41,7 +41,7 @@ void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
   if (isStatic()) { return; }
   translate(rigidBody.velocity * deltaTime);
   rigidBody.velocity = rigidBody.velocity * Const::DEC_VELOCITY_RATE;
-  rigidBody.velocity += Vector3D::down() * GRAVITY * deltaTime;
+//  rigidBody.velocity += Vector3D::down() * GRAVITY * deltaTime;
   if (rigidBody.velocity.squareLength() <= Const::VELOCITY_EPS) { rigidBody.velocity = Vector3D::zero(); }
 }
 
@@ -50,10 +50,6 @@ void BaseRigidObject3D::addForce(float power, Vector3D dir) {
   rigidBody.velocity += dir.normalize() * power / rigidBody.mass;
 }
 
-
-bool BaseRigidObject3D::isCollideWith(BaseRigidObject3D* other) {
-  return CollisionCalculator::isCollided(this, other);
-}
 
 void BaseRigidObject3D::onCollisionEnter(BaseRigidObject3D* object) { /* do nothing */ }
 void BaseRigidObject3D::onCollisionStay(BaseRigidObject3D* object) { /* do nothing */ }

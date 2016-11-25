@@ -66,23 +66,16 @@ void ObjectManager::updateObjectsPhysics(GLfloat deltaTime) {
     if (targetObject == nullptr) { continue; }
     if (!targetObject->isCollidable()) { continue; }
 
-    BaseRigidObject3D* collidedObject = nullptr;
     for (int otherIndex=targetIndex+1; otherIndex<rigidObjectList.size(); otherIndex++) {
       BaseRigidObject3D* otherObject = rigidObjectList[otherIndex];
       
       if (otherObject == nullptr || otherIndex == targetIndex) { continue; }
       if (!otherObject->isCollidable()) { continue; }
-      if (targetObject->isCollideWith(otherObject)) {
-        collidedObject = otherObject;
-        break;
-      }
+      if (CollisionCalculator::collideObjects(targetObject, otherObject)) { break; }
     }
-    
-    if (collidedObject == nullptr) { continue; }
-    
-    CollisionCalculator::calcCollidedVelocityBetweenSphere(targetObject, collidedObject);
-    targetObject->translate(targetObject->getVelocity()*deltaTime);
-    collidedObject->translate(collidedObject->getVelocity()*deltaTime);
+
+//    targetObject->translate(targetObject->getVelocity()*deltaTime);
+//    collidedObject->translate(collidedObject->getVelocity()*deltaTime);
   }
 }
 

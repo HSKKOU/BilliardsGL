@@ -31,7 +31,8 @@ public:
   Vector3D operator-(const Vector3D vs) const;
   Vector3D operator*(const GLfloat mul) const;
   Vector3D operator/(const GLfloat div) const;
-  
+  GLfloat& operator[](int i);
+
   bool operator==(const Vector3D v);
   
   GLfloat dot(const Vector3D v) const;
