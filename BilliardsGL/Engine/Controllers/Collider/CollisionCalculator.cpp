@@ -64,4 +64,22 @@ void CollisionCalculator::calcCollidedVelocityBetweenSphere(BaseRigidObject3D* o
   obj2->addForce(COL_SPRING_CST*dentLength, collisionAxis.normalize()*-1.0f);
 }
 
+
+
+
+
+
+
+/* Cube Collision Detectors */
+bool CollisionCalculator::isCollidedWithSphereByFloor(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
+  return false;
+}
+bool CollisionCalculator::isCollidedWithSphereByAABBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
+  return false;
+}
+bool CollisionCalculator::isCollidedWithSphereByOBBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
+  return false;
+}
+
+
 NS_END

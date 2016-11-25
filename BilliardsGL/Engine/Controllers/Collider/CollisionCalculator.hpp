@@ -25,6 +25,12 @@ public:
   static bool isCollidedBetweenCube(CubeRigidObject3D* rig1, CubeRigidObject3D* rig2);
   
   static void calcCollidedVelocityBetweenSphere(BaseRigidObject3D* obj1, BaseRigidObject3D* obj2);
+  
+  
+  /* Cube Collision Detectors */
+  static bool isCollidedWithSphereByFloor(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
+  static bool isCollidedWithSphereByAABBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
+  static bool isCollidedWithSphereByOBBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
 };
 
 NS_END

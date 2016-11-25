@@ -7,6 +7,7 @@
 //
 
 #include "CubeRigidObject3D.hpp"
+#include "CollisionCalculator.hpp"
 
 NS_ENGINE
 
@@ -33,8 +34,7 @@ void CubeRigidObject3D::updatePhysics(GLfloat deltaTime) {
 }
 
 bool CubeRigidObject3D::isCollidedWithSphere(SphereRigidObject3D* sRig) {
-  std::cout << "aaa" << std::endl;
-  return false;
+  return CollisionCalculator::isCollidedWithSphereByOBBCube(sRig, this);
 }
 
 
