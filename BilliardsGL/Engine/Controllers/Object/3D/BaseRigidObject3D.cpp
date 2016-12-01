@@ -46,7 +46,7 @@ void BaseRigidObject3D::updatePhysics(GLfloat deltaTime) {
   translate(rigidBody.velocity * deltaTime);
   rigidBody.velocity = rigidBody.velocity * Const::DEC_VELOCITY_RATE;
   
-  if (isRefGravityFlag) { rigidBody.velocity += Vector3D::down() * GRAVITY * deltaTime; }
+  if (isRefGravityFlag) { rigidBody.velocity += Vector3D::down() * Const::GRAVITY_ACCEL * deltaTime; }
   
   if (rigidBody.velocity.squareLength() <= Const::VELOCITY_EPS) { rigidBody.velocity = Vector3D::zero(); }
 }

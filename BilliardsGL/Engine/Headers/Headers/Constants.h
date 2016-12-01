@@ -28,6 +28,8 @@ const char WINDOW_TITLE[] = "BilliardsGL";
 const GLfloat DEC_VELOCITY_RATE = 0.99f;
 // threshold of minimun velocity length
 const GLfloat VELOCITY_EPS = 0.01f;
+// Gravity Acceleration
+const GLfloat GRAVITY_ACCEL = 9.8f;
 
 /* end Physics */
 

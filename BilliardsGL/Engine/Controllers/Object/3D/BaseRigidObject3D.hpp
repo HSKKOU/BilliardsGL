@@ -27,7 +27,6 @@ struct RigidBody {
 class BaseRigidObject3D : public BaseObject3D {
   
 protected:
-  const GLfloat GRAVITY = 9.8f;
   bool isStaticFlag;
   bool isRefGravityFlag;
   RigidBody rigidBody;
