@@ -29,6 +29,7 @@ class BaseRigidObject3D : public BaseObject3D {
 protected:
   const GLfloat GRAVITY = 9.8f;
   bool isStaticFlag;
+  bool isRefGravityFlag;
   RigidBody rigidBody;
   ColliderBase3D* collider;
 
@@ -43,13 +44,15 @@ public:
   virtual bool isStatic() const;
   virtual bool isRigid() const;
   virtual bool isCollidable() const;
+  bool isRefGravity() const;
   
-  void setIsStatic(bool flag);
+  void setIsStatic(const bool flag);
+  void setRefGravity(const bool flag);
   
   virtual void updatePhysics(GLfloat deltaTime);
   
   
-  void addForce(float power, Vector3D dir);
+  void addForce(const float power, Vector3D dir);
   
   virtual void onCollisionEnter(BaseRigidObject3D* object);
   virtual void onCollisionStay(BaseRigidObject3D* object);
