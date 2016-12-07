@@ -1,0 +1,29 @@
+@startuml
+
+namespace Characters {
+  abstract class Entity {
+    + int Health
+    + string Name
+
+    + Initialize()
+    # CreateModel()
+    # Attack()
+  }
+
+  class Player {
+    - Controller ctrl
+  }
+  class Enemy {
+    - int type
+  }
+  class Boss {
+    - List<Enemy> member
+    - Enemy SummonMember()
+  }
+
+  Player --u|> Entity
+  Enemy --u|> Entity
+  Boss --u|> Enemy
+}
+
+@enduml
