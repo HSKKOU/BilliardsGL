@@ -13,8 +13,6 @@ NS_ENGINE
 InputManager::InputManager() { /* do nothing */ }
 InputManager::~InputManager() { uiManagerDelegate = nullptr; }
 
-void InputManager::initialize() { /* do nothing */ }
-
 void InputManager::setUIManagerDelegate(UIManager* delegate) { uiManagerDelegate = delegate; }
 
 void InputManager::pressedButton(EButton btn, Point2D point) {

@@ -19,7 +19,6 @@
 #include "ObjectManager.hpp"
 #include "LightManager.hpp"
 #include "SceneManager.hpp"
-
 #include "InputManager.hpp"
 #include "UIManager.hpp"
 
@@ -33,20 +32,10 @@ class GameEngineManager : public Singleton<GameEngineManager> {
   friend class Singleton<GameEngineManager>;
   
   Window *window;
+  FPSCounter *fps;
   
-  SceneManager &sceneManager;
-  LightManager &lightManager;
-  CameraManager &cameraManager;
-  ObjectManager &objectManager;
-  
-  InputManager &inputManager;
-  UIManager &uiManager;
-  
-  FPSCounter &fps;
-
 public:
   ~GameEngineManager();
-  void initialize();
   void startMainLoop();
   
 private:

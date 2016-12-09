@@ -26,7 +26,6 @@ class UIManager : public Singleton<UIManager> {
   
 public:
   ~UIManager();
-  void initialize();
   
   void registerButton(UIButton* button);
   

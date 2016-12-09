@@ -28,7 +28,8 @@ class FPSCounter : public Singleton<FPSCounter> {
   bool isShowFPS = false;
   
 public:
-  void initialize(double, bool);
+  void setShowFlag(bool);
+  void start(double);
   double update(double);
   double getFPS() const;
   bool isStable() const;

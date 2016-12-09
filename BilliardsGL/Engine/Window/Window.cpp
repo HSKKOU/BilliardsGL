@@ -12,8 +12,7 @@ NS_ENGINE
 
 Window::Window(int width, int height, const char *title)
 : window(glfwCreateWindow(width, height, title, nullptr, nullptr))
-{
-  
+{  
   if (window == nullptr) {
     std::cerr << "Can't create GLFW window." << std::endl;
     exit(EXIT_FAILURE);

@@ -14,14 +14,7 @@ NS_ENGINE
 
 SceneManager::SceneManager()
 : currentScene(nullptr)
-{ /* do nothing */ }
-SceneManager::~SceneManager() {
-  for (SceneBase* scene : scenes) { delete scene; scene = nullptr; }
-  scenes.clear();
-  currentScene = nullptr;
-}
-
-void SceneManager::initialize() {
+{
   for (int i=0; i<static_cast<int>(EScene::Num); i++) {
     SceneBase* scene = SceneFactory::initializeScene(static_cast<EScene>(i));
     if (!scene) {
@@ -31,6 +24,11 @@ void SceneManager::initialize() {
     }
     addScene(scene);
   }
+}
+SceneManager::~SceneManager() {
+  for (SceneBase* scene : scenes) { delete scene; scene = nullptr; }
+  scenes.clear();
+  currentScene = nullptr;
 }
 
 void SceneManager::addScene(SceneBase* scene) {

@@ -12,10 +12,11 @@ NS_ENGINE_UTIL
 
 FPSCounter::FPSCounter() { /* do nothing */ }
 
-void FPSCounter::initialize(double startTime, bool isShow) {
+void FPSCounter::setShowFlag(bool isShowFlag) { isShowFPS = isShowFlag; }
+
+void FPSCounter::start(double startTime) {
   // set initial time
   lastTime = startTime;
-  isShowFPS = isShow;
   currentFPS = 0.0;
 }
 

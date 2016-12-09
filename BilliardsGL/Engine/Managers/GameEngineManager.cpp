@@ -11,18 +11,8 @@
 NS_ENGINE
 
 GameEngineManager::GameEngineManager()
-: sceneManager(SceneManager::instance())
-, lightManager(LightManager::instance())
-, cameraManager(CameraManager::instance())
-, objectManager(ObjectManager::instance())
-, inputManager(InputManager::instance())
-, uiManager(UIManager::instance())
-, fps(FPSCounter::instance())
-{ /* do nothing */ }
-
-GameEngineManager::~GameEngineManager() { /* do nothing */ }
-
-void GameEngineManager::initialize() {
+: fps(&(FPSCounter::instance()))
+{
   // initialize GLFW
   if (glfwInit() == GL_FALSE) {
     std::cerr << "Can't initialize GLFW" << std::endl;
@@ -38,7 +28,7 @@ void GameEngineManager::initialize() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-  
+
   // create window
   window = new Window();
   
@@ -46,29 +36,33 @@ void GameEngineManager::initialize() {
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
   
   // FPS initialize
-  fps.initialize(glfwGetTime()
-//                 , true
-                 , false
-                 );
+  fps->setShowFlag(
+//    true
+    false
+  );
+  fps->start(glfwGetTime());
   
-  // Managers initialize
-  objectManager.initialize();
-  sceneManager.initialize();
-  lightManager.initialize();
-  cameraManager.initialize();
-  inputManager.initialize();
-  uiManager.initialize();
+  // Managers instantiate
+  CameraManager::instance();
+  LightManager::instance();
+  ObjectManager::instance();
+  SceneManager::instance();
+  InputManager &inputManager = InputManager::instance();
+  UIManager &uiManager = UIManager::instance();
   
+  // set input delegates
   window->setInputManagerDelegate(&inputManager);
   inputManager.setUIManagerDelegate(&uiManager);
 }
 
+GameEngineManager::~GameEngineManager() { /* do nothing */ }
+
 void GameEngineManager::startMainLoop() {
-  // initialize TextureLoader
-  TextureLoader &textureLoader = TextureLoader::instance();
-  textureLoader.initialize();
+  // instantiate TextureLoader
+  TextureLoader::instance();
   
   // set main camera
+  // TODO: remove
   PerspectiveCameraController *mainCamera
   = new PerspectiveCameraController(
     Transform(
@@ -77,21 +71,23 @@ void GameEngineManager::startMainLoop() {
     )
   );
   mainCamera->setPerspective(60.0f, 1.0f, 0.5f, 100.0f);
-  cameraManager.addCamera(mainCamera);
+  (CameraManager::instance()).addCamera(mainCamera);
   
   
   // set main light
+  // TODO: remove
   SpotLightController *light0 = new SpotLightController(Vector3D(0.0f, 150.0f, 0.0f));
   light0->setPerspective(45.0f, 1.0f, 2.0f, 200.0f);
-  lightManager.addLight(light0);
+  (LightManager::instance()).addLight(light0);
   
   
   // start first scene
-  sceneManager.startFirstScene();
+  // TODO: remove
+  (SceneManager::instance()).startFirstScene();
 
   // wait for fps stable
-  while (!fps.isStable()) {
-    fps.update(glfwGetTime());
+  while (!fps->isStable()) {
+    fps->update(glfwGetTime());
     window->resetWindow();
     window->swapBuffers();
   }
@@ -102,12 +98,12 @@ void GameEngineManager::startMainLoop() {
 
 
 void GameEngineManager::mainLoop() {
-  double deltaTime = fps.update(glfwGetTime());
+  double deltaTime = fps->update(glfwGetTime());
 
   // clear buffer,  enable "DEPTH_BUFFER, CULL_FACE"
   window->resetWindow();
 
-  sceneManager.updateScene(deltaTime);
+  (SceneManager::instance()).updateScene(deltaTime);
 
   // finish this frame, change another drawing buffer
   window->swapBuffers();

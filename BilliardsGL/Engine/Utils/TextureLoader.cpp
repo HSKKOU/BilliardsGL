@@ -12,9 +12,7 @@ NS_ENGINE_UTIL
 
 TextureLoader::TextureLoader()
 : textureDict()
-{ /* do nothing */ }
-
-void TextureLoader::initialize() {
+{
   glEnable(GL_TEXTURE);
   
   for (int i=0; i<static_cast<int>(ETex::Num); i++) {
@@ -24,6 +22,7 @@ void TextureLoader::initialize() {
     textureDict[tex] = tId;
   }
 }
+TextureLoader::~TextureLoader() { /* do nothing */ }
 
 GLuint TextureLoader::loadTexture(const char* imagePath) {
   GLuint textureId;

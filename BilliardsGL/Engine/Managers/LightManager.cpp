@@ -10,14 +10,12 @@
 
 NS_ENGINE
 
-LightManager::LightManager() { /* do nothing */ }
+LightManager::LightManager() {
+  glCullFace(GL_FRONT);
+}
 LightManager::~LightManager() {
   for (LightControllerBase* light : lightCtrls) { delete light; light = nullptr; }
   lightCtrls.clear();
-}
-
-void LightManager::initialize() {
-  glCullFace(GL_FRONT);
 }
 
 LightControllerBase* LightManager::getLight() const { return lightCtrls[0]; }
@@ -37,10 +35,7 @@ void LightManager::updateLights() {
 
 /* - Shadow Mapper ------------------ */
 
-ShadowMapper::ShadowMapper() : depthMap(0), depthMapFBO(0) { /* do nothing */ }
-ShadowMapper::~ShadowMapper() { /* do nothing */ }
-
-void ShadowMapper::initialize() {
+ShadowMapper::ShadowMapper() : depthMap(0), depthMapFBO(0) {
   glGenFramebuffers(1, &depthMapFBO);
   
   glGenTextures(1, &depthMap);
@@ -58,8 +53,9 @@ void ShadowMapper::initialize() {
   glReadBuffer(GL_NONE);
   
   glBindTexture(GL_TEXTURE_2D, 0);
-  glBindFramebuffer(GL_FRAMEBUFFER, 0);  
+  glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
+ShadowMapper::~ShadowMapper() { /* do nothing */ }
 
 GLuint ShadowMapper::getDepthMap() const { return depthMapFBO; }
 GLuint ShadowMapper::getDepthMapFBO() const { return depthMap; }

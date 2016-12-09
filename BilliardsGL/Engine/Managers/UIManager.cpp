@@ -13,8 +13,6 @@ NS_ENGINE
 UIManager::UIManager() { /* do nothing */ }
 UIManager::~UIManager() { /* do nothing */ }
 
-void UIManager::initialize() { /* do nothing */ }
-
 
 void UIManager::registerButton(UIButton* button) { buttonList.emplace_back(button); }
 

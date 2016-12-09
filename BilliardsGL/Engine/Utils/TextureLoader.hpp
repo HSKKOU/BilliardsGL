@@ -25,7 +25,7 @@ class TextureLoader : public Singleton<TextureLoader> {
   std::map<ETex, GLuint> textureDict;
   
 public:
-  void initialize();
+  ~TextureLoader();
   GLuint loadTexture(const char* imagePath);
   GLuint getTextureId(const ETex tex) const;
   

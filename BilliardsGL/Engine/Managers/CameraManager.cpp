@@ -16,8 +16,6 @@ CameraManager::~CameraManager() {
   cameraCtrls.clear();
 }
 
-void CameraManager::initialize() {  }
-
 CameraControllerBase* CameraManager::getMainCamera() const { return cameraCtrls[0]; }
 CameraControllerBase* CameraManager::getCamera(const int index) const { return cameraCtrls[index]; }
 

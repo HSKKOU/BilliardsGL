@@ -31,7 +31,6 @@ class ShadowMapper : public Singleton<ShadowMapper> {
   
 public:
   ~ShadowMapper();
-  void initialize();
   
   GLuint getDepthMap() const;
   GLuint getDepthMapFBO() const;
@@ -47,7 +46,6 @@ class LightManager : public Singleton<LightManager> {
   
 public:
   ~LightManager();
-  void initialize();
   LightControllerBase* getLight() const;
   LightControllerBase* getLight(const int) const;
   void addLight(LightControllerBase*);

@@ -33,7 +33,6 @@ class InputManager : public Singleton<InputManager> {
   
 public:
   ~InputManager();
-  void initialize();
   
   void setUIManagerDelegate(UIManager* delegate);
   

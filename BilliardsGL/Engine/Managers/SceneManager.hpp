@@ -28,7 +28,6 @@ class SceneManager : public Util::Singleton<SceneManager> {
   
 public:
   ~SceneManager();
-  void initialize();
   void addScene(SceneBase* scene);
   SceneBase* getScene(int index) const;
   void removeScene(int index);
