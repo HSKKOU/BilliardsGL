@@ -23,6 +23,7 @@ bool CollisionCalculator::collideObjects(BaseRigidObject3D* obj1, BaseRigidObjec
       if (col1Mask != COL_TYPE::SPHERE) { sRig = static_cast<SphereRigidObject3D*>(obj2); cRig = static_cast<CubeRigidObject3D*>(obj1); }
       
       if (isCollidedBetweenSphereAndCube(sRig, cRig)) {
+        std::cout << "collision" << std::endl;
         calcCollidedVelocityBetweenSphereAndCube(sRig, cRig);
         return true;
       }}
@@ -46,7 +47,9 @@ bool CollisionCalculator::collideObjects(BaseRigidObject3D* obj1, BaseRigidObjec
 
 
 bool CollisionCalculator::isCollidedBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
-  return cRig->isCollidedWithSphere(sRig);
+//  return cRig->isCollidedWithSphere(sRig);
+  return isCollidedWithSphereByAABBCube(sRig, cRig);
+//  return isCollidedWithSphereByOBBCube(sRig, cRig);
 }
 bool CollisionCalculator::isCollidedBetweenSphere(SphereRigidObject3D* rig1, SphereRigidObject3D* rig2) {
   Vector3D objectCenterDistVec
@@ -76,7 +79,8 @@ void CollisionCalculator::calcCollidedVelocityBetweenSphere(SphereRigidObject3D*
 }
 
 void CollisionCalculator::calcCollidedVelocityBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
-  // TODO:
+  Vector3D relDir = sRig->getPosition() - cRig->getPosition();
+  return;
 }
 
 
@@ -100,6 +104,8 @@ bool CollisionCalculator::isCollidedWithSphereByAABBCube(SphereRigidObject3D* sR
   
   return true;
 }
-bool CollisionCalculator::isCollidedWithSphereByOBBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) { return false; }
+bool CollisionCalculator::isCollidedWithSphereByOBBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
+  return false;
+}
 
 NS_END
