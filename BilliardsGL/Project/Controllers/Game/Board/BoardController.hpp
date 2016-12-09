@@ -21,7 +21,8 @@ US_NS_ENGINE
 NS_GAME
 
 class BoardController : public Base3D, public ObjectBehavior {
-  std::vector<CubeRigidObject3D*> stageCubeList;
+  CubeRigidObject3D* floor;
+  std::vector<CubeRigidObject3D*> wallList;
   
 public:
   BoardController(Transform t);
@@ -31,6 +32,8 @@ public:
   
 private:
   CubeRigidObject3D* createFloor();
+  CubeRigidObject3D* createWall(Point3D position, Vector3D size);
+  CubeRigidObject3D* createBaseCube(Point3D position, Vector3D size, Surface surf);
 };
 
 NS_END

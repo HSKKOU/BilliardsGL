@@ -30,6 +30,7 @@ public:
   Vector3D operator-(const GLfloat sub) const;
   Vector3D operator-(const Vector3D vs) const;
   Vector3D operator*(const GLfloat mul) const;
+  Vector3D operator*(const Vector3D vm) const;
   Vector3D operator/(const GLfloat div) const;
   GLfloat& operator[](int i);
 
