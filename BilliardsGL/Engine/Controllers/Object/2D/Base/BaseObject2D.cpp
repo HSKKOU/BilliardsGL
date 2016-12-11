@@ -13,10 +13,7 @@ NS_ENGINE
 BaseObject2D::BaseObject2D() : BaseObject2D(Point2D::zero()) { /* do nothing */ }
 BaseObject2D::BaseObject2D(Point2D p) : Engine::Base2D(p) { for (BaseModel2D* model : modelList) { model->setPosition(p); } }
 
-BaseObject2D::~BaseObject2D() {
-  for (BaseModel2D* model : modelList) { delete model; model = nullptr; }
-  modelList.clear();
-}
+BaseObject2D::~BaseObject2D() { SAFE_DELETE_VECTOR(modelList, BaseModel2D); }
 
 void BaseObject2D::awake() { ObjectBehavior::awake(); }
 void BaseObject2D::start() { ObjectBehavior::start(); }

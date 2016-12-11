@@ -11,10 +11,7 @@
 NS_ENGINE
 
 CameraManager::CameraManager() { /* do nothing */ }
-CameraManager::~CameraManager() {
-  for (CameraControllerBase* camera : cameraCtrls) { delete camera; camera = nullptr; }
-  cameraCtrls.clear();
-}
+CameraManager::~CameraManager() { SAFE_DELETE_VECTOR(cameraCtrls, CameraControllerBase); }
 
 CameraControllerBase* CameraManager::getMainCamera() const { return cameraCtrls[0]; }
 CameraControllerBase* CameraManager::getCamera(const int index) const { return cameraCtrls[index]; }

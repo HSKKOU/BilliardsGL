@@ -48,9 +48,7 @@ void GameManager::update(GLfloat deltaTime) {
 
 void GameManager::destroy() {
   ballManager = nullptr;
-  
-  delete boardCtrl;
-  boardCtrl = nullptr;
+  SAFE_DELETE(boardCtrl);
 }
 
 NS_END

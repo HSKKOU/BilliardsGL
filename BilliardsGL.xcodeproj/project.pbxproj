@@ -81,6 +81,7 @@
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CollisionCalculator.cpp; path = Engine/Controllers/Collider/CollisionCalculator.cpp; sourceTree = "<group>"; };
 		0D0C85571DD2E266004DE063 /* CollisionCalculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CollisionCalculator.hpp; path = Engine/Controllers/Collider/CollisionCalculator.hpp; sourceTree = "<group>"; };
+		0D7B33931DFD791F001AEB39 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = Engine/Headers/Headers/Macros.h; sourceTree = "<group>"; };
 		0D874A491DDDE1BF00728B74 /* ShadowTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = ShadowTest.vert; path = Shaders/Project/test/ShadowTest.vert; sourceTree = "<group>"; };
 		0D874A4A1DDDE1D900728B74 /* ShadowTest.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = ShadowTest.frag; path = Shaders/Project/test/ShadowTest.frag; sourceTree = "<group>"; };
 		0D874A4B1DDE0AB000728B74 /* SpotLightController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpotLightController.cpp; path = Engine/Controllers/Light/SpotLightController.cpp; sourceTree = "<group>"; };
@@ -366,6 +367,7 @@
 				0DFD6D761DD5923500F99B5A /* Textures.h */,
 				0DFD6D781DD59A9900F99B5A /* Constants.h */,
 				0DFD6DC21DD8453100F99B5A /* UI.h */,
+				0D7B33931DFD791F001AEB39 /* Macros.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";

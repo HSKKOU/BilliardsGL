@@ -15,13 +15,8 @@ BoardController::BoardController(Transform t)
 { /* do nothing */ }
 
 BoardController::~BoardController() {
-  delete floor;
-  floor = nullptr;
-  for (CubeRigidObject3D* elem : wallList) {
-    delete elem;
-    elem = nullptr;
-  }
-  wallList.clear();
+  SAFE_DELETE(floor);
+  SAFE_DELETE_VECTOR(wallList, CubeRigidObject3D);
 }
 
 

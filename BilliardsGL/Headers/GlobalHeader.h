@@ -14,6 +14,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "Macros.h"
+
 // namespaces
 #define NS_ENGINE               namespace Engine {
 #define NS_ENGINE_MODEL         namespace Engine { namespace Model {

@@ -26,8 +26,7 @@ SceneManager::SceneManager()
   }
 }
 SceneManager::~SceneManager() {
-  for (SceneBase* scene : scenes) { delete scene; scene = nullptr; }
-  scenes.clear();
+  SAFE_DELETE_VECTOR(scenes, SceneBase);
   currentScene = nullptr;
 }
 

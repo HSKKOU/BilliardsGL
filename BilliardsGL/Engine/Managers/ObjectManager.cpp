@@ -11,7 +11,7 @@
 NS_ENGINE
 
 ObjectManager::ObjectManager() { /* do nothing */ }
-
+ObjectManager::~ObjectManager() { /* do nothing */ }
 
 // Object Control
 ObjectBehavior* ObjectManager::registerObject(ObjectBehavior* object) {

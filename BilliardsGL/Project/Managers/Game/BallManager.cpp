@@ -14,14 +14,8 @@ NS_GAME
 
 BallManager::BallManager() : isStoppingAllBalls(true), isHaveShot(false) { /* do nothing */ }
 BallManager::~BallManager() {
-  delete whiteBall;
-  whiteBall = nullptr;
-  
-  for (BallController* ball : ballList) {
-    delete ball;
-    ball = nullptr;
-  }
-  ballList.clear();
+  SAFE_DELETE(whiteBall);
+  SAFE_DELETE_VECTOR(ballList, BallController);
 }
 
 

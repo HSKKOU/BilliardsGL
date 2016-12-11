@@ -18,10 +18,7 @@ BaseObject3D::BaseObject3D(Transform t, Surface surf)
 , surface(surf)
 { /* do nothing */ }
 
-BaseObject3D::~BaseObject3D() {
-  for (BaseModel3D* model : modelList) { delete model; model = nullptr; }
-  modelList.clear();
-}
+BaseObject3D::~BaseObject3D() { SAFE_DELETE_VECTOR(modelList, BaseModel3D); }
 
 void BaseObject3D::awake() {
   ObjectBehavior::awake();

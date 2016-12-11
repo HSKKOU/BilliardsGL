@@ -30,6 +30,7 @@ class ObjectManager : public Singleton<ObjectManager> {
   std::vector<BaseRigidObject3D*> movableRigidObjectList;
   
 public:
+  ~ObjectManager();
   ObjectBehavior* registerObject(ObjectBehavior* object);
   ObjectBehavior* getObject(const int objectId) const;
   void destroyObject(const int objectId) const;

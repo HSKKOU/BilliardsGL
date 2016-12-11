@@ -21,10 +21,7 @@ BaseRigidObject3D::BaseRigidObject3D(Transform t, RigidBody rig, ColliderBase3D*
 , isRefGravityFlag(false)
 { /* do nothing */ }
 
-BaseRigidObject3D::~BaseRigidObject3D() {
-  delete collider;
-  collider = nullptr;
-}
+BaseRigidObject3D::~BaseRigidObject3D() { SAFE_DELETE(collider); }
 
 
 GLfloat BaseRigidObject3D::getMass() const { return rigidBody.mass; }

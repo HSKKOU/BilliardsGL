@@ -10,13 +10,8 @@
 
 NS_ENGINE
 
-LightManager::LightManager() {
-  glCullFace(GL_FRONT);
-}
-LightManager::~LightManager() {
-  for (LightControllerBase* light : lightCtrls) { delete light; light = nullptr; }
-  lightCtrls.clear();
-}
+LightManager::LightManager() { glCullFace(GL_FRONT); }
+LightManager::~LightManager() { SAFE_DELETE_VECTOR(lightCtrls, LightControllerBase); }
 
 LightControllerBase* LightManager::getLight() const { return lightCtrls[0]; }
 
