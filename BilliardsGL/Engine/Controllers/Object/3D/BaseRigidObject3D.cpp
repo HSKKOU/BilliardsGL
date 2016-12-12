@@ -18,6 +18,7 @@ BaseRigidObject3D::BaseRigidObject3D(Transform t, RigidBody rig, ColliderBase3D*
 , rigidBody(rig)
 , collider(col)
 , isStaticFlag(false)
+, isRigidFlag(true)
 , isRefGravityFlag(false)
 { /* do nothing */ }
 
@@ -27,14 +28,16 @@ BaseRigidObject3D::~BaseRigidObject3D() { SAFE_DELETE(collider); }
 GLfloat BaseRigidObject3D::getMass() const { return rigidBody.mass; }
 Vector3D BaseRigidObject3D::getVelocity() const { return rigidBody.velocity; }
 ColliderBase3D* BaseRigidObject3D::getCollider3D() const { return collider; }
+Point3D BaseRigidObject3D::getColliderPos() const { return transform.position + collider->getPosition(); }
 
 
 bool BaseRigidObject3D::isStatic() const { return isStaticFlag; }
-bool BaseRigidObject3D::isRigid() const { return true; }
+bool BaseRigidObject3D::isRigid() const { return isRigidFlag; }
 bool BaseRigidObject3D::isCollidable() const { return true; }
 bool BaseRigidObject3D::isRefGravity() const { return isRefGravityFlag; }
 
 void BaseRigidObject3D::setIsStatic(bool flag) { isStaticFlag = flag; }
+void BaseRigidObject3D::setIsRigid(bool flag) { isRigidFlag = flag; }
 void BaseRigidObject3D::setRefGravity(const bool flag) { isRefGravityFlag = flag; }
 
 

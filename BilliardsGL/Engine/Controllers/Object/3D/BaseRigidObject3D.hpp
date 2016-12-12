@@ -28,6 +28,7 @@ class BaseRigidObject3D : public BaseObject3D {
   
 protected:
   bool isStaticFlag;
+  bool isRigidFlag;
   bool isRefGravityFlag;
   RigidBody rigidBody;
   ColliderBase3D* collider;
@@ -39,6 +40,7 @@ public:
   GLfloat getMass() const;
   Vector3D getVelocity() const;
   virtual ColliderBase3D* getCollider3D() const;
+  virtual Point3D getColliderPos() const;
   
   virtual bool isStatic() const;
   virtual bool isRigid() const;
@@ -46,6 +48,7 @@ public:
   bool isRefGravity() const;
   
   void setIsStatic(const bool flag);
+  void setIsRigid(const bool flag);
   void setRefGravity(const bool flag);
   
   virtual void updatePhysics(GLfloat deltaTime);
