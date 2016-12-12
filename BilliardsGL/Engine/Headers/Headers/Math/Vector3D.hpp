@@ -42,6 +42,8 @@ public:
   GLfloat length() const;
   GLfloat squareLength() const;
   Vector3D normalize() const;
+  Vector3D abs() const;
+  Vector3D sign() const;
   
   static Vector3D zero();
   static Vector3D one();

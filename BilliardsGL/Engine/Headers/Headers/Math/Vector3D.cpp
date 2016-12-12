@@ -8,6 +8,8 @@
 
 #include "Vector3D.hpp"
 
+#include "Math.h"
+
 NS_ENGINE
 
 Vector3D::Vector3D(const GLfloat _x, const GLfloat _y, const GLfloat _z) : x(_x), y(_y), z(_z) { /* do nothing */ }
@@ -40,6 +42,8 @@ Vector3D Vector3D::normalize() const {
   if (l == 0.0f) { return Vector3D::zero(); }
   return *this/l;
 }
+Vector3D Vector3D::abs() const { return Vector3D(fabsf(x), fabsf(y), fabsf(z)); }
+Vector3D Vector3D::sign() const { return Vector3D(Math::sign(x), Math::sign(y), Math::sign(z)); }
 
 Vector3D Vector3D::zero() { return Vector3D(0.0f, 0.0f, 0.0f); }
 Vector3D Vector3D::one() { return Vector3D(1.0f, 1.0f, 1.0f); }
