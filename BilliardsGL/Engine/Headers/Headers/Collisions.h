@@ -16,8 +16,9 @@
 NS_ENGINE
 
 struct Quad {
-  Point3D p;
-  Vector3D n;
+  Point3D position;
+  Vector3D normal;
+  Quad(Point3D _p, Vector3D _n) : position(_p), normal(_n) { /* do nothing */ }
 };
 
 NS_END
