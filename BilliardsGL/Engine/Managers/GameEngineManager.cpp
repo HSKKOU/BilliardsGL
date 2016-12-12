@@ -61,28 +61,25 @@ void GameEngineManager::startMainLoop() {
   // instantiate TextureLoader
   TextureLoader::instance();
   
-  // set main camera
-  // TODO: remove
+  // Initialize main camera
   PerspectiveCameraController *mainCamera
   = new PerspectiveCameraController(
     Transform(
-      Vector3D(0.0f,35.0f,0.0f),
+      Vector3D(0.0f,55.0f,0.0f),
       Quaternion(Vector3D::right(), M_PI/2.0f)
     )
   );
-  mainCamera->setPerspective(60.0f, 1.0f, 0.5f, 100.0f);
+  mainCamera->setPerspective(60.0f, 1.0f, 0.5f, 300.0f);
   (CameraManager::instance()).addCamera(mainCamera);
   
   
-  // set main light
-  // TODO: remove
+  // Initialize main light
   SpotLightController *light0 = new SpotLightController(Vector3D(0.0f, 150.0f, 0.0f));
-  light0->setPerspective(45.0f, 1.0f, 2.0f, 200.0f);
+  light0->setPerspective(45.0f, 1.0f, 2.0f, 300.0f);
   (LightManager::instance()).addLight(light0);
   
   
   // start first scene
-  // TODO: remove
   (SceneManager::instance()).startFirstScene();
 
   // wait for fps stable

@@ -23,7 +23,7 @@ void GameManager::initialize() {
 
 void GameManager::awake() {
   mainCamera = (PerspectiveCameraController*)(CameraManager::instance()).getMainCamera();
-  mainCamera->translateTo(Vector3D(0.0f, 30.0f, 30.0f));
+  mainCamera->translateTo(Vector3D(0.0f, 50.0f, 50.0f));
   mainCamera->rotate(Quaternion(Vector3D::left(), M_PI/4.0f));
   cameraDefaultPosition = mainCamera->getPosition();
   
