@@ -25,9 +25,9 @@ const char WINDOW_TITLE[] = "BilliardsGL";
 /* Physics */
 
 // rate of decreacing velocity
-const GLfloat DEC_VELOCITY_RATE = 0.99f;
+const GLfloat DEC_VELOCITY_RATE = 0.995f;
 // threshold of minimun velocity length
-const GLfloat VELOCITY_EPS = 0.08f;
+const GLfloat VELOCITY_EPS = 0.2f;
 // Gravity Acceleration
 const GLfloat GRAVITY_ACCEL = 9.8f;
 

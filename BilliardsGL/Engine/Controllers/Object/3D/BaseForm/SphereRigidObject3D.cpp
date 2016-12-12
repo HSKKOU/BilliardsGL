@@ -30,7 +30,7 @@ void SphereRigidObject3D::updatePhysics(GLfloat deltaTime) {
   BaseRigidObject3D::updatePhysics(deltaTime);
   if (rigidBody.velocity == Vector3D::zero()) { return; }
   Vector3D rotationAxis = rigidBody.velocity.cross(Vector3D::down()).normalize();
-  GLfloat rotationAng = rigidBody.velocity.length()*deltaTime / (1.9f*M_PI*radius);
+  GLfloat rotationAng = rigidBody.velocity.length()*deltaTime / (M_PI*radius);
   rotate(Quaternion(rotationAxis, rotationAng));
 }
 
