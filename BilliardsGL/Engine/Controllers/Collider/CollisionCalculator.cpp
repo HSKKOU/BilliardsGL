@@ -79,27 +79,53 @@ void CollisionCalculator::calcCollidedVelocityBetweenSphere(SphereRigidObject3D*
 }
 
 void CollisionCalculator::calcCollidedVelocityBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
-  Vector3D relDir = sRig->getPosition() - cRig->getPosition();
+  Point3D cubePos = cRig->getColliderPos();
+  Vector3D cubeSize = cRig->getCollider3D()->getSize();
+  Point3D spherePos = sRig->getColliderPos();
+  
+  Quad colPlane = createCollisionPlaneBetweenPointAndCube(spherePos, cubePos, cubeSize);
+  
+  Vector3D sphereVel = sRig->getVelocity();
+  Vector3D vN = colPlane.normal * colPlane.normal.dot(sphereVel);
+  
+  Vector3D force = vN * -(1.0+1.0);
+  
+  sRig->addForce(force.length(), force.normalize());
+  cRig->addForce(force.length(), force.normalize()*-1.0f);
+  
   return;
 }
 
-
+Quad CollisionCalculator::createCollisionPlaneBetweenPointAndCube(Point3D point, Point3D cubeCenter, Vector3D cubeSize) {
+  Vector3D relDist = point - cubeCenter;
+  
+  Vector3D colPlaneCenter = relDist.sign() * cubeSize;
+  Vector3D colPlaneNormal = point - colPlaneCenter;
+  Quad colPlane = Quad(colPlaneCenter, colPlaneNormal);
+  for (int di=0; di<3; di++) {     // target dimension di:(0->x, 1->y, 2->z)
+    if (fabsf(relDist[di]) <= cubeSize[di]) {
+      colPlane.position[di] = 0.0f;
+      colPlane.normal[di] = 0.0f;
+    }
+  }
+  
+  colPlane.normal = colPlane.normal.normalize();
+  
+  return colPlane;
+}
 
 
 
 
 /* Cube Collision Detectors */
 bool CollisionCalculator::isCollidedWithSphereByAABBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig) {
-  Point3D cCenter = cRig->getPosition() + cRig->getCollider3D()->getPosition();
+  Point3D cCenter = cRig->getColliderPos();
   Vector3D cSize = cRig->getCollider3D()->getSize();
-  Point3D sCenter = sRig->getPosition() + sRig->getCollider3D()->getPosition();
+  Point3D sCenter = sRig->getColliderPos();
   GLfloat sRad = sRig->getCollider3D()->getRadius();
-  for (int di=0; di<3; di++) {     // target dimension
-    for (int k=1; k<=2; k++) {
-      int d = (di+k)%3;  // other dimensions
-      GLfloat range = cSize[d] + sRad;
-      if ( (sCenter[d] < cCenter[d] - range) || (sCenter[d] > cCenter[d] + range) ) { return false; }
-    }
+  for (int di=0; di<3; di++) {     // target dimension di:(0->x, 1->y, 2->z)
+    GLfloat range = cSize[di] + sRad;
+    if ( (sCenter[di] < cCenter[di] - range) || (sCenter[di] > cCenter[di] + range) ) { return false; }
   }
   
   return true;

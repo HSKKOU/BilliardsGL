@@ -26,7 +26,9 @@ public:
   
   static void calcCollidedVelocityBetweenSphere(SphereRigidObject3D* rig1, SphereRigidObject3D* rig2);
   static void calcCollidedVelocityBetweenSphereAndCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
-  
+
+  static Quad createCollisionPlaneBetweenPointAndCube(Point3D point, Point3D cubeCenter, Vector3D cubeSize);
+
   
   /* Cube Collision Detectors */
   static bool isCollidedWithSphereByAABBCube(SphereRigidObject3D* sRig, CubeRigidObject3D* cRig);
