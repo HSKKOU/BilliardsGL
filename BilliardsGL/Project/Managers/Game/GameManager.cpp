@@ -19,6 +19,10 @@ GameManager::~GameManager() { /* do nothing */ }
 void GameManager::initialize() {
   // set background color
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
+  
+  shotButton = new UIButton(Point2D(0.0f, 0.0f), Vector2D(640.0f, 640.0f), ETex::None, UI_ALIGNMENT::None, Color::zero());
+  shotButton->setHandler(this);
+  (ObjectManager::instance()).registerObject(shotButton);
 }
 
 void GameManager::awake() {
@@ -36,9 +40,7 @@ void GameManager::awake() {
   boardCtrl->setupStage();
 }
 
-void GameManager::start() {
-  ballManager->shotWhiteBall();
-}
+void GameManager::start() { /* do nothing */ }
 
 
 void GameManager::update(GLfloat deltaTime) {
@@ -50,5 +52,18 @@ void GameManager::destroy() {
   ballManager = nullptr;
   SAFE_DELETE(boardCtrl);
 }
+
+
+void GameManager::onButtonDown() {
+  std::cout << "button down" << std::endl;
+  ballManager->shotWhiteBall();
+}
+void GameManager::onButtonDownRepeat() {
+  //  std::cout << "button down repeat" << std::endl;
+}
+void GameManager::onButtonUp() {
+  std::cout << "button up" << std::endl;
+}
+
 
 NS_END

@@ -18,13 +18,15 @@
 
 #include "Matrix.h"
 #include "Camera.h"
+#include "UI.h"
 
 US_NS_ENGINE
 US_NS_ENGINE_MODEL
+US_NS_ENGINE_UI
 
 NS_GAME
 
-class GameManager : public BehaviorSingleton<GameManager> {
+class GameManager : public BehaviorSingleton<GameManager>, public IButtonHandler {
   friend class BehaviorSingleton<GameManager>;
   
   BallManager* ballManager;
@@ -32,6 +34,8 @@ class GameManager : public BehaviorSingleton<GameManager> {
   
   PerspectiveCameraController* mainCamera;
   Vector3D cameraDefaultPosition;
+  
+  UIButton* shotButton;
   
 public:
   ~GameManager();
@@ -45,6 +49,11 @@ public:
   
 private:
   GameManager();
+
+  void onButtonDown();
+  void onButtonDownRepeat();
+  void onButtonUp();
+
 };
 
 NS_END

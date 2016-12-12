@@ -28,9 +28,10 @@ class UIBase : public SquareObject2D {
 protected:
   Point2D uiPosition;
   Vector2D uiSize;
+  ETex texture;
   
 public:
-  UIBase(Point2D p, Vector2D s, UI_ALIGNMENT_MASK alignmentMask);
+  UIBase(Point2D p, Vector2D s, ETex tex, UI_ALIGNMENT_MASK alignmentMask);
   virtual ~UIBase();
   
   virtual void awake();

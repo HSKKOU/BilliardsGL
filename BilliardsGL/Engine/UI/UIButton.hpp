@@ -27,7 +27,7 @@ protected:
   IButtonHandler* handler;
   
 public:
-  UIButton(Point2D p, Vector2D s, UI_ALIGNMENT_MASK mask, Color c);
+  UIButton(Point2D p, Vector2D s, ETex tex, UI_ALIGNMENT_MASK mask, Color c);
   virtual ~UIButton();
   
   virtual void setHandler(IButtonHandler* hdl);

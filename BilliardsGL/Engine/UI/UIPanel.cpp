@@ -10,8 +10,8 @@
 
 NS_ENGINE_UI
 
-UIPanel::UIPanel(Point2D p, Vector2D s, UI_ALIGNMENT_MASK mask, Color c)
-: Engine::UI::UIBase(p, s, mask)
+UIPanel::UIPanel(Point2D p, Vector2D s, ETex tex, UI_ALIGNMENT_MASK mask, Color c)
+: Engine::UI::UIBase(p, s, tex, mask)
 , panelColor(c)
 { /* do nothing */ }
 

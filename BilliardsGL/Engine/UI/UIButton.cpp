@@ -12,8 +12,8 @@
 
 NS_ENGINE_UI
 
-UIButton::UIButton(Point2D p, Vector2D s, UI_ALIGNMENT_MASK mask, Color c)
-: Engine::UI::UIPanel(p, s, mask, c)
+UIButton::UIButton(Point2D p, Vector2D s, ETex tex, UI_ALIGNMENT_MASK mask, Color c)
+: Engine::UI::UIPanel(p, s, tex, mask, c)
 , isPressedFlag(false)
 {
   (UIManager::instance()).registerButton(this);

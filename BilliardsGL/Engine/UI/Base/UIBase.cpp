@@ -10,10 +10,11 @@
 
 NS_ENGINE_UI
 
-UIBase::UIBase(Point2D p, Vector2D s, UI_ALIGNMENT_MASK alignmentMask)
+UIBase::UIBase(Point2D p, Vector2D s, ETex tex, UI_ALIGNMENT_MASK alignmentMask)
 : Engine::SquareObject2D( p, s.divide(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT) )
 , uiPosition(p/2)
 , uiSize(s/2)
+, texture(tex)
 {
   Point2D alignedPos = p;
   if (alignmentMask == UI_ALIGNMENT::None) {
@@ -42,7 +43,9 @@ UIBase::~UIBase() { /* do nothing */ }
 
 
 void UIBase::awake() {
-  createSquareModel(ETex::None, Color::one());
+  if (texture != ETex::None) {
+    createSquareModel(texture, Color::one());
+  }
 }
 
 NS_END2
