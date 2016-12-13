@@ -17,12 +17,12 @@ TitleManager::~TitleManager() { destroy(); }
 
 void TitleManager::initialize() {
   // set background color
-  glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
+  glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
   
-  panel = new UIPanel(Point2D(110.0f, 60.0f), Vector2D(100.0f, 50.0f), ETex::Ball00, UI_ALIGNMENT::Top|UI_ALIGNMENT::Right, Color::one());
+  panel = new UIPanel(Point2D(0.0f, 200.0f), Vector2D(540.0f, 200.0f), ETex::Title, UI_ALIGNMENT::Top, Color::one());
   (ObjectManager::instance()).registerObject(panel);
   
-  button = new UIButton(Point2D(0.0f, -200.0f), Vector2D(200.0f, 80.0f), ETex::Ball00, UI_ALIGNMENT::None, Color::one());
+  button = new UIButton(Point2D(0.0f, -200.0f), Vector2D(200.0f, 80.0f), ETex::Ball00, UI_ALIGNMENT::None, Color(1.0f, 0.0f, 0.0f, 1.0f));
   button->setHandler(this);
   (ObjectManager::instance()).registerObject(button);
 }

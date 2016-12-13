@@ -19,7 +19,9 @@ UIPanel::~UIPanel() { /* do nothing */ }
 
 
 void UIPanel::awake() {
-  UIBase::awake();
+  if (texture != ETex::None) {
+    createSquareModel(texture, panelColor);
+  }
 }
 
 NS_END2

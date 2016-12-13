@@ -11,7 +11,8 @@
 NS_ENGINE_MODEL
 
 BaseModel::BaseModel()
-: vertices(Vertices())
+: attribLoc(AttribLoc())
+, vertices(Vertices())
 , objectColor(Color::one())
 , textureId(0)
 , shaderProgram(-1)
@@ -49,7 +50,7 @@ void BaseModel::drawRun(int mode) {
   
   // release drawing buffers
   glBindVertexArray(0);
-  for (int i=0; i<static_cast<int>(AttribLoc::NUM); i++) { glDisableVertexAttribArray(i); }
+  for (int i=0; i<attribLoc.num; i++) { glDisableVertexAttribArray(i); }
   glUseProgram(0);
   glFlush();
 }
@@ -83,12 +84,12 @@ GLuint BaseModel::readyVAO() const {
 }
 
 void BaseModel::setPositionBuffer(const int vCnt, const int offset, const int dim) const {
-  GLuint loc = static_cast<GLuint>(AttribLoc::POSITION);
+  GLuint loc = attribLoc.position;
   setEachVertexBuffer(loc, dim, vCnt, offset);
 }
 
 void BaseModel::setUVBuffer(const int vCnt, const int offset) const {
-  GLuint loc = static_cast<GLuint>(AttribLoc::UV);
+  GLuint loc = attribLoc.uv;
   glBindAttribLocation(shaderProgram, loc, "uv");
   setEachVertexBuffer(loc, 2, vCnt, offset);
 }

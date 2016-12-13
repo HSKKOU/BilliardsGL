@@ -17,7 +17,9 @@ BaseModel3D::BaseModel3D(Vector3D _pos)
 , depthMV(DepthMV())
 , targetCamera((CameraManager::instance()).getMainCamera())
 , targetLight((LightManager::instance()).getLight())
-{ /* do nothing */ }
+{
+  attribLoc = AttribLoc(0, 2, 1, 3);
+}
 
 BaseModel3D::~BaseModel3D() {
   glDeleteBuffers(1, &vertexBuffer);
@@ -130,7 +132,7 @@ const GLuint BaseModel3D::createModel(const GLfloat (*vertices)[3+2+3], const GL
 
 
 void BaseModel::setNormalBuffer(const int vCnt, const int offset) const {
-  GLuint loc = static_cast<GLuint>(AttribLoc::NORMAL);
+  GLuint loc = attribLoc.normal;
   glBindAttribLocation(shaderProgram, loc, "normal");
   setEachVertexBuffer(loc, 3, vCnt, offset);
 }

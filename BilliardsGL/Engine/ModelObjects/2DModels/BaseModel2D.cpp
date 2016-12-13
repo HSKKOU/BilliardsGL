@@ -13,7 +13,9 @@ NS_ENGINE_MODEL
 BaseModel2D::BaseModel2D(Point2D _pos)
 : Engine::Base2D(_pos)
 , Engine::Model::BaseModel()
-{ /* do nothing */ }
+{
+  attribLoc = AttribLoc(0,1,-1,2);
+}
 BaseModel2D::~BaseModel2D() {
   glDeleteBuffers(1, &vertexBuffer);
 }

@@ -36,7 +36,7 @@ void BoardController::setupStage() {
 }
 
 CubeRigidObject3D* BoardController::createFloor() {
-  Surface surf = Surface(ETex::Ball00, Color(0.27f, 0.53f, 0.13f, 1.0f));
+  Surface surf = Surface(ETex::BFloor, Color(0.27f, 0.53f, 0.13f, 1.0f));
   CubeRigidObject3D* floor = createBaseCube(Vector3D::down()*2.0f, Vector3D(28.0f, 1.0f, 50.0f), surf);
   floor->setIsRigid(false);
   (ObjectManager::instance()).registerObject(floor);
@@ -44,7 +44,7 @@ CubeRigidObject3D* BoardController::createFloor() {
 }
 
 CubeRigidObject3D* BoardController::createWall(Point3D position, Vector3D size) {
-  Surface surf = Surface(ETex::Ball00, Color(0.27f, 0.53f, 0.13f, 1.0f));
+  Surface surf = Surface(ETex::BFloor, Color(0.27f, 0.53f, 0.13f, 1.0f));
   CubeRigidObject3D* wall = createBaseCube(position, size, surf);
   wallList.emplace_back(wall);
   (ObjectManager::instance()).registerObject(wall);

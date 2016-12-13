@@ -20,11 +20,13 @@ US_NS_ENGINE_UTIL
 
 NS_ENGINE_MODEL
 
-enum class AttribLoc : GLuint {
-  POSITION = 0,
-  NORMAL,
-  UV,
-  NUM
+struct AttribLoc {
+  GLuint position = 0;
+  GLuint uv = 1;
+  GLuint normal = 3;
+  int num = 3;
+  AttribLoc(){ /* do nothing */ }
+  AttribLoc(GLuint _p, GLuint _uv, GLuint _n, int _num) :position(_p), uv(_uv), normal(_n), num(_num) { /* do nothing */ }
 };
 
 struct Shaders {
@@ -42,6 +44,7 @@ typedef GLuint TextureID;
 
 class BaseModel {
 protected:
+  AttribLoc attribLoc;
   Vertices vertices;
   TextureID textureId;
   Color objectColor;
