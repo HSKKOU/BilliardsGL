@@ -33,6 +33,7 @@ public:
 private:
   CubeRigidObject3D* createFloor();
   CubeRigidObject3D* createWall(Point3D position, Vector3D size);
+  CubeRigidObject3D* createFrame(Point3D position, Vector3D size);
   CubeRigidObject3D* createBaseCube(Point3D position, Vector3D size, Surface surf);
 };
 

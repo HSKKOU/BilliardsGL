@@ -25,14 +25,26 @@ void BoardController::setupStage() {
   CubeRigidObject3D* floor = createFloor();
   
   // wall position, size templates
-  Point3D wPosTmp = Vector3D(29.0f, 0.0f, 51.0f);
-  Vector3D wSizeNS = Vector3D(28.0f, 1.0f, 1.0f);
-  Vector3D wSizeWE = Vector3D(1.0f, 1.0f, 52.0f);
+  Point3D wPosNS = Vector3D(0.0f, 0.0f, 52.0f);
+  Point3D wPosWS = Vector3D(30.0f, 0.0f, 25.0f);
+  Vector3D wSizeNS = Vector3D(26.0f, 1.0f, 2.0f);
+  Vector3D wSizeWE = Vector3D(2.0f, 1.0f, 23.0f);
   // walls
-  CubeRigidObject3D* wallFront = createWall(wPosTmp*Vector3D::forward() , wSizeNS);
-  CubeRigidObject3D* wallBack  = createWall(wPosTmp*Vector3D::back()    , wSizeNS);
-  CubeRigidObject3D* wallLeft  = createWall(wPosTmp*Vector3D::left()    , wSizeWE);
-  CubeRigidObject3D* wallRight = createWall(wPosTmp*Vector3D::right()   , wSizeWE);
+  CubeRigidObject3D* wallN  = createWall(wPosNS , wSizeNS);
+  CubeRigidObject3D* wallS  = createWall(wPosNS*-1.0f    , wSizeNS);
+  CubeRigidObject3D* wallWN = createWall(wPosWS*(Vector3D::left()+Vector3D::forward())    , wSizeWE);
+  CubeRigidObject3D* wallWS = createWall(wPosWS*(Vector3D::left()+Vector3D::back())    , wSizeWE);
+  CubeRigidObject3D* wallEN = createWall(wPosWS*(Vector3D::right()+Vector3D::forward())   , wSizeWE);
+  CubeRigidObject3D* wallES = createWall(wPosWS*(Vector3D::right()+Vector3D::back())   , wSizeWE);
+  
+  // frame
+  Point3D fPosTmp = Vector3D(33.0f, 0.0f, 55.0f);
+  Vector3D fSizeNS = Vector3D(32.0f, 1.0f, 1.0f);
+  Vector3D fSizeWE = Vector3D(1.0f, 1.0f, 56.0f);
+  CubeRigidObject3D* frameN = createFrame(fPosTmp*Vector3D::forward(), fSizeNS);
+  CubeRigidObject3D* frameS = createFrame(fPosTmp*Vector3D::back()   , fSizeNS);
+  CubeRigidObject3D* frameW = createFrame(fPosTmp*Vector3D::left()   , fSizeWE);
+  CubeRigidObject3D* frameE = createFrame(fPosTmp*Vector3D::right()  , fSizeWE);
 }
 
 CubeRigidObject3D* BoardController::createFloor() {
@@ -49,6 +61,12 @@ CubeRigidObject3D* BoardController::createWall(Point3D position, Vector3D size) 
   wallList.emplace_back(wall);
   (ObjectManager::instance()).registerObject(wall);
   return wall;
+}
+
+CubeRigidObject3D* BoardController::createFrame(Point3D position, Vector3D size) {
+  CubeRigidObject3D* frame = createWall(position, size);
+  frame->setIsRigid(false);
+  return frame;
 }
 
 CubeRigidObject3D* BoardController::createBaseCube(Point3D position, Vector3D size, Surface surf) {
