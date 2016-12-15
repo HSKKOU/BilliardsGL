@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D02C3E71D8A83360097F8F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D02C3E61D8A83360097F8F1 /* main.cpp */; };
 		0D0C85581DD2E266004DE063 /* CollisionCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */; };
+		0D51F8941E0255DD00B7577F /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D51F8921E0255DD00B7577F /* StateMachine.cpp */; };
+		0D51F8971E0255F000B7577F /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D51F8951E0255F000B7577F /* State.cpp */; };
 		0D874A4D1DDE0AB000728B74 /* SpotLightController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0D874A4B1DDE0AB000728B74 /* SpotLightController.cpp */; };
 		0DD156631DD02DF700877E40 /* Matrix4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565B1DD02DF700877E40 /* Matrix4D.cpp */; };
 		0DD156641DD02DF700877E40 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DD1565D1DD02DF700877E40 /* Quaternion.cpp */; };
@@ -81,6 +83,10 @@
 		0D02C3E61D8A83360097F8F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0D0C85561DD2E266004DE063 /* CollisionCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CollisionCalculator.cpp; path = Engine/Controllers/Collider/CollisionCalculator.cpp; sourceTree = "<group>"; };
 		0D0C85571DD2E266004DE063 /* CollisionCalculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CollisionCalculator.hpp; path = Engine/Controllers/Collider/CollisionCalculator.hpp; sourceTree = "<group>"; };
+		0D51F8921E0255DD00B7577F /* StateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StateMachine.cpp; path = Engine/Utils/StateMachine/StateMachine.cpp; sourceTree = "<group>"; };
+		0D51F8931E0255DD00B7577F /* StateMachine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = StateMachine.hpp; path = Engine/Utils/StateMachine/StateMachine.hpp; sourceTree = "<group>"; };
+		0D51F8951E0255F000B7577F /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = State.cpp; path = Engine/Utils/StateMachine/State.cpp; sourceTree = "<group>"; };
+		0D51F8961E0255F000B7577F /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = State.hpp; path = Engine/Utils/StateMachine/State.hpp; sourceTree = "<group>"; };
 		0D7B33931DFD791F001AEB39 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = Engine/Headers/Headers/Macros.h; sourceTree = "<group>"; };
 		0D7B33951DFE8E09001AEB39 /* Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Math.h; path = Engine/Headers/Headers/Math/Math.h; sourceTree = "<group>"; };
 		0D874A491DDDE1BF00728B74 /* ShadowTest.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = ShadowTest.vert; path = Shaders/Project/test/ShadowTest.vert; sourceTree = "<group>"; };
@@ -315,6 +321,17 @@
 			name = Balls;
 			sourceTree = "<group>";
 		};
+		0D51F8911E0255B000B7577F /* StateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				0D51F8921E0255DD00B7577F /* StateMachine.cpp */,
+				0D51F8931E0255DD00B7577F /* StateMachine.hpp */,
+				0D51F8951E0255F000B7577F /* State.cpp */,
+				0D51F8961E0255F000B7577F /* State.hpp */,
+			);
+			name = StateMachine;
+			sourceTree = "<group>";
+		};
 		0D7606B61DA4EE08000031BA /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +480,7 @@
 		0D9E60391DB8ADD70084591E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0D51F8911E0255B000B7577F /* StateMachine */,
 				0DD156C91DD0345E00877E40 /* ShaderLoader.cpp */,
 				0DD156CA1DD0345E00877E40 /* ShaderLoader.hpp */,
 				0DD1566D1DD02E5B00877E40 /* FPSCounter.cpp */,
@@ -835,6 +853,7 @@
 				0DD156971DD02F0300877E40 /* CameraManager.cpp in Sources */,
 				0DE015601DD9FEF70088941C /* BallManager.cpp in Sources */,
 				0DD156661DD02DF700877E40 /* Vector4D.cpp in Sources */,
+				0D51F8971E0255F000B7577F /* State.cpp in Sources */,
 				0DFD6DB21DD839CD00F99B5A /* CubeCollider.cpp in Sources */,
 				0DD156651DD02DF700877E40 /* Vector3D.cpp in Sources */,
 				0DFD6D831DD5AC1800F99B5A /* SceneFactory.cpp in Sources */,
@@ -844,6 +863,7 @@
 				0DD156761DD02E5B00877E40 /* TextureLoader.cpp in Sources */,
 				0DFD6DC81DD852B200F99B5A /* UIBase.cpp in Sources */,
 				0DD156E01DD037F000877E40 /* GameManager.cpp in Sources */,
+				0D51F8941E0255DD00B7577F /* StateMachine.cpp in Sources */,
 				0DFD6DC11DD8442200F99B5A /* UIPanel.cpp in Sources */,
 				0DD156CB1DD0345E00877E40 /* ShaderLoader.cpp in Sources */,
 				0DD1567E1DD02ECB00877E40 /* BaseModel2D.cpp in Sources */,
