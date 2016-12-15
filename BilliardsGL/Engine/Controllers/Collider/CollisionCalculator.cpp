@@ -23,7 +23,6 @@ bool CollisionCalculator::collideObjects(BaseRigidObject3D* obj1, BaseRigidObjec
       if (col1Mask != COL_TYPE::SPHERE) { sRig = static_cast<SphereRigidObject3D*>(obj2); cRig = static_cast<CubeRigidObject3D*>(obj1); }
       
       if (isCollidedBetweenSphereAndCube(sRig, cRig)) {
-        std::cout << "collision" << std::endl;
         calcCollidedVelocityBetweenSphereAndCube(sRig, cRig);
         return true;
       }}
