@@ -65,6 +65,8 @@ void BallManager::update(GLfloat deltaTime) {
 }
 
 
+Vector3D BallManager::getWhiteBallPos() const { return whiteBall->getPosition(); }
+
 void BallManager::shotWhiteBall() {
   whiteBall->addForce(35.0f, Vector3D::forward());
   isHaveShot = true;

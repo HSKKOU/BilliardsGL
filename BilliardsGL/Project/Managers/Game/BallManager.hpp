@@ -40,6 +40,7 @@ public:
   void awake();
   virtual void update(GLfloat deltaTime);
   
+  Vector3D getWhiteBallPos() const;
   void shotWhiteBall();
   
 private:
