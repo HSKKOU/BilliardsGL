@@ -27,6 +27,7 @@ public:
   Vector4D getPosition4D() const { return Vector4D(transform.position,1.0); }
   void setPosition(const Vector3D pos) { transform.position = pos; }
 
+  virtual Transform getTransform() { return transform; }
   virtual void setTransform(Transform trsf) { transform = trsf; }
 
   virtual void translateTo(Vector3D dest) { transform.position = dest; }
