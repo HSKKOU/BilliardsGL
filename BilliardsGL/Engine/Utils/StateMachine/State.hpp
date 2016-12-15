@@ -22,9 +22,9 @@ public:
   State(T* _owner);
   virtual ~State();
   
-  virtual void enter() = 0;
-  virtual void execute(GLfloat deltaTime) = 0;
-  virtual void exit() = 0;
+  virtual void enter();
+  virtual void execute(GLfloat deltaTime);
+  virtual void exit();
 };
 
 NS_END2

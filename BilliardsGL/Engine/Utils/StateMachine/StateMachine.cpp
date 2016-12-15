@@ -8,6 +8,8 @@
 
 #include "StateMachine.hpp"
 
+#include "GameManager.hpp"
+
 NS_ENGINE_UTIL
 
 template<class T> StateMachine<T>::StateMachine() { /* do nothing */ }
@@ -17,7 +19,7 @@ template<class T> void StateMachine<T>::addState(State<T>* state) { stateList.em
 
 template<class T> void StateMachine<T>::changeState(StateId sId) {
   if (sId < 0 || sId >= stateList.size()) { return; }
-  State<T> nextState = stateList[sId];
+  State<T>* nextState = stateList[sId];
   if (nextState == nullptr) { return; }
 
   if (currentState != nullptr) { currentState->exit(); }
@@ -29,6 +31,9 @@ template <class T> void StateMachine<T>::update(GLfloat deltaTime) {
   if (currentState == nullptr) { return; }
   currentState->execute(deltaTime);
 }
+
+
+template class StateMachine<Game::GameManager>;
 
 
 NS_END2
