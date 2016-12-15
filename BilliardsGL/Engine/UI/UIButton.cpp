@@ -41,14 +41,17 @@ bool UIButton::isInRange(Point2D p) const {
 }
 
 void UIButton::press() {
+  if (handler == nullptr) { return; }
   handler->onButtonDown();
   isPressedFlag = true;
 }
 void UIButton::pressRepeat() {
+  if (handler == nullptr) { return; }
   handler->onButtonDownRepeat();
   isPressedFlag = true;
 }
 void UIButton::release() {
+  if (handler == nullptr) { return; }
   handler->onButtonUp();
   isPressedFlag = false;
 }

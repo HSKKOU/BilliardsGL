@@ -41,6 +41,9 @@ class GameManager : public BehaviorSingleton<GameManager>, public IButtonHandler
   friend class BehaviorSingleton<GameManager>;
   
   StateMachine<GameManager>* stateMachine;
+  State<GameManager>* initState;
+  State<GameManager>* shotState;
+  State<GameManager>* rollState;
   
   BallManager* ballManager;
   BoardController* boardCtrl;
@@ -49,6 +52,8 @@ class GameManager : public BehaviorSingleton<GameManager>, public IButtonHandler
   Vector3D cameraDefaultPosition;
   
   UIButton* shotButton;
+  UIButton* leftRotateButton;
+  UIButton* rightRotateButton;
   
   EGameState currentState;
   

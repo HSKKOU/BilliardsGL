@@ -22,7 +22,7 @@ template<class T> void StateMachine<T>::changeState(StateId sId) {
   State<T>* nextState = stateList[sId];
   if (nextState == nullptr) { return; }
 
-  if (currentState != nullptr) { currentState->exit(); }
+  if (currentState != nullptr && sId != 0) { currentState->exit(); }
   currentState = nextState;
   currentState->enter();
 }

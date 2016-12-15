@@ -17,7 +17,6 @@ GameScene::~GameScene() { /* do nothing */ }
 
 void GameScene::enter() {
   gameManager = &(GameManager::instance());
-  gameManager->initialize();
   (ObjectManager::instance()).registerObject(gameManager);
 
   SceneBase::enter();

@@ -20,24 +20,39 @@ GameManager::GameManager()
 , currentState(EGameState::Init)
 { /* do nothing */ }
 
-GameManager::~GameManager() { /* do nothing */ }
+GameManager::~GameManager() {
+  SAFE_DELETE(initState);
+  SAFE_DELETE(shotState);
+  SAFE_DELETE(rollState);
+  SAFE_DELETE(stateMachine);
+}
 
 void GameManager::initialize() {
   // set background color
   glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
   
-  shotButton = new UIButton(Point2D(0.0f, 0.0f), Vector2D(640.0f, 640.0f), ETex::None, UI_ALIGNMENT::None, Color::zero());
+  shotButton = new UIButton(Point2D(0.0f, 0.0f), Vector2D(400.0f, 640.0f), ETex::None, UI_ALIGNMENT::None, Color::zero());
   shotButton->setHandler(this);
   (ObjectManager::instance()).registerObject(shotButton);
+  
+  leftRotateButton = new UIButton(Point2D(60.0f, 0.0f), Vector2D(120.0f, 640.0f), ETex::None, UI_ALIGNMENT::Left, Color::zero());
+  leftRotateButton->setHandler(this);
+  (ObjectManager::instance()).registerObject(leftRotateButton);
+  
+  rightRotateButton = new UIButton(Point2D(60.0f, 0.0f), Vector2D(120.0f, 640.0f), ETex::None, UI_ALIGNMENT::Right, Color::zero());
+  rightRotateButton->setHandler(this);
+  (ObjectManager::instance()).registerObject(rightRotateButton);
 }
 
 void GameManager::awake() {
-  stateMachine = new StateMachine<GameManager>;
-  State<GameManager>* initState = new InitState(this);
+  initialize();
+  
+  stateMachine = new StateMachine<GameManager>();
+  initState = new InitState(this);
+  shotState = new ShotState(this);
+  rollState = new RollState(this);
   stateMachine->addState(initState);
-  State<GameManager>* shotState = new ShotState(this);
   stateMachine->addState(shotState);
-  State<GameManager>* rollState = new RollState(this);
   stateMachine->addState(rollState);
   
   stateMachine->changeState(static_cast<StateId>(EGameState::Init));
