@@ -30,7 +30,7 @@ US_NS_ENGINE_UTIL
 
 NS_GAME
 
-enum class EGameManagerState : StateId {
+enum class EGameState {
   Init,
   Shot,
   Roll,
@@ -49,6 +49,8 @@ class GameManager : public BehaviorSingleton<GameManager>, public IButtonHandler
   Vector3D cameraDefaultPosition;
   
   UIButton* shotButton;
+  
+  EGameState currentState;
   
 public:
   ~GameManager();

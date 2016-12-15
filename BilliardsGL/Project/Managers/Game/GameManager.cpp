@@ -17,6 +17,7 @@ NS_GAME
 
 GameManager::GameManager()
 : cameraDefaultPosition(Vector3D::zero())
+, currentState(EGameState::Init)
 { /* do nothing */ }
 
 GameManager::~GameManager() { /* do nothing */ }
@@ -39,15 +40,14 @@ void GameManager::awake() {
   State<GameManager>* rollState = new RollState(this);
   stateMachine->addState(rollState);
   
-  stateMachine->changeState(static_cast<StateId>(EGameManagerState::Init));
+  stateMachine->changeState(static_cast<StateId>(EGameState::Init));
 }
 
 void GameManager::start() { /* do nothing */ }
 
 
 void GameManager::update(GLfloat deltaTime) {
-//  mainCamera->translateTo(cameraDefaultPosition + Vector3D::forward() * sinf(glfwGetTime() * 3.0f));
-//  mainCamera->translateTo(cameraDefaultPosition + Vector3D::up()*30.0f + Vector3D::down() * glfwGetTime());
+  stateMachine->update(deltaTime);
 }
 
 void GameManager::destroy() {
@@ -56,9 +56,12 @@ void GameManager::destroy() {
 }
 
 
+
+// Input Handlers
 void GameManager::onButtonDown() {
   std::cout << "button down" << std::endl;
   ballManager->shotWhiteBall();
+  stateMachine->changeState(static_cast<StateId>(EGameState::Roll));
 }
 void GameManager::onButtonDownRepeat() {
   //  std::cout << "button down repeat" << std::endl;
@@ -76,6 +79,7 @@ void GameManager::onButtonUp() {
 GameManager::InitState::InitState(GameManager* _owner) : State<Game::GameManager>(_owner) { /* do nothing */ }
 GameManager::InitState::~InitState() { owner = nullptr; }
 void GameManager::InitState::enter() {
+  std::cout << "init" << std::endl;
   owner->mainCamera = (PerspectiveCameraController*)(CameraManager::instance()).getMainCamera();
   owner->mainCamera->translateTo(Vector3D(0.0f, 100.0f, 0.0f));
   owner->cameraDefaultPosition = owner->mainCamera->getPosition();
@@ -88,7 +92,12 @@ void GameManager::InitState::enter() {
   (ObjectManager::instance()).registerObject(owner->boardCtrl);
   owner->boardCtrl->setupStage();
   
-  owner->stateMachine->changeState(static_cast<StateId>(EGameManagerState::Shot));
+  // init camera work
+  owner->mainCamera->translateTo(owner->ballManager->getWhiteBallPos() + Vector3D(0.0f, 10.0f, 10.0f));
+  owner->mainCamera->rotation(Quaternion(Vector3D::right(), M_PI/4.0f));
+  
+  // finished camera work
+  owner->stateMachine->changeState(static_cast<StateId>(EGameState::Shot));
 }
 void GameManager::InitState::execute(GLfloat deltaTime) { /* do nothing */ }
 void GameManager::InitState::exit() { /* do nothing */ }
@@ -97,13 +106,23 @@ void GameManager::InitState::exit() { /* do nothing */ }
 GameManager::ShotState::ShotState(GameManager* _owner) : State<Game::GameManager>(_owner) { /* do nothing */ }
 GameManager::ShotState::~ShotState() { owner = nullptr; }
 void GameManager::ShotState::enter() { std::cout << "shot" << std::endl; }
-void GameManager::ShotState::execute(GLfloat deltaTime) { /* do nothing */ }
+void GameManager::ShotState::execute(GLfloat deltaTime) {
+  owner->mainCamera->translateTo(owner->ballManager->getWhiteBallPos() + Vector3D(0.0f, 10.0f, 0.0f));
+  owner->mainCamera->rotate(Quaternion(Vector3D::right(), -M_PI/4.0f));
+  owner->mainCamera->rotate(Quaternion(Vector3D::up(), M_PI/4.0f * deltaTime));
+  owner->mainCamera->rotate(Quaternion(Vector3D::right(), M_PI/4.0f));
+  owner->mainCamera->translate(owner->mainCamera->getTransform().back()*10.0f);
+}
 void GameManager::ShotState::exit() { /* do nothing */ }
 
 // Roll
 GameManager::RollState::RollState(GameManager* _owner) : State<Game::GameManager>(_owner) { /* do nothing */ }
 GameManager::RollState::~RollState() { owner = nullptr; }
-void GameManager::RollState::enter() { /* do nothing */ }
+void GameManager::RollState::enter() {
+  std::cout << "roll" << std::endl;
+  owner->mainCamera->translateTo(Vector3D(0.0f, 100.0f, 0.0f));
+  owner->mainCamera->rotation(Quaternion(Vector3D::right(), M_PI/2.0f));
+}
 void GameManager::RollState::execute(GLfloat deltaTime) { /* do nothing */ }
 void GameManager::RollState::exit() { /* do nothing */ }
 
