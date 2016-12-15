@@ -12,7 +12,7 @@
 
 NS_ENGINE_UTIL
 
-template<class T> StateMachine<T>::StateMachine() { /* do nothing */ }
+template<class T> StateMachine<T>::StateMachine() : currentStateId(-1) { /* do nothing */ }
 template<class T> StateMachine<T>::~StateMachine() { stateList.clear(); }
 
 template<class T> void StateMachine<T>::addState(State<T>* state) { stateList.emplace_back(state); }
@@ -24,8 +24,11 @@ template<class T> void StateMachine<T>::changeState(StateId sId) {
 
   if (currentState != nullptr && sId != 0) { currentState->exit(); }
   currentState = nextState;
+  currentStateId = sId;
   currentState->enter();
 }
+
+template <class T> StateId StateMachine<T>::getCurrentStateId() { return currentStateId; }
 
 template <class T> void StateMachine<T>::update(GLfloat deltaTime) {
   if (currentState == nullptr) { return; }

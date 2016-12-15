@@ -23,6 +23,7 @@ class StateMachine {
 protected:
   std::vector<State<T>*> stateList;
   State<T>* currentState;
+  StateId currentStateId;
   
 public:
   StateMachine();
@@ -30,6 +31,8 @@ public:
   
   void addState(State<T>* state);
   void changeState(StateId sId);
+  
+  StateId getCurrentStateId();
   
   void update(GLfloat deltaTime);
 };
