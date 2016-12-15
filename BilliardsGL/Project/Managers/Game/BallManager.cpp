@@ -16,6 +16,7 @@ BallManager::BallManager() : isStoppingAllBalls(true), isHaveShot(false) { /* do
 BallManager::~BallManager() {
   SAFE_DELETE(whiteBall);
   SAFE_DELETE_VECTOR(ballList, BallController);
+  ballHandler = nullptr;
 }
 
 
@@ -59,16 +60,22 @@ void BallManager::update(GLfloat deltaTime) {
     }
   }
   
-//  if (isHaveShot && isStoppingAllBalls) {
-//    (SceneManager::instance()).switchSceneTo(EScene::Title);
-//  }
+  if (isHaveShot && isStoppingAllBalls) {
+    ballHandler->onStopBalls();
+    isHaveShot = false;
+  }
 }
+
+
+void BallManager::setBallHandler(BallHandler* handler) { ballHandler = handler; }
+
 
 
 Vector3D BallManager::getWhiteBallPos() const { return whiteBall->getPosition(); }
 
-void BallManager::shotWhiteBall() {
-  whiteBall->addForce(35.0f, Vector3D::forward());
+void BallManager::shotWhiteBall(GLfloat power, Vector3D direction) {
+  direction.y = 0.0f;
+  whiteBall->addForce(power, direction);
   isHaveShot = true;
 }
 

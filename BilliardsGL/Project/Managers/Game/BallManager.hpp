@@ -22,11 +22,18 @@ US_NS_ENGINE_UTIL
 
 NS_GAME
 
+class BallHandler {
+public:
+  virtual void onStopBalls() = 0;
+};
+
 class BallManager : public BehaviorSingleton<BallManager> {
   friend class BehaviorSingleton<BallManager>;
   
   std::vector<BallController*> ballList;
   WhiteBallController* whiteBall;
+  
+  BallHandler* ballHandler;
   
   // for Debug
   static const int BALL_NUM = 15;
@@ -40,8 +47,10 @@ public:
   void awake();
   virtual void update(GLfloat deltaTime);
   
+  void setBallHandler(BallHandler* handler);
+  
   Vector3D getWhiteBallPos() const;
-  void shotWhiteBall();
+  void shotWhiteBall(GLfloat power, Vector3D direction);
   
 private:
   BallManager();

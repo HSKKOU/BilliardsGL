@@ -37,7 +37,7 @@ enum class EGameState {
   Num
 };
 
-class GameManager : public BehaviorSingleton<GameManager>, public IButtonHandler {
+class GameManager : public BehaviorSingleton<GameManager>, public IButtonHandler, public BallHandler {
   friend class BehaviorSingleton<GameManager>;
   
   StateMachine<GameManager>* stateMachine;
@@ -61,13 +61,15 @@ public:
   virtual void update(GLfloat deltaTime);
   
   virtual void destroy();
-
+  
 private:
   GameManager();
 
   void onButtonDown();
   void onButtonDownRepeat();
   void onButtonUp();
+
+  void onStopBalls();
 
 
   class InitState : public State<GameManager> {
