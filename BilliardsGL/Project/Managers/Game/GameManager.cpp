@@ -17,7 +17,6 @@ NS_GAME
 
 GameManager::GameManager()
 : cameraDefaultPosition(Vector3D::zero())
-, currentState(EGameState::Init)
 { /* do nothing */ }
 
 GameManager::~GameManager() {
@@ -75,7 +74,9 @@ void GameManager::destroy() {
 // Input Handlers
 void GameManager::onButtonDown() {
   std::cout << "button down" << std::endl;
-  stateMachine->changeState(static_cast<StateId>(EGameState::Roll));
+  if (stateMachine->getCurrentStateId() == static_cast<StateId>(EGameState::Shot)) {
+    stateMachine->changeState(static_cast<StateId>(EGameState::Roll));
+  }
 }
 void GameManager::onButtonDownRepeat() {
   //  std::cout << "button down repeat" << std::endl;
